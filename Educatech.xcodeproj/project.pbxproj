@@ -8,17 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
-		5BC4570B2AB367FD00567EEF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4570A2AB367FD00567EEF /* ContentView.swift */; };
+		5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4570A2AB367FD00567EEF /* LoginView.swift */; };
 		5BC4570D2AB367FE00567EEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4570C2AB367FE00567EEF /* Assets.xcassets */; };
 		5BC457102AB367FE00567EEF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4570F2AB367FE00567EEF /* Preview Assets.xcassets */; };
+		5BC457172AB368C500567EEF /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457162AB368C500567EEF /* RegisterView.swift */; };
+		5BC457192AB3690000567EEF /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457182AB3690000567EEF /* InitialView.swift */; };
+		5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4571A2AB36ABD00567EEF /* DismissView.swift */; };
+		5BC4571D2AB36B4100567EEF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4571C2AB36B4100567EEF /* MainView.swift */; };
+		5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457232AB3960D00567EEF /* AuthDataSource.swift */; };
+		5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457252AB3962100567EEF /* AuthRepository.swift */; };
+		5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457272AB3962800567EEF /* AuthViewModel.swift */; };
+		5BC4572B2AB3963E00567EEF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4572A2AB3963E00567EEF /* User.swift */; };
+		5BC4572D2AB396C800567EEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4572C2AB396C800567EEF /* GoogleService-Info.plist */; };
+		5BC457302AB396D300567EEF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC4572F2AB396D300567EEF /* FirebaseAnalytics */; };
+		5BC457322AB396D300567EEF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */; };
+		5BC457342AB396D300567EEF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC457332AB396D300567EEF /* FirebaseAuth */; };
+		5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457382AB3A6A500567EEF /* SignoutButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BC457052AB367FD00567EEF /* Educatech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Educatech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC457082AB367FD00567EEF /* EducatechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducatechApp.swift; sourceTree = "<group>"; };
-		5BC4570A2AB367FD00567EEF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5BC4570A2AB367FD00567EEF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5BC4570C2AB367FE00567EEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC4570F2AB367FE00567EEF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BC457162AB368C500567EEF /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		5BC457182AB3690000567EEF /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
+		5BC4571A2AB36ABD00567EEF /* DismissView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissView.swift; sourceTree = "<group>"; };
+		5BC4571C2AB36B4100567EEF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5BC457232AB3960D00567EEF /* AuthDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataSource.swift; sourceTree = "<group>"; };
+		5BC457252AB3962100567EEF /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		5BC457272AB3962800567EEF /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5BC4572A2AB3963E00567EEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5BC4572C2AB396C800567EEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5BC457382AB3A6A500567EEF /* SignoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +49,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BC457322AB396D300567EEF /* FirebaseAnalyticsSwift in Frameworks */,
+				5BC457342AB396D300567EEF /* FirebaseAuth in Frameworks */,
+				5BC457302AB396D300567EEF /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,8 +78,13 @@
 			isa = PBXGroup;
 			children = (
 				5BC457082AB367FD00567EEF /* EducatechApp.swift */,
-				5BC4570A2AB367FD00567EEF /* ContentView.swift */,
+				5BC457292AB3963300567EEF /* Models */,
+				5BC457222AB395F500567EEF /* FirebaseAuth */,
+				5BC457202AB395CD00567EEF /* AuthViews */,
+				5BC457352AB3A48E00567EEF /* MainView */,
+				5BC457212AB395DD00567EEF /* SingleModules */,
 				5BC4570C2AB367FE00567EEF /* Assets.xcassets */,
+				5BC4572C2AB396C800567EEF /* GoogleService-Info.plist */,
 				5BC4570E2AB367FE00567EEF /* Preview Content */,
 			);
 			path = Educatech;
@@ -65,6 +96,51 @@
 				5BC4570F2AB367FE00567EEF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BC457202AB395CD00567EEF /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BC457182AB3690000567EEF /* InitialView.swift */,
+				5BC4570A2AB367FD00567EEF /* LoginView.swift */,
+				5BC457162AB368C500567EEF /* RegisterView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		5BC457212AB395DD00567EEF /* SingleModules */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4571A2AB36ABD00567EEF /* DismissView.swift */,
+				5BC457382AB3A6A500567EEF /* SignoutButton.swift */,
+			);
+			path = SingleModules;
+			sourceTree = "<group>";
+		};
+		5BC457222AB395F500567EEF /* FirebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				5BC457232AB3960D00567EEF /* AuthDataSource.swift */,
+				5BC457252AB3962100567EEF /* AuthRepository.swift */,
+				5BC457272AB3962800567EEF /* AuthViewModel.swift */,
+			);
+			path = FirebaseAuth;
+			sourceTree = "<group>";
+		};
+		5BC457292AB3963300567EEF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4572A2AB3963E00567EEF /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5BC457352AB3A48E00567EEF /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				5BC4571C2AB36B4100567EEF /* MainView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +159,11 @@
 			dependencies = (
 			);
 			name = Educatech;
+			packageProductDependencies = (
+				5BC4572F2AB396D300567EEF /* FirebaseAnalytics */,
+				5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */,
+				5BC457332AB396D300567EEF /* FirebaseAuth */,
+			);
 			productName = Educatech;
 			productReference = 5BC457052AB367FD00567EEF /* Educatech.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +192,9 @@
 				Base,
 			);
 			mainGroup = 5BC456FC2AB367FD00567EEF;
+			packageReferences = (
+				5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 5BC457062AB367FD00567EEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +211,7 @@
 			files = (
 				5BC457102AB367FE00567EEF /* Preview Assets.xcassets in Resources */,
 				5BC4570D2AB367FE00567EEF /* Assets.xcassets in Resources */,
+				5BC4572D2AB396C800567EEF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +222,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC4570B2AB367FD00567EEF /* ContentView.swift in Sources */,
+				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
+				5BC457172AB368C500567EEF /* RegisterView.swift in Sources */,
+				5BC4571D2AB36B4100567EEF /* MainView.swift in Sources */,
+				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
+				5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */,
+				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
+				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
+				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
+				5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
+				5BC4572B2AB3963E00567EEF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +433,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BC4572F2AB396D300567EEF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		5BC457332AB396D300567EEF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5BC456FD2AB367FD00567EEF /* Project object */;
 }
