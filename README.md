@@ -1,11 +1,11 @@
 # Educatech
 
 ## Description
-Educatech is a project made to achieve my final project while coursing 
-studies of Cross-platform Applications Development.
+Educatech is a project developed as part of my final coursework in 
+Cross-platform Applications Development.
 
-Functionalities at date of last edit:
-* Authentication methods (sign up, login, and logout) with two providers:
-Email and Facebook
+### Functionalities as of the last update:
+* Authentication methods, including sign-up, login, and logout, are 
+implemented with two providers: Email and Facebook.
 
-More updates coming soon.
+***More updates coming soon.***
