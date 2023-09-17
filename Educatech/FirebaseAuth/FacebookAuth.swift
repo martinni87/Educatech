@@ -12,7 +12,7 @@ final class FacebookAuth {
     
     private let loginManager = LoginManager()
     
-    func loginFacebook(completionBlock: @escaping (Result<String, Error>) -> Void ) {
+    func facebookLogin(completionBlock: @escaping (Result<String, Error>) -> Void ) {
         loginManager.logIn(
             permissions: ["email"],
             from: nil) { loginResult, error in

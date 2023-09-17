@@ -51,7 +51,7 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
-
+    
     func getCurrentUser() {
         self.user = authRepository.getCurrentUser()
     }

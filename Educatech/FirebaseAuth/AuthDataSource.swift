@@ -36,7 +36,7 @@ final class AuthDataSource {
     }
     
     func facebookLogin(completionBlock: @escaping (Result<User, Error>) -> Void ) {
-        facebookAuth.loginFacebook { result in
+        facebookAuth.facebookLogin { result in
             switch result {
             case .success(let accessToken):
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken)

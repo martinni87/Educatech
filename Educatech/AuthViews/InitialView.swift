@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import FacebookLogin
 
 struct InitialView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    
+    @Environment (\.colorScheme) var colorScheme
+
     var body: some View {
         NavigationStack {
             Spacer()
@@ -23,7 +25,7 @@ struct InitialView: View {
                     Rectangle()
                         .frame(width: 250, height: 40)
                         .cornerRadius(10)
-                        .foregroundColor(.gray.opacity(0.75))
+                        .foregroundColor(colorScheme == .light ? .mint : .teal.opacity(0.75))
                         .overlay {
                             NavigationLink {
                                 LoginView(authViewModel: authViewModel)
@@ -33,6 +35,14 @@ struct InitialView: View {
                                     .bold()
                             }
                         }
+                    HStack {
+                        Rectangle()
+                            .frame(height: 1)
+                        Text("or")
+                        Rectangle().frame(height: 1)
+                    }
+                    .foregroundColor(.gray)
+                    .padding(30)
                     Rectangle()
                         .frame(width: 250, height: 40)
                         .cornerRadius(10)
@@ -41,11 +51,12 @@ struct InitialView: View {
                             Button {
                                 authViewModel.facebookLogin()
                             } label: {
-                                Text("Login with Facebook")
+                                Text("Continue with Facebook")
                                     .foregroundColor(.white)
                                     .bold()
                             }
                         }
+                    
                 }
                 Spacer()
             }
@@ -53,13 +64,16 @@ struct InitialView: View {
             NavigationLink {
                 RegisterView(authViewModel: authViewModel)
             } label: {
-                Text("Not a user?")
-                Text("Register new email")
+                Text("Don't have an account yet?")
+                    .foregroundColor(.black)
+                Text("Sign up")
                     .bold()
             }
         }
     }
 }
+
+
 
 struct InitialView_Previews: PreviewProvider {
     static var previews: some View {
