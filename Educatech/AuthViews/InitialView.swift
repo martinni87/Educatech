@@ -19,13 +19,34 @@ struct InitialView: View {
                     .font(.largeTitle)
                     .bold()
                 Spacer()
-                NavigationLink {
-                    LoginView(authViewModel: authViewModel)
-                } label: {
-                    Text("Login with email")
+                VStack {
+                    Rectangle()
+                        .frame(width: 250, height: 40)
+                        .cornerRadius(10)
+                        .foregroundColor(.gray.opacity(0.75))
+                        .overlay {
+                            NavigationLink {
+                                LoginView(authViewModel: authViewModel)
+                            } label: {
+                                Text("Login with Email")
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                        }
+                    Rectangle()
+                        .frame(width: 250, height: 40)
+                        .cornerRadius(10)
+                        .foregroundColor(.blue.opacity(0.75))
+                        .overlay {
+                            Button {
+                                authViewModel.facebookLogin()
+                            } label: {
+                                Text("Login with Facebook")
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+                        }
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(.gray.opacity(0.65))
                 Spacer()
             }
             Spacer()

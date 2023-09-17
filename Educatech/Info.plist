@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+      <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb3530673200551905</string>
+      </array>
+      </dict>
+    </array>
+    <key>FacebookAppID</key>
+    <string>3530673200551905</string>
+    <key>FacebookClientToken</key>
+    <string>1738474e49d5d50dd98e5fb62661cdef</string>
+    <key>FacebookDisplayName</key>
+    <string>Educstech</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fb-messenger-share-api</string>
+    </array>
+</dict>
+</plist>

@@ -23,6 +23,10 @@ final class AuthRepository {
         authDataSource.signInEmail(email: email, password: password, completionBlock: completionBlock)
     }
     
+    func facebookLogin(completionBlock: @escaping (Result<User, Error>) -> Void ) {
+        authDataSource.facebookLogin(completionBlock: completionBlock)
+    }
+    
     func getCurrentUser() -> User? {
         authDataSource.getCurrentUser()
     }

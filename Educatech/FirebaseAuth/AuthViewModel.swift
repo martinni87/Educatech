@@ -40,6 +40,17 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+    func facebookLogin() {
+        authRepository.facebookLogin { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+            case .failure(let error):
+                self?.error = error
+            }
+        }
+    }
 
     func getCurrentUser() {
         self.user = authRepository.getCurrentUser()

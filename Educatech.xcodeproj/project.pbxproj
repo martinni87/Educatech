@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B78DCD52AB74B3200A87E28 /* FacebookLogin */; };
+		5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
 		5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4570A2AB367FD00567EEF /* LoginView.swift */; };
 		5BC4570D2AB367FE00567EEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4570C2AB367FE00567EEF /* Assets.xcassets */; };
@@ -27,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B78DCD72AB74C4000A87E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B78DCD82AB74FA900A87E28 /* Educatech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Educatech.entitlements; sourceTree = "<group>"; };
+		5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuth.swift; sourceTree = "<group>"; };
 		5BC457052AB367FD00567EEF /* Educatech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Educatech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC457082AB367FD00567EEF /* EducatechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducatechApp.swift; sourceTree = "<group>"; };
 		5BC4570A2AB367FD00567EEF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */,
 				5BC457322AB396D300567EEF /* FirebaseAnalyticsSwift in Frameworks */,
 				5BC457342AB396D300567EEF /* FirebaseAuth in Frameworks */,
 				5BC457302AB396D300567EEF /* FirebaseAnalytics in Frameworks */,
@@ -77,6 +83,8 @@
 		5BC457072AB367FD00567EEF /* Educatech */ = {
 			isa = PBXGroup;
 			children = (
+				5B78DCD82AB74FA900A87E28 /* Educatech.entitlements */,
+				5B78DCD72AB74C4000A87E28 /* Info.plist */,
 				5BC457082AB367FD00567EEF /* EducatechApp.swift */,
 				5BC457292AB3963300567EEF /* Models */,
 				5BC457222AB395F500567EEF /* FirebaseAuth */,
@@ -120,6 +128,7 @@
 		5BC457222AB395F500567EEF /* FirebaseAuth */ = {
 			isa = PBXGroup;
 			children = (
+				5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */,
 				5BC457232AB3960D00567EEF /* AuthDataSource.swift */,
 				5BC457252AB3962100567EEF /* AuthRepository.swift */,
 				5BC457272AB3962800567EEF /* AuthViewModel.swift */,
@@ -163,6 +172,7 @@
 				5BC4572F2AB396D300567EEF /* FirebaseAnalytics */,
 				5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */,
 				5BC457332AB396D300567EEF /* FirebaseAuth */,
+				5B78DCD52AB74B3200A87E28 /* FacebookLogin */,
 			);
 			productName = Educatech;
 			productReference = 5BC457052AB367FD00567EEF /* Educatech.app */;
@@ -194,6 +204,7 @@
 			mainGroup = 5BC456FC2AB367FD00567EEF;
 			packageReferences = (
 				5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 5BC457062AB367FD00567EEF /* Products */;
 			projectDirPath = "";
@@ -231,6 +242,7 @@
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
 				5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */,
+				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
 				5BC4572B2AB3963E00567EEF /* User.swift in Sources */,
 			);
@@ -358,12 +370,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Educatech/Educatech.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Educatech/Preview Content\"";
 				DEVELOPMENT_TEAM = Y22585Y2W7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Educatech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -387,12 +401,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Educatech/Educatech.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Educatech/Preview Content\"";
 				DEVELOPMENT_TEAM = Y22585Y2W7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Educatech/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -435,6 +451,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 14.0.0;
+			};
+		};
 		5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -446,6 +470,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B78DCD52AB74B3200A87E28 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
 		5BC4572F2AB396D300567EEF /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
