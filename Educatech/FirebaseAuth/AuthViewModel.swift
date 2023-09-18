@@ -51,7 +51,22 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
-
+    
+    func googleLogin() {
+        authRepository.googleLogin { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+            case .failure(let error):
+                self?.error = error
+            }
+        }
+    }
+    
+    func appleLogin() {
+        print("Apple login. Coming soon ...")
+    }
+    
     func getCurrentUser() {
         self.user = authRepository.getCurrentUser()
     }
