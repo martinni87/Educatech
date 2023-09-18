@@ -52,6 +52,14 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    func googleLogin() {
+        print("Google login")
+    }
+    
+    func appleLogin() {
+        print("Apple login. Coming soon ...")
+    }
+    
     func getCurrentUser() {
         self.user = authRepository.getCurrentUser()
     }

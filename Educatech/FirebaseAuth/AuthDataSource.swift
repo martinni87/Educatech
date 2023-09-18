@@ -7,6 +7,10 @@
 
 import Foundation
 import FirebaseAuth
+import Firebase
+import GoogleSignIn
+import UIKit
+
 
 
 final class AuthDataSource {

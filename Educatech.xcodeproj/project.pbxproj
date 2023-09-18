@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E922AB7BF5A005CC112 /* GoogleSignIn */; };
+		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
 		5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B78DCD52AB74B3200A87E28 /* FacebookLogin */; };
 		5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
@@ -54,8 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */,
 				5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */,
 				5BC457322AB396D300567EEF /* FirebaseAnalyticsSwift in Frameworks */,
+				5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */,
 				5BC457342AB396D300567EEF /* FirebaseAuth in Frameworks */,
 				5BC457302AB396D300567EEF /* FirebaseAnalytics in Frameworks */,
 			);
@@ -173,6 +177,8 @@
 				5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */,
 				5BC457332AB396D300567EEF /* FirebaseAuth */,
 				5B78DCD52AB74B3200A87E28 /* FacebookLogin */,
+				5B150E922AB7BF5A005CC112 /* GoogleSignIn */,
+				5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */,
 			);
 			productName = Educatech;
 			productReference = 5BC457052AB367FD00567EEF /* Educatech.app */;
@@ -205,6 +211,7 @@
 			packageReferences = (
 				5BC4572E2AB396D300567EEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				5B150E912AB7BF5A005CC112 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 5BC457062AB367FD00567EEF /* Products */;
 			projectDirPath = "";
@@ -455,6 +462,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5B150E912AB7BF5A005CC112 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/facebook/facebook-ios-sdk.git";
@@ -474,6 +489,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5B150E922AB7BF5A005CC112 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B150E912AB7BF5A005CC112 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B150E912AB7BF5A005CC112 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
 		5B78DCD52AB74B3200A87E28 /* FacebookLogin */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5B78DCD42AB74B3100A87E28 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
