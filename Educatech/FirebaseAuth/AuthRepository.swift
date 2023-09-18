@@ -27,6 +27,10 @@ final class AuthRepository {
         authDataSource.facebookLogin(completionBlock: completionBlock)
     }
     
+    func googleLogin(completionBlock: @escaping (Result<User, Error>) -> Void) {
+        authDataSource.googleLogin(completionBlock: completionBlock)
+    }
+    
     func getCurrentUser() -> User? {
         authDataSource.getCurrentUser()
     }
