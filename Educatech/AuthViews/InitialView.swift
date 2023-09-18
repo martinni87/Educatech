@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FacebookLogin
 
 struct InitialView: View {
     
@@ -19,11 +18,14 @@ struct InitialView: View {
             Spacer()
             VStack {
                 Text("Educatech")
-                    .font(.largeTitle)
+                    .font(.system(size: verticalSizeClass == .compact ? 30.0 : 50.0, weight: .black, design: .rounded))
+                    .foregroundColor(Color(.sRGB, red: 0.15, green: 0.50, blue: 0.75, opacity: 0.9))
+                    .shadow(color: .cyan, radius: 2, x: 2, y: 2)
                     .bold()
                 if verticalSizeClass == .regular {
                     Circle()
                         .stroke(lineWidth: 3)
+                        .shadow(color: .cyan, radius: 5, x: 0, y: 0)
                         .foregroundColor(.accentColor)
                         .frame(width: 150, height: 150)
                         .overlay {
@@ -63,7 +65,7 @@ struct InitialView: View {
                         Rectangle().frame(height: 1)
                     }
                     .foregroundColor(.gray)
-                    .padding(30)
+                    .padding(verticalSizeClass == .compact ? 15 : 30)
                     Rectangle()
                         .frame(width: 280, height: 40)
                         .cornerRadius(10)
@@ -139,10 +141,11 @@ struct InitialView: View {
                 RegisterView(authViewModel: authViewModel)
             } label: {
                 Text("Don't have an account yet?")
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .light ? .black : .white)
                 Text("Sign up")
                     .bold()
             }
+            .padding(.bottom, verticalSizeClass == .compact ? 20 : 0)
         }
     }
 }

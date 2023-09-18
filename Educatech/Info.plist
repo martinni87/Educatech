@@ -27,6 +27,8 @@
 	<string>1738474e49d5d50dd98e5fb62661cdef</string>
 	<key>FacebookDisplayName</key>
 	<string>Educstech</string>
+	<key>GIDClientID</key>
+	<string>810055477582-1vcra08crgqbi3hvkf26rdotmts1bjjp.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

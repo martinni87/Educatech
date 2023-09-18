@@ -28,6 +28,7 @@
 		5BC457322AB396D300567EEF /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC457312AB396D300567EEF /* FirebaseAnalyticsSwift */; };
 		5BC457342AB396D300567EEF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5BC457332AB396D300567EEF /* FirebaseAuth */; };
 		5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457382AB3A6A500567EEF /* SignoutButton.swift */; };
+		5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDC39B32AB8D6AA00F2C99A /* GoogleAuth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		5BC4572A2AB3963E00567EEF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5BC4572C2AB396C800567EEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5BC457382AB3A6A500567EEF /* SignoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignoutButton.swift; sourceTree = "<group>"; };
+		5BDC39B32AB8D6AA00F2C99A /* GoogleAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */,
+				5BDC39B32AB8D6AA00F2C99A /* GoogleAuth.swift */,
 				5BC457232AB3960D00567EEF /* AuthDataSource.swift */,
 				5BC457252AB3962100567EEF /* AuthRepository.swift */,
 				5BC457272AB3962800567EEF /* AuthViewModel.swift */,
@@ -249,6 +252,7 @@
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
 				5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */,
+				5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */,
 				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
 				5BC4572B2AB3963E00567EEF /* User.swift in Sources */,

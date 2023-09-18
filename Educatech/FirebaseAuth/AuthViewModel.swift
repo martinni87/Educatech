@@ -53,7 +53,14 @@ final class AuthViewModel: ObservableObject {
     }
     
     func googleLogin() {
-        print("Google login")
+        authRepository.googleLogin { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+            case .failure(let error):
+                self?.error = error
+            }
+        }
     }
     
     func appleLogin() {
