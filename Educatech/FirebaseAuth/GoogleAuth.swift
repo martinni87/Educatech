@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import GoogleSignIn
+import AuthenticationServices
 
 final class GoogleAuth {
     
