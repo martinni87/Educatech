@@ -38,4 +38,20 @@ final class AuthRepository {
     func signOut() throws {
         try authDataSource.signOut()
     }
+    
+    func getCurrentProvider() -> [LinkedAccounts] {
+        authDataSource.currentProvider()
+    }
+    
+    func linkEmailAndPassword(email: String, password: String, completionBlock: @escaping (Bool) -> Void) {
+        authDataSource.linkEmailAndPassword(email: email, password: password, completionBlock: completionBlock)
+    }
+    
+    func linkFacebook(completionBlock: @escaping (Bool) -> Void) {
+        authDataSource.linkFacebook(completionBlock: completionBlock)
+    }
+    
+    func linkGoogle(completionBlock: @escaping (Bool) -> Void) {
+        authDataSource.linkGoogle(completionBlock: completionBlock)
+    }
 }

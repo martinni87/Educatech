@@ -36,4 +36,15 @@ final class GoogleAuth {
             }
         }
     }
+    
+    func getCurrentUser() -> GIDGoogleUser? {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            if let currentUser = GIDSignIn.sharedInstance.currentUser {
+                return currentUser
+            }
+        } else {
+            print("No user is currently signed in.")
+        }
+        return nil
+    }
 }

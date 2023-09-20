@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E922AB7BF5A005CC112 /* GoogleSignIn */; };
 		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
+		5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AA2ABB722100B20E9A /* ProfileView.swift */; };
+		5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AC2ABB74F000B20E9A /* HomeView.swift */; };
+		5B33E2AF2ABB80EB00B20E9A /* LinkedAccounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */; };
 		5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B78DCD52AB74B3200A87E28 /* FacebookLogin */; };
 		5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B33E2AA2ABB722100B20E9A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		5B33E2AC2ABB74F000B20E9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccounts.swift; sourceTree = "<group>"; };
 		5B78DCD72AB74C4000A87E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B78DCD82AB74FA900A87E28 /* Educatech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Educatech.entitlements; sourceTree = "<group>"; };
 		5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuth.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5BC4572A2AB3963E00567EEF /* User.swift */,
+				5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -155,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				5BC4571C2AB36B4100567EEF /* MainView.swift */,
+				5B33E2AA2ABB722100B20E9A /* ProfileView.swift */,
+				5B33E2AC2ABB74F000B20E9A /* HomeView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -246,8 +255,10 @@
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView.swift in Sources */,
 				5BC4571D2AB36B4100567EEF /* MainView.swift in Sources */,
+				5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */,
 				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
 				5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */,
+				5B33E2AF2ABB80EB00B20E9A /* LinkedAccounts.swift in Sources */,
 				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
@@ -255,6 +266,7 @@
 				5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */,
 				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
+				5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */,
 				5BC4572B2AB3963E00567EEF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
