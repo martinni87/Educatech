@@ -102,7 +102,8 @@ struct ProfileView: View {
                 }
                 
             }
-            .navigationTitle("Profile")
+            .navigationTitle("Profile settings")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             authViewModel.getCurrentProvider()

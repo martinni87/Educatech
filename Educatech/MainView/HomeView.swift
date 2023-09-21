@@ -10,13 +10,25 @@ import SwiftUI
 struct HomeView: View {
     
     var email: String
+    @StateObject var courseViewModel: CoursesViewModel = CoursesViewModel()
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                Text("Welcome \(email)")
+                ForEach(courseViewModel.courses, id:\.id) { course in
+                    CourseCardView(course: course)
+                }
             }
-            .navigationTitle("News")
+            .task {
+                courseViewModel.getAllVideos()
+            }
+            .navigationTitle("New courses feed")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .status) {
+                    Text("Welcome \(email)")
+                }
+            }
         }
     }
 }

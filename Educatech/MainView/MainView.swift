@@ -10,11 +10,12 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    
     @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         
-        let userEmail = authViewModel.user?.email ?? "dummy@mail.com"
+        let userEmail = authViewModel.user?.email ?? ""
         
         NavigationView {
             TabView {
