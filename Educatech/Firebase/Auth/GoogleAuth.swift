@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import GoogleSignIn
+import AuthenticationServices
 
 final class GoogleAuth {
     
@@ -34,5 +35,16 @@ final class GoogleAuth {
                 completionBlock(.success(googleUser))
             }
         }
+    }
+    
+    func getCurrentUser() -> GIDGoogleUser? {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            if let currentUser = GIDSignIn.sharedInstance.currentUser {
+                return currentUser
+            }
+        } else {
+            print("No user is currently signed in.")
+        }
+        return nil
     }
 }

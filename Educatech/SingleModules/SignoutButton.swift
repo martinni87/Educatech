@@ -12,12 +12,13 @@ struct SignoutButton: View {
     @ObservedObject var authViewModel: AuthViewModel
     
     var body: some View {
-        Button("Sign out"){
+        Button {
             authViewModel.signOut()
+        } label: {
+            Image(systemName: "xmark.circle.fill")
         }
-        .tint(.pink)
-        .padding(10)
-        .buttonStyle(.bordered)
+        .font(.system(size: 25))
+        .tint(.pink.opacity(0.5))
     }
 }
 
