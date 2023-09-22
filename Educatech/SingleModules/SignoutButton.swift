@@ -15,7 +15,7 @@ struct SignoutButton: View {
         Button {
             authViewModel.signOut()
         } label: {
-            Image(systemName: "xmark.circle.fill")
+            Image(systemName: "power")
         }
         .font(.system(size: 25))
         .tint(.pink.opacity(0.5))
