@@ -20,6 +20,11 @@
 		5B616E842ABCE820009FAE97 /* CourseViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E832ABCE820009FAE97 /* CourseViewComponent.swift */; };
 		5B616E862ABCF8C0009FAE97 /* CourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E852ABCF8C0009FAE97 /* CourseCardView.swift */; };
 		5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */; };
+		5B70923D2ABDEC94003243C7 /* CreateCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923C2ABDEC94003243C7 /* CreateCourseView.swift */; };
+		5B70923F2ABDED45003243C7 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923E2ABDED45003243C7 /* EditorView.swift */; };
+		5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7092402ABDEED5003243C7 /* SubscribedView.swift */; };
+		5B7092462ABE0047003243C7 /* MetadataDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7092452ABE0047003243C7 /* MetadataDataSource.swift */; };
+		5B7092482ABE010E003243C7 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7092472ABE010E003243C7 /* AppErrors.swift */; };
 		5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B78DCD52AB74B3200A87E28 /* FacebookLogin */; };
 		5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
@@ -53,6 +58,11 @@
 		5B616E832ABCE820009FAE97 /* CourseViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewComponent.swift; sourceTree = "<group>"; };
 		5B616E852ABCF8C0009FAE97 /* CourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCardView.swift; sourceTree = "<group>"; };
 		5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		5B70923C2ABDEC94003243C7 /* CreateCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCourseView.swift; sourceTree = "<group>"; };
+		5B70923E2ABDED45003243C7 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		5B7092402ABDEED5003243C7 /* SubscribedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedView.swift; sourceTree = "<group>"; };
+		5B7092452ABE0047003243C7 /* MetadataDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataDataSource.swift; sourceTree = "<group>"; };
+		5B7092472ABE010E003243C7 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
 		5B78DCD72AB74C4000A87E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B78DCD82AB74FA900A87E28 /* Educatech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Educatech.entitlements; sourceTree = "<group>"; };
 		5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuth.swift; sourceTree = "<group>"; };
@@ -130,6 +140,22 @@
 			path = CoursesView;
 			sourceTree = "<group>";
 		};
+		5B70923B2ABDEC73003243C7 /* EditorViews */ = {
+			isa = PBXGroup;
+			children = (
+				5B70923C2ABDEC94003243C7 /* CreateCourseView.swift */,
+			);
+			path = EditorViews;
+			sourceTree = "<group>";
+		};
+		5B7092442ABE0025003243C7 /* CreateData */ = {
+			isa = PBXGroup;
+			children = (
+				5B7092452ABE0047003243C7 /* MetadataDataSource.swift */,
+			);
+			path = CreateData;
+			sourceTree = "<group>";
+		};
 		5BC456FC2AB367FD00567EEF = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +184,7 @@
 				5BC457202AB395CD00567EEF /* AuthViews */,
 				5BC457352AB3A48E00567EEF /* MainView */,
 				5B616E7E2ABCC8F7009FAE97 /* CoursesView */,
+				5B70923B2ABDEC73003243C7 /* EditorViews */,
 				5BC457212AB395DD00567EEF /* SingleModules */,
 				5BC4570C2AB367FE00567EEF /* Assets.xcassets */,
 				5BC4572C2AB396C800567EEF /* GoogleService-Info.plist */,
@@ -199,6 +226,7 @@
 			children = (
 				5B616E7B2ABCBA00009FAE97 /* Auth */,
 				5B616E742ABCB993009FAE97 /* Courses */,
+				5B7092442ABE0025003243C7 /* CreateData */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -209,6 +237,7 @@
 				5BC4572A2AB3963E00567EEF /* User.swift */,
 				5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */,
 				5B616E7C2ABCBB52009FAE97 /* CourseModel.swift */,
+				5B7092472ABE010E003243C7 /* AppErrors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -218,6 +247,8 @@
 			children = (
 				5BC4571C2AB36B4100567EEF /* MainView.swift */,
 				5B33E2AC2ABB74F000B20E9A /* HomeView.swift */,
+				5B7092402ABDEED5003243C7 /* SubscribedView.swift */,
+				5B70923E2ABDED45003243C7 /* EditorView.swift */,
 				5B33E2AA2ABB722100B20E9A /* ProfileView.swift */,
 			);
 			path = MainView;
@@ -311,16 +342,21 @@
 				5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */,
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView.swift in Sources */,
+				5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */,
 				5BC4571D2AB36B4100567EEF /* MainView.swift in Sources */,
 				5B616E7D2ABCBB52009FAE97 /* CourseModel.swift in Sources */,
+				5B70923D2ABDEC94003243C7 /* CreateCourseView.swift in Sources */,
 				5B616E782ABCB9EB009FAE97 /* CoursesRepository.swift in Sources */,
 				5B616E862ABCF8C0009FAE97 /* CourseCardView.swift in Sources */,
 				5B616E842ABCE820009FAE97 /* CourseViewComponent.swift in Sources */,
 				5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */,
 				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
+				5B7092482ABE010E003243C7 /* AppErrors.swift in Sources */,
 				5B616E762ABCB9D6009FAE97 /* CoursesViewModel.swift in Sources */,
 				5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */,
 				5B33E2AF2ABB80EB00B20E9A /* LinkedAccounts.swift in Sources */,
+				5B70923F2ABDED45003243C7 /* EditorView.swift in Sources */,
+				5B7092462ABE0047003243C7 /* MetadataDataSource.swift in Sources */,
 				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,

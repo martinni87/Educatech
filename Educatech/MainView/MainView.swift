@@ -23,6 +23,18 @@ struct MainView: View {
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
+                SubscribedView()
+                    .tabItem {
+                        Label("My Lessons", systemImage: "text.book.closed")
+                    }
+//                TeachingView()
+//                    .tabItem {
+//                        Label("My teaching", systemImage: "graduationcap")
+//                    }
+                EditorView()
+                    .tabItem {
+                        Label("Editor", systemImage: "compass.drawing")
+                    }
                 ProfileView(authViewModel: authViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
