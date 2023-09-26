@@ -10,16 +10,14 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    
+    @ObservedObject var coursesViewModel: CoursesViewModel = CoursesViewModel()
+
     @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
-        
-        let userEmail = authViewModel.user?.email ?? ""
-        
-        NavigationView {
+        NavigationStack {
             TabView {
-                HomeView(email: userEmail)
+                HomeView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
@@ -27,11 +25,7 @@ struct MainView: View {
                     .tabItem {
                         Label("My Lessons", systemImage: "text.book.closed")
                     }
-//                TeachingView()
-//                    .tabItem {
-//                        Label("My teaching", systemImage: "graduationcap")
-//                    }
-                EditorView()
+                EditorView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                     .tabItem {
                         Label("Editor", systemImage: "compass.drawing")
                     }

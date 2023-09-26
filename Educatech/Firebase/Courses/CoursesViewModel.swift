@@ -10,7 +10,7 @@ import Foundation
 final class CoursesViewModel: ObservableObject {
     
     @Published var courses: [CourseModel] = []
-    @Published var error: Error?
+    @Published var error: String?
     
     private let coursesRepository: CoursesRepository
     
@@ -18,15 +18,54 @@ final class CoursesViewModel: ObservableObject {
         self.coursesRepository = coursesRepository
     }
     
-    func getAllVideos() {
-        coursesRepository.getAllVideos { [weak self] result in
+    func getAllCourses() {
+        self.error = nil
+        coursesRepository.getNewCourses { [weak self] result in
             switch result {
             case .success(let courses):
                 self?.courses = courses
             case .failure(let error):
-                self?.error = error
+                self?.error = error.localizedDescription
             }
         }
+    }
+    
+    func createNewCourse(title: String, description: String, image: String) {
+        self.error = nil
+        guard courseValidations(title, description, image) else {
+            return
+        }
+        coursesRepository.createNewCourse(title: title,
+                                          description: description,
+                                          image: image) { [weak self] result in
+            switch result {
+            case .success(let course):
+                self?.courses.append(course)
+            case .failure(let error):
+                self?.error = error.localizedDescription
+            }
+        }
+    }
+    
+    // MARK: Private functinos for the View Model
+    private func courseValidations(_ title: String, _ description: String, _ image: String) -> Bool {
+        guard title.validateNotEmptyString().isValid else {
+            self.error = title.validateNotEmptyString().errorMsg
+            return false
+        }
+        guard description.validateNotEmptyString().isValid else {
+            self.error = description.validateNotEmptyString().errorMsg
+            return false
+        }
+        guard image.validateNotEmptyString().isValid else {
+            self.error = image.validateNotEmptyString().errorMsg
+            return false
+        }
+        guard image.validateURLString().isValid else {
+            self.error = image.validateURLString().errorMsg
+            return false
+        }
+        return true
     }
     
 }

@@ -10,7 +10,7 @@ import Foundation
 final class AuthViewModel: ObservableObject {
     
     @Published var user: User?
-    @Published var error: Error?
+    @Published var error: String?
     @Published var linkedAccounts: [LinkedAccounts] = []
     @Published var showAlert: Bool = false
     @Published var didLinkedAccount: Bool = false
@@ -23,45 +23,66 @@ final class AuthViewModel: ObservableObject {
     }
     
     func signUpEmail(email: String, password: String) {
+        //Begin or reset error to nil to avoid repetitive error messages
+        self.error = nil
+        
+        //First check if email and password are well formatted
+        guard self.authValidations(email, password) else {
+            return
+        }
+        
+        //Next, if email and password are correct, try register in Database
         authRepository.signUpEmail(email: email, password: password) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
             case .failure(let error):
-                self?.error = error
+                self?.showAlert = true
+                self?.error = error.localizedDescription
             }
         }
     }
     
     func signInEmail(email: String, password: String) {
+        //Begin or reset error to nil to avoid repetitive error messages
+        self.error = nil
+        
+        //Next, if email and password are correct, try login
         authRepository.signInEmail(email: email, password: password) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
             case .failure(let error):
-                self?.error = error
+                self?.showAlert = true
+                self?.error = error.localizedDescription
             }
         }
     }
     
     func facebookLogin() {
+        //Begin or reset error to nil to avoid repetitive error messages
+        self.error = nil
+        
         authRepository.facebookLogin { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
             case .failure(let error):
-                self?.error = error
+                self?.error = error.localizedDescription
             }
         }
     }
     
     func googleLogin() {
+        //Begin or reset error to nil to avoid repetitive error messages
+        self.error = nil
+        
         authRepository.googleLogin { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
             case .failure(let error):
-                self?.error = error
+                self?.error = error.localizedDescription
             }
         }
     }
@@ -75,12 +96,15 @@ final class AuthViewModel: ObservableObject {
     }
     
     func signOut() {
+        //Begin or reset error to nil to avoid repetitive error messages
+        self.error = nil
+        
         do {
             try authRepository.signOut()
             self.user = nil
         }
         catch {
-            print("Error sign out")
+            self.error = "Error attepting sign out. Please contact the admin."
         }
     }
     
@@ -126,5 +150,27 @@ final class AuthViewModel: ObservableObject {
             self?.showAlert.toggle()
             self?.getCurrentProvider()
         }
+    }
+    
+    
+    // MARK: Private functinos for the View Model
+    private func authValidations(_ email: String, _ password: String) -> Bool {
+        guard email.validateNotEmptyString().isValid else {
+            self.error = email.validateNotEmptyString().errorMsg
+            return false
+        }
+        guard email.validateEmail().isValid else {
+            self.error = email.validateEmail().errorMsg
+            return false
+        }
+        guard password.validateNotEmptyString().isValid else {
+            self.error = password.validateNotEmptyString().errorMsg
+            return false
+        }
+        guard password.validatePassword(for: email).isValid else {
+            self.error = password.validatePassword(for: email).errorMsg
+            return false
+        }
+        return true
     }
 }

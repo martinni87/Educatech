@@ -12,6 +12,7 @@ struct LoginView: View {
     @ObservedObject var authViewModel: AuthViewModel
     @State var email: String = ""
     @State var password: String = ""
+    @State var thereIsError = false
     
     var body: some View {
         VStack {
@@ -27,20 +28,21 @@ struct LoginView: View {
                 .textInputAutocapitalization(.never)
                 .textFieldStyle(.roundedBorder)
                 Button("Login"){
-                    authViewModel.signInEmail(email: email, password: password)
+                    authViewModel.signInEmail(email: email,
+                                              password: password)
+                    if let _ = authViewModel.error {
+                        thereIsError = true
+                    }
                 }
                 .buttonStyle(.bordered)
                 .tint(.green)
-                if let errorMsg = authViewModel.error?.localizedDescription {
-                    Text(errorMsg)
-                        .bold()
-                        .font(.callout)
-                        .foregroundColor(.pink)
-                        .padding()
-                        .multilineTextAlignment(.center)
-                }
             }
             Spacer()
+        }
+        .alert(isPresented: $authViewModel.showAlert) {
+            Alert(title: Text("Something went wrong"),
+                  message: Text(self.authViewModel.error ?? "Unknown error"),
+                  dismissButton: .default(Text("OK")))
         }
         .padding()
     }

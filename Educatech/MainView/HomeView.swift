@@ -9,24 +9,27 @@ import SwiftUI
 
 struct HomeView: View {
     
-    var email: String
-    @StateObject var courseViewModel: CoursesViewModel = CoursesViewModel()
+//    var email: String
+//    @StateObject var courseViewModel: CoursesViewModel = CoursesViewModel()
+    @StateObject var authViewModel: AuthViewModel
+    @StateObject var coursesViewModel: CoursesViewModel
+    
     
     var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(courseViewModel.courses, id:\.id) { course in
+                ForEach(coursesViewModel.courses, id:\.id) { course in
                     CourseCardView(course: course)
                 }
             }
             .task {
-                courseViewModel.getAllVideos()
+                coursesViewModel.getAllCourses()
             }
             .navigationTitle("New courses feed")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .status) {
-                    Text("Welcome \(email)")
+                    Text("Welcome \(authViewModel.user?.email ?? "")")
                 }
             }
         }
@@ -34,7 +37,11 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+    
+    @State static var authViewModel: AuthViewModel = AuthViewModel()
+    @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
+    
     static var previews: some View {
-        HomeView(email: "johndoe@mail.com")
+        HomeView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
     }
 }

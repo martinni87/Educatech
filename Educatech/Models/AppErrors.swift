@@ -7,6 +7,9 @@
 
 import Foundation
 
-enum AppErrors: Error {
-    case badURL
+enum AppErrors: String, Error {
+    case none = "Success"
+    case fieldIsEmpty = "All fields are mandatory"
+    case badURL = "The URL is badly formed"
 }
+

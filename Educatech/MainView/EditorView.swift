@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct EditorView: View {
+    
+    @State var authViewModel: AuthViewModel
+    @State var coursesViewModel: CoursesViewModel
+    
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    CreateCourseView()
+                    CreateCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
                 } label: {
                     Label("Create a new course", systemImage: "doc.badge.plus")
                 }
@@ -23,7 +27,11 @@ struct EditorView: View {
 }
 
 struct EditorView_Previews: PreviewProvider {
+    
+    @State static var authViewModel: AuthViewModel = AuthViewModel()
+    @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
+    
     static var previews: some View {
-        EditorView()
+        EditorView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
     }
 }
