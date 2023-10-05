@@ -31,13 +31,34 @@ final class CoursesDataSource {
             }
     }
     
-    func createNewCourse(title: String, description: String, imageURL: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-        self.database.collection(self.collection).addDocument(data: ["title": title, "description": description, "image": imageURL]) { error in
+    func createNewCourse(title: String, description: String, imageURL: String, isSubscribed: Bool, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        self.getCountOfDocuments { count in
+            //Get number of documents to create bew document with custom ID
+            let id: String = "000\(count)_\(title.lowercased().replacingOccurrences(of: " ", with: "_"))"
+            let newDocument = self.database.collection(self.collection).document(id)
+            
+            //Setting new document with the data given by the user
+            newDocument.setData( ["title": title, "description": description, "image": imageURL, "isSubscribed": isSubscribed]) { error in
+                if let error = error {
+                    completionBlock(.failure(error))
+                    return
+                }
+                let course = CourseModel(title: title, description: description, image: imageURL)
+                completionBlock(.success(course))
+            }
+        }
+    }
+    
+    // MARK: Private methods
+    private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
+        let collectionRef = self.database.collection(self.collection)
+        collectionRef.getDocuments { query, error in
             if let error = error {
-                completionBlock(.failure(error))
+                print("Error counting number of documents. \(error)")
                 return
             }
-            completionBlock(.success(CourseModel(title: title, description: description, image: imageURL)))
+            let numberOfDocuments = query?.documents.count ?? 0
+            completionBlock(numberOfDocuments)
         }
     }
 }

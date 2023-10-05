@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
+import FirebaseStorage
+import FirebaseAuth
 import FacebookLogin
 import GoogleSignIn
 

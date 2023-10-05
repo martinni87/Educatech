@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseStorage
+import PhotosUI
 
 struct CreateCourseView: View {
     
@@ -40,6 +43,7 @@ struct CreateCourseView: View {
             .textFieldStyle(.roundedBorder)
             Spacer()
             Button {
+                
                 coursesViewModel.createNewCourse(title: title,
                                                  description: description,
                                                  image: image)
@@ -76,10 +80,10 @@ struct CreateCourseView: View {
 }
 
 struct CreateCourseView_Previews: PreviewProvider {
-    
+
     @State static var authViewModel: AuthViewModel = AuthViewModel()
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
-    
+
     static var previews: some View {
         CreateCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
     }

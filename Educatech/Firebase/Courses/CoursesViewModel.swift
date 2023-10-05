@@ -37,10 +37,12 @@ final class CoursesViewModel: ObservableObject {
         }
         coursesRepository.createNewCourse(title: title,
                                           description: description,
-                                          image: image) { [weak self] result in
+                                          image: image,
+                                          isSubscribed: false) { [weak self] result in
             switch result {
             case .success(let course):
-                self?.courses.append(course)
+                print("Course \(course.title) successfully created")
+                //                self?.courses.append(course)
             case .failure(let error):
                 self?.error = error.localizedDescription
             }

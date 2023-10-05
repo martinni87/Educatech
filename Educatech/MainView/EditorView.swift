@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditorView: View {
     
@@ -30,6 +31,7 @@ struct EditorView_Previews: PreviewProvider {
     
     @State static var authViewModel: AuthViewModel = AuthViewModel()
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
+    @State static var selectedItems: [PhotosPickerItem] = []
     
     static var previews: some View {
         EditorView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
