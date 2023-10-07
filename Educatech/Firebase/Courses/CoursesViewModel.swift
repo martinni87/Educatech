@@ -9,7 +9,8 @@ import Foundation
 
 final class CoursesViewModel: ObservableObject {
     
-    @Published var courses: [CourseModel] = []
+    @Published var allCourses: [CourseModel] = []
+    @Published var managedCourses: [CourseModel] = []
     @Published var error: String?
     
     private let coursesRepository: CoursesRepository
@@ -23,14 +24,26 @@ final class CoursesViewModel: ObservableObject {
         coursesRepository.getNewCourses { [weak self] result in
             switch result {
             case .success(let courses):
-                self?.courses = courses
+                self?.allCourses = courses
             case .failure(let error):
                 self?.error = error.localizedDescription
             }
         }
     }
     
-    func createNewCourse(title: String, description: String, image: String) {
+    func getCoursesByCreatorID(creatorID: String){
+        self.error = nil
+        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
+            switch result {
+            case .success(let courses):
+                self?.managedCourses = courses
+            case .failure(let error):
+                self?.error = error.localizedDescription
+            }
+        }
+    }
+    
+    func createNewCourse(title: String, description: String, image: String, creatorID: String) {
         self.error = nil
         guard courseValidations(title, description, image) else {
             return
@@ -38,7 +51,7 @@ final class CoursesViewModel: ObservableObject {
         coursesRepository.createNewCourse(title: title,
                                           description: description,
                                           image: image,
-                                          isSubscribed: false) { [weak self] result in
+                                          creatorID: creatorID) { [weak self] result in
             switch result {
             case .success(let course):
                 print("Course \(course.title) successfully created")

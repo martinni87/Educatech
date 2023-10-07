@@ -19,8 +19,12 @@ final class CoursesRepository {
         coursesDataSource.getAllCourses(completionBlock: completionBlock)
     }
     
-    func createNewCourse(title: String, description: String, image: String, isSubscribed: Bool, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-        coursesDataSource.createNewCourse(title: title, description: description, imageURL: image, isSubscribed: isSubscribed, completionBlock: completionBlock)
+    func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
+        coursesDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
+    }
+    
+    func createNewCourse(title: String, description: String, image: String, creatorID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        coursesDataSource.createNewCourse(title: title, description: description, imageURL: image, creatorID: creatorID, completionBlock: completionBlock)
     }
 
 }

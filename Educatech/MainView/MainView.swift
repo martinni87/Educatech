@@ -35,16 +35,18 @@ struct MainView: View {
                     }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    VStack {
-                        SignoutButton(authViewModel: authViewModel)
-                    }
-                }
-                ToolbarItem(placement: .navigationBarLeading) {
+                ToolbarItem(placement: .topBarLeading) {
                     Text("Educatech")
                         .font(.system(size: verticalSizeClass == .compact ? 20 : 40, weight: .black, design: .rounded))
                         .foregroundColor(Color(.sRGB, red: 0.15, green: 0.50, blue: 0.75, opacity: 0.9))
-                        .shadow(color: .cyan, radius: 2, x: 2, y: 2)                }
+                        .shadow(color: .cyan, radius: 2, x: 2, y: 2)
+                }
+                ToolbarItem(placement: .status) {
+                    HStack {
+                        Text("Welcome \(authViewModel.user?.email ?? "")")
+                        SignoutButton(authViewModel: authViewModel)
+                    }
+                }
             }
         }
     }

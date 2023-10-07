@@ -21,7 +21,14 @@ struct EditorView: View {
                 } label: {
                     Label("Create a new course", systemImage: "doc.badge.plus")
                 }
-
+                NavigationLink {
+                    ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
+                } label: {
+                    Label("My managed courses", systemImage: "book.and.wrench.fill")
+                }
+            }
+            .task(priority: .high) {
+                coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "8z38yBr08GTnTEXzLtEYi5r9grH3")
             }
         }
     }
@@ -31,7 +38,6 @@ struct EditorView_Previews: PreviewProvider {
     
     @State static var authViewModel: AuthViewModel = AuthViewModel()
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
-    @State static var selectedItems: [PhotosPickerItem] = []
     
     static var previews: some View {
         EditorView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)

@@ -38,6 +38,7 @@ struct EducatechApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var authViewModel = AuthViewModel()
+    @StateObject var coursesViewModel = CoursesViewModel()
     
     var body: some Scene {
         WindowGroup {

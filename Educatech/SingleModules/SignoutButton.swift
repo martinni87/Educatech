@@ -17,7 +17,7 @@ struct SignoutButton: View {
         } label: {
             Image(systemName: "power")
         }
-        .font(.system(size: 25))
+        .font(.system(size: 15))
         .tint(.pink.opacity(0.5))
     }
 }

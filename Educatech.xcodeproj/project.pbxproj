@@ -33,6 +33,12 @@
 		5B7BDA032AC9F87800A25AD8 /* StorageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BDA022AC9F87800A25AD8 /* StorageRepository.swift */; };
 		5B7BDA052AC9F8D100A25AD8 /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7BDA042AC9F8D100A25AD8 /* StorageViewModel.swift */; };
 		5B80EE532AC4E33A00F2F446 /* StorageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B80EE522AC4E33A00F2F446 /* StorageDataSource.swift */; };
+		5B95645A2AD1BE70002BC3BE /* ManagerCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564592AD1BE70002BC3BE /* ManagerCourseView.swift */; };
+		5B95645C2AD1CB18002BC3BE /* WaitingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645B2AD1CB18002BC3BE /* WaitingAnimationView.swift */; };
+		5B95645E2AD1F1FD002BC3BE /* ManagedCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645D2AD1F1FD002BC3BE /* ManagedCourseCardView.swift */; };
+		5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */; };
+		5B9564622AD1FD55002BC3BE /* CreationFieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564612AD1FD55002BC3BE /* CreationFieldTypes.swift */; };
+		5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564632AD21330002BC3BE /* AddNewVideosView.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
 		5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4570A2AB367FD00567EEF /* LoginView.swift */; };
 		5BC4570D2AB367FE00567EEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC4570C2AB367FE00567EEF /* Assets.xcassets */; };
@@ -76,6 +82,12 @@
 		5B7BDA022AC9F87800A25AD8 /* StorageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageRepository.swift; sourceTree = "<group>"; };
 		5B7BDA042AC9F8D100A25AD8 /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
 		5B80EE522AC4E33A00F2F446 /* StorageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageDataSource.swift; sourceTree = "<group>"; };
+		5B9564592AD1BE70002BC3BE /* ManagerCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerCourseView.swift; sourceTree = "<group>"; };
+		5B95645B2AD1CB18002BC3BE /* WaitingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingAnimationView.swift; sourceTree = "<group>"; };
+		5B95645D2AD1F1FD002BC3BE /* ManagedCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseCardView.swift; sourceTree = "<group>"; };
+		5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseDetailView.swift; sourceTree = "<group>"; };
+		5B9564612AD1FD55002BC3BE /* CreationFieldTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationFieldTypes.swift; sourceTree = "<group>"; };
+		5B9564632AD21330002BC3BE /* AddNewVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVideosView.swift; sourceTree = "<group>"; };
 		5BC457052AB367FD00567EEF /* Educatech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Educatech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC457082AB367FD00567EEF /* EducatechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducatechApp.swift; sourceTree = "<group>"; };
 		5BC4570A2AB367FD00567EEF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -156,6 +168,10 @@
 			isa = PBXGroup;
 			children = (
 				5B70923C2ABDEC94003243C7 /* CreateCourseView.swift */,
+				5B9564592AD1BE70002BC3BE /* ManagerCourseView.swift */,
+				5B95645D2AD1F1FD002BC3BE /* ManagedCourseCardView.swift */,
+				5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */,
+				5B9564632AD21330002BC3BE /* AddNewVideosView.swift */,
 				5B05C1922AC5F1B8000032E6 /* PhotoPicker.swift */,
 			);
 			path = EditorViews;
@@ -241,6 +257,7 @@
 				5BC4571A2AB36ABD00567EEF /* DismissView.swift */,
 				5BC457382AB3A6A500567EEF /* SignoutButton.swift */,
 				5B616E832ABCE820009FAE97 /* CourseViewComponent.swift */,
+				5B95645B2AD1CB18002BC3BE /* WaitingAnimationView.swift */,
 			);
 			path = SingleModules;
 			sourceTree = "<group>";
@@ -262,6 +279,7 @@
 				5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */,
 				5B616E7C2ABCBB52009FAE97 /* CourseModel.swift */,
 				5B7092472ABE010E003243C7 /* AppErrors.swift */,
+				5B9564612AD1FD55002BC3BE /* CreationFieldTypes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,10 +404,16 @@
 				5B7BDA052AC9F8D100A25AD8 /* StorageViewModel.swift in Sources */,
 				5B70923F2ABDED45003243C7 /* EditorView.swift in Sources */,
 				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
+				5B95645C2AD1CB18002BC3BE /* WaitingAnimationView.swift in Sources */,
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
+				5B9564622AD1FD55002BC3BE /* CreationFieldTypes.swift in Sources */,
+				5B95645A2AD1BE70002BC3BE /* ManagerCourseView.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
 				5B7BDA032AC9F87800A25AD8 /* StorageRepository.swift in Sources */,
+				5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */,
 				5B616E7A2ABCB9F8009FAE97 /* CoursesDataSource.swift in Sources */,
+				5B95645E2AD1F1FD002BC3BE /* ManagedCourseCardView.swift in Sources */,
+				5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */,
 				5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */,
 				5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */,
 				5B80EE532AC4E33A00F2F446 /* StorageDataSource.swift in Sources */,
@@ -455,9 +479,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-Wl,-ld_classic";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -510,8 +536,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";

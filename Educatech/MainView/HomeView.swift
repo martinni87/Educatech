@@ -18,7 +18,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                ForEach(coursesViewModel.courses, id:\.id) { course in
+                ForEach(coursesViewModel.allCourses, id:\.id) { course in
                     CourseCardView(course: course)
                 }
             }
@@ -27,11 +27,11 @@ struct HomeView: View {
             }
             .navigationTitle("New courses feed")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .status) {
-                    Text("Welcome \(authViewModel.user?.email ?? "")")
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .status) {
+//                    Text("Welcome \(authViewModel.user?.email ?? "")")
+//                }
+//            }
         }
     }
 }

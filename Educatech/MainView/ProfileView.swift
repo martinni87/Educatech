@@ -62,6 +62,9 @@ struct ProfileView: View {
                         .disabled(authViewModel.isGoogleLinked())
                         
                     }
+                    Section("Contact and support") {
+                        Link("If you have any problem, feel free to contact our support team", destination: URL(string: "mailto:mancorge@gmail.com")!)
+                    }
                 }
                 .alert("Link provider", isPresented: $authViewModel.showAlert) {
                     Button("Aceptar") {
