@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import FirebaseAuth
 
 struct User {
+    var id: String
     let email: String
 }

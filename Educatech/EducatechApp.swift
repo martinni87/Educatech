@@ -7,6 +7,9 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
+import FirebaseStorage
+import FirebaseAuth
 import FacebookLogin
 import GoogleSignIn
 
@@ -35,6 +38,7 @@ struct EducatechApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var authViewModel = AuthViewModel()
+    @StateObject var coursesViewModel = CoursesViewModel()
     
     var body: some Scene {
         WindowGroup {

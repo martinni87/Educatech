@@ -22,8 +22,12 @@ final class AuthDataSource {
                 completionBlock(.failure(error))
                 return
             }
-            let email = authDataResult?.user.email ?? "No email"
-            completionBlock(.success(User(email: email)))
+            if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
+                completionBlock(.success(User(id: id, email: email)))
+                return
+            }
+            //In case none of the above happens, throw auth error
+            completionBlock(.failure(AppErrors.authError))
         }
     }
     
@@ -33,8 +37,12 @@ final class AuthDataSource {
                 completionBlock(.failure(error))
                 return
             }
-            let email = authDataResult?.user.email ?? "No email"
-            completionBlock(.success(User(email: email)))
+            if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
+                completionBlock(.success(User(id: id, email: email)))
+                return
+            }
+            //In case none of the above happens, throw auth error
+            completionBlock(.failure(AppErrors.authError))
         }
     }
     
@@ -48,8 +56,12 @@ final class AuthDataSource {
                         completionBlock(.failure(error))
                         return
                     }
-                    let email = authDataResult?.user.email ?? "No email"
-                    completionBlock(.success(User(email: email)))
+                    if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
+                        completionBlock(.success(User(id: id, email: email)))
+                        return
+                    }
+                    //In case none of the above happens, throw auth error
+                    completionBlock(.failure(AppErrors.authError))
                 }
             case .failure(let error):
                 print("Error signing in with facebook at Data Source. Error: \(error.localizedDescription)")
@@ -70,8 +82,12 @@ final class AuthDataSource {
                         completionBlock(.failure(error))
                         return
                     }
-                    let email = authDataResult?.user.email ?? "No email"
-                    completionBlock(.success(User(email: email)))
+                    if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
+                        completionBlock(.success(User(id: id, email: email)))
+                        return
+                    }
+                    //In case none of the above happens, throw auth error
+                    completionBlock(.failure(AppErrors.authError))
                 }
             case .failure(let failure):
                 completionBlock(.failure(failure))
@@ -80,8 +96,8 @@ final class AuthDataSource {
     }
     
     func getCurrentUser() -> User? {
-        if let email = Auth.auth().currentUser?.email {
-            return User(email: email)
+        if let email = Auth.auth().currentUser?.email, let id = Auth.auth().currentUser?.uid {
+            return User(id: id, email: email)
         }
         else {
             return nil
