@@ -9,10 +9,10 @@ import SwiftUI
 
 struct RegisterView: View {
     
+    @ObservedObject var authViewModel: AuthViewModel
     @State var email: String = ""
     @State var password: String = ""
-    @ObservedObject var authViewModel: AuthViewModel
-
+    @State var thereIsError = false
     
     var body: some View {
         VStack {
@@ -28,20 +28,21 @@ struct RegisterView: View {
                 .textInputAutocapitalization(.never)
                 .textFieldStyle(.roundedBorder)
                 Button("Register"){
-                    authViewModel.signUpEmail(email: email, password: password)
+                    authViewModel.signUpEmail(email: email,
+                                              password: password)
+                    if let _ = authViewModel.error {
+                        thereIsError = true
+                    }
                 }
                 .buttonStyle(.bordered)
                 .tint(.green)
-                if let errorMsg = authViewModel.error?.localizedDescription {
-                    Text(errorMsg)
-                        .bold()
-                        .font(.callout)
-                        .foregroundColor(.pink)
-                        .padding()
-                        .multilineTextAlignment(.center)
-                }
             }
             Spacer()
+        }
+        .alert(isPresented: $thereIsError) {
+            Alert(title: Text("Something went wrong"),
+                  message: Text(self.authViewModel.error ?? "Unknown error"),
+                  dismissButton: .default(Text("OK")))
         }
         .padding()
     }

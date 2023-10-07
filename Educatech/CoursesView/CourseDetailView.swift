@@ -20,7 +20,7 @@ struct CourseDetailView: View {
                         .scaledToFit()
                 }
                 else {
-                    Image("") //Empty picture until online picture is loaded
+                    WaitingAnimationView()
                 }
             }
             VStack (alignment: .leading, spacing: 20){
@@ -47,6 +47,6 @@ struct CourseDetailView: View {
 
 struct CourseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CourseCardView(course: CourseModel(title: "Titulo de prueba", description: "Descripcion de prueba", image: ""))
+        CourseCardView(course: CourseModel(title: "Titulo de prueba", description: "Descripcion de prueba", image: "", creatorID: ""))
     }
 }
