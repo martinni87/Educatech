@@ -27,6 +27,8 @@ struct EditorView: View {
                     Label("My managed courses", systemImage: "text.book.closed")
                 }
             }
+            .navigationTitle("Editor")
+            .navigationBarTitleDisplayMode(.inline)
             .task(priority: .high) {
 //                coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "8z38yBr08GTnTEXzLtEYi5r9grH3")
                 coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "00000")

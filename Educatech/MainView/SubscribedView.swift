@@ -15,6 +15,10 @@ struct SubscribedView: View {
 
 struct SubscribedCoursesView_Previews: PreviewProvider {
     static var previews: some View {
-        SubscribedView()
+        NavigationStack {
+            SubscribedView()
+                .navigationTitle("My Lessons")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }

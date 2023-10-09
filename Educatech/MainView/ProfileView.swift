@@ -15,6 +15,10 @@ struct ProfileView: View {
     @State var email = ""
     @State var password = ""
     @State var errorContactSupport = false
+    @State var sendEmailResult: Result<MFMailComposeResult, Error>? = nil
+    @State var isShowingEmailView = false
+    @State var emailBody: String = ""
+    @State var emailData: EmailData?
     
     var body: some View {
         NavigationStack {
@@ -74,32 +78,28 @@ struct ProfileView: View {
                     }
                     VStack {
                         Button(action: {
-                            let emailAddress = "mancorge@gmail.com"
-                            let subject = "Contact Support from Educatech iOS"
-                            let body = 
-                                """
-                                User data:
-                                UUID: \(authViewModel.user?.id ?? "00000")
-                                Email registered: \(authViewModel.user?.email ?? "No mail")
-                                Description of problem:
-                                ...
-                                """
-                            
                             if MFMailComposeViewController.canSendMail() {
-                                let mailComposeViewController = MFMailComposeViewController()
-                                mailComposeViewController.setToRecipients([emailAddress])
-                                mailComposeViewController.setSubject(subject)
-                                mailComposeViewController.setMessageBody(body, isHTML: false)
-                                
-                                UIApplication.shared.windows.first?.rootViewController?.present(mailComposeViewController, animated: true, completion: nil)
-                            } else {
-                                errorContactSupport.toggle()
+                                self.emailBody =
+                                """
+                                <h1> Contact Support Educatech iOS </h1>
+                                <ul>
+                                    <li><strong>UUID: </strong>\(authViewModel.user?.id ?? "00000")</li>
+                                    <li><strong>Email: </strong>\(authViewModel.user?.email ?? "No mail")</li>
+                                </ul>
+                                <h3>Please, describe the issue you're encountering, a request or any comment you might want to share with us:</h3>
+                                <p></p>
+                                """
+                                self.emailData = EmailData(body: self.emailBody)
+                                self.isShowingEmailView.toggle()
                             }
-                        }) {
+                            else {
+                                self.errorContactSupport.toggle()
+                            }
+                        }, label: {
                             Label("Contact Support", systemImage: "wrench.adjustable.fill")
                                 .bold()
                                 .frame(maxWidth: .infinity)
-                        }
+                        })
                         .padding()
                         .background(Color.blue)
                         .foregroundColor(.white)
@@ -108,6 +108,9 @@ struct ProfileView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 50)
+                }
+                .sheet(isPresented: $isShowingEmailView){
+                    MailView(result: self.$sendEmailResult, emailData: self.$emailData)
                 }
                 if showLinkEmailForm {
                     Rectangle()
@@ -169,6 +172,8 @@ struct ProfileView: View {
                     Text("Something went wrong. Try again later or contact the sysadmin")
                 }
             }
+            .navigationTitle("Profile")
+            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             authViewModel.getCurrentProvider()

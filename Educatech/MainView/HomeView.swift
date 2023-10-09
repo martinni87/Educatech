@@ -9,8 +9,6 @@ import SwiftUI
 
 struct HomeView: View {
     
-//    var email: String
-//    @StateObject var courseViewModel: CoursesViewModel = CoursesViewModel()
     @StateObject var authViewModel: AuthViewModel
     @StateObject var coursesViewModel: CoursesViewModel
     
@@ -25,6 +23,8 @@ struct HomeView: View {
             .task {
                 coursesViewModel.getAllCourses()
             }
+            .navigationTitle("Home")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

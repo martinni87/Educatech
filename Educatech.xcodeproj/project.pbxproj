@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5B05C1932AC5F1B8000032E6 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05C1922AC5F1B8000032E6 /* PhotoPicker.swift */; };
+		5B0A028A2AD3F7B6004FB043 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A02892AD3F7B6004FB043 /* MailView.swift */; };
+		5B0A028C2AD3FE98004FB043 /* EmailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A028B2AD3FE98004FB043 /* EmailData.swift */; };
 		5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E922AB7BF5A005CC112 /* GoogleSignIn */; };
 		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
 		5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AA2ABB722100B20E9A /* ProfileView.swift */; };
@@ -62,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		5B05C1922AC5F1B8000032E6 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		5B0A02892AD3F7B6004FB043 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		5B0A028B2AD3FE98004FB043 /* EmailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailData.swift; sourceTree = "<group>"; };
 		5B33E2AA2ABB722100B20E9A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5B33E2AC2ABB74F000B20E9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B33E2AE2ABB80EB00B20E9A /* LinkedAccounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedAccounts.swift; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				5B616E832ABCE820009FAE97 /* CourseViewComponent.swift */,
 				5B95645B2AD1CB18002BC3BE /* WaitingAnimationView.swift */,
 				5B5BDA512AD32E2D00BDE896 /* FormField.swift */,
+				5B0A02892AD3F7B6004FB043 /* MailView.swift */,
 			);
 			path = SingleModules;
 			sourceTree = "<group>";
@@ -283,6 +288,7 @@
 				5B616E7C2ABCBB52009FAE97 /* CourseModel.swift */,
 				5B7092472ABE010E003243C7 /* AppErrors.swift */,
 				5B9564612AD1FD55002BC3BE /* CreationFieldTypes.swift */,
+				5B0A028B2AD3FE98004FB043 /* EmailData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,8 +429,10 @@
 				5B80EE532AC4E33A00F2F446 /* StorageDataSource.swift in Sources */,
 				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
+				5B0A028C2AD3FE98004FB043 /* EmailData.swift in Sources */,
 				5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */,
 				5BC4572B2AB3963E00567EEF /* User.swift in Sources */,
+				5B0A028A2AD3F7B6004FB043 /* MailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
