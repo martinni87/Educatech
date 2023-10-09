@@ -25,13 +25,6 @@ struct HomeView: View {
             .task {
                 coursesViewModel.getAllCourses()
             }
-            .navigationTitle("New courses feed")
-            .navigationBarTitleDisplayMode(.inline)
-//            .toolbar {
-//                ToolbarItem(placement: .status) {
-//                    Text("Welcome \(authViewModel.user?.email ?? "")")
-//                }
-//            }
         }
     }
 }

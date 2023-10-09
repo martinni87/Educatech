@@ -9,10 +9,19 @@ import SwiftUI
 
 struct ManagedCourseDetailView: View {
     
+    // Presentation mode for dismissing the current view
+    @Environment(\.presentationMode) var presentationMode
+    
     @Binding var course: CourseModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
+    
     @State var title = ""
     @State var image = ""
     @State var description = ""
+    
+    @State var showMsg: Bool = false
+    @State var thereIsError: Bool = false
+    @State var message: String = "Course edited successfully! 🍀"
     
     var body: some View {
         NavigationStack {
@@ -60,7 +69,16 @@ struct ManagedCourseDetailView: View {
             HStack {
                 Spacer()
                 Button("Save changes"){
-                    print("Save changes")
+                    coursesViewModel.updateCourseData(creatorID: course.creatorID,
+                                                      courseID: course.id!,
+                                                      title: title,
+                                                      description: description,
+                                                      imageURL: image)
+                    if let error = coursesViewModel.error {
+                        thereIsError = true
+                        message = error
+                    }
+                    showMsg = true
                 }
                 .tint(.green)
                 .bold()
@@ -71,6 +89,22 @@ struct ManagedCourseDetailView: View {
                 .tint(.pink)
                 Spacer()
             }
+            .alert(isPresented: $showMsg) {
+                Alert(title: Text(thereIsError ? "Something went wrong" : "Congratulations!"),
+                      message: Text(self.message),
+                      dismissButton: .default(Text("OK")) {
+                    // Dismiss the current view and go back to the previous one
+                    if !thereIsError {
+                        self.title = ""
+                        self.description = ""
+                        self.image = ""
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    self.showMsg = false
+                    self.thereIsError = false
+                    self.message = "Course edited successfully! 🍀"
+                })
+            }
         }
     }
 }
@@ -78,8 +112,9 @@ struct ManagedCourseDetailView: View {
 struct ManagedCourseDetailView_Previews: PreviewProvider {
     
     @State static var course: CourseModel = CourseModel(id: "1234567890", title: "Dummy title", description: "Dummy description of a course very long to test multiline capabilities", image: "https://wwww.image.com/image.jpeg", creatorID: "cid9999")
+    @State static var coursesViewModel = CoursesViewModel()
     
     static var previews: some View {
-        ManagedCourseDetailView(course: $course, title: "")
+        ManagedCourseDetailView(course: $course, coursesViewModel: coursesViewModel)
     }
 }

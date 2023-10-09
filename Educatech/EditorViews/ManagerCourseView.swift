@@ -11,13 +11,24 @@ struct ManagerCourseView: View {
     
     //Binding View Models
     @Binding var authViewModel: AuthViewModel
-    @Binding var coursesViewModel: CoursesViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     
     var body: some View {
         NavigationStack {
+            if coursesViewModel.managedCourses == [] {
+                VStack {
+                    Spacer()
+                    Text("You don't have currently any course created")
+                        .font(.title2)
+                        .bold()
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.gray)
+                    Spacer()
+                }
+            }
             List {
                 ForEach(coursesViewModel.managedCourses, id:\.id) { course in
-                    ManagedCourseCardView(course: course)
+                    ManagedCourseCardView(course: course, coursesViewModel: coursesViewModel)
                 }
             }
             .navigationTitle("My managed courses")
@@ -31,6 +42,6 @@ struct ManagerCourseView_Previews: PreviewProvider {
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
     
     static var previews: some View {
-        ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
+        ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
     }
 }

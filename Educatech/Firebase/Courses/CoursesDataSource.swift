@@ -66,6 +66,17 @@ final class CoursesDataSource {
         }
     }
     
+    func updateCourseData(creatorID: String, courseID: String, title: String, description: String, imageURL: String, completionBlock: @escaping (Error) -> Void ) {
+        let currentDocument = self.database.collection(self.collection).document(courseID)
+        //Setting new document with the data given by the user
+        currentDocument.setData( ["title": title, "description": description, "image": imageURL, "creatorID": creatorID] ) { error in
+            if let error = error {
+                completionBlock(error)
+                return
+            }
+        }
+    }
+    
     // MARK: Private methods
     private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
         let collectionRef = self.database.collection(self.collection)

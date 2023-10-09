@@ -62,6 +62,20 @@ final class CoursesViewModel: ObservableObject {
         }
     }
     
+    func updateCourseData(creatorID: String, courseID: String, title: String, description: String, imageURL: String) {
+        self.error = nil
+        guard courseValidations(title, description, imageURL) else {
+            return
+        }
+        coursesRepository.updateCourseData(creatorID: creatorID,
+                                           courseID: courseID,
+                                           title: title,
+                                           description: description,
+                                           imageURL: imageURL) { [weak self] error in
+            self?.error = error.localizedDescription
+        }
+    }
+    
     // MARK: Private functinos for the View Model
     private func courseValidations(_ title: String, _ description: String, _ image: String) -> Bool {
         guard title.validateNotEmptyString().isValid else {

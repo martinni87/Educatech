@@ -11,24 +11,25 @@ import PhotosUI
 struct EditorView: View {
     
     @State var authViewModel: AuthViewModel
-    @State var coursesViewModel: CoursesViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     
     var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    CreateCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
+                    CreateCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
                 } label: {
                     Label("Create a new course", systemImage: "doc.badge.plus")
                 }
                 NavigationLink {
-                    ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
+                    ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
                 } label: {
-                    Label("My managed courses", systemImage: "book.and.wrench.fill")
+                    Label("My managed courses", systemImage: "text.book.closed")
                 }
             }
             .task(priority: .high) {
-                coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "8z38yBr08GTnTEXzLtEYi5r9grH3")
+//                coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "8z38yBr08GTnTEXzLtEYi5r9grH3")
+                coursesViewModel.getCoursesByCreatorID(creatorID: authViewModel.user?.id ?? "00000")
             }
         }
     }

@@ -15,10 +15,14 @@ struct SignoutButton: View {
         Button {
             authViewModel.signOut()
         } label: {
-            Image(systemName: "power")
+            Label("Close session", systemImage: "power")
+                .bold()
+                .frame(maxWidth: .infinity)
         }
-        .font(.system(size: 15))
-        .tint(.pink.opacity(0.5))
+        .padding()
+        .background(Color.pink)
+        .foregroundColor(.white)
+        .cornerRadius(10)
     }
 }
 

@@ -17,7 +17,7 @@ struct CreateCourseView: View {
     
     //Binding View Models
     @Binding var authViewModel: AuthViewModel
-    @Binding var coursesViewModel: CoursesViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     
     //Form values
     @State var title: String = ""
@@ -31,15 +31,15 @@ struct CreateCourseView: View {
     var body: some View {
         ScrollView {
             VStack (alignment: .leading){
-                CreationFormField(fieldType: .singleLine,
+                FormField(fieldType: .singleLine,
                                   title: "Title",
                                   variable: $title,
                                   autocapitalization: true)
-                CreationFormField(fieldType: .singleLine,
+                FormField(fieldType: .singleLine,
                                   title: "Image URL",
                                   variable: $image,
                                   autocapitalization: false)
-                CreationFormField(fieldType: .multiLine,
+                FormField(fieldType: .multiLine,
                                   title: "Description",
                                   variable: $description,
                                   autocapitalization: true)
@@ -87,40 +87,7 @@ struct CreateCourseView: View {
 }
 
 
-struct CreationFormField: View {
-    
-    @State var fieldType: FormFieldTypes
-    @State var title: String
-    @Binding var variable: String
-    @State var autocapitalization: Bool
-    @State var editing = false
-    
-    var body: some View {
-        VStack (alignment: .leading) {
-            Text(title)
-                .foregroundColor(.gray)
-                .bold()
-            if fieldType == .multiLine {
-                TextEditor(text: $variable)
-                    .padding(.horizontal,5)
-                    .frame(height: 150)
-                    .foregroundColor(!editing ? .gray : .black)
-                    .border(.gray.opacity(0.3), width: 1)
-                    .padding(.bottom, 20)
-                    .onTapGesture {
-                        variable = ""
-                        editing = true
-                    }
-            }
-            else {
-                TextField(title, text: $variable)
-                    .textInputAutocapitalization(!autocapitalization ? .never : .sentences)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.bottom, 20)
-            }
-        }
-    }
-}
+
 
 struct CreateCourseView_Previews: PreviewProvider {
     
@@ -128,6 +95,6 @@ struct CreateCourseView_Previews: PreviewProvider {
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
     
     static var previews: some View {
-        CreateCourseView(authViewModel: $authViewModel, coursesViewModel: $coursesViewModel)
+        CreateCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
     }
 }

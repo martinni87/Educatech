@@ -10,6 +10,7 @@ import Foundation
 enum FormFieldTypes {
     case singleLine
     case multiLine
+    case secure
 }
 
 var KLOREMIPSUM = """

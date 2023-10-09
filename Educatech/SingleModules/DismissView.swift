@@ -1,5 +1,5 @@
 //
-//  DismissView.swift
+//  CancelButton.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 14/9/23.
@@ -7,25 +7,23 @@
 
 import SwiftUI
 
-struct DismissView: View {
+struct CancelButton: View {
     
     @Environment (\.dismiss) var dismiss
     
     var body: some View {
         HStack {
-            Spacer()
-            Button("Cerrar"){
+            Button("Cancel"){
                 dismiss()
             }
             .tint(.pink)
-            .padding(10)
-            .buttonStyle(.bordered)
+            .buttonStyle(.borderless)
         }
     }
 }
 
-struct DismissView_Previews: PreviewProvider {
+struct CancelButton_Previews: PreviewProvider {
     static var previews: some View {
-        DismissView()
+        CancelButton()
     }
 }

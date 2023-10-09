@@ -10,12 +10,13 @@ import SwiftUI
 struct ManagedCourseCardView: View {
     
     @State var course: CourseModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     @State var showDetailView: Bool?
     @Environment (\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationLink {
-            ManagedCourseDetailView(course: $course)
+            ManagedCourseDetailView(course: $course, coursesViewModel: coursesViewModel)
         } label: {
             VStack (alignment: .leading){
                 Text(course.title)
@@ -34,7 +35,10 @@ struct ManagedCourseCardView: View {
 }
 
 struct ManagedCourseCardView_Previews: PreviewProvider {
+    
+    @State static var coursesViewModel = CoursesViewModel()
+    
     static var previews: some View {
-        ManagedCourseCardView(course: CourseModel(title: "Titulo de prueba", description: "Descripcion de prueba", image: "", creatorID: "8z38yBr08GTnTEXzLtEYi5r9grH3"))
+        ManagedCourseCardView(course: CourseModel(title: "Titulo de prueba", description: "Descripcion de prueba", image: "", creatorID: "8z38yBr08GTnTEXzLtEYi5r9grH3"), coursesViewModel: coursesViewModel)
     }
 }

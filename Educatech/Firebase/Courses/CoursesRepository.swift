@@ -26,5 +26,9 @@ final class CoursesRepository {
     func createNewCourse(title: String, description: String, image: String, creatorID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         coursesDataSource.createNewCourse(title: title, description: description, imageURL: image, creatorID: creatorID, completionBlock: completionBlock)
     }
+    
+    func updateCourseData(creatorID: String, courseID: String, title: String, description: String, imageURL: String, completionBlock: @escaping (Error) -> Void ) {
+        coursesDataSource.updateCourseData(creatorID: creatorID, courseID: courseID, title: title, description: description, imageURL: imageURL, completionBlock: completionBlock)
+    }
 
 }
