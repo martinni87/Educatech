@@ -20,10 +20,29 @@ struct LoginView: View {
                 .font(.title)
                 .bold()
             Spacer()
+            Image("login_pic")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+            Spacer()
+            Text("Access the app using the email and password you registered previously.")
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Color.gray)
+                .bold()
+                .padding(.horizontal, 20)
+            Spacer()
             VStack (spacing: 20){
                 Group {
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
+                    FormField(fieldType: .singleLine,
+                              label: "Email",
+                              placeholder: "jondoe@mail.com",
+                              variable: $email,
+                              autocapitalization: false)
+                    FormField(fieldType: .secure,
+                              label: "Password",
+                              placeholder: "*******",
+                              variable: $password,
+                              autocapitalization: false)
                 }
                 .textInputAutocapitalization(.never)
                 .textFieldStyle(.roundedBorder)

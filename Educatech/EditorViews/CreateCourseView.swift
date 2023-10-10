@@ -32,22 +32,25 @@ struct CreateCourseView: View {
         ScrollView {
             VStack (alignment: .leading){
                 FormField(fieldType: .singleLine,
-                                  title: "Title",
-                                  variable: $title,
-                                  autocapitalization: true)
+                          label: "Title",
+                          placeholder: "Title",
+                          variable: $title,
+                          autocapitalization: true)
                 FormField(fieldType: .singleLine,
-                                  title: "Image URL",
-                                  variable: $image,
-                                  autocapitalization: false)
+                          label: "Image URL",
+                          placeholder: "https://www.image.com/image.jpg",
+                          variable: $image,
+                          autocapitalization: false)
                 FormField(fieldType: .multiLine,
-                                  title: "Description",
-                                  variable: $description,
-                                  autocapitalization: true)
+                          label: "Description",
+                          placeholder: "Write some description here...",
+                          variable: $description,
+                          autocapitalization: true)
             }
             .onAppear {
                 description = KLOREMIPSUM
             }
-
+            
             Button {
                 coursesViewModel.createNewCourse(title: title,
                                                  description: description,

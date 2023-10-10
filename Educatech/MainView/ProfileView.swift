@@ -122,11 +122,11 @@ struct ProfileView: View {
                             VStack {
                                 VStack {
                                     FormField(fieldType: .singleLine,
-                                              title: "Email",
+                                              label: "Email", placeholder: "jondoe@mail.com",
                                               variable: $email,
                                               autocapitalization: false)
                                     FormField(fieldType: .secure,
-                                              title: "Password",
+                                              label: "Password", placeholder: "********",
                                               variable: $password,
                                               autocapitalization: false)
                                 }
