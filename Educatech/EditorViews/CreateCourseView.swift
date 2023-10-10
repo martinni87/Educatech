@@ -14,6 +14,7 @@ struct CreateCourseView: View {
     
     // Presentation mode for dismissing the current view
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     //Binding View Models
     @Binding var authViewModel: AuthViewModel
@@ -30,27 +31,30 @@ struct CreateCourseView: View {
     
     var body: some View {
         ScrollView {
-            VStack (alignment: .leading){
-                FormField(fieldType: .singleLine,
-                          label: "Title",
-                          placeholder: "Title",
-                          variable: $title,
-                          autocapitalization: true)
-                FormField(fieldType: .singleLine,
-                          label: "Image URL",
-                          placeholder: "https://www.image.com/image.jpg",
-                          variable: $image,
-                          autocapitalization: false)
-                FormField(fieldType: .multiLine,
-                          label: "Description",
-                          placeholder: "Write some description here...",
-                          variable: $description,
-                          autocapitalization: true)
+            if verticalSizeClass == .compact {
+                HStack (alignment: .firstTextBaseline, spacing: 20){
+                    CreationFormPart(title: $title,
+                                     description: $description,
+                                     image: $image,
+                                     showMsg: $showMsg,
+                                     thereIsError: $thereIsError,
+                                     message: $message)
+                }
             }
-            .onAppear {
-                description = KLOREMIPSUM
+            else {
+                VStack {
+                    Image("video-editing")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 100)
+                    CreationFormPart(title: $title,
+                                     description: $description,
+                                     image: $image,
+                                     showMsg: $showMsg,
+                                     thereIsError: $thereIsError,
+                                     message: $message)
+                }
             }
-            
             Button {
                 coursesViewModel.createNewCourse(title: title,
                                                  description: description,
@@ -67,6 +71,11 @@ struct CreateCourseView: View {
             }
             .buttonStyle(.bordered)
             .tint(.green)
+        }
+        
+        
+        .onAppear {
+            description = KLOREMIPSUM
         }
         .padding(30)
         .alert(isPresented: $showMsg) {
@@ -89,8 +98,40 @@ struct CreateCourseView: View {
     }
 }
 
-
-
+struct CreationFormPart: View {
+    
+    //Form values
+    @Binding var title: String
+    @Binding var description: String
+    @Binding var image: String
+    
+    @Binding var showMsg: Bool
+    @Binding var thereIsError: Bool
+    @Binding var message: String
+    
+    var body: some View {
+        Group {
+            VStack {
+                FormField(fieldType: .singleLine,
+                          label: "Title",
+                          placeholder: "Title",
+                          variable: $title,
+                          autocapitalization: true)
+                FormField(fieldType: .singleLine,
+                          label: "Image URL",
+                          placeholder: "https://www.image.com/image.jpg",
+                          tooltip: "You can choose any picture you like from the internet if you have a valid URL address",
+                          variable: $image,
+                          autocapitalization: false)
+            }
+            FormField(fieldType: .multiLine,
+                      label: "Description",
+                      placeholder: "Write some description here...",
+                      variable: $description,
+                      autocapitalization: true)
+        }
+    }
+}
 
 struct CreateCourseView_Previews: PreviewProvider {
     

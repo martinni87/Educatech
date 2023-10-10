@@ -27,10 +27,10 @@ struct FormField: View {
             Text(label)
                 .foregroundColor(.gray)
                 .bold()
-            VStack {
+            VStack (alignment: .trailing) {
                 Rectangle()
-                    .fill(colorScheme == .light ? .black.opacity(0.2) : .white.opacity(0.2))
-                    .frame(height: fieldType == .multiLine ? 150 : 50)
+                    .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
+                    .frame(height: fieldType == .multiLine ? 200 : 50)
                     .cornerRadius(10)
                     .overlay {
                         switch fieldType {
@@ -56,14 +56,15 @@ struct FormField: View {
 
                         case .multiLine:
                             TextEditor(text: $variable)
-                                
-                                .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+                                .cornerRadius(8)
+                                .underline(color: .red)
                                 .foregroundColor(editing ? (colorScheme == .light ? .black : .white) : .gray)
                                 .padding()
-                                .foregroundColor(.blue)
                                 .onTapGesture {
-                                    variable = ""
-                                    editing = true
+                                    if !editing {
+                                        variable = ""
+                                        editing = true
+                                    }
                                 }
                         case .secure:
                             HStack {
@@ -87,7 +88,7 @@ struct FormField: View {
                         }
                     }
                 Text(tooltip ?? "Needed \(label)")
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.trailing)
                     .foregroundStyle(showTooltip ? .gray : .clear)
             }
             
@@ -97,13 +98,28 @@ struct FormField: View {
 
 struct CreationFormField_Preview: PreviewProvider {
     
-    @State static var variable = ""
+    @State static var variable = "fdsafasdfasdfadsfasd"
     static var previews: some View {
-        FormField(fieldType: .multiLine,
-                  label: "Example",
-                  placeholder: "jondoe@mail.com",
-                  variable: $variable,
-                  autocapitalization: false)
+        VStack {
+            FormField(fieldType: .singleLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            FormField(fieldType: .singleLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            FormField(fieldType: .multiLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            Button("Whatever"){
+                print("whatever")
+            }
+        }
     }
 }
 
