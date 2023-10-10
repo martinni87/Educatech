@@ -6,57 +6,120 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseStorage
 
 struct FormField: View {
     
+    @Environment (\.colorScheme) var colorScheme
+    
     @State var fieldType: FormFieldTypes
-    @State var title: String
+    @State var label: String
+    @State var placeholder: String
+    @State var tooltip: String?
     @Binding var variable: String
     @State var autocapitalization: Bool
+    
     @State var editing = false
+    @State var showTooltip = false
+    @State var tooltipTimer: Timer?
     
     var body: some View {
         VStack (alignment: .leading) {
-            Text(title)
+            Text(label)
                 .foregroundColor(.gray)
                 .bold()
-            switch fieldType {
-            case .singleLine:
-                TextField(title, text: $variable)
-                    .textInputAutocapitalization(!autocapitalization ? .never : .sentences)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.bottom, 20)
-            case .multiLine:
-                TextEditor(text: $variable)
-                    .padding(.horizontal,5)
-                    .frame(height: 150)
-                    .foregroundColor(!editing ? .gray : .black)
-                    .border(.gray.opacity(0.3), width: 1)
-                    .padding(.bottom, 20)
-                    .onTapGesture {
-                        variable = ""
-                        editing = true
+            VStack (alignment: .trailing) {
+                Rectangle()
+                    .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
+                    .frame(height: fieldType == .multiLine ? 200 : 50)
+                    .cornerRadius(10)
+                    .overlay {
+                        switch fieldType {
+                        case .singleLine:
+                            HStack {
+                                TextField(placeholder, text: $variable)
+                                    .textInputAutocapitalization(!autocapitalization ? .never : .sentences)
+                                    .textFieldStyle(.plain)
+                                    .padding()
+                                Image(systemName: "questionmark.bubble")
+                                    .onTapGesture(perform: {
+                                        showTooltip.toggle()
+                                        
+                                        // Hide tooltip after 2 seconds
+                                        tooltipTimer?.invalidate()
+                                        tooltipTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+                                            showTooltip = false
+                                        })
+                                    })
+                                    .foregroundColor(.gray)
+                                    .padding()
+                            }
+
+                        case .multiLine:
+                            TextEditor(text: $variable)
+                                .cornerRadius(8)
+                                .underline(color: .red)
+                                .foregroundColor(editing ? (colorScheme == .light ? .black : .white) : .gray)
+                                .padding()
+                                .onTapGesture {
+                                    if !editing {
+                                        variable = ""
+                                        editing = true
+                                    }
+                                }
+                        case .secure:
+                            HStack {
+                                SecureField(placeholder, text: $variable)
+                                    .textInputAutocapitalization(!autocapitalization ? .never : .sentences)
+                                    .textFieldStyle(.plain)
+                                    .padding()
+                                Image(systemName: "questionmark.bubble")
+                                    .onTapGesture(perform: {
+                                        showTooltip.toggle()
+                                        
+                                        // Hide tooltip after 2 seconds
+                                        tooltipTimer?.invalidate()
+                                        tooltipTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+                                            showTooltip = false
+                                        })
+                                    })
+                                    .foregroundColor(.gray)
+                                    .padding()
+                            }
+                        }
                     }
-            case .secure:
-                SecureField(title, text: $variable)
-                    .textInputAutocapitalization(!autocapitalization ? .never : .sentences)
-                    .textFieldStyle(.roundedBorder)
-                    .padding(.bottom, 20)
+                Text(tooltip ?? "Needed \(label)")
+                    .multilineTextAlignment(.trailing)
+                    .foregroundStyle(showTooltip ? .gray : .clear)
             }
+            
         }
     }
 }
 
 struct CreationFormField_Preview: PreviewProvider {
     
-    @State static var variable = ""
+    @State static var variable = "fdsafasdfasdfadsfasd"
     static var previews: some View {
-        FormField(fieldType: .singleLine,
-                          title: "Example",
-                          variable: $variable,
-                          autocapitalization: true)
+        VStack {
+            FormField(fieldType: .singleLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            FormField(fieldType: .singleLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            FormField(fieldType: .multiLine,
+                      label: "Example",
+                      placeholder: "jondoe@mail.com",
+                      variable: $variable,
+                      autocapitalization: false)
+            Button("Whatever"){
+                print("whatever")
+            }
+        }
     }
 }
 

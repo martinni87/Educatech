@@ -79,7 +79,7 @@ struct ProfileView: View {
                     VStack {
                         Button(action: {
                             if MFMailComposeViewController.canSendMail() {
-                                self.emailBody =
+                                emailBody =
                                 """
                                 <h1> Contact Support Educatech iOS </h1>
                                 <ul>
@@ -89,7 +89,7 @@ struct ProfileView: View {
                                 <h3>Please, describe the issue you're encountering, a request or any comment you might want to share with us:</h3>
                                 <p></p>
                                 """
-                                self.emailData = EmailData(body: self.emailBody)
+                                self.emailData = EmailData(body: emailBody)
                                 self.isShowingEmailView.toggle()
                             }
                             else {
@@ -122,11 +122,11 @@ struct ProfileView: View {
                             VStack {
                                 VStack {
                                     FormField(fieldType: .singleLine,
-                                              title: "Email",
+                                              label: "Email", placeholder: "jondoe@mail.com",
                                               variable: $email,
                                               autocapitalization: false)
                                     FormField(fieldType: .secure,
-                                              title: "Password",
+                                              label: "Password", placeholder: "********",
                                               variable: $password,
                                               autocapitalization: false)
                                 }

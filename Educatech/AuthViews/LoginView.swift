@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @Environment (\.verticalSizeClass) var verticalSizeClass
+    
     @ObservedObject var authViewModel: AuthViewModel
     @State var email: String = ""
     @State var password: String = ""
@@ -16,17 +18,79 @@ struct LoginView: View {
     
     var body: some View {
         VStack {
+            if verticalSizeClass == .compact {
+                HStack (spacing: 20){
+                    LoginHeaderPart()
+                    Spacer()
+                    LoginFormPart(authViewModel: authViewModel,
+                                  email: $email,
+                                  password: $password,
+                                  thereIsError: $thereIsError)
+                }
+            }
+            else {
+                VStack (spacing: 20){
+                    LoginHeaderPart()
+                    Spacer()
+                    LoginFormPart(authViewModel: authViewModel,
+                                  email: $email,
+                                  password: $password,
+                                  thereIsError: $thereIsError)
+                }
+            }
+
+            Spacer()
+        }
+        .alert(isPresented: $authViewModel.showAlert) {
+            Alert(title: Text("Something went wrong"),
+                  message: Text(self.authViewModel.error ?? "Unknown error"),
+                  dismissButton: .default(Text("OK")))
+        }
+        .padding()
+    }
+}
+
+struct LoginHeaderPart: View {
+    
+    var body: some View {
+        VStack {
             Text("Login")
                 .font(.title)
                 .bold()
             Spacer()
-            VStack (spacing: 20){
-                Group {
-                    TextField("Email", text: $email)
-                    SecureField("Password", text: $password)
-                }
-                .textInputAutocapitalization(.never)
-                .textFieldStyle(.roundedBorder)
+            Image("login_pic")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 100)
+            Spacer()
+            Text("Access using the email and password you registered previously.")
+                .multilineTextAlignment(.center)
+                .foregroundStyle(Color.gray)
+                .bold()
+                .padding(.horizontal, 20)
+        }
+    }
+}
+
+struct LoginFormPart: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    @Binding var email: String
+    @Binding var password: String
+    @Binding var thereIsError: Bool
+    
+    var body: some View {
+            VStack {
+                FormField(fieldType: .singleLine,
+                          label: "Email",
+                          placeholder: "jondoe@mail.com",
+                          variable: $email,
+                          autocapitalization: false)
+                FormField(fieldType: .secure,
+                          label: "Password",
+                          placeholder: "*******",
+                          variable: $password,
+                          autocapitalization: false)
                 Button("Login"){
                     authViewModel.signInEmail(email: email,
                                               password: password)
@@ -37,14 +101,9 @@ struct LoginView: View {
                 .buttonStyle(.bordered)
                 .tint(.green)
             }
-            Spacer()
-        }
-        .alert(isPresented: $authViewModel.showAlert) {
-            Alert(title: Text("Something went wrong"),
-                  message: Text(self.authViewModel.error ?? "Unknown error"),
-                  dismissButton: .default(Text("OK")))
-        }
-        .padding()
+            .textInputAutocapitalization(.never)
+            .textFieldStyle(.roundedBorder)
+
     }
 }
 
