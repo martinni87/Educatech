@@ -8,7 +8,8 @@
 import Foundation
 import FirebaseAuth
 
-struct User {
+struct User: Decodable, Identifiable {
     var id: String
     let email: String
+    var subscriptions: [String] = []
 }

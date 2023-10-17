@@ -24,6 +24,9 @@ struct ProfileView: View {
         NavigationStack {
             ZStack {
                 VStack {
+                    Text("Profile")
+                        .bold()
+                        .font(.headline)
                     Form {
                         Section("My info") {
                             List {
@@ -172,8 +175,8 @@ struct ProfileView: View {
                     Text("Something went wrong. Try again later or contact the sysadmin")
                 }
             }
-            .navigationTitle("Profile")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("Profile")
+//            .navigationBarTitleDisplayMode(.inline)
         }
         .task {
             authViewModel.getCurrentProvider()

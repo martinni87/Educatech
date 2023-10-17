@@ -19,6 +19,10 @@ final class CoursesRepository {
         coursesDataSource.getAllCourses(completionBlock: completionBlock)
     }
     
+    func getSubscribedCoursesByIDList(coursesID: [String], completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ) {
+        coursesDataSource.getSubscribedCoursesByIDList(coursesID: coursesID, completionBlock: completionBlock)
+    }
+    
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         coursesDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
     }

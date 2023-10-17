@@ -31,6 +31,27 @@ final class CoursesDataSource {
             }
     }
     
+    func getSubscribedCoursesByIDList(coursesID: [String], completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ) {
+        var subscribedCourses: [CourseModel] = []
+        for id in coursesID {
+            self.database.collection(self.collection).whereField("id", isEqualTo: id)
+                .addSnapshotListener { query, error in
+                    if let error = error {
+                        completionBlock(.failure(error)) // To return Error case
+                        return
+                    }
+                    guard let documents = query?.documents.compactMap({ $0 }) else {
+                        completionBlock(.success([])) // To return [CourseModel] array empty
+                        return
+                    }
+                    let course = documents.map { try? $0.data(as: CourseModel.self) }
+                        .compactMap { $0 } // To avoid nil values.
+                    subscribedCourses.append(course[0]) //Each iteration returns a 1 element array, so we take the index 0 each time
+                    completionBlock(.success(subscribedCourses)) // To return [CourseModel] array with data
+                }
+        }
+    }
+    
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         self.database.collection(self.collection).whereField("creatorID", isEqualTo: creatorID)
             .addSnapshotListener { query, error in
@@ -55,7 +76,7 @@ final class CoursesDataSource {
             let newDocument = self.database.collection(self.collection).document(id)
             
             //Setting new document with the data given by the user
-            newDocument.setData( ["title": title, "description": description, "image": imageURL, "creatorID": creatorID]) { error in
+            newDocument.setData( ["id": id, "title": title, "description": description, "image": imageURL, "creatorID": creatorID]) { error in
                 if let error = error {
                     completionBlock(.failure(error))
                     return

@@ -39,6 +39,7 @@ struct EducatechApp: App {
     
     @StateObject var authViewModel = AuthViewModel()
     @StateObject var coursesViewModel = CoursesViewModel()
+    @StateObject var userViewModel = UserViewModel()
     
     var body: some Scene {
         WindowGroup {

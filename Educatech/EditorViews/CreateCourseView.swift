@@ -17,7 +17,7 @@ struct CreateCourseView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
     //Binding View Models
-    @Binding var authViewModel: AuthViewModel
+    @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var coursesViewModel: CoursesViewModel
     
     //Form values
@@ -139,6 +139,6 @@ struct CreateCourseView_Previews: PreviewProvider {
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
     
     static var previews: some View {
-        CreateCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
+        CreateCourseView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
     }
 }

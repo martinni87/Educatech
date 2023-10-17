@@ -10,7 +10,7 @@ import SwiftUI
 struct ManagerCourseView: View {
     
     //Binding View Models
-    @Binding var authViewModel: AuthViewModel
+    @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var coursesViewModel: CoursesViewModel
     
     var body: some View {
@@ -42,6 +42,6 @@ struct ManagerCourseView_Previews: PreviewProvider {
     @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
     
     static var previews: some View {
-        ManagerCourseView(authViewModel: $authViewModel, coursesViewModel: coursesViewModel)
+        ManagerCourseView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
     }
 }

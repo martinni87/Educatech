@@ -11,6 +11,7 @@ final class CoursesViewModel: ObservableObject {
     
     @Published var allCourses: [CourseModel] = []
     @Published var managedCourses: [CourseModel] = []
+    @Published var subscribedCourses: [CourseModel] = []
     @Published var error: String?
     
     private let coursesRepository: CoursesRepository
@@ -25,6 +26,18 @@ final class CoursesViewModel: ObservableObject {
             switch result {
             case .success(let courses):
                 self?.allCourses = courses
+            case .failure(let error):
+                self?.error = error.localizedDescription
+            }
+        }
+    }
+    
+    func getSubscribedCoursesByIDList(coursesID: [String]) {
+        self.error = nil
+        coursesRepository.getSubscribedCoursesByIDList(coursesID: coursesID) { [weak self] result in
+            switch result {
+            case .success(let courses):
+                self?.subscribedCourses = courses
             case .failure(let error):
                 self?.error = error.localizedDescription
             }

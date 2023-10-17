@@ -3,4 +3,948 @@
    uuid = "CDC83963-9159-4273-A10D-5B3BA0C15E99"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC9B3CC4-BAD7-465A-9F1B-DA8989E7A032"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC9B3CC4-BAD7-465A-9F1B-DA8989E7A032 - 4906ccdd44530ef8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "FC9B3CC4-BAD7-465A-9F1B-DA8989E7A032 - 830fcd4e618899b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "62DD398A-6251-4287-8A9B-42EF06630B16"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1266C1E4-39DC-4770-9739-C7FF0C583E3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "290ECC51-0F0E-4448-A0B4-5FA1FA1869D5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "290ECC51-0F0E-4448-A0B4-5FA1FA1869D5 - 4906ccdd44530f15"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "688">
+               </Location>
+               <Location
+                  uuid = "290ECC51-0F0E-4448-A0B4-5FA1FA1869D5 - 830fcd4e618899b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC27EF79-E967-42B5-84E6-2FB644CEC989"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76B03A0A-7097-471D-B364-A0330567599C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91F042FD-734C-4C4C-9246-48CC4717C6EC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7ECF8098-95AD-4C82-B5AD-F3A2C53401BE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7ECF8098-95AD-4C82-B5AD-F3A2C53401BE - 830fcd4e618898ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "7ECF8098-95AD-4C82-B5AD-F3A2C53401BE - e0488f68f1d53216"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;__C.FIRQueryDocumentSnapshot&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FBBAD6C-7CD6-4FEA-BA70-C5675AFF3587"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FBBAD6C-7CD6-4FEA-BA70-C5675AFF3587 - 830fcd4e618898ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "7FBBAD6C-7CD6-4FEA-BA70-C5675AFF3587 - e0488f68f1d53216"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;__C.FIRQueryDocumentSnapshot&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFD08DF3-55A2-4024-8332-E9F9A79B54E8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ACDE2F96-C8AF-4171-B17B-7EEA2C5646DD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFE47ECC-F25A-49D9-8DA7-8139E5C08B9E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFE47ECC-F25A-49D9-8DA7-8139E5C08B9E - 830fcd4e61889b06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "DFE47ECC-F25A-49D9-8DA7-8139E5C08B9E - bc24e6878dae1132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Educatech.CourseModel&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "77838FD9-8D1F-4664-9175-07EDAC1FED2D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "77838FD9-8D1F-4664-9175-07EDAC1FED2D - 830fcd4e61889be5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "764">
+               </Location>
+               <Location
+                  uuid = "77838FD9-8D1F-4664-9175-07EDAC1FED2D - d87403f5c320cb9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (Swift.Optional&lt;Educatech.CourseModel&gt;) -&gt; Swift.Optional&lt;Educatech.CourseModel&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "168">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "637C186D-A8EB-48CA-A256-92EB769AEA62"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "637C186D-A8EB-48CA-A256-92EB769AEA62 - 830fcd4e61889b06"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "648">
+               </Location>
+               <Location
+                  uuid = "637C186D-A8EB-48CA-A256-92EB769AEA62 - bc24e6878dae1132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.FIRQueryDocumentSnapshot) -&gt; Swift.Optional&lt;Educatech.CourseModel&gt; in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Educatech.CoursesDataSource.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;, completionBlock: (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E149A634-9D59-4BF7-A5C0-D2B4B445E265"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF29C0AD-94D9-4534-B46A-58BF10B8DA44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DEC4B3A6-AC89-4C68-A9B4-26B52DDB4368"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4FDC0C13-B11C-4BBB-8A91-067E2094095C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/MainView/SubscribedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "54EB7001-B910-475B-8FCC-DF2C489A2931"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/MainView/SubscribedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF6DADD1-2687-44FC-B49E-5A9A32755943"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/MainView/SubscribedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "EF6DADD1-2687-44FC-B49E-5A9A32755943 - 7bdca685e39b2c7d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "952">
+               </Location>
+               <Location
+                  uuid = "EF6DADD1-2687-44FC-B49E-5A9A32755943 - d0d37f2d8c15b758"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 @Sendable () async -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "EF6DADD1-2687-44FC-B49E-5A9A32755943 - f59e248fa3dacc27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "EF6DADD1-2687-44FC-B49E-5A9A32755943 - f59e248fa3dacc27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #2 @Sendable () async -&gt; () in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D3026D9F-CD00-4E76-8E09-927ABE953365"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/MainView/SubscribedView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "D3026D9F-CD00-4E76-8E09-927ABE953365 - 47b6b240e814b164"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Educatech.CourseModel) -&gt; Educatech.CourseCardView in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Optional&lt;Swift.String&gt;, Educatech.CourseCardView&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "D3026D9F-CD00-4E76-8E09-927ABE953365 - 47b6b240e814b164"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Educatech.CourseModel) -&gt; Educatech.CourseCardView in closure #1 () -&gt; SwiftUI.ForEach&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Optional&lt;Swift.String&gt;, Educatech.CourseCardView&gt; in closure #1 () -&gt; &lt;&lt;opaque return type of SwiftUI.View.navigationBarTitleDisplayMode(SwiftUI.NavigationBarItem.TitleDisplayMode) -&gt; some&gt;&gt;.0 in Educatech.SubscribedView.body.getter : some"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/MainView/SubscribedView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C5B3D34-E99B-4C91-AEED-2C76D694EEB0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9BA60620-BEAF-42A8-89D9-5C3229A7AE21"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A1B8560-B916-4D0D-919E-518FBF236803"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A1B8560-B916-4D0D-919E-518FBF236803 - e3085b23e7f8aaf5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "7A1B8560-B916-4D0D-919E-518FBF236803 - 7167d0fa53dbeb77"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; () in Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CA39D03-C404-42D8-9D97-E21848B0F5FC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4CA39D03-C404-42D8-9D97-E21848B0F5FC - 7167d0fa53dbeb39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; () in Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "4CA39D03-C404-42D8-9D97-E21848B0F5FC - 7167d0fa53dbeb39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; () in Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BCC0A4AE-F244-4BF4-8B83-A6D3111B2617"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BCC0A4AE-F244-4BF4-8B83-A6D3111B2617 - 7167d0fa53dbeb39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; () in Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "BCC0A4AE-F244-4BF4-8B83-A6D3111B2617 - 7167d0fa53dbeb39"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Educatech.CourseModel&gt;, Swift.Error&gt;) -&gt; () in Educatech.CoursesViewModel.getSubscribedCoursesByIDList(coursesID: Swift.Array&lt;Swift.String&gt;) -&gt; ()"
+                  moduleName = "Educatech"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/martin/Xcode/Educatech/Educatech/Firebase/Courses/CoursesViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "108">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B47E497-41FF-4633-895C-35C20EA0089C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2B197CD8-28B9-441B-9119-8A6651348980"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6C284636-8229-43FD-A0D5-48914E2B29A3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F71164D6-1631-4590-91F2-2F5A53520E3F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CA1DEA09-DC4C-4423-9AFF-225FEA1A428C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B68A81B3-3EC7-4C2E-A0C9-8CEE6B8BBA2F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EED85CA9-B630-4A58-9748-BC07546B47BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Educatech/Firebase/Courses/CoursesDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getSubscribedCoursesByIDList(coursesID:completionBlock:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

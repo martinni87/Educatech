@@ -15,5 +15,4 @@ struct CourseModel: Decodable, Identifiable, Hashable {
     let description: String
     let image: String //The route in which is stored
     let creatorID: String //Id of authenticated user that creates the course
-
 }

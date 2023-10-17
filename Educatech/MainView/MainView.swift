@@ -9,13 +9,12 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel = CoursesViewModel()
-
+    @StateObject var authViewModel: AuthViewModel
+    @StateObject var coursesViewModel: CoursesViewModel = CoursesViewModel()
+    @StateObject var userViewModel: UserViewModel = UserViewModel()
+    
     @Environment (\.verticalSizeClass) var verticalSizeClass
-    
-//    @State var pageTitle = ""
-    
+        
     var body: some View {
         NavigationStack {
             TabView {
@@ -23,33 +22,24 @@ struct MainView: View {
                     .tabItem {
                         Label("Home", systemImage: "house.fill")
                     }
-//                    .onAppear {
-//                        pageTitle = "Home"
-//                    }
-                SubscribedView()
-                    .tabItem {
-                        Label("My Lessons", systemImage: "text.book.closed")
-                    }
-//                    .onAppear {
-//                        pageTitle = "My Lessons"
-//                    }
+                SubscribedView(authViewModel: authViewModel,
+                               coursesViewModel: coursesViewModel,
+                               userViewModel: userViewModel)
+                .tabItem {
+                    Label("My Lessons", systemImage: "text.book.closed")
+                }
                 EditorView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                     .tabItem {
                         Label("Editor", systemImage: "compass.drawing")
                     }
-//                    .onAppear {
-//                        pageTitle = "Editor"
-//                    }
                 ProfileView(authViewModel: authViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
                     }
-//                    .onAppear {
-//                        pageTitle = "Profile"
-//                    }
             }
-//            .navigationTitle(pageTitle)
-//            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                userViewModel.getUserByID(userID: authViewModel.user?.id ?? "8z38yBr08GTnTEXzLtEYi5r9grH3")
+            }
         }
     }
 }

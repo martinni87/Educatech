@@ -9,12 +9,15 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @StateObject var authViewModel: AuthViewModel
-    @StateObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     
     
     var body: some View {
         NavigationStack {
+            Text("Home")
+                .bold()
+                .font(.headline)
             ScrollView {
                 ForEach(coursesViewModel.allCourses, id:\.id) { course in
                     CourseCardView(course: course)
@@ -23,8 +26,8 @@ struct HomeView: View {
             .task {
                 coursesViewModel.getAllCourses()
             }
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
+//            .navigationTitle("Home")
+//            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

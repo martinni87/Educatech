@@ -12,5 +12,6 @@ enum AppErrors: String, Error {
     case fieldIsEmpty = "All fields are mandatory"
     case badURL = "The URL is badly formed"
     case authError = "Something went wrong during authentication process. If the problem persists, please contact support."
+    case badID = "Something is wrong with the ID provided. Please check if it's valid or contact Administrator."
 }
 
