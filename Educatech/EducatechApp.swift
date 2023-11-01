@@ -38,13 +38,17 @@ struct EducatechApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var authViewModel = AuthViewModel()
-    @StateObject var coursesViewModel = CoursesViewModel()
-    @StateObject var userViewModel = UserViewModel()
+//    @StateObject var userViewModel = UserViewModel()
     
     var body: some Scene {
         WindowGroup {
             if let _ = authViewModel.user {
                 MainView(authViewModel: authViewModel)
+//                    .task {
+//                        if let id = authViewModel.user?.id, let email = authViewModel.user?.email {
+//                            userViewModel.createNewUser(id: id, email: email, nickname: <#T##String#>)
+//                        }
+//                    }
             }
             else {
                 InitialView(authViewModel: authViewModel)

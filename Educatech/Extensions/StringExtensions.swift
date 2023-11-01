@@ -47,7 +47,7 @@ extension String {
         return (isValid: true, errorMsg: "")
     }
 
-    func validatePassword(for email: String) -> (isValid: Bool, errorMsg: String) {
+    func validatePassword(for email: String, repeated password: String) -> (isValid: Bool, errorMsg: String) {
         // Check for minimum and maximum length
         if !(6...12).contains(self.count) {
             return (isValid: false, errorMsg: "Password must be between 6 and 12 characters.")
@@ -84,11 +84,14 @@ extension String {
         }
 
         // Check for common weak passwords
-        let commonPasswords = ["123456", "12345678", "qwerty", "password", "pass"]
+        let commonPasswords = ["123456", "12345678", "qwerty", "password", "pass"] //Add more restrictions if needed
         if commonPasswords.contains(self.lowercased()) {
             return (isValid: false, errorMsg: "Password is too common.")
         }
-
+        
+        if self != password {
+            return (isValid: false, errorMsg: "Passwords don't match.")
+        }
         // If all checks pass, the password is valid
         return (isValid: true, errorMsg: "")
     }
