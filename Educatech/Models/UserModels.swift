@@ -7,15 +7,19 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseFirestoreSwift
 
 struct UserAuthModel: Decodable, Identifiable {
     var id: String
     var email: String
 }
 
-struct UserAppModel: Decodable, Identifiable {
-    var id: String
+struct UserDataModel: Decodable, Identifiable {
+    @DocumentID var id: String?
     var email: String
-    var nickname: String
+    var username: String
+    var isEditor: Bool = false
+    var categories: [String] = []
+    var contentCreated: [String] = []
     var subscriptions: [String] = []
 }

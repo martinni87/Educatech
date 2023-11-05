@@ -42,13 +42,8 @@ struct EducatechApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let _ = authViewModel.user {
+            if let _ = authViewModel.userAuth {
                 MainView(authViewModel: authViewModel)
-//                    .task {
-//                        if let id = authViewModel.user?.id, let email = authViewModel.user?.email {
-//                            userViewModel.createNewUser(id: id, email: email, nickname: <#T##String#>)
-//                        }
-//                    }
             }
             else {
                 InitialView(authViewModel: authViewModel)

@@ -42,9 +42,21 @@
 		5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */; };
 		5B9564622AD1FD55002BC3BE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564612AD1FD55002BC3BE /* Enums.swift */; };
 		5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564632AD21330002BC3BE /* AddNewVideosView.swift */; };
+		5BBAFE4C2AF83D9E008CEBBE /* HeaderViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */; };
+		5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */; };
+		5BBAFE502AF83DDE008CEBBE /* ProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */; };
+		5BBAFE522AF83DFD008CEBBE /* SeparatorViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE512AF83DFD008CEBBE /* SeparatorViewComponent.swift */; };
+		5BBAFE542AF83E0D008CEBBE /* ProviderButtonViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE532AF83E0D008CEBBE /* ProviderButtonViewComponent.swift */; };
+		5BBAFE572AF84086008CEBBE /* RegisterSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE562AF84086008CEBBE /* RegisterSubView2.swift */; };
+		5BBAFE592AF8408D008CEBBE /* RegisterSubView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE582AF8408D008CEBBE /* RegisterSubView3.swift */; };
+		5BBAFE5B2AF84093008CEBBE /* RegisterSubView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE5A2AF84093008CEBBE /* RegisterSubView4.swift */; };
+		5BBAFE5D2AF84106008CEBBE /* ButtonViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE5C2AF84106008CEBBE /* ButtonViewComponent.swift */; };
+		5BBAFE5F2AF8412F008CEBBE /* RegistrationFormViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE5E2AF8412F008CEBBE /* RegistrationFormViewComponent.swift */; };
+		5BBAFE612AF8414C008CEBBE /* TextFieldViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE602AF8414C008CEBBE /* TextFieldViewComponent.swift */; };
+		5BBAFE632AF84364008CEBBE /* CategorybuttonViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE622AF84364008CEBBE /* CategorybuttonViewComponent.swift */; };
 		5BC241352ADF0486002892E5 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC241342ADF0486002892E5 /* DoubleExtensions.swift */; };
 		5BC241372ADF0658002892E5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC241362ADF0658002892E5 /* Constants.swift */; };
-		5BC2413B2ADF1E99002892E5 /* Parameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2413A2ADF1E99002892E5 /* Parameters.swift */; };
+		5BC2413B2ADF1E99002892E5 /* FormInputs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2413A2ADF1E99002892E5 /* FormInputs.swift */; };
 		5BC2413D2AE05AED002892E5 /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC2413C2AE05AED002892E5 /* UserModels.swift */; };
 		5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC457082AB367FD00567EEF /* EducatechApp.swift */; };
 		5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC4570A2AB367FD00567EEF /* LoginView.swift */; };
@@ -99,9 +111,21 @@
 		5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseDetailView.swift; sourceTree = "<group>"; };
 		5B9564612AD1FD55002BC3BE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5B9564632AD21330002BC3BE /* AddNewVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVideosView.swift; sourceTree = "<group>"; };
+		5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
+		5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderModel.swift; sourceTree = "<group>"; };
+		5BBAFE512AF83DFD008CEBBE /* SeparatorViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE532AF83E0D008CEBBE /* ProviderButtonViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderButtonViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE562AF84086008CEBBE /* RegisterSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSubView2.swift; sourceTree = "<group>"; };
+		5BBAFE582AF8408D008CEBBE /* RegisterSubView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSubView3.swift; sourceTree = "<group>"; };
+		5BBAFE5A2AF84093008CEBBE /* RegisterSubView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSubView4.swift; sourceTree = "<group>"; };
+		5BBAFE5C2AF84106008CEBBE /* ButtonViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE5E2AF8412F008CEBBE /* RegistrationFormViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationFormViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE602AF8414C008CEBBE /* TextFieldViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewComponent.swift; sourceTree = "<group>"; };
+		5BBAFE622AF84364008CEBBE /* CategorybuttonViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorybuttonViewComponent.swift; sourceTree = "<group>"; };
 		5BC241342ADF0486002892E5 /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		5BC241362ADF0658002892E5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5BC2413A2ADF1E99002892E5 /* Parameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parameters.swift; sourceTree = "<group>"; };
+		5BC2413A2ADF1E99002892E5 /* FormInputs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormInputs.swift; sourceTree = "<group>"; };
 		5BC2413C2AE05AED002892E5 /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
 		5BC457052AB367FD00567EEF /* Educatech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Educatech.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC457082AB367FD00567EEF /* EducatechApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducatechApp.swift; sourceTree = "<group>"; };
@@ -221,9 +245,34 @@
 			path = AppUsers;
 			sourceTree = "<group>";
 		};
+		5BBAFE4A2AF83D91008CEBBE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */,
+				5BBAFE512AF83DFD008CEBBE /* SeparatorViewComponent.swift */,
+				5BBAFE532AF83E0D008CEBBE /* ProviderButtonViewComponent.swift */,
+				5BBAFE5C2AF84106008CEBBE /* ButtonViewComponent.swift */,
+				5BBAFE5E2AF8412F008CEBBE /* RegistrationFormViewComponent.swift */,
+				5BBAFE602AF8414C008CEBBE /* TextFieldViewComponent.swift */,
+				5BBAFE622AF84364008CEBBE /* CategorybuttonViewComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5BBAFE552AF84057008CEBBE /* RegisterSubViews */ = {
+			isa = PBXGroup;
+			children = (
+				5BBAFE562AF84086008CEBBE /* RegisterSubView2.swift */,
+				5BBAFE582AF8408D008CEBBE /* RegisterSubView3.swift */,
+				5BBAFE5A2AF84093008CEBBE /* RegisterSubView4.swift */,
+			);
+			path = RegisterSubViews;
+			sourceTree = "<group>";
+		};
 		5BC241382ADF1DEC002892E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5BBAFE4A2AF83D91008CEBBE /* Components */,
 				5BC457202AB395CD00567EEF /* AuthViews */,
 				5BC457352AB3A48E00567EEF /* MainView */,
 			);
@@ -287,6 +336,7 @@
 		5BC457202AB395CD00567EEF /* AuthViews */ = {
 			isa = PBXGroup;
 			children = (
+				5BBAFE552AF84057008CEBBE /* RegisterSubViews */,
 				5BC457182AB3690000567EEF /* InitialView.swift */,
 				5BC4570A2AB367FD00567EEF /* LoginView.swift */,
 				5BC457162AB368C500567EEF /* RegisterView.swift */,
@@ -310,13 +360,15 @@
 		5BC457292AB3963300567EEF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */,
+				5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */,
 				5B9564612AD1FD55002BC3BE /* Enums.swift */,
 				5BC241362ADF0658002892E5 /* Constants.swift */,
 				5BC2413C2AE05AED002892E5 /* UserModels.swift */,
 				5BCEB6472AE1ECBD00DB5973 /* ContentType.swift */,
 				5B616E7C2ABCBB52009FAE97 /* CourseModel.swift */,
 				5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */,
-				5BC2413A2ADF1E99002892E5 /* Parameters.swift */,
+				5BC2413A2ADF1E99002892E5 /* FormInputs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -426,6 +478,7 @@
 				5B616E882ABCFBC2009FAE97 /* CourseDetail.swift in Sources */,
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView.swift in Sources */,
+				5BBAFE5F2AF8412F008CEBBE /* RegistrationFormViewComponent.swift in Sources */,
 				5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */,
 				5BC4571D2AB36B4100567EEF /* MainView.swift in Sources */,
 				5B616E7D2ABCBB52009FAE97 /* CourseModel.swift in Sources */,
@@ -434,30 +487,40 @@
 				5BC2413D2AE05AED002892E5 /* UserModels.swift in Sources */,
 				5B616E782ABCB9EB009FAE97 /* CoursesRepository.swift in Sources */,
 				5B616E862ABCF8C0009FAE97 /* CourseCard.swift in Sources */,
+				5BBAFE5B2AF84093008CEBBE /* RegisterSubView4.swift in Sources */,
 				5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */,
 				5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */,
 				5B7819962AC35EF80041BCF8 /* StringExtensions.swift in Sources */,
 				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
+				5BBAFE502AF83DDE008CEBBE /* ProviderModel.swift in Sources */,
 				5B5BDA522AD32E2D00BDE896 /* CustomTextField.swift in Sources */,
+				5BBAFE572AF84086008CEBBE /* RegisterSubView2.swift in Sources */,
 				5B94E4432AD7F391005CDB25 /* UserDataSource.swift in Sources */,
 				5B94E4472AD8015C005CDB25 /* UserViewModel.swift in Sources */,
 				5B616E762ABCB9D6009FAE97 /* CoursesViewModel.swift in Sources */,
-				5BC2413B2ADF1E99002892E5 /* Parameters.swift in Sources */,
+				5BC2413B2ADF1E99002892E5 /* FormInputs.swift in Sources */,
 				5BC457392AB3A6A500567EEF /* SignoutButton.swift in Sources */,
 				5B7BDA052AC9F8D100A25AD8 /* StorageViewModel.swift in Sources */,
+				5BBAFE5D2AF84106008CEBBE /* ButtonViewComponent.swift in Sources */,
+				5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */,
 				5B70923F2ABDED45003243C7 /* ManagementView.swift in Sources */,
 				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
 				5B95645C2AD1CB18002BC3BE /* WaitingAnimationView.swift in Sources */,
 				5BCEB6422AE19B6100DB5973 /* SearchView.swift in Sources */,
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
 				5B9564622AD1FD55002BC3BE /* Enums.swift in Sources */,
+				5BBAFE542AF83E0D008CEBBE /* ProviderButtonViewComponent.swift in Sources */,
 				5B95645A2AD1BE70002BC3BE /* EditionView.swift in Sources */,
+				5BBAFE4C2AF83D9E008CEBBE /* HeaderViewComponent.swift in Sources */,
 				5BC241372ADF0658002892E5 /* Constants.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
 				5B7BDA032AC9F87800A25AD8 /* StorageRepository.swift in Sources */,
 				5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */,
 				5B616E7A2ABCB9F8009FAE97 /* CoursesDataSource.swift in Sources */,
+				5BBAFE592AF8408D008CEBBE /* RegisterSubView3.swift in Sources */,
 				5B95645E2AD1F1FD002BC3BE /* ManagedCourseCardView.swift in Sources */,
+				5BBAFE612AF8414C008CEBBE /* TextFieldViewComponent.swift in Sources */,
+				5BBAFE632AF84364008CEBBE /* CategorybuttonViewComponent.swift in Sources */,
 				5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */,
 				5BC4570B2AB367FD00567EEF /* LoginView.swift in Sources */,
 				5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */,
@@ -466,6 +529,7 @@
 				5BC241352ADF0486002892E5 /* DoubleExtensions.swift in Sources */,
 				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
+				5BBAFE522AF83DFD008CEBBE /* SeparatorViewComponent.swift in Sources */,
 				5B0A028C2AD3FE98004FB043 /* EmailDataModel.swift in Sources */,
 				5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */,
 				5B0A028A2AD3F7B6004FB043 /* MailView.swift in Sources */,
@@ -526,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -583,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -615,7 +679,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -649,7 +713,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
