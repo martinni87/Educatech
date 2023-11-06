@@ -24,22 +24,22 @@ final class AuthViewModel: ObservableObject {
     
     init(authRepository: AuthRepository = AuthRepository()) {
         self.authRepository = authRepository
-        self.getCurrentUser()
+        self.getCurrentUserAuth()
+        self.getCurrentUserData()
     }
     
     func cleanCache() {
         self.userAuth = nil
+        self.userData = nil
+        
         self.requestErrorMsg = nil
+        self.emailErrorMsg = nil
+        self.usernameErrorMsg = nil
+        self.passwordErrorMsg = nil
+        self.repeatPasswordErrorMsg = nil
+        
+        self.hasRequestError = false
         self.allowContinue = false
-//        self.userAuth = nil
-//        self.userData = nil
-//        self.requestErrorMsg = nil
-//        self.emailErrorMsg = nil
-//        self.usernameErrorMsg = nil
-//        self.passwordErrorMsg = nil
-//        self.repeatPasswordErrorMsg = nil
-//        self.hasRequestError = false
-//        self.allowContinue = false
     }
     
     //MARK: Registration form validations
@@ -97,15 +97,16 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func signInEmail(email: String, password: String) {
+    func signInEmail(formInputs: LoginFormInputs) {
         //Begin or reset error to nil to avoid repetitive error messages
-        self.requestErrorMsg = nil
-        
+        self.cleanCache()
+
         //Next, if email and password are correct, try login
-        authRepository.signInEmail(email: email, password: password) { [weak self] result in
+        authRepository.signInEmail(formInputs: formInputs) { [weak self] result in
             switch result {
-            case .success(let user):
-                self?.userAuth = user
+            case .success(let userData):
+                self?.userAuth = UserAuthModel(id: userData.id!, email: userData.email)
+                self?.userData = userData
             case .failure(let error):
                 self?.allowContinue = true
                 self?.requestErrorMsg = error.localizedDescription
@@ -126,8 +127,20 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func getCurrentUser() {
-        self.userAuth = authRepository.getCurrentUser()
+    func getCurrentUserAuth() {
+        self.userAuth = authRepository.getCurrentUserAuth()
+    }
+    
+    func getCurrentUserData() {
+        authRepository.getCurrentUserData { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.userData = user
+            case .failure(let requestErrorMsg):
+                self?.requestErrorMsg = requestErrorMsg.localizedDescription
+                self?.hasRequestError = true
+            }
+        }
     }
 }
     

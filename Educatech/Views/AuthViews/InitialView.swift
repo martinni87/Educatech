@@ -10,16 +10,50 @@ import SwiftUI
 struct InitialView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @Environment (\.colorScheme) var colorScheme
+    @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         NavigationStack {
-            NavigationLink ("Login") {
-                LoginView(authViewModel: authViewModel)
-            }
-            NavigationLink ("Register") {
-                RegisterView(authViewModel: authViewModel)
+            VStack {
+                HeaderViewComponent(headerModel: HeaderModel(headerType: .initial), frameSize: 150)
+                    .padding(.top, 20)
+                Spacer()
+                NavigationLink {
+                    LoginView(authViewModel: authViewModel)
+                } label: {
+                    ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .email))
+                }
+                SeparatorViewComponent()
+                    .padding(.vertical,30)
+                VStack {
+                    Button {
+                        print("Login with facebook")
+                    } label: {
+                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .facebook))
+                    }
+                    Button {
+                        print("Login with google")
+                    } label: {
+                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .google))
+                    }
+                }
+                Spacer()
+                NavigationLink {
+                    RegisterView(authViewModel: authViewModel)
+                } label: {
+                    Text("Don't have an account yet?")
+                        .foregroundColor(colorScheme == .light ? .black : .white)
+                    Text("Sign up")
+                        .bold()
+                }
+                .padding(20)
             }
         }
+        .background(
+            Image("AppBackground")
+                .resizable()
+        )
     }
 }
 

@@ -89,8 +89,8 @@ final class AuthDataSource {
                     let email = authDataResult?.user.email ?? "No email"
                     let id = authDataResult?.user.uid ?? "00000"
                     //Convert formInputs.categories, which is a Set<Categories> Object, to an array of Strings
-                    let categories: [String] = formInputs.categories.map { $0.rawValue }
-                    let newUser = UserDataModel(id: id, email: email, username: username, categories: categories)
+//                    let categories: [String] = formInputs.categories.map { $0.rawValue }
+                    let newUser = UserDataModel(id: id, email: email, username: username, categories: formInputs.categories)
                     self.createNewUser(user: newUser) { result in
                         switch result {
                         case .success(let user):
@@ -111,29 +111,74 @@ final class AuthDataSource {
         }
     }
     
-    func signInEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
-        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+    func signInEmail(formInputs: LoginFormInputs, completionBlock: @escaping (Result<UserDataModel,Error>) -> Void ) {
+        Auth.auth().signIn(withEmail: formInputs.email, password: formInputs.password) { authDataResult, error in
             if let error = error {
                 completionBlock(.failure(error))
                 return
             }
-            if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
-                completionBlock(.success(UserAuthModel(id: id, email: email)))
+            else if let id = authDataResult?.user.uid {
+                self.getUserByID(userID: id) { result in
+                    switch result {
+                    case .success(let user):
+                        completionBlock(.success(UserDataModel(id: user.id,
+                                                               email: user.email,
+                                                               username: user.username,
+                                                               isEditor: user.isEditor,
+                                                               categories: user.categories,
+                                                               contentCreated: user.contentCreated,
+                                                               subscriptions: user.subscriptions)))
+                    case .failure(let error):
+                        completionBlock(.failure(error))
+                    }
+                }
                 return
             }
         }
     }
+    
+//    func signInEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
+//        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+//            if let error = error {
+//                completionBlock(.failure(error))
+//                return
+//            }
+//            if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
+//                completionBlock(.success(UserAuthModel(id: id, email: email)))
+//                return
+//            }
+//        }
+//    }
     
     func signOut() throws {
         try Auth.auth().signOut()
     }
     
-    func getCurrentUser() -> UserAuthModel? {
-        if let email = Auth.auth().currentUser?.email, let id = Auth.auth().currentUser?.uid {
+    func getCurrentUserAuth() -> UserAuthModel? {
+        if let id = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
             return UserAuthModel(id: id, email: email)
         }
         else {
             return nil
+        }
+    }
+    
+    func getCurrentUserData(completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        if let id = Auth.auth().currentUser?.uid {
+            self.getUserByID(userID: id) { result in
+                switch result {
+                case .success(let user):
+                    completionBlock(.success(UserDataModel(id: user.id,
+                                                           email: user.email,
+                                                           username: user.username,
+                                                           isEditor: user.isEditor,
+                                                           categories: user.categories,
+                                                           contentCreated: user.contentCreated,
+                                                           subscriptions: user.subscriptions)))
+                case .failure(let error):
+                    completionBlock(.failure(error))
+                }
+            }
         }
     }
     

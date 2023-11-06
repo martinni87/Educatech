@@ -30,8 +30,8 @@ struct TextFieldViewComponent: View {
                 .foregroundColor(.gray)
                 .bold()
             Rectangle()
-//                .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
-//                .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
+                .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
+                .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
                 .frame(height: 40)
                 .cornerRadius(10)
                 .overlay {

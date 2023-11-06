@@ -1,16 +1,24 @@
-//////
-//////  ManagementView.swift
-//////  Educatech
-//////
-//////  Created by Martín Antonio Córdoba Getar on 22/9/23.
-//////
-////
-////import SwiftUI
-////import PhotosUI
-////
-////struct ManagementView: View {
-////    
-////    @ObservedObject var authViewModel: AuthViewModel
+//
+//  ManagementView.swift
+//  Educatech
+//
+//  Created by Martín Antonio Córdoba Getar on 22/9/23.
+//
+
+import SwiftUI
+
+struct ManagementView: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    
+    var body: some View {
+        Text("Management view")
+    }
+}
+
+#Preview {
+    ManagementView(authViewModel: AuthViewModel())
+}
 ////    @ObservedObject var coursesViewModel: CoursesViewModel
 ////    
 ////    var body: some View {

@@ -19,14 +19,19 @@ struct RegisterView: View {
     
     var body: some View {
         NavigationStack {
-            //MARK: Presentation
-            HeaderViewComponent(headerModel: HeaderModel(headerType: .register1), frameSize: 100)
-            NavigationLink {
-                RegisterSubView2(authViewModel: authViewModel, formInputs: $formInputs)
-            } label: {
-                ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+            VStack {
+                //MARK: Presentation
+                HeaderViewComponent(headerModel: HeaderModel(headerType: .register1), frameSize: 100)
+                NavigationLink {
+                    RegisterSubView2(authViewModel: authViewModel, formInputs: $formInputs)
+                } label: {
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                }
+                .padding()
             }
-            .padding()
+            .onAppear {
+                authViewModel.cleanCache()
+            }
         }
     }
 }

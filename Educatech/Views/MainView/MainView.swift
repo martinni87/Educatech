@@ -10,25 +10,69 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @State var pageTitle = "Educatech"
     
     var body: some View {
-        VStack {
-            SignoutButton(authViewModel: authViewModel)
-            Spacer()
-            Text("Welcome to main view")
-            Spacer()
+        NavigationStack {
+            TabView {
+                HomeView(authViewModel: authViewModel)
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
+                }
+                .onAppear{
+                    pageTitle = "Home"
+                }
+                
+                SubscribedView(authViewModel: authViewModel)
+                .tabItem {
+                    Label("My Lessons", systemImage: "text.book.closed")
+                }
+                .onAppear{
+                    pageTitle = "My Lessons"
+                }
+                
+                SearchView(authViewModel: authViewModel)
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+                .onAppear{
+                    pageTitle = "Search"
+                }
+                
+                ManagementView(authViewModel: authViewModel)
+                .tabItem {
+                    Label("Management", systemImage: "pencil.and.outline")
+                }
+                .onAppear{
+                    pageTitle = "Management Center"
+                }
+                
+                ProfileView(authViewModel: authViewModel)
+                    .tabItem {
+                        Label("Profile", systemImage: "person.fill")
+                    }
+                    .onAppear{
+                        pageTitle = "Profile"
+                    }
+            }
+            .navigationTitle(pageTitle)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
+}
+
+#Preview {
+    MainView(authViewModel: AuthViewModel())
 }
 //
 //    @ObservedObject var authViewModel: AuthViewModel
 //    @StateObject var coursesViewModel: CoursesViewModel = CoursesViewModel()
 //    @StateObject var userViewModel: UserViewModel = UserViewModel()
-//    
+//
 //    @State var pageTitle = "Educatech"
-//    
+//
 //    @Environment (\.verticalSizeClass) var verticalSizeClass
-//    
+//
 //    var body: some View {
 //        NavigationStack {
 //            TabView {
@@ -41,7 +85,7 @@ struct MainView: View {
 //                .onAppear{
 //                    pageTitle = "Home"
 //                }
-//                
+//
 //                SubscribedView(authViewModel: authViewModel,
 //                               coursesViewModel: coursesViewModel,
 //                               userViewModel: userViewModel)
@@ -51,7 +95,7 @@ struct MainView: View {
 //                .onAppear{
 //                    pageTitle = "My Lessons"
 //                }
-//                
+//
 //                SearchView(authViewModel: authViewModel,
 //                           coursesViewModel: coursesViewModel,
 //                           userViewModel: userViewModel)
@@ -61,7 +105,7 @@ struct MainView: View {
 //                .onAppear{
 //                    pageTitle = "Search"
 //                }
-//                
+//
 //                ManagementView(authViewModel: authViewModel,
 //                               coursesViewModel: coursesViewModel)
 //                .tabItem {
@@ -70,7 +114,7 @@ struct MainView: View {
 //                .onAppear{
 //                    pageTitle = "Courses Management"
 //                }
-//                
+//
 //                ProfileView(authViewModel: authViewModel)
 //                    .tabItem {
 //                        Label("Profile", systemImage: "person.fill")

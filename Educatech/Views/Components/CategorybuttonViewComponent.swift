@@ -9,21 +9,22 @@ import SwiftUI
 
 struct CategoryButtonViewComponent: View {
     
-    var selection: Categories
+//    var selection: Categories
+    var selection: String
     @Binding var formInputs: RegistrationFormInputs
     @State var isSelected: Bool = false
     
     var body: some View {
         Button {
             if self.formInputs.categories.contains(selection) {
-                self.formInputs.categories.remove(selection)
+                self.formInputs.categories.removeAll { $0 == selection }
             } else {
-                self.formInputs.categories.insert(selection)
+                self.formInputs.categories.append(selection)
             }
             isSelected.toggle()
-            print("\(selection.rawValue) is selected")
+            print("\(selection) is selected")
         } label: {
-            Text(selection.rawValue)
+            Text(selection)
                 .font(.title3)
                 .bold()
         }
@@ -39,5 +40,5 @@ struct CategoryButtonViewComponent: View {
 }
 
 #Preview {
-    CategoryButtonViewComponent(selection: .languageSwift, formInputs: .constant(RegistrationFormInputs()))
+    CategoryButtonViewComponent(selection: "Swift", formInputs: .constant(RegistrationFormInputs()))
 }

@@ -37,16 +37,21 @@ final class AuthRepository {
         authDataSource.signUpEmail(formInputs: formInputs, completionBlock: completionBlock)
     }
     
-    func signInEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
-        authDataSource.signInEmail(email: email, password: password, completionBlock: completionBlock)
+    func signInEmail(formInputs: LoginFormInputs, completionBlock: @escaping (Result<UserDataModel,Error>) -> Void ) {
+        authDataSource.signInEmail(formInputs: formInputs, completionBlock: completionBlock)
     }
     
     func signOut() throws {
         try authDataSource.signOut()
     }
     
-    func getCurrentUser() -> UserAuthModel? {
-        authDataSource.getCurrentUser()
+    //MARK: Users Database methods and Auth info
+    func getCurrentUserAuth() -> UserAuthModel? {
+        authDataSource.getCurrentUserAuth()
+    }
+    
+    func getCurrentUserData(completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        authDataSource.getCurrentUserData(completionBlock: completionBlock)
     }
 }
 

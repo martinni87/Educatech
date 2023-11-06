@@ -1,17 +1,27 @@
-////
-////  HomeView.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 20/9/23.
-////
-////
+//
+//  HomeView.swift
+//  Educatech
+//
+//  Created by Martín Antonio Córdoba Getar on 20/9/23.
 //
 //
-////import SwiftUI
-////
-////struct HomeView: View {
-////    
-////    @ObservedObject var authViewModel: AuthViewModel
+
+
+import SwiftUI
+
+struct HomeView: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    
+    var body: some View {
+        Text("HOME")
+    }
+}
+
+#Preview {
+    HomeView(authViewModel: AuthViewModel())
+}
+  
 ////    @ObservedObject var coursesViewModel: CoursesViewModel
 ////    @ObservedObject var userViewModel: UserViewModel
 ////    

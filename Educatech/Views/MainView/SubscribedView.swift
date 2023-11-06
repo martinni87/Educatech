@@ -1,18 +1,27 @@
-////
-////  SubscribedCoursesView.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 22/9/23.
-////
 //
-//import SwiftUI
+//  SubscribedCoursesView.swift
+//  Educatech
 //
-//struct SubscribedView: View {
-//    
-//    @ObservedObject var authViewModel: AuthViewModel
+//  Created by Martín Antonio Córdoba Getar on 22/9/23.
+//
+
+import SwiftUI
+
+struct SubscribedView: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    
+    var body: some View {
+        Text("Subscribed view")
+    }
+}
+
+#Preview {
+    SubscribedView(authViewModel: AuthViewModel())
+}
 //    @ObservedObject var coursesViewModel: CoursesViewModel
 //    @ObservedObject var userViewModel: UserViewModel
-//    
+    
 //    var body: some View {
 //        NavigationStack {
 //            ScrollView {

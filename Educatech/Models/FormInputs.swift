@@ -28,9 +28,14 @@ enum Categories: String, Identifiable {
     }
 }
 
-let CATEGORIES: [Categories] = [
-    .mobile, .web, .testing, .datasc, .mlearning, .languagePython, .languageSwift,
-    .languageObjc, .languageJava, .languageKotlin, .uxui, .html, .css, .languageJS
+//let CATEGORIES: [Categories] = [
+//    .mobile, .web, .testing, .datasc, .mlearning, .languagePython, .languageSwift,
+//    .languageObjc, .languageJava, .languageKotlin, .uxui, .html, .css, .languageJS
+//]
+
+let CATEGORIES: [String] = [
+    "Mobile Development", "Web Development", "Testing & QA", "Data Science", "Machine Learning",
+    "Python", "Swift", "Objective-C", "Java", "Kotlin", "JavaScript", "UX/UI", "CSS", "HTML"
 ]
 
 struct RegistrationFormInputs {
@@ -38,13 +43,13 @@ struct RegistrationFormInputs {
     var username: String = ""
     var password: String = ""
     var repeatPassword: String = ""
-    var categories: Set<Categories> = []
+    var categories: [String] = []
 }
-//
-//struct LoginFormInputs {
-//    var email: String = ""
-//    var password: String = ""
-//}
+
+struct LoginFormInputs {
+    var email: String = ""
+    var password: String = ""
+}
 
 
 

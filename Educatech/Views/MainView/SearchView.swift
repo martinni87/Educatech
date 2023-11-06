@@ -1,18 +1,24 @@
-////
-////  SearchView.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 15/10/23.
-////
 //
-//import SwiftUI
+//  SearchView.swift
+//  Educatech
 //
-//struct SearchView: View {
-//    
-//    @State var search: String = ""
-//    @State var showResult: Bool = false
-//    
-//    @ObservedObject var authViewModel: AuthViewModel
+//  Created by Martín Antonio Córdoba Getar on 15/10/23.
+//
+
+import SwiftUI
+
+struct SearchView: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    
+    var body: some View {
+        Text("Search view")
+    }
+}
+
+#Preview {
+    SearchView(authViewModel: AuthViewModel())
+}
 //    @ObservedObject var coursesViewModel: CoursesViewModel
 //    @ObservedObject var userViewModel: UserViewModel
 //    

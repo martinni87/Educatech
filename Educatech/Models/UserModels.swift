@@ -20,6 +20,7 @@ struct UserDataModel: Decodable, Identifiable {
     var username: String
     var isEditor: Bool = false
     var categories: [String] = []
+//    var categories: Set<String> = []
     var contentCreated: [String] = []
     var subscriptions: [String] = []
 }

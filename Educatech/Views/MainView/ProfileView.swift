@@ -1,15 +1,54 @@
-////
-////  ProfileView.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 20/9/23.
-////
 //
-//import SwiftUI
-//import MessageUI
+//  ProfileView.swift
+//  Educatech
 //
-//struct ProfileView: View {
-//    
+//  Created by Martín Antonio Córdoba Getar on 20/9/23.
+//
+
+import SwiftUI
+import MessageUI
+
+struct ProfileView: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    
+    var body: some View {
+        NavigationStack {
+            SignoutButtonViewComponent(authViewModel: authViewModel)
+                .padding(.trailing)
+            List {
+                Section("Personal info") {
+                    Text("UUID: ").bold() + Text("\(authViewModel.userAuth?.id ?? "No id")").foregroundStyle(.gray)
+                    Text("Email:: ").bold() + Text("\(authViewModel.userData?.email ?? "No email")").foregroundStyle(.gray)
+                    Text("Username: ").bold() + Text("\(authViewModel.userData?.username ?? "No username")").foregroundStyle(.gray)
+                }
+                Section("Subscribed categories") {
+                    ForEach(authViewModel.userData?.categories ?? [""], id: \.self) { category in
+                        Text(category)
+                    }
+                    HStack {
+                        Spacer()
+                        Button("+ Add new") {
+                            print("Add new categories")
+                        }
+                        .bold()
+                    }
+                }
+                Section("My subscriptions") {
+                    ForEach(authViewModel.userData?.subscriptions ?? [""], id: \.self) { subscription in
+                        Text(subscription)
+                    }
+                }
+                Section("My content created") {
+                    ForEach(authViewModel.userData?.contentCreated ?? [""], id: \.self) { course in
+                        Text(course)
+                    }
+                }
+            }
+        }
+    }
+}
+
 //    @ObservedObject var authViewModel: AuthViewModel
 //    @State var showLinkEmailForm = false
 //    @State var email = ""
@@ -19,7 +58,7 @@
 //    @State var isShowingEmailView = false
 //    @State var emailBody: String = ""
 //    @State var emailData: EmailDataModel?
-//    
+//
 //    var body: some View {
 //        NavigationStack {
 //            ZStack {
@@ -45,7 +84,7 @@
 //                                }
 //                            }
 //                            .disabled(authViewModel.isEmailAndPasswordLinked())
-//                            
+//
 //                            Button {
 //                                authViewModel.linkFacebook()
 //                            } label: {
@@ -59,7 +98,7 @@
 //                                }
 //                            }
 //                            .disabled(authViewModel.isFacebookLinked())
-//                            
+//
 //                            Button {
 //                                authViewModel.linkGoogle()
 //                            } label: {
@@ -73,7 +112,7 @@
 //                                }
 //                            }
 //                            .disabled(authViewModel.isGoogleLinked())
-//                            
+//
 //                        }
 //                    }
 //                    VStack {
@@ -173,10 +212,10 @@
 //        }
 //    }
 //}
-//
-//
-//struct ProfileView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProfileView(authViewModel:  AuthViewModel())
-//    }
-//}
+
+
+struct ProfileView_Previews: PreviewProvider {
+    static var previews: some View {
+        ProfileView(authViewModel:  AuthViewModel())
+    }
+}

@@ -21,7 +21,7 @@ struct RegisterSubView3: View {
                 HeaderViewComponent(headerModel: HeaderModel(headerType: .register3), frameSize: 70)
                 Spacer()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), alignment: .center)], alignment: .center, spacing: 16) {
-                    ForEach(CATEGORIES, id: \.id) { category in
+                    ForEach(CATEGORIES, id: \.self) { category in
                         CategoryButtonViewComponent(selection: category, formInputs: $formInputs)
                     }
                 }

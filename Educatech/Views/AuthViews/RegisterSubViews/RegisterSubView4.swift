@@ -44,7 +44,7 @@ struct RegistrationCheckTabView: View {
 
     var body: some View {
         Group {
-//            HeaderViewComponent(headerModel: HeaderModel(headerType: .register4), frameSize: 70)
+            HeaderViewComponent(headerModel: HeaderModel(headerType: .register4), frameSize: 70)
             VStack {
                 VStack (alignment: .leading) {
                     List {
@@ -52,8 +52,8 @@ struct RegistrationCheckTabView: View {
                         Text("Username: ") + Text("\(formInputs.username)").foregroundStyle(.gray)
                         VStack (alignment: .leading) {
                             Text("Categories:")
-                            ForEach(Array(formInputs.categories), id:\.id) { category in
-                                Text(category.rawValue).foregroundStyle(.gray)
+                            ForEach(Array(formInputs.categories), id:\.self) { category in
+                                Text(category).foregroundStyle(.gray)
                             }
                         }
                     }
