@@ -1,19 +1,21 @@
-////
-////  CoursesDataSource.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 21/9/23.
-////
 //
-//import Foundation
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
+//  CoursesDataSource.swift
+//  Educatech
 //
-//final class CoursesDataSource {
-//    
-//    private let database = Firestore.firestore()
-//    private let collection = "courses"
-//    
+//  Created by Martín Antonio Córdoba Getar on 21/9/23.
+//
+
+import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+final class CoursesDataSource {
+    
+    private let database = Firestore.firestore()
+    private let collection = "courses"
+}
+
+//
 //    func getAllCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
 //        self.database.collection(self.collection)
 //            .addSnapshotListener { query, error in

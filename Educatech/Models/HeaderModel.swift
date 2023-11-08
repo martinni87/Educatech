@@ -14,6 +14,10 @@ enum HeaderType: String {
     case register3 = "Your interests"
     case register4 = "Checking engines!"
     case login = "Login"
+    case createcourse1 = "Create a new course"
+    case createcourse2 = "Creation form"
+    case createcourse3 = "Upload your videos"
+    case createcourse4 = "Everything's good?"
 }
 
 final class HeaderModel {
@@ -36,11 +40,11 @@ final class HeaderModel {
             self.image = "AppLogo"
         case .register1:
             self.titleColor = Color("color_text_standard")
-            self.subtitle = "Welcome! And thanks for choosing Educatech. To sign up a new account swipe right"
+            self.subtitle = "Welcome and thanks for choosing Educatech! To sign up a new account click next and follow all steps."
             self.image = "form_register_pic1"
         case .register2:
             self.titleColor = Color("color_text_standard")
-            self.subtitle = "Fill the form and when you're ready swipe right!"
+            self.subtitle = "Fill the form, check the data is valid and tap 'Next'."
             self.image = "form_register_pic2"
         case .register3:
             self.titleColor = Color("color_text_standard")
@@ -54,6 +58,22 @@ final class HeaderModel {
             self.titleColor = Color("color_text_standard")
             self.subtitle = "Access with your current credentials"
             self.image = "form_login_pic"
+        case .createcourse1:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = "Do you want to contribute with a bit of knowledge? Start creating a new course and make the world a little smarter! 🚀"
+            self.image = "form_create_course_pic1"
+        case .createcourse2:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = "Here you can fill basic information of what you offer."
+            self.image = "form_create_course_pic2"
+        case .createcourse3:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = "This is the list of videos you're going to include in your course. Copy and paste the URL where you store it."
+            self.image = "form_create_course_pic3"
+        case .createcourse4:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = "Last check! If everything is fine, hit create to upload your course."
+            self.image = "form_create_course_pic4"
         }
     }
 }

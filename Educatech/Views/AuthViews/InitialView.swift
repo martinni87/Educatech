@@ -40,7 +40,7 @@ struct InitialView: View {
                 }
                 Spacer()
                 NavigationLink {
-                    RegisterView(authViewModel: authViewModel)
+                    RegisterView1(authViewModel: authViewModel)
                 } label: {
                     Text("Don't have an account yet?")
                         .foregroundColor(colorScheme == .light ? .black : .white)

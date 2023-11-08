@@ -15,12 +15,12 @@ struct RegistrationFormViewComponent: View {
     var body: some View {
         Group {
             VStack {
-                TextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.email, secureIsActive: false, errorMsg: authViewModel.emailErrorMsg, label: "Email", placeholder: "you@mail.com", tooltip: "Write a complete email address, example: you@mail.com")
-                TextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.username, secureIsActive: false, errorMsg: authViewModel.usernameErrorMsg, label: "Username", placeholder: "Username", tooltip: "Write a username you want. It is unique as it is the visible identification between users")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.email, secureIsActive: false, errorMsg: authViewModel.emailErrorMsg, label: "Email", placeholder: "you@mail.com", tooltip: "Write a complete email address, example: you@mail.com")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.username, secureIsActive: false, errorMsg: authViewModel.usernameErrorMsg, label: "Username", placeholder: "Username", tooltip: "Write a username you want. It is unique as it is the visible identification between users")
             }
             VStack {
-                TextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.password, secureIsActive: true, errorMsg: authViewModel.passwordErrorMsg, label: "Password", placeholder: "Password", tooltip: "Use at least an 8 character password with numbers, symbols a capitals")
-                TextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.repeatPassword, secureIsActive: true, errorMsg: authViewModel.repeatPasswordErrorMsg, label: "Repeat password", placeholder: "Repeat password", tooltip: "Repeat the same password you put in the field above")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.password, secureIsActive: true, errorMsg: authViewModel.passwordErrorMsg, label: "Password", placeholder: "Password", tooltip: "Use at least an 8 character password with numbers, symbols a capitals")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.repeatPassword, secureIsActive: true, errorMsg: authViewModel.repeatPasswordErrorMsg, label: "Repeat password", placeholder: "Repeat password", tooltip: "Repeat the same password you put in the field above")
             }
         }
     }

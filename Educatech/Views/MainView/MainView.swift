@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     @State var pageTitle = "Educatech"
     
     var body: some View {
@@ -39,7 +40,7 @@ struct MainView: View {
                     pageTitle = "Search"
                 }
                 
-                ManagementView(authViewModel: authViewModel)
+                ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                 .tabItem {
                     Label("Management", systemImage: "pencil.and.outline")
                 }
@@ -62,7 +63,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(authViewModel: AuthViewModel())
+    MainView(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
 }
 //
 //    @ObservedObject var authViewModel: AuthViewModel

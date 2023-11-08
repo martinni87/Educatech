@@ -7,36 +7,31 @@
 
 import Foundation
 
-enum Categories: String, Identifiable {
+enum Categories: String, CaseIterable, Identifiable, Decodable {
+    case html = "HTML"
+    case css = "CSS"
+    case uxui = "UX/UI"
+    case languageJS = "JavaScript"
+    case languageJava = "Java"
+    case languageKotlin = "Kotlin"
+    case languageSwift = "Swift"
+    case languageObjc = "Objective-C"
+    case languagePython = "Python"
     case mobile = "Mobile Development"
     case web = "Web Development"
     case testing = "Testing & QA"
     case datasc = "Data Science"
     case mlearning = "Machine Learning"
-    case languagePython = "Python"
-    case languageSwift = "Swift"
-    case languageObjc = "Objective-C"
-    case languageJava = "Java"
-    case languageKotlin = "Kotlin"
-    case languageJS = "JavaScript"
-    case uxui = "UX/UI"
-    case css = "CSS"
-    case html = "HTML"
     
     var id: String {
         return rawValue
     }
 }
 
-//let CATEGORIES: [Categories] = [
-//    .mobile, .web, .testing, .datasc, .mlearning, .languagePython, .languageSwift,
-//    .languageObjc, .languageJava, .languageKotlin, .uxui, .html, .css, .languageJS
-//]
-
-let CATEGORIES: [String] = [
-    "Mobile Development", "Web Development", "Testing & QA", "Data Science", "Machine Learning",
-    "Python", "Swift", "Objective-C", "Java", "Kotlin", "JavaScript", "UX/UI", "CSS", "HTML"
-]
+let LOREMIPSUM = """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+"""
 
 struct RegistrationFormInputs {
     var email: String = ""
@@ -51,6 +46,14 @@ struct LoginFormInputs {
     var password: String = ""
 }
 
+struct CreateCourseFormInputs {
+    var creatorID: String = ""
+    var title: String = ""
+    var description: String = ""
+    var imageURL: String = ""
+    var category: String = "HTML"
+    var videosURL: [String] = []
+}
 
 
 

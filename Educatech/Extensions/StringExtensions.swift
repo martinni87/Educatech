@@ -26,15 +26,6 @@ extension String {
     //        return translated
     //    }
     
-    //    func validateURLString() -> (isValid: Bool, errorMsg: String) {
-    //        let urlRegex = #"^(https?|ftp)://[^\s/$.?#]+.*$"# // Regular expression for URL validation
-    //        let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegex)
-    //        if !urlTest.evaluate(with: self.lowercased()) {
-    //            return (isValid: false, errorMsg: "URL String badly formatted")
-    //        }
-    //        return (isValid: true, errorMsg: "")
-    //    }
-    
     func fieldIsNotEmpty(completionBlock: @escaping (Bool, String?) -> Void) {
         if self.isEmpty || self == "" {
             completionBlock(false, "All fields are mandatory. Please, try again.")
@@ -42,6 +33,25 @@ extension String {
         }
         //Last result, everything's ok
         completionBlock(true, nil)
+    }
+    
+    func validateURLString(completionBlock: @escaping (Bool, String?) -> Void ) {
+        let urlRegex = #"^(https?|ftp)://[^\s/$.?#]+.*$"# // Regular expression for URL validation
+        let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegex)
+        let urlIsValid = urlTest.evaluate(with: self.lowercased())
+        
+        self.fieldIsNotEmpty { isNotEmpty, errorMsg in
+            if !isNotEmpty {
+                completionBlock(false, errorMsg)
+                return
+            }
+            if !urlIsValid {
+                completionBlock(false, "URL is badly formatted. Please, try again.")
+                return
+            }
+            //Last result, everything's ok
+            completionBlock(true, nil)
+        }
     }
     
     func emailFormatIsValid(completionBlock: @escaping (Bool, String?) -> Void) {
@@ -167,12 +177,12 @@ extension String {
 //import Foundation
 //
 //extension String {
-//    
+//
 //    func localized() -> String {
 //        let translated = String(localized: LocalizedStringResource(stringLiteral: self))
 //        return translated
 //    }
-//    
+//
 //    func validateURLString() -> (isValid: Bool, errorMsg: String) {
 //        let urlRegex = #"^(https?|ftp)://[^\s/$.?#]+.*$"# // Regular expression for URL validation
 //        let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegex)
@@ -181,7 +191,7 @@ extension String {
 //        }
 //        return (isValid: true, errorMsg: "")
 //    }
-//    
+//
 //    func validateNotEmptyString() -> (isValid: Bool, errorMsg: String) {
 //        if self.isEmpty || self == "" {
 //            return (isValid: false, errorMsg: "All fields are mandatory")
@@ -202,7 +212,7 @@ extension String {
 //        if !emailIsValid {
 //            return (isValid: false, errorMsg: "Email is badly formatted. Please, try again.")
 //        }
-//        
+//
 //        // If all checks pass, the password is valid
 //        return (isValid: true, errorMsg: "")
 //    }
@@ -221,7 +231,7 @@ extension String {
 //        if !letterPredicate.evaluate(with: self) {
 //            return (isValid: false, errorMsg: "Password must contain at least 1 letter.")
 //        }
-//        
+//
 //        if !numberPredicate.evaluate(with: self) {
 //            return (isValid: false, errorMsg: "Password must contain at least 1 number.")
 //        }
@@ -248,7 +258,7 @@ extension String {
 //        if commonPasswords.contains(self.lowercased()) {
 //            return (isValid: false, errorMsg: "Password is too common.")
 //        }
-//        
+//
 //        if self != password {
 //            return (isValid: false, errorMsg: "Passwords don't match.")
 //        }

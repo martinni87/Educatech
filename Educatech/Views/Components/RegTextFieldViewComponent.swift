@@ -1,5 +1,5 @@
 //
-//  TextFieldViewComponent.swift
+//  RegTextFieldViewComponent.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 29/10/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TextFieldViewComponent: View {
+struct RegTextFieldViewComponent: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     let type: CustomFieldType
@@ -24,6 +24,7 @@ struct TextFieldViewComponent: View {
     @State var tooltipTimer: Timer?
     
     @Environment (\.colorScheme) var colorScheme
+    
     var body: some View {
         VStack (alignment: .leading){
             Text(label)
@@ -90,5 +91,5 @@ struct TextFieldViewComponent: View {
 }
 
 #Preview {
-    TextFieldViewComponent(authViewModel: AuthViewModel(), type: .simple, variable: .constant(""), secureIsActive: false, errorMsg: nil, label: "Example", placeholder: "This is an example", tooltip: "Tooltip string")
+    RegTextFieldViewComponent(authViewModel: AuthViewModel(), type: .simple, variable: .constant(""), secureIsActive: false, errorMsg: nil, label: "Example", placeholder: "This is an example", tooltip: "Tooltip string")
 }

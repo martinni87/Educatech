@@ -1,14 +1,59 @@
-////
-////  CoursesViewModel.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 21/9/23.
-////
 //
-//import Foundation
+//  CoursesViewModel.swift
+//  Educatech
 //
-//final class CoursesViewModel: ObservableObject {
-//    
+//  Created by Martín Antonio Córdoba Getar on 21/9/23.
+//
+
+import Foundation
+
+final class CoursesViewModel: ObservableObject {
+    
+    //Published variables to register errors in the creation process of a new course (in form view).
+    @Published var titleErrorMsg: String?
+    @Published var descriptionErrorMsg: String?
+    @Published var imageURLErrorMsg: String?
+    @Published var categoryErrorMsg: String?
+    @Published var videosURLErrorMsg: String?
+    @Published var allowContinue: Bool = false
+    
+    
+    private let coursesRepository: CoursesRepository
+    
+    init(coursesRepository: CoursesRepository = CoursesRepository()){
+        self.coursesRepository = coursesRepository
+    }
+    
+    func cleanCreationCache() {
+        self.titleErrorMsg = nil
+        self.descriptionErrorMsg = nil
+        self.imageURLErrorMsg = nil
+        self.categoryErrorMsg = nil
+        self.videosURLErrorMsg = nil
+        self.allowContinue = false
+    }
+    
+    //MARK: Course creation form validations
+    func creationFormValidations(_ formInputs: CreateCourseFormInputs) {
+        formInputs.title.fieldIsNotEmpty { [weak self] isValid, errorMsg in
+            if !isValid {
+                self?.titleErrorMsg = errorMsg
+                return
+            }
+            self?.titleErrorMsg = nil
+            formInputs.imageURL.validateURLString { [weak self] isValid, errorMsg in
+                if !isValid {
+                    self?.imageURLErrorMsg = errorMsg
+                    return
+                }
+                self?.imageURLErrorMsg = nil
+                self?.allowContinue = true
+            }
+        }
+    }
+}
+
+//
 //    @Published var allCourses: [CourseModel] = []
 //    @Published var managedCourses: [CourseModel] = []
 //    @Published var subscribedCourses: [CourseModel] = []
