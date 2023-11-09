@@ -39,9 +39,11 @@ struct ProfileView: View {
                         Text(subscription)
                     }
                 }
-                Section("My content created") {
-                    ForEach(authViewModel.userData?.contentCreated ?? [""], id: \.self) { course in
-                        Text(course)
+                if authViewModel.userData?.isEditor ?? false {
+                    Section("My content created") {
+                        ForEach(authViewModel.userData?.contentCreated ?? [""], id: \.self) { course in
+                            Text(course)
+                        }
                     }
                 }
             }

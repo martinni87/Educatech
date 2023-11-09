@@ -39,15 +39,15 @@ struct MainView: View {
                 .onAppear{
                     pageTitle = "Search"
                 }
-                #if os(iPadOS)
-                ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
-                .tabItem {
-                    Label("Management", systemImage: "pencil.and.outline")
+                if authViewModel.userData?.isEditor ?? false {
+                    ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                    .tabItem {
+                        Label("Management", systemImage: "pencil.and.outline")
+                    }
+                    .onAppear{
+                        pageTitle = "Management Center"
+                    }
                 }
-                .onAppear{
-                    pageTitle = "Management Center"
-                }
-                #endif
                 ProfileView(authViewModel: authViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
