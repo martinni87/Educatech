@@ -10,14 +10,15 @@ import SwiftUI
 struct SearchView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
+
     var body: some View {
         Text("Search view")
     }
 }
 
 #Preview {
-    SearchView(authViewModel: AuthViewModel())
+    SearchView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
 //    @ObservedObject var coursesViewModel: CoursesViewModel
 //    @ObservedObject var userViewModel: UserViewModel

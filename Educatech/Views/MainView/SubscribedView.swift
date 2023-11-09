@@ -10,6 +10,7 @@ import SwiftUI
 struct SubscribedView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     
     var body: some View {
         Text("Subscribed view")
@@ -17,7 +18,7 @@ struct SubscribedView: View {
 }
 
 #Preview {
-    SubscribedView(authViewModel: AuthViewModel())
+    SubscribedView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
 //    @ObservedObject var coursesViewModel: CoursesViewModel
 //    @ObservedObject var userViewModel: UserViewModel

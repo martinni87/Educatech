@@ -1,5 +1,5 @@
 //
-//  CoursesViewModel.swift
+//  CollectionsAuthViewModel.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 21/9/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class CoursesViewModel: ObservableObject {
+final class CollectionsViewModel: ObservableObject {
     
     //Published variables to register errors in the creation process of a new course (in form view).
     @Published var creationMsg: String = ""
@@ -18,11 +18,16 @@ final class CoursesViewModel: ObservableObject {
     @Published var creationHasFailed: Bool = false
     @Published var allowContinue: Bool = false
     
+    //Published variables to store locally data from courses
+    @Published var allCourses: [CourseModel] = []
+    @Published var managedCourses: [CourseModel] = []
+    @Published var errorReceivingData: String?
     
-    private let coursesRepository: CoursesRepository
+    private let coursesRepository: CollectionsRepository
     
-    init(coursesRepository: CoursesRepository = CoursesRepository()){
+    init(coursesRepository: CollectionsRepository = CollectionsRepository()){
         self.coursesRepository = coursesRepository
+        getAllCourses()
     }
     
     func cleanCreationCache() {
@@ -54,9 +59,20 @@ final class CoursesViewModel: ObservableObject {
         }
     }
     
-    //MARK:
-    func createNewCourse(formInputs: CreateCourseFormInputs) {
-        coursesRepository.createNewCourse(formInputs: formInputs) { [weak self] result in
+    //MARK: Courses data from database
+    func getAllCourses() {
+        coursesRepository.getAllCourses { [weak self] result in
+            switch result {
+            case .success(let courses):
+                self?.allCourses = courses
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
+    
+    func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel) {
+        coursesRepository.createNewCourse(formInputs: formInputs, userData: userData) { [weak self] result in
             switch result {
             case .success(let newCourse):
                 self?.creationMsg = "New \(newCourse.title) course have been created successfully"
@@ -64,6 +80,17 @@ final class CoursesViewModel: ObservableObject {
             case .failure(let error):
                 self?.creationMsg = error.localizedDescription
                 self?.creationHasFailed = true
+            }
+        }
+    }
+    
+    func getCoursesByCreatorID(creatorID: String){
+        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
+            switch result {
+            case .success(let courses):
+                self?.managedCourses = courses
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
             }
         }
     }

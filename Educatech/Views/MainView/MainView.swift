@@ -10,13 +10,13 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @State var pageTitle = "Educatech"
     
     var body: some View {
         NavigationStack {
             TabView {
-                HomeView(authViewModel: authViewModel)
+                HomeView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                 .tabItem {
                     Label("Home", systemImage: "house.fill")
                 }
@@ -24,7 +24,7 @@ struct MainView: View {
                     pageTitle = "Home"
                 }
                 
-                SubscribedView(authViewModel: authViewModel)
+                SubscribedView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                 .tabItem {
                     Label("My Lessons", systemImage: "text.book.closed")
                 }
@@ -32,7 +32,7 @@ struct MainView: View {
                     pageTitle = "My Lessons"
                 }
                 
-                SearchView(authViewModel: authViewModel)
+                SearchView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
@@ -40,7 +40,7 @@ struct MainView: View {
                     pageTitle = "Search"
                 }
                 if authViewModel.userData?.isEditor ?? false {
-                    ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                    ManagementView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     .tabItem {
                         Label("Management", systemImage: "pencil.and.outline")
                     }
@@ -48,7 +48,7 @@ struct MainView: View {
                         pageTitle = "Management Center"
                     }
                 }
-                ProfileView(authViewModel: authViewModel)
+                ProfileView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
                     }
@@ -63,7 +63,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+    MainView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
 //
 //    @ObservedObject var authViewModel: AuthViewModel

@@ -11,6 +11,7 @@ import MessageUI
 struct ProfileView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     
     var body: some View {
         NavigationStack {
@@ -45,10 +46,18 @@ struct ProfileView: View {
                             Text(course)
                         }
                     }
+                    .task {
+                        authViewModel.getCurrentUserData()
+                        collectionsViewModel.getCoursesByCreatorID(creatorID: authViewModel.userAuth?.id ?? "0")
+                    }
                 }
             }
         }
     }
+}
+
+#Preview {
+    ProfileView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
 
 //    @ObservedObject var authViewModel: AuthViewModel
@@ -214,10 +223,3 @@ struct ProfileView: View {
 //        }
 //    }
 //}
-
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView(authViewModel:  AuthViewModel())
-    }
-}

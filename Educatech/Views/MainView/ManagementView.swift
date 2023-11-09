@@ -10,7 +10,7 @@ import SwiftUI
 struct ManagementView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
@@ -19,7 +19,7 @@ struct ManagementView: View {
                 VStack{
                     Spacer()
                     NavigationLink {
-                        CreationSubView1(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                        CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     } label: {
                         CreateOption()
                     }
@@ -36,7 +36,7 @@ struct ManagementView: View {
                 HStack{
                     Spacer()
                     NavigationLink {
-                        CreationSubView1(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                        CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     } label: {
                         CreateOption()
                     }
@@ -98,5 +98,5 @@ struct EditOption: View {
 }
 
 #Preview {
-    ManagementView(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+    ManagementView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }

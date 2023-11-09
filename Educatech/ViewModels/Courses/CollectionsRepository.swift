@@ -1,5 +1,5 @@
 //
-//  CoursesRepository.swift
+//  CollectionsRepository.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 21/9/23.
@@ -7,17 +7,26 @@
 
 import Foundation
 
-final class CoursesRepository {
+final class CollectionsRepository {
     
-    private let coursesDataSource: CoursesDataSource
+    private let coursesDataSource: CollectionsDataSource
     
-    init(coursesDataSource: CoursesDataSource = CoursesDataSource()) {
+    init(coursesDataSource: CollectionsDataSource = CollectionsDataSource()) {
         self.coursesDataSource = coursesDataSource
     }
     
-    func createNewCourse(formInputs: CreateCourseFormInputs, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-        coursesDataSource.createNewCourse(formInputs: formInputs, completionBlock: completionBlock)
+    func getAllCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
+        coursesDataSource.getAllCourses(completionBlock: completionBlock)
     }
+    
+    func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        coursesDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
+    }
+    
+    func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
+        coursesDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
+    }
+    
 }
 //
 //    func getNewCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){

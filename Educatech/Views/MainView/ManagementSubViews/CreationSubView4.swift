@@ -10,7 +10,7 @@ import SwiftUI
 struct CreationSubView4: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Binding var formInputs: CreateCourseFormInputs
     
     var body: some View {
@@ -27,7 +27,7 @@ struct CreationSubView4: View {
             }
             Spacer()
             NavigationLink {
-                CreationSubView5(authViewModel: authViewModel, coursesViewModel: coursesViewModel, formInputs: $formInputs)
+                CreationSubView5(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
             } label: {
                 ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
             }
@@ -80,5 +80,5 @@ struct AddVideoViewComponent: View {
 }
 
 #Preview {
-    CreationSubView4(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel(), formInputs: .constant(CreateCourseFormInputs()))
+    CreationSubView4(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), formInputs: .constant(CreateCourseFormInputs()))
 }

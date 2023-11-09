@@ -10,7 +10,7 @@ import SwiftUI
 struct CreationSubView2: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @State var formInputs = CreateCourseFormInputs()
     
     var body: some View {
@@ -18,33 +18,33 @@ struct CreationSubView2: View {
             HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse2), frameSize: 70)
             Spacer()
             VStack (alignment: .leading) {
-                CoursesTextFieldViewComponent(coursesViewModel: coursesViewModel, variable: $formInputs.title, errorMsg: coursesViewModel.titleErrorMsg, label: "Title", placeholder: "The title of your course", tooltip: "Write the title of your course")
-                CoursesTextFieldViewComponent(coursesViewModel: coursesViewModel, variable: $formInputs.imageURL, errorMsg: coursesViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
+                CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.title, errorMsg: collectionsViewModel.titleErrorMsg, label: "Title", placeholder: "The title of your course", tooltip: "Write the title of your course")
+                CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.imageURL, errorMsg: collectionsViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
                 EmptyView()
                 PickerViewComponent(variable: $formInputs.category, label: "Category")
             }
             Spacer()
             Text("Good to go!")
-                .foregroundStyle(coursesViewModel.allowContinue ? Color.accentColor : Color.clear)
+                .foregroundStyle(collectionsViewModel.allowContinue ? Color.accentColor : Color.clear)
             Spacer()
             
             HStack {
-                if coursesViewModel.allowContinue {
+                if collectionsViewModel.allowContinue {
                     NavigationLink {
-                        CreationSubView3(authViewModel: authViewModel, coursesViewModel: coursesViewModel, formInputs: $formInputs)
+                        CreationSubView3(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
                     } label: {
                         ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
                     }
                 }
                 else {
                     Button {
-                        coursesViewModel.creationFormValidations(formInputs)
+                        collectionsViewModel.creationFormValidations(formInputs)
                     } label: {
                         ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
                     }
                 }
                 Button {
-                    coursesViewModel.cleanCreationCache()
+                    collectionsViewModel.cleanCreationCache()
                     formInputs = CreateCourseFormInputs()
                 } label: {
                     ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "HTML") ? .gray : .pink.opacity(0.5))
@@ -57,5 +57,5 @@ struct CreationSubView2: View {
 }
 
 #Preview {
-    CreationSubView2(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+    CreationSubView2(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }

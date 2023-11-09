@@ -12,14 +12,73 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     
     var body: some View {
-        Text("HOME")
+        ScrollView {
+            VStack (alignment: .leading) {
+                Text("All new courses")
+                    .font(.largeTitle)
+                    .bold()
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
+                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                }
+                .padding()
+            }
+            VStack (alignment: .leading) {
+                Text("All new courses")
+                    .font(.largeTitle)
+                    .bold()
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
+                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                }
+                .padding()
+            }
+            VStack (alignment: .leading) {
+                Text("All new courses")
+                    .font(.largeTitle)
+                    .bold()
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
+                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                }
+                .padding()
+            }
+            VStack (alignment: .leading) {
+                Text("All new courses")
+                    .font(.largeTitle)
+                    .bold()
+                ScrollView(.horizontal) {
+                    HStack(spacing: 20) {
+                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
+                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                }
+                .padding()
+            }
+        }
+        .scrollIndicators(.hidden)
     }
 }
 
 #Preview {
-    HomeView(authViewModel: AuthViewModel())
+    HomeView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
   
 ////    @ObservedObject var coursesViewModel: CoursesViewModel

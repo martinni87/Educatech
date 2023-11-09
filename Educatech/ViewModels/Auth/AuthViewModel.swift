@@ -80,6 +80,8 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    //MARK: Sign up, sign in, logout and auth methods
+    
     func signUpEmail(formInputs: RegistrationFormInputs) {
         //First clean all error records
         self.cleanCache()
@@ -131,6 +133,8 @@ final class AuthViewModel: ObservableObject {
         self.userAuth = authRepository.getCurrentUserAuth()
     }
     
+    //MARK: User Data
+    
     func getCurrentUserData() {
         authRepository.getCurrentUserData { [weak self] result in
             switch result {
@@ -142,6 +146,10 @@ final class AuthViewModel: ObservableObject {
             }
         }
     }
+    
+//    func addNewManagedCourseToUser(newCourseID: String, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+//        authRepository.addNewManagedCourseToUser(newCourseID: newCourseID, userData: userData, completionBlock: completionBlock)
+//    }
 }
     
 //    @Published var user: UserAuthModel?
