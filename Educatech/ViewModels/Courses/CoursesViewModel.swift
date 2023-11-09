@@ -10,11 +10,12 @@ import Foundation
 final class CoursesViewModel: ObservableObject {
     
     //Published variables to register errors in the creation process of a new course (in form view).
+    @Published var creationMsg: String = ""
     @Published var titleErrorMsg: String?
     @Published var descriptionErrorMsg: String?
     @Published var imageURLErrorMsg: String?
-    @Published var categoryErrorMsg: String?
-    @Published var videosURLErrorMsg: String?
+    @Published var creationWasSuccessful: Bool = false
+    @Published var creationHasFailed: Bool = false
     @Published var allowContinue: Bool = false
     
     
@@ -25,11 +26,12 @@ final class CoursesViewModel: ObservableObject {
     }
     
     func cleanCreationCache() {
+        self.creationMsg = ""
         self.titleErrorMsg = nil
         self.descriptionErrorMsg = nil
         self.imageURLErrorMsg = nil
-        self.categoryErrorMsg = nil
-        self.videosURLErrorMsg = nil
+        self.creationWasSuccessful = false
+        self.creationHasFailed = false
         self.allowContinue = false
     }
     
@@ -48,6 +50,20 @@ final class CoursesViewModel: ObservableObject {
                 }
                 self?.imageURLErrorMsg = nil
                 self?.allowContinue = true
+            }
+        }
+    }
+    
+    //MARK:
+    func createNewCourse(formInputs: CreateCourseFormInputs) {
+        coursesRepository.createNewCourse(formInputs: formInputs) { [weak self] result in
+            switch result {
+            case .success(let newCourse):
+                self?.creationMsg = "New \(newCourse.title) course have been created successfully"
+                self?.creationWasSuccessful = true
+            case .failure(let error):
+                self?.creationMsg = error.localizedDescription
+                self?.creationHasFailed = true
             }
         }
     }

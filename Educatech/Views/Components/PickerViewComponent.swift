@@ -10,7 +10,6 @@ import SwiftUI
 struct PickerViewComponent: View {
 
     @Binding var variable: String
-    let errorMsg: String?
     let label: String
     @Environment (\.colorScheme) var colorScheme
     
@@ -19,7 +18,6 @@ struct PickerViewComponent: View {
 
             Rectangle()
                 .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
-                .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
                 .frame(height: 40)
                 .cornerRadius(10)
                 .overlay {
@@ -42,5 +40,5 @@ struct PickerViewComponent: View {
 }
 
 #Preview {
-    PickerViewComponent(variable: .constant(""), errorMsg: "No error", label: "Titulo")
+    PickerViewComponent(variable: .constant(""), label: "Titulo")
 }

@@ -13,9 +13,10 @@
 		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
 		5B2ABCF42AFAC24D009EBC18 /* CreationSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */; };
 		5B2ABCF62AFAE640009EBC18 /* PickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */; };
-		5B2ABCF82AFAEA10009EBC18 /* CreationSubView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF72AFAEA10009EBC18 /* CreationSubView3.swift */; };
+		5B2ABCF82AFAEA10009EBC18 /* CreationSubView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */; };
 		5B2ABCFA2AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF92AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift */; };
-		5B2ABCFC2AFB0921009EBC18 /* CreationSubView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCFB2AFB0921009EBC18 /* CreationSubView4.swift */; };
+		5B2ABCFC2AFB0921009EBC18 /* CreationSubView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCFB2AFB0921009EBC18 /* CreationSubView5.swift */; };
+		5B31D4C22AFC5C8800447AD4 /* CreationSubView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D4C12AFC5C8800447AD4 /* CreationSubView3.swift */; };
 		5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AA2ABB722100B20E9A /* ProfileView.swift */; };
 		5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B33E2AC2ABB74F000B20E9A /* HomeView.swift */; };
 		5B540DB62AC234A20034FF9D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5B540DB52AC234A20034FF9D /* FirebaseFirestore */; };
@@ -89,9 +90,10 @@
 		5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDataModel.swift; sourceTree = "<group>"; };
 		5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView2.swift; sourceTree = "<group>"; };
 		5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponent.swift; sourceTree = "<group>"; };
-		5B2ABCF72AFAEA10009EBC18 /* CreationSubView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView3.swift; sourceTree = "<group>"; };
+		5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView4.swift; sourceTree = "<group>"; };
 		5B2ABCF92AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTextFieldViewComponent.swift; sourceTree = "<group>"; };
-		5B2ABCFB2AFB0921009EBC18 /* CreationSubView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView4.swift; sourceTree = "<group>"; };
+		5B2ABCFB2AFB0921009EBC18 /* CreationSubView5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView5.swift; sourceTree = "<group>"; };
+		5B31D4C12AFC5C8800447AD4 /* CreationSubView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView3.swift; sourceTree = "<group>"; };
 		5B33E2AA2ABB722100B20E9A /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		5B33E2AC2ABB74F000B20E9A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B5BDA512AD32E2D00BDE896 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -181,8 +183,9 @@
 			children = (
 				5B70923C2ABDEC94003243C7 /* CreationSubView1.swift */,
 				5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */,
-				5B2ABCF72AFAEA10009EBC18 /* CreationSubView3.swift */,
-				5B2ABCFB2AFB0921009EBC18 /* CreationSubView4.swift */,
+				5B31D4C12AFC5C8800447AD4 /* CreationSubView3.swift */,
+				5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */,
+				5B2ABCFB2AFB0921009EBC18 /* CreationSubView5.swift */,
 			);
 			path = ManagementSubViews;
 			sourceTree = "<group>";
@@ -528,8 +531,9 @@
 				5BBAFE5D2AF84106008CEBBE /* ButtonViewComponent.swift in Sources */,
 				5B2ABCFA2AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift in Sources */,
 				5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */,
+				5B31D4C22AFC5C8800447AD4 /* CreationSubView3.swift in Sources */,
 				5B70923F2ABDED45003243C7 /* ManagementView.swift in Sources */,
-				5B2ABCFC2AFB0921009EBC18 /* CreationSubView4.swift in Sources */,
+				5B2ABCFC2AFB0921009EBC18 /* CreationSubView5.swift in Sources */,
 				5BC457242AB3960D00567EEF /* AuthDataSource.swift in Sources */,
 				5B95645C2AD1CB18002BC3BE /* WaitingAnimationView.swift in Sources */,
 				5BCEB6422AE19B6100DB5973 /* SearchView.swift in Sources */,
@@ -543,7 +547,7 @@
 				5B7BDA032AC9F87800A25AD8 /* StorageRepository.swift in Sources */,
 				5B2ABCF42AFAC24D009EBC18 /* CreationSubView2.swift in Sources */,
 				5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */,
-				5B2ABCF82AFAEA10009EBC18 /* CreationSubView3.swift in Sources */,
+				5B2ABCF82AFAEA10009EBC18 /* CreationSubView4.swift in Sources */,
 				5B616E7A2ABCB9F8009FAE97 /* CoursesDataSource.swift in Sources */,
 				5BBAFE592AF8408D008CEBBE /* RegisterSubView3.swift in Sources */,
 				5B95645E2AD1F1FD002BC3BE /* ManagedCourseCardView.swift in Sources */,

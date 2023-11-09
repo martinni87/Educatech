@@ -14,6 +14,10 @@ final class CoursesRepository {
     init(coursesDataSource: CoursesDataSource = CoursesDataSource()) {
         self.coursesDataSource = coursesDataSource
     }
+    
+    func createNewCourse(formInputs: CreateCourseFormInputs, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        coursesDataSource.createNewCourse(formInputs: formInputs, completionBlock: completionBlock)
+    }
 }
 //
 //    func getNewCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){

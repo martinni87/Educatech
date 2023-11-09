@@ -53,23 +53,24 @@ struct CoursesTextFieldViewComponent: View {
                             .padding()
                     }
                 }
+            if showTooltip {
+                Text(self.tooltip)
+                    .font(.system(size: 14))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(showTooltip ? .gray : .clear)
+                    .bold()
+            }
+            else {
+                Text(errorMsg ?? "No error")
+                    .font(.system(size: 14))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(errorMsg != nil ? .pink : .clear)
+                    .bold()
+            }
         }
-        if showTooltip {
-            Text(self.tooltip)
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(showTooltip ? .gray : .clear)
-                .bold()
-        }
-        else {
-            Text(errorMsg ?? "No error")
-                .multilineTextAlignment(.leading)
-                .foregroundStyle(errorMsg != nil ? .pink : .clear)
-                .bold()
-        }
-        
     }
 }
 
 #Preview {
-    RegTextFieldViewComponent(authViewModel: AuthViewModel(), type: .simple, variable: .constant(""), secureIsActive: false, errorMsg: nil, label: "Example", placeholder: "This is an example", tooltip: "Tooltip string")
+    CoursesTextFieldViewComponent(coursesViewModel: CoursesViewModel(), variable: .constant(""), errorMsg: "nil", label: "Example", placeholder: "Example", tooltip: "Example")
 }

@@ -48,6 +48,7 @@ struct LoginFormInputs {
 
 struct CreateCourseFormInputs {
     var creatorID: String = ""
+    var teacher: String = ""
     var title: String = ""
     var description: String = ""
     var imageURL: String = ""

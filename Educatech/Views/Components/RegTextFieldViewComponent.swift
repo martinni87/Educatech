@@ -76,12 +76,14 @@ struct RegTextFieldViewComponent: View {
                 }
             if showTooltip {
                 Text(self.tooltip)
+                    .font(.system(size: 14))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(showTooltip ? .gray : .clear)
                     .bold()
             }
             else {
                 Text(errorMsg ?? "No error")
+                    .font(.system(size: 14))
                     .multilineTextAlignment(.leading)
                     .foregroundStyle(errorMsg != nil ? .pink : .clear)
                     .bold()

@@ -21,7 +21,7 @@ struct CreationSubView2: View {
                 CoursesTextFieldViewComponent(coursesViewModel: coursesViewModel, variable: $formInputs.title, errorMsg: coursesViewModel.titleErrorMsg, label: "Title", placeholder: "The title of your course", tooltip: "Write the title of your course")
                 CoursesTextFieldViewComponent(coursesViewModel: coursesViewModel, variable: $formInputs.imageURL, errorMsg: coursesViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
                 EmptyView()
-                PickerViewComponent(variable: $formInputs.category, errorMsg: coursesViewModel.categoryErrorMsg, label: "Category")
+                PickerViewComponent(variable: $formInputs.category, label: "Category")
             }
             Spacer()
             Text("Good to go!")
@@ -31,7 +31,7 @@ struct CreationSubView2: View {
             HStack {
                 if coursesViewModel.allowContinue {
                     NavigationLink {
-                        CreationSubView3()
+                        CreationSubView3(authViewModel: authViewModel, coursesViewModel: coursesViewModel, formInputs: $formInputs)
                     } label: {
                         ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
                     }

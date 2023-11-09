@@ -16,8 +16,9 @@ enum HeaderType: String {
     case login = "Login"
     case createcourse1 = "Create a new course"
     case createcourse2 = "Creation form"
-    case createcourse3 = "Upload your videos"
-    case createcourse4 = "Everything's good?"
+    case createcourse3 = "Description"
+    case createcourse4 = "Upload your videos"
+    case createcourse5 = "Everything's good?"
 }
 
 final class HeaderModel {
@@ -68,12 +69,16 @@ final class HeaderModel {
             self.image = "form_create_course_pic2"
         case .createcourse3:
             self.titleColor = Color("color_text_standard")
-            self.subtitle = "This is the list of videos you're going to include in your course. Copy and paste the URL where you store it."
+            self.subtitle = "Describe with a few words what are students going to learn."
             self.image = "form_create_course_pic3"
         case .createcourse4:
             self.titleColor = Color("color_text_standard")
-            self.subtitle = "Last check! If everything is fine, hit create to upload your course."
+            self.subtitle = "This is the list of videos you're going to include in your course. Copy and paste the URL where you store each video."
             self.image = "form_create_course_pic4"
+        case .createcourse5:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = "Last check! If everything is fine, hit create to upload your course."
+            self.image = "form_create_course_pic5"
         }
     }
 }

@@ -39,7 +39,7 @@ struct MainView: View {
                 .onAppear{
                     pageTitle = "Search"
                 }
-                
+                #if os(iPadOS)
                 ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                 .tabItem {
                     Label("Management", systemImage: "pencil.and.outline")
@@ -47,7 +47,7 @@ struct MainView: View {
                 .onAppear{
                     pageTitle = "Management Center"
                 }
-                
+                #endif
                 ProfileView(authViewModel: authViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
