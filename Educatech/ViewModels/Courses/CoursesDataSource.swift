@@ -1,19 +1,73 @@
-////
-////  CoursesDataSource.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 21/9/23.
-////
 //
-//import Foundation
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
+//  CoursesDataSource.swift
+//  Educatech
 //
-//final class CoursesDataSource {
-//    
-//    private let database = Firestore.firestore()
-//    private let collection = "courses"
-//    
+//  Created by Martín Antonio Córdoba Getar on 21/9/23.
+//
+
+import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+final class CoursesDataSource {
+    
+    private let database = Firestore.firestore()
+    private let collection = "courses"
+    
+    func createNewCourse(formInputs: CreateCourseFormInputs, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        self.getCountOfDocuments { count in
+            //Get number of documents to create bew document with custom ID
+            let id: String = "000\(count)_\(formInputs.title.lowercased().replacingOccurrences(of: " ", with: "_"))"
+            let newDocument = self.database.collection(self.collection).document(id)
+            
+            //Setting new document with the data given by the user
+            newDocument.setData( ["id": id,
+                                  "creatorID": formInputs.creatorID,
+                                  "teacher": formInputs.teacher,
+                                  "title": formInputs.title,
+                                  "description": formInputs.description,
+                                  "imageURL": formInputs.imageURL,
+                                  "category": formInputs.category,
+                                  "videosURL": formInputs.videosURL,
+                                  "numberOfStudents": 0,
+                                  "rateStars": 0,
+                                  "numberOfValorations": 0
+                                 ]) { error in
+                if let error = error {
+                    completionBlock(.failure(error))
+                    return
+                }
+                let course = CourseModel(id: id,
+                                         creatorID: formInputs.creatorID,
+                                         teacher: formInputs.teacher,
+                                         title: formInputs.title,
+                                         description: formInputs.description,
+                                         imageURL: formInputs.imageURL,
+                                         category: formInputs.category,
+                                         videosURL: formInputs.videosURL,
+                                         numberOfStudents: 0,
+                                         rateStars: 0,
+                                         numberOfValorations: 0)
+                completionBlock(.success(course))
+            }
+        }
+    }
+    
+    // MARK: Private methods
+    private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
+        let collectionRef = self.database.collection(self.collection)
+        collectionRef.getDocuments { query, error in
+            if let error = error {
+                print("Error counting number of documents. \(error)")
+                return
+            }
+            let numberOfDocuments = query?.documents.count ?? 0
+            completionBlock(numberOfDocuments)
+        }
+    }
+}
+
+//
 //    func getAllCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
 //        self.database.collection(self.collection)
 //            .addSnapshotListener { query, error in
@@ -69,45 +123,7 @@
 //            }
 //    }
 //    
-//    func createNewCourse(title: String, description: String, imageURL: String, creatorID: String, teacher: String, category: String,/* price: Double,*/
-//                         completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-//        self.getCountOfDocuments { count in
-//            //Get number of documents to create bew document with custom ID
-//            let id: String = "000\(count)_\(title.lowercased().replacingOccurrences(of: " ", with: "_"))"
-//            let newDocument = self.database.collection(self.collection).document(id)
-//            
-//            //Setting new document with the data given by the user
-//            newDocument.setData( ["id": id,
-//                                  "title": title,
-//                                  "description": description,
-//                                  "imageURL": imageURL,
-//                                  "creatorID": creatorID,
-//                                  "teacher": teacher,
-//                                  "category": category,
-//                                  "numberOfStudents": 0,
-//                                  "rateStars": 0,
-//                                  "numberOfValorations": 0,
-//                                  //"price": price
-//                                 ]) { error in
-//                if let error = error {
-//                    completionBlock(.failure(error))
-//                    return
-//                }
-//                let course = CourseModel(id: id,
-//                                         title: title,
-//                                         description: description,
-//                                         imageURL: imageURL,
-//                                         creatorID: creatorID,
-//                                         teacher: teacher,
-//                                         category: category,
-//                                         numberOfStudents: 0,
-//                                         rateStars: 0,
-//                                         numberOfValorations: 0/*,*/
-//                                         /*price: price*/)
-//                completionBlock(.success(course))
-//            }
-//        }
-//    }
+    
 //    
 //    func updateCourseData(courseID: String, title: String, description: String, imageURL: String, category: String,
 //                          completionBlock: @escaping (Error) -> Void ) {
@@ -125,16 +141,5 @@
 //        }
 //    }
 //    
-//    // MARK: Private methods
-//    private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
-//        let collectionRef = self.database.collection(self.collection)
-//        collectionRef.getDocuments { query, error in
-//            if let error = error {
-//                print("Error counting number of documents. \(error)")
-//                return
-//            }
-//            let numberOfDocuments = query?.documents.count ?? 0
-//            completionBlock(numberOfDocuments)
-//        }
-//    }
+    
 //}

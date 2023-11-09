@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
     @State var pageTitle = "Educatech"
     
     var body: some View {
@@ -38,15 +39,15 @@ struct MainView: View {
                 .onAppear{
                     pageTitle = "Search"
                 }
-                
-                ManagementView(authViewModel: authViewModel)
+                #if os(iPadOS)
+                ManagementView(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
                 .tabItem {
                     Label("Management", systemImage: "pencil.and.outline")
                 }
                 .onAppear{
                     pageTitle = "Management Center"
                 }
-                
+                #endif
                 ProfileView(authViewModel: authViewModel)
                     .tabItem {
                         Label("Profile", systemImage: "person.fill")
@@ -62,7 +63,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(authViewModel: AuthViewModel())
+    MainView(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
 }
 //
 //    @ObservedObject var authViewModel: AuthViewModel

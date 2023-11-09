@@ -1,34 +1,52 @@
-////
-////  CreationView.swift
-////  Educatech
-////
-////  Created by Martín Antonio Córdoba Getar on 22/9/23.
-////
 //
-//import SwiftUI
+//  CreationSubView1.swift
+//  Educatech
+//
+//  Created by Martín Antonio Córdoba Getar on 22/9/23.
+//
+
+import SwiftUI
 //import Firebase
 //import FirebaseStorage
 //import PhotosUI
-//
-//struct CreationView: View {
-//    
-//    //Binding View Models
-//    @ObservedObject var authViewModel: AuthViewModel
-//    @ObservedObject var coursesViewModel: CoursesViewModel
-//    
+
+struct CreationSubView1: View {
+    
+    @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var coursesViewModel: CoursesViewModel
+    
 //    // Presentation mode for dismissing the current view
 //    @Environment(\.presentationMode) var presentationMode
 //    @Environment(\.verticalSizeClass) var verticalSizeClass
 //    
 //    //Form values
-//    @State var formParameters = CreationFormParameters()
-//    @State var errorParameters = ErrorParameters()
-//    
+//    @State var formInputs = CreateCourseFormInputs()
+    
+    var body: some View {
+        NavigationStack {
+            VStack {
+                HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse1), frameSize: 100)
+                NavigationLink {
+                    CreationSubView2(authViewModel: authViewModel, coursesViewModel: CoursesViewModel())
+                } label: {
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                }
+                .padding()
+            }
+        }
+    }
+}
+
+#Preview {
+    CreationSubView1(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+}
+    
 //    var body: some View {
-//        ScrollView {
+//        VStack {
+//            HeaderViewComponent(headerModel: HeaderModel(headerType: .createCourse), frameSize: 100)
 //            if verticalSizeClass == .compact {
 //                HStack (alignment: .firstTextBaseline, spacing: 20){
-//                    CreationForm(formParameters: $formParameters)
+//                    CreationForm(formParameters: $formInputs)
 //                }
 //            }
 //            else {
@@ -37,7 +55,7 @@
 //                        .resizable()
 //                        .scaledToFit()
 //                        .frame(height: 100)
-//                    CreationForm(formParameters: $formParameters)
+//                    CreationForm(formParameters: $formInputs)
 //                }
 //            }
 //            Button {
@@ -63,7 +81,7 @@
 //            .tint(.green)
 //        }
 //        .onAppear {
-//            formParameters.description = KLOREMIPSUM
+//            formParameters.description = LOREMIPSUM
 //        }
 //        .padding(30)
 //        .alert(isPresented: $errorParameters.showMsg) {
@@ -85,7 +103,7 @@
 //        .navigationTitle("New course creation")
 //    }
 //}
-//
+
 //struct CreationView_Previews: PreviewProvider {
 //    
 //    @State static var coursesViewModel = CoursesViewModel()

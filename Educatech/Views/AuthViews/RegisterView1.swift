@@ -1,5 +1,5 @@
 //
-//  RegisterView.swift
+//  RegisterView1.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 14/9/23.
@@ -9,7 +9,7 @@ import SwiftUI
 
 import SwiftUI
 
-struct RegisterView: View {
+struct RegisterView1: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @State var formInputs = RegistrationFormInputs()
@@ -20,7 +20,6 @@ struct RegisterView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                //MARK: Presentation
                 HeaderViewComponent(headerModel: HeaderModel(headerType: .register1), frameSize: 100)
                 NavigationLink {
                     RegisterSubView2(authViewModel: authViewModel, formInputs: $formInputs)

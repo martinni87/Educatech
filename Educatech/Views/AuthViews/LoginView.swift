@@ -18,8 +18,8 @@ struct LoginView: View {
             HeaderViewComponent(headerModel: HeaderModel(headerType: .login), frameSize: 70)
                 .padding()
             VStack {
-                TextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.email, secureIsActive: false, errorMsg: authViewModel.emailErrorMsg, label: "Email", placeholder: "your@mail.com", tooltip: "Use the email you've register previously")
-                TextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.password, secureIsActive: true, errorMsg: authViewModel.passwordErrorMsg, label: "Password", placeholder: "Your password here", tooltip: "Use the password associated with your current email")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .simple, variable: $formInputs.email, secureIsActive: false, errorMsg: authViewModel.emailErrorMsg, label: "Email", placeholder: "your@mail.com", tooltip: "Use the email you've register previously")
+                RegTextFieldViewComponent(authViewModel: authViewModel, type: .secure, variable: $formInputs.password, secureIsActive: true, errorMsg: authViewModel.passwordErrorMsg, label: "Password", placeholder: "Your password here", tooltip: "Use the password associated with your current email")
             }
             Button {
                 authViewModel.signInEmail(formInputs: formInputs)
