@@ -225,13 +225,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		5B616E7E2ABCC8F7009FAE97 /* CardViews */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CardViews;
-			sourceTree = "<group>";
-		};
 		5B70923B2ABDEC73003243C7 /* EditorViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -425,7 +418,6 @@
 				5BCEB6412AE19B6100DB5973 /* SearchView.swift */,
 				5B70923E2ABDED45003243C7 /* ManagementView.swift */,
 				5B33E2AA2ABB722100B20E9A /* ProfileView.swift */,
-				5B616E7E2ABCC8F7009FAE97 /* CardViews */,
 				5B70923B2ABDEC73003243C7 /* EditorViews */,
 			);
 			path = MainView;
@@ -595,6 +587,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -658,6 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
