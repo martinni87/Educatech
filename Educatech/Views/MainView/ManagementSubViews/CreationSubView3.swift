@@ -10,7 +10,7 @@ import SwiftUI
 struct CreationSubView3: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Binding var formInputs: CreateCourseFormInputs
     
     var body: some View {
@@ -22,15 +22,16 @@ struct CreationSubView3: View {
                     .border(Color.gray, width: 1)
                     .padding()
                 NavigationLink {
-                    CreationSubView4(authViewModel: authViewModel, coursesViewModel: coursesViewModel, formInputs: $formInputs)
+                    CreationSubView4(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
                 } label: {
                     ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
                 }
+                .padding()
             }
         }
     }
 }
 
 #Preview {
-    CreationSubView3(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel(), formInputs: .constant(CreateCourseFormInputs()))
+    CreationSubView3(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), formInputs: .constant(CreateCourseFormInputs()))
 }

@@ -16,7 +16,7 @@ import GoogleSignInSwift
 final class AuthDataSource {
     
     private let database = Firestore.firestore()
-    private let collection = "users"
+    private let usersCollection = "users"
     
     //MARK: Registration form validations
     func emailValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void) {
@@ -75,6 +75,8 @@ final class AuthDataSource {
         }
     }
     
+    //MARK: Sing up, sign in, logout and user auth
+    
     func signUpEmail(formInputs: RegistrationFormInputs, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Check if username is available. If available, new user not created
         let email = formInputs.email.lowercased()
@@ -87,9 +89,7 @@ final class AuthDataSource {
                         return
                     }
                     let email = authDataResult?.user.email ?? "No email"
-                    let id = authDataResult?.user.uid ?? "00000"
-                    //Convert formInputs.categories, which is a Set<Categories> Object, to an array of Strings
-//                    let categories: [String] = formInputs.categories.map { $0.rawValue }
+                    let id = authDataResult?.user.uid ?? "0"
                     let newUser = UserDataModel(id: id, email: email, username: username, categories: formInputs.categories)
                     self.createNewUser(user: newUser) { result in
                         switch result {
@@ -137,19 +137,6 @@ final class AuthDataSource {
         }
     }
     
-//    func signInEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
-//        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
-//            if let error = error {
-//                completionBlock(.failure(error))
-//                return
-//            }
-//            if let email = authDataResult?.user.email, let id = authDataResult?.user.uid {
-//                completionBlock(.success(UserAuthModel(id: id, email: email)))
-//                return
-//            }
-//        }
-//    }
-    
     func signOut() throws {
         try Auth.auth().signOut()
     }
@@ -163,6 +150,7 @@ final class AuthDataSource {
         }
     }
     
+    //MARK: User Data from users collection
     func getCurrentUserData(completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
         if let id = Auth.auth().currentUser?.uid {
             self.getUserByID(userID: id) { result in
@@ -182,13 +170,34 @@ final class AuthDataSource {
         }
     }
     
-    //MARK: Users Database methods and Auth info
+    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        //Getting document for current user
+        let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
+        var subscriptions = userData.subscriptions
+        subscriptions.append(newCourse.id ?? "0")
+        //Setting new data
+        document.setData( ["id": userData.id ?? "0",
+                           "email": userData.email,
+                           "username": userData.username,
+                           "isEditor": userData.isEditor,
+                           "categories": userData.categories,
+                           "contentCreated": userData.contentCreated,
+                           "subscriptions": subscriptions
+                          ]) { error in
+            if let error = error {
+                completionBlock(.failure(error))
+                return
+            }
+            completionBlock(.success(userData))
+        }
+    }
+    
     func createNewUser(user: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Creating document in collection with given id
-        let newDocument = self.database.collection(self.collection).document(user.id ?? "00000")
+        let newDocument = self.database.collection(self.usersCollection).document(user.id ?? "0")
         
         //Setting new document with the data given by the user
-        newDocument.setData( ["id": user.id ?? "00000",
+        newDocument.setData( ["id": user.id ?? "0",
                               "email": user.email,
                               "username": user.username,
                               "isEditor": user.isEditor,
@@ -214,7 +223,7 @@ final class AuthDataSource {
     //MARK: Private check methods
     private func emailIsAvailable(email: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let email = email.lowercased()
-        let documents = self.database.collection(self.collection).whereField("email", isEqualTo: email)
+        let documents = self.database.collection(self.usersCollection).whereField("email", isEqualTo: email)
         documents.getDocuments { query, error in
             if let _ = error {
                 completionBlock(false, "Something went wrong. Try again in a few minuts and contact the Admin if the problem persists.")
@@ -231,7 +240,7 @@ final class AuthDataSource {
     
     private func usernameIsAvailable(username: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let username = username.lowercased()
-        let documents = self.database.collection(self.collection).whereField("username", isEqualTo: username)
+        let documents = self.database.collection(self.usersCollection).whereField("username", isEqualTo: username)
         documents.getDocuments { query, error in
             if let _ = error {
                 completionBlock(false, "Something went wrong. Try again in a few minuts and contact the Admin if the problem persists.")
@@ -247,7 +256,7 @@ final class AuthDataSource {
     }
     
     private func getUserByID(userID: String, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ){
-        let userDocument = self.database.collection(self.collection).document(userID)
+        let userDocument = self.database.collection(self.usersCollection).document(userID)
         userDocument.getDocument(source: .server) { document, error in
             if let error = error {
                 completionBlock(.failure(error))
@@ -258,9 +267,9 @@ final class AuthDataSource {
                 let email = document.get("email") as! String
                 let username = document.get("username") as! String
                 let isEditor = document.get("isEditor") as! Bool
-                let subscriptions = document.get("subscriptions") as! [String]
                 let categories = document.get("categories") as! [String]
                 let contentCreated = document.get("contentCreated") as! [String]
+                let subscriptions = document.get("subscriptions") as! [String]
                 completionBlock(.success(UserDataModel(id: id,
                                                        email: email,
                                                        username: username,
@@ -276,7 +285,7 @@ final class AuthDataSource {
 //
 //    private let facebookAuth = FacebookAuth()
 //    private let googleAuth = GoogleAuth()
-//    
+//
 //    func signUpEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
 //        Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
 //            if let error = error {
@@ -291,7 +300,7 @@ final class AuthDataSource {
 //            completionBlock(.failure(AppErrors.authError))
 //        }
 //    }
-//    
+//
 //    func signInEmail(email: String, password: String, completionBlock: @escaping (Result<UserAuthModel,Error>) -> Void ) {
 //        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
 //            if let error = error {
@@ -306,7 +315,7 @@ final class AuthDataSource {
 //            completionBlock(.failure(AppErrors.authError))
 //        }
 //    }
-//    
+//
 //    func facebookLogin(completionBlock: @escaping (Result<UserAuthModel, Error>) -> Void ) {
 //        facebookAuth.facebookLogin { result in
 //            switch result {
@@ -330,7 +339,7 @@ final class AuthDataSource {
 //            }
 //        }
 //    }
-//    
+//
 //    func googleLogin(completionBlock: @escaping (Result<UserAuthModel, Error>) -> Void) {
 //        googleAuth.googleLogin { result in
 //            switch result {
@@ -355,7 +364,7 @@ final class AuthDataSource {
 //            }
 //        }
 //    }
-//    
+//
 //    func getCurrentUser() -> UserAuthModel? {
 //        if let email = Auth.auth().currentUser?.email, let id = Auth.auth().currentUser?.uid {
 //            return UserAuthModel(id: id, email: email)
@@ -364,11 +373,11 @@ final class AuthDataSource {
 //            return nil
 //        }
 //    }
-//    
+//
 //    func signOut() throws {
 //        try Auth.auth().signOut()
 //    }
-//    
+//
 //    func currentProvider() -> [LinkedAccounts] {
 //        guard let currentUser = Auth.auth().currentUser else {
 //            return []
@@ -379,7 +388,7 @@ final class AuthDataSource {
 //        }.compactMap { $0 } //Delete all nil values in array.
 //        return linkedAccounts
 //    }
-//    
+//
 //    func getLastProviderCredential() -> AuthCredential? {
 //        guard let providerId = currentProvider().last else {
 //            return nil
@@ -403,14 +412,14 @@ final class AuthDataSource {
 //            return nil
 //        }
 //    }
-//    
+//
 //    func linkEmailAndPassword(email: String, password: String, completionBlock: @escaping (Bool) -> Void) {
 //        guard let credential = getLastProviderCredential() else {
 //            print("No credential")
 //            completionBlock(false)
 //            return
 //        }
-//        
+//
 //        Auth.auth().currentUser?.reauthenticate(with: credential, completion: { authDataResult, error in
 //            if let error = error {
 //                print("Error reauthenticating user: \(error.localizedDescription)")
@@ -429,9 +438,9 @@ final class AuthDataSource {
 //                completionBlock(true)
 //            })
 //        })
-//        
+//
 //    }
-//    
+//
 //    func linkFacebook(completionBlock: @escaping (Bool) -> Void) {
 //        facebookAuth.facebookLogin { result in
 //            switch result {
@@ -453,7 +462,7 @@ final class AuthDataSource {
 //            }
 //        }
 //    }
-//    
+//
 //    func linkGoogle(completionBlock: @escaping (Bool) -> Void) {
 //        googleAuth.googleLogin { result in
 //            switch result {

@@ -32,7 +32,7 @@ final class AuthRepository {
         authDataSource.repeatedPasswordValidations(formInputs, completionBlock: completionBlock)
     }
     
-    //MARK: Sign up, Login and Sign out methods
+    //MARK: Sign up, Login, Sign out and auth methods
     func signUpEmail(formInputs: RegistrationFormInputs, completionBlock: @escaping (Result<UserDataModel,Error>) -> Void ) {
         authDataSource.signUpEmail(formInputs: formInputs, completionBlock: completionBlock)
     }
@@ -45,14 +45,23 @@ final class AuthRepository {
         try authDataSource.signOut()
     }
     
-    //MARK: Users Database methods and Auth info
     func getCurrentUserAuth() -> UserAuthModel? {
         authDataSource.getCurrentUserAuth()
     }
     
+    //MARK: Users Database methods and Auth info
+
     func getCurrentUserData(completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
         authDataSource.getCurrentUserData(completionBlock: completionBlock)
     }
+    
+    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        authDataSource.addNewSubscription(newCourse: newCourse, userData: userData, completionBlock: completionBlock)
+    }
+    
+//    func addNewManagedCourseToUser(newCourseID: String, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+//        authDataSource.addNewManagedCourseToUser(newCourseID: newCourseID, userData: userData, completionBlock: completionBlock)
+//    }
 }
 
 //

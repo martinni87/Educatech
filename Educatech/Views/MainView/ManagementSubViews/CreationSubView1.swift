@@ -13,7 +13,7 @@ import SwiftUI
 struct CreationSubView1: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     
 //    // Presentation mode for dismissing the current view
 //    @Environment(\.presentationMode) var presentationMode
@@ -27,7 +27,7 @@ struct CreationSubView1: View {
             VStack {
                 HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse1), frameSize: 100)
                 NavigationLink {
-                    CreationSubView2(authViewModel: authViewModel, coursesViewModel: CoursesViewModel())
+                    CreationSubView2(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                 } label: {
                     ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
                 }
@@ -38,7 +38,7 @@ struct CreationSubView1: View {
 }
 
 #Preview {
-    CreationSubView1(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+    CreationSubView1(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
     
 //    var body: some View {

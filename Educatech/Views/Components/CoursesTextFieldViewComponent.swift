@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoursesTextFieldViewComponent: View {
     
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Binding var variable: String
     let errorMsg: String?
     let label: String
@@ -38,7 +38,7 @@ struct CoursesTextFieldViewComponent: View {
                             .textFieldStyle(.plain)
                             .textInputAutocapitalization(.never)
                             .onTapGesture {
-                                coursesViewModel.cleanCreationCache()
+                                collectionsViewModel.cleanCreationCache()
                             }
                         Image(systemName: "questionmark.bubble")
                             .foregroundStyle(.gray)
@@ -72,5 +72,5 @@ struct CoursesTextFieldViewComponent: View {
 }
 
 #Preview {
-    CoursesTextFieldViewComponent(coursesViewModel: CoursesViewModel(), variable: .constant(""), errorMsg: "nil", label: "Example", placeholder: "Example", tooltip: "Example")
+    CoursesTextFieldViewComponent(collectionsViewModel: CollectionsViewModel(), variable: .constant(""), errorMsg: "nil", label: "Example", placeholder: "Example", tooltip: "Example")
 }

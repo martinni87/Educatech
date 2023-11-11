@@ -10,7 +10,7 @@ import SwiftUI
 struct ManagementView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
-    @ObservedObject var coursesViewModel: CoursesViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
@@ -19,7 +19,7 @@ struct ManagementView: View {
                 VStack{
                     Spacer()
                     NavigationLink {
-                        CreationSubView1(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                        CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     } label: {
                         CreateOption()
                     }
@@ -36,7 +36,7 @@ struct ManagementView: View {
                 HStack{
                     Spacer()
                     NavigationLink {
-                        CreationSubView1(authViewModel: authViewModel, coursesViewModel: coursesViewModel)
+                        CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     } label: {
                         CreateOption()
                     }
@@ -71,7 +71,7 @@ struct CreateOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 
@@ -93,10 +93,10 @@ struct EditOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 
 #Preview {
-    ManagementView(authViewModel: AuthViewModel(), coursesViewModel: CoursesViewModel())
+    ManagementView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }

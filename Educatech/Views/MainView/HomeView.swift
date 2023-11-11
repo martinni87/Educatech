@@ -12,14 +12,26 @@ import SwiftUI
 struct HomeView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
+    @ObservedObject var collectionsViewModel: CollectionsViewModel
     
     var body: some View {
-        Text("HOME")
+        ScrollView {
+            CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.allCourses, sectionTitle: "All courses")
+                .padding()
+            ForEach(authViewModel.userData?.categories ?? [], id:\.self) { category in
+                CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.recommendedCourses[category] ?? [], sectionTitle: "Because you selected \(category)")
+                    .padding()
+            }
+            .task {
+                collectionsViewModel.getCoursesByCategory(categories: authViewModel.userData?.categories ?? [])
+            }
+        }
+        .scrollIndicators(.hidden)
     }
 }
 
 #Preview {
-    HomeView(authViewModel: AuthViewModel())
+    HomeView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 }
   
 ////    @ObservedObject var coursesViewModel: CoursesViewModel
@@ -200,3 +212,4 @@ struct HomeView: View {
 //        HomeView(authViewModel: authViewModel, coursesViewModel: coursesViewModel, userViewModel: userViewModel)
 //    }
 //}
+
