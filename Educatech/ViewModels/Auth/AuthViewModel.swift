@@ -147,6 +147,18 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel) {
+        authRepository.addNewSubscription(newCourse: newCourse, userData: userData) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.userData = user
+            case .failure(let requestErrorMsg):
+                self?.requestErrorMsg = requestErrorMsg.localizedDescription
+                self?.hasRequestError = true
+            }
+        }
+    }
+    
 //    func addNewManagedCourseToUser(newCourseID: String, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
 //        authRepository.addNewManagedCourseToUser(newCourseID: newCourseID, userData: userData, completionBlock: completionBlock)
 //    }

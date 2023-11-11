@@ -16,7 +16,7 @@ import GoogleSignInSwift
 final class AuthDataSource {
     
     private let database = Firestore.firestore()
-    private let collection = "users"
+    private let usersCollection = "users"
     
     //MARK: Registration form validations
     func emailValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void) {
@@ -170,9 +170,31 @@ final class AuthDataSource {
         }
     }
     
+    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        //Getting document for current user
+        let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
+        var subscriptions = userData.subscriptions
+        subscriptions.append(newCourse.id ?? "0")
+        //Setting new data
+        document.setData( ["id": userData.id ?? "0",
+                           "email": userData.email,
+                           "username": userData.username,
+                           "isEditor": userData.isEditor,
+                           "categories": userData.categories,
+                           "contentCreated": userData.contentCreated,
+                           "subscriptions": subscriptions
+                          ]) { error in
+            if let error = error {
+                completionBlock(.failure(error))
+                return
+            }
+            completionBlock(.success(userData))
+        }
+    }
+    
     func createNewUser(user: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Creating document in collection with given id
-        let newDocument = self.database.collection(self.collection).document(user.id ?? "0")
+        let newDocument = self.database.collection(self.usersCollection).document(user.id ?? "0")
         
         //Setting new document with the data given by the user
         newDocument.setData( ["id": user.id ?? "0",
@@ -201,7 +223,7 @@ final class AuthDataSource {
     //MARK: Private check methods
     private func emailIsAvailable(email: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let email = email.lowercased()
-        let documents = self.database.collection(self.collection).whereField("email", isEqualTo: email)
+        let documents = self.database.collection(self.usersCollection).whereField("email", isEqualTo: email)
         documents.getDocuments { query, error in
             if let _ = error {
                 completionBlock(false, "Something went wrong. Try again in a few minuts and contact the Admin if the problem persists.")
@@ -218,7 +240,7 @@ final class AuthDataSource {
     
     private func usernameIsAvailable(username: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let username = username.lowercased()
-        let documents = self.database.collection(self.collection).whereField("username", isEqualTo: username)
+        let documents = self.database.collection(self.usersCollection).whereField("username", isEqualTo: username)
         documents.getDocuments { query, error in
             if let _ = error {
                 completionBlock(false, "Something went wrong. Try again in a few minuts and contact the Admin if the problem persists.")
@@ -234,7 +256,7 @@ final class AuthDataSource {
     }
     
     private func getUserByID(userID: String, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ){
-        let userDocument = self.database.collection(self.collection).document(userID)
+        let userDocument = self.database.collection(self.usersCollection).document(userID)
         userDocument.getDocument(source: .server) { document, error in
             if let error = error {
                 completionBlock(.failure(error))

@@ -16,61 +16,14 @@ struct HomeView: View {
     
     var body: some View {
         ScrollView {
-            VStack (alignment: .leading) {
-                Text("All new courses")
-                    .font(.largeTitle)
-                    .bold()
-                ScrollView(.horizontal) {
-                    HStack(spacing: 20) {
-                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
-                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                }
+            CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.allCourses, sectionTitle: "All courses")
                 .padding()
+            ForEach(authViewModel.userData?.categories ?? [], id:\.self) { category in
+                CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.recommendedCourses[category] ?? [], sectionTitle: "Because you selected \(category)")
+                    .padding()
             }
-            VStack (alignment: .leading) {
-                Text("All new courses")
-                    .font(.largeTitle)
-                    .bold()
-                ScrollView(.horizontal) {
-                    HStack(spacing: 20) {
-                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
-                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                }
-                .padding()
-            }
-            VStack (alignment: .leading) {
-                Text("All new courses")
-                    .font(.largeTitle)
-                    .bold()
-                ScrollView(.horizontal) {
-                    HStack(spacing: 20) {
-                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
-                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                }
-                .padding()
-            }
-            VStack (alignment: .leading) {
-                Text("All new courses")
-                    .font(.largeTitle)
-                    .bold()
-                ScrollView(.horizontal) {
-                    HStack(spacing: 20) {
-                        ForEach(collectionsViewModel.allCourses, id: \.id) { course in
-                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                }
-                .padding()
+            .task {
+                collectionsViewModel.getCoursesByCategory(categories: authViewModel.userData?.categories ?? [])
             }
         }
         .scrollIndicators(.hidden)
@@ -259,3 +212,4 @@ struct HomeView: View {
 //        HomeView(authViewModel: authViewModel, coursesViewModel: coursesViewModel, userViewModel: userViewModel)
 //    }
 //}
+

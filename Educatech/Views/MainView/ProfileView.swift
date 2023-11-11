@@ -16,6 +16,7 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             SignoutButtonViewComponent(authViewModel: authViewModel)
+                .padding(.top)
                 .padding(.trailing)
             List {
                 Section("Personal info") {
@@ -52,6 +53,7 @@ struct ProfileView: View {
                     }
                 }
             }
+            EmptyView()
         }
     }
 }

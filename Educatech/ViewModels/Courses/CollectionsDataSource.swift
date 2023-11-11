@@ -32,6 +32,40 @@ final class CollectionsDataSource {
             }
     }
     
+    func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
+        self.database.collection(self.coursesCollection).whereField("creatorID", isEqualTo: creatorID)
+            .addSnapshotListener { query, error in
+                if let error = error {
+                    completionBlock(.failure(error)) // To return Error case
+                    return
+                }
+                guard let documents = query?.documents.compactMap({ $0 }) else {
+                    completionBlock(.success([])) // To return [CourseModel] array empty
+                    return
+                }
+                let courses = documents.map { try? $0.data(as: CourseModel.self) }
+                    .compactMap { $0 } // To avoid nil values.
+                completionBlock(.success(courses)) // To return [CourseModel] array with data
+            }
+    }
+    
+    func getCoursesByCategory(category: String, completionBlock: @escaping(Result<[CourseModel], Error>) -> Void) {
+        self.database.collection(self.coursesCollection).whereField("category", isEqualTo: category)
+            .addSnapshotListener { query, error in
+                if let error = error {
+                    completionBlock(.failure(error)) // To return Error case
+                    return
+                }
+                guard let documents = query?.documents.compactMap({ $0 }) else {
+                    completionBlock(.success([])) // To return [CourseModel] array empty
+                    return
+                }
+                let courses = documents.map { try? $0.data(as: CourseModel.self) }
+                    .compactMap { $0 } // To avoid nil values.
+                completionBlock(.success(courses)) // To return [CourseModel] array with data
+            }
+    }
+    
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         self.getCountOfDocuments { count in
             //Get number of documents to create bew document with custom ID
@@ -83,11 +117,8 @@ final class CollectionsDataSource {
     func addNewManagedCourseToUser(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         //Getting document for current user
         let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
-        
         var contentCreated = userData.contentCreated
-        print(contentCreated)
         contentCreated.append(newCourse.id ?? "0")
-        print(contentCreated)
         //Setting new data
         document.setData( ["id": userData.id ?? "0",
                            "email": userData.email,
@@ -105,22 +136,7 @@ final class CollectionsDataSource {
         }
     }
     
-    func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
-        self.database.collection(self.coursesCollection).whereField("creatorID", isEqualTo: creatorID)
-            .addSnapshotListener { query, error in
-                if let error = error {
-                    completionBlock(.failure(error)) // To return Error case
-                    return
-                }
-                guard let documents = query?.documents.compactMap({ $0 }) else {
-                    completionBlock(.success([])) // To return [CourseModel] array empty
-                    return
-                }
-                let courses = documents.map { try? $0.data(as: CourseModel.self) }
-                    .compactMap { $0 } // To avoid nil values.
-                completionBlock(.success(courses)) // To return [CourseModel] array with data
-            }
-    }
+    
     
     // MARK: Private methods
     private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
@@ -137,7 +153,7 @@ final class CollectionsDataSource {
 }
 
 
-    
+
 //
 //    func getSubscribedCoursesByIDList(coursesID: [String], completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ) {
 //        var subscribedCourses: [CourseModel] = []

@@ -19,12 +19,16 @@ final class CollectionsRepository {
         coursesDataSource.getAllCourses(completionBlock: completionBlock)
     }
     
-    func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-        coursesDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
-    }
-    
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         coursesDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
+    }
+    
+    func getCoursesByCategory(category: String, completionBlock: @escaping(Result<[CourseModel], Error>) -> Void) {
+        coursesDataSource.getCoursesByCategory(category: category, completionBlock: completionBlock)
+    }
+    
+    func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        coursesDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
     }
     
 }

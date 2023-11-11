@@ -26,6 +26,7 @@ struct CreationSubView3: View {
                 } label: {
                     ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
                 }
+                .padding()
             }
         }
     }

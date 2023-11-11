@@ -40,5 +40,5 @@ struct PickerViewComponent: View {
 }
 
 #Preview {
-    PickerViewComponent(variable: .constant(""), label: "Titulo")
+    PickerViewComponent(variable: .constant("Swift"), label: "Titulo")
 }

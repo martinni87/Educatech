@@ -32,9 +32,7 @@ struct CardView: View {
                         .font(.title2)
                         .bold()
                     Spacer()
-                    NavigationLink ("See more...") {
-                        CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course, showVideos: false)
-                    }
+                    Text("See more...")
                     .foregroundStyle(Color.accentColor)
                 }
                 HStack(alignment: .top) {

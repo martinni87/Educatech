@@ -71,7 +71,7 @@ struct CreateOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 
@@ -93,7 +93,7 @@ struct EditOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
+//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 

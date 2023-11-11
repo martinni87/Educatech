@@ -30,6 +30,7 @@
 		5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E832ABCE820009FAE97 /* CreationForm.swift */; };
 		5B616E862ABCF8C0009FAE97 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E852ABCF8C0009FAE97 /* CardView.swift */; };
 		5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */; };
+		5B68A8132AFE9CD700C378D7 /* CardCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A8122AFE9CD700C378D7 /* CardCarouselView.swift */; };
 		5B70923D2ABDEC94003243C7 /* CreationSubView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923C2ABDEC94003243C7 /* CreationSubView1.swift */; };
 		5B70923F2ABDED45003243C7 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923E2ABDED45003243C7 /* ManagementView.swift */; };
 		5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7092402ABDEED5003243C7 /* SubscribedView.swift */; };
@@ -106,6 +107,7 @@
 		5B616E832ABCE820009FAE97 /* CreationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationForm.swift; sourceTree = "<group>"; };
 		5B616E852ABCF8C0009FAE97 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		5B68A8122AFE9CD700C378D7 /* CardCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCarouselView.swift; sourceTree = "<group>"; };
 		5B70923C2ABDEC94003243C7 /* CreationSubView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView1.swift; sourceTree = "<group>"; };
 		5B70923E2ABDED45003243C7 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
 		5B7092402ABDEED5003243C7 /* SubscribedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribedView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				5B616E852ABCF8C0009FAE97 /* CardView.swift */,
+				5B68A8122AFE9CD700C378D7 /* CardCarouselView.swift */,
 				5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */,
 				5BBF82592AFD93B0005B739F /* VideoPlayerView.swift */,
 			);
@@ -517,6 +520,7 @@
 			files = (
 				5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */,
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
+				5B68A8132AFE9CD700C378D7 /* CardCarouselView.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView1.swift in Sources */,
 				5BBAFE5F2AF8412F008CEBBE /* RegistrationFormViewComponent.swift in Sources */,
 				5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */,

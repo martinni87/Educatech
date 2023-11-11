@@ -14,8 +14,8 @@
             filePath = "Educatech/Views/MainView/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -107,8 +107,8 @@
             filePath = "Educatech/Views/MainView/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -185,8 +185,8 @@
             filePath = "Educatech/Views/MainView/ProfileView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "body"
             landmarkType = "24">
             <Locations>
@@ -439,8 +439,8 @@
             filePath = "Educatech/ViewModels/Auth/AuthDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
             landmarkName = "getUserByID(userID:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -455,40 +455,8 @@
             filePath = "Educatech/ViewModels/Courses/CollectionsDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "addNewManagedCourseToUser(newCourse:userData:completionBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E6522D7C-6B03-4419-B11B-9DC995EF49FB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Educatech/ViewModels/Courses/CollectionsDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "addNewManagedCourseToUser(newCourse:userData:completionBlock:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6B9D134A-F525-430E-9275-E08F066F3523"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Educatech/ViewModels/Courses/CollectionsDataSource.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "addNewManagedCourseToUser(newCourse:userData:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -503,8 +471,8 @@
             filePath = "Educatech/ViewModels/Courses/CollectionsDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "addNewManagedCourseToUser(newCourse:userData:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,8 +487,8 @@
             filePath = "Educatech/ViewModels/Courses/CollectionsDataSource.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "addNewManagedCourseToUser(newCourse:userData:completionBlock:)"
             landmarkType = "7">
          </BreakpointContent>

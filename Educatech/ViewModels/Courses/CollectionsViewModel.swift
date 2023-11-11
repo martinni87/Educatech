@@ -21,6 +21,7 @@ final class CollectionsViewModel: ObservableObject {
     //Published variables to store locally data from courses
     @Published var allCourses: [CourseModel] = []
     @Published var managedCourses: [CourseModel] = []
+    @Published var recommendedCourses: [String: [CourseModel]] = [:]
     @Published var errorReceivingData: String?
     
     private let coursesRepository: CollectionsRepository
@@ -71,6 +72,30 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
+    func getCoursesByCreatorID(creatorID: String){
+        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
+            switch result {
+            case .success(let courses):
+                self?.managedCourses = courses
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
+    
+    func getCoursesByCategory(categories: [String]) {
+        for category in categories {
+            coursesRepository.getCoursesByCategory(category: category) { [weak self] result in
+                switch result {
+                case .success(let courses):
+                    self?.recommendedCourses[category] = courses
+                case .failure(let error):
+                    self?.errorReceivingData = error.localizedDescription
+                }
+            }
+        }
+    }
+    
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel) {
         coursesRepository.createNewCourse(formInputs: formInputs, userData: userData) { [weak self] result in
             switch result {
@@ -84,16 +109,7 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-    func getCoursesByCreatorID(creatorID: String){
-        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
-            switch result {
-            case .success(let courses):
-                self?.managedCourses = courses
-            case .failure(let error):
-                self?.errorReceivingData = error.localizedDescription
-            }
-        }
-    }
+
 }
 
 //

@@ -37,7 +37,7 @@ struct CreationSubView5: View {
                     Section("Videos") {
                         ForEach(Array(formInputs.videosURL.enumerated()), id:\.1) { i, url in
                             HStack {
-                                Text("Lesson \(i): ").bold()
+                                Text("Lesson \(i+1): ").bold()
                                 Text("\(url)")
                                     .lineLimit(1)
                             }
