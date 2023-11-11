@@ -8,12 +8,16 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-
-struct CourseModel: Decodable, Identifiable, Hashable {
+struct CourseModel: Decodable, Identifiable {
     @DocumentID var id: String?
-    let title: String
-    let description: String
-    let image: String //The route in which is stored
-    let creatorID: String //Id of authenticated user that creates the course
-
+    var creatorID: String //Id of authenticated user that creates the course
+    var teacher: String
+    var title: String
+    var description: String
+    var imageURL: String //The route in which is stored
+    var category: String = ""
+    var videosURL: [String] = []
+    var numberOfStudents: Int = 0
+    var rateStars: Double = 0.00
+    var numberOfValorations: Int = 0
 }
