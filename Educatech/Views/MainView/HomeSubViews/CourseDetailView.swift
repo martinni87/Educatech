@@ -89,7 +89,7 @@ struct CourseDetailView: View {
                 }
                 .foregroundStyle(Color.pink)
                 Button("Let's go!"){
-                    authViewModel.addNewSubscription(newCourse: course, userData: authViewModel.userData!)
+                    authViewModel.addNewSubscription(newCourse: course, userData: authViewModel.userData ?? UserDataModel(email: "you@mail.com", username: "Anonymous"))
                     showVideos.toggle()
                 }
             },
