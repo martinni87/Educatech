@@ -19,9 +19,30 @@ struct CreationSubView2: View {
             Spacer()
             VStack (alignment: .leading) {
                 CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.title, errorMsg: collectionsViewModel.titleErrorMsg, label: "Title", placeholder: "The title of your course", tooltip: "Write the title of your course")
+                    .onTapGesture {
+                        if collectionsViewModel.allowContinue {
+                            collectionsViewModel.allowContinue.toggle()
+                        }
+                    }
                 CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.imageURL, errorMsg: collectionsViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
+                    .onTapGesture {
+                        if collectionsViewModel.allowContinue {
+                            collectionsViewModel.allowContinue.toggle()
+                        }
+                    }
                 EmptyView()
-                PickerViewComponent(variable: $formInputs.category, label: "Category")
+                PickerViewComponent(label: "Category", variable: $formInputs.category)
+                    .onTapGesture {
+                        collectionsViewModel.categoryErrorMsg = nil
+                        if collectionsViewModel.allowContinue {
+                            collectionsViewModel.allowContinue.toggle()
+                        }
+                    }
+                Text(collectionsViewModel.categoryErrorMsg ?? "No error")
+                    .font(.system(size: 14))
+                    .multilineTextAlignment(.leading)
+                    .foregroundStyle(collectionsViewModel.categoryErrorMsg != nil ? .pink : .clear)
+                    .bold()
             }
             Spacer()
             Text("Good to go!")
@@ -44,12 +65,12 @@ struct CreationSubView2: View {
                     }
                 }
                 Button {
-                    collectionsViewModel.cleanCreationCache()
+                    collectionsViewModel.cleanCollectionsCache()
                     formInputs = CreateCourseFormInputs()
                 } label: {
-                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "HTML") ? .gray : .pink.opacity(0.5))
+                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "") ? .gray : .pink.opacity(0.5))
                 }
-                .disabled(formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "HTML")
+                .disabled(formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "")
             }
         }
         .padding()

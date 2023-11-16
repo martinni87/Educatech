@@ -63,13 +63,13 @@ struct CreationSubView5: View {
             }
             .alert(isPresented: $collectionsViewModel.creationHasFailed, content: {
                 Alert(title: Text("Creation has failed ❌"), message: Text(collectionsViewModel.creationMsg), primaryButton: .default(Text("Try again")), secondaryButton: .cancel(Text("Cancel"), action: {
-                    collectionsViewModel.cleanCreationCache()
+                    collectionsViewModel.cleanCollectionsCache()
                     closeForm = true
                 }))
             })
             .alert(isPresented: $collectionsViewModel.creationWasSuccessful, content: {
                 Alert(title: Text("Creation was successful ✅"), message: Text(collectionsViewModel.creationMsg), dismissButton: .cancel(Text("Finish"), action: {
-                    collectionsViewModel.cleanCreationCache()
+                    collectionsViewModel.cleanCollectionsCache()
                     closeForm = true
                 }))
             })

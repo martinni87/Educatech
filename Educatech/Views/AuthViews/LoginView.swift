@@ -32,7 +32,7 @@ struct LoginView: View {
         .scrollDismissesKeyboard(.never)
         .scrollIndicators(.never)
         .onAppear {
-            authViewModel.cleanCache()
+            authViewModel.cleanAll()
         }
         .alert(isPresented: $authViewModel.hasRequestError) {
             Alert(title: Text("Sign in error"),

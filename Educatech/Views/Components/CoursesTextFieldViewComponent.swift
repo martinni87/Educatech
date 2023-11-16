@@ -38,7 +38,7 @@ struct CoursesTextFieldViewComponent: View {
                             .textFieldStyle(.plain)
                             .textInputAutocapitalization(.never)
                             .onTapGesture {
-                                collectionsViewModel.cleanCreationCache()
+                                collectionsViewModel.cleanCollectionsCache()
                             }
                         Image(systemName: "questionmark.bubble")
                             .foregroundStyle(.gray)

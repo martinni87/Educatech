@@ -10,7 +10,6 @@ import SwiftUI
 struct CategoryButtonViewComponent: View {
     
     var selection: Categories
-//    var selection: String
     @Binding var formInputs: RegistrationFormInputs
     @State var isSelected: Bool = false
     

@@ -50,7 +50,7 @@ struct RegTextFieldViewComponent: View {
                         .textFieldStyle(.plain)
                         .textInputAutocapitalization(.never)
                         .onTapGesture {
-                            authViewModel.cleanCache()
+                            authViewModel.cleanAll()
                         }
                         HStack {
                             if type == .secure {

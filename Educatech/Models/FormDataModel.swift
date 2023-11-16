@@ -8,6 +8,7 @@
 import Foundation
 
 enum Categories: String, CaseIterable, Identifiable, Decodable {
+    case none = ""
     case html = "HTML"
     case css = "CSS"
     case uxui = "UX/UI"
@@ -52,11 +53,16 @@ struct CreateCourseFormInputs {
     var title: String = ""
     var description: String = ""
     var imageURL: String = ""
-    var category: String = "HTML"
+    var category: String = ""
     var videosURL: [String] = []
 }
 
-
+struct SearchIO {
+    var isNewSearch = true
+    var thereAreResults = false
+    var search: String = ""
+    var category: String = ""
+}
 
 
 ////struct ErrorParameters {

@@ -28,10 +28,13 @@ final class AuthViewModel: ObservableObject {
         self.getCurrentUserData()
     }
     
-    func cleanCache() {
+    func cleanAll() {
         self.userAuth = nil
         self.userData = nil
-        
+        self.cleanErrors()
+    }
+    
+    func cleanErrors() {
         self.requestErrorMsg = nil
         self.emailErrorMsg = nil
         self.usernameErrorMsg = nil
@@ -84,7 +87,7 @@ final class AuthViewModel: ObservableObject {
     
     func signUpEmail(formInputs: RegistrationFormInputs) {
         //First clean all error records
-        self.cleanCache()
+        self.cleanAll()
         
         //Then, if validations passed, then attemp create new user
         authRepository.signUpEmail(formInputs: formInputs) { [weak self] result in
@@ -101,7 +104,7 @@ final class AuthViewModel: ObservableObject {
     
     func signInEmail(formInputs: LoginFormInputs) {
         //Begin or reset error to nil to avoid repetitive error messages
-        self.cleanCache()
+        self.cleanAll()
 
         //Next, if email and password are correct, try login
         authRepository.signInEmail(formInputs: formInputs) { [weak self] result in
@@ -122,7 +125,7 @@ final class AuthViewModel: ObservableObject {
         
         do {
             try authRepository.signOut()
-            self.cleanCache()
+            self.cleanAll()
         }
         catch {
             self.requestErrorMsg = "Error attepting sign out. Please contact the admin."
@@ -147,11 +150,26 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel) {
+    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, collection: CollectionsViewModel) {
         authRepository.addNewSubscription(newCourse: newCourse, userData: userData) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.userData = user
+                collection.getCoursesByID(coursesIDs: user.subscriptions)
+            case .failure(let requestErrorMsg):
+                self?.requestErrorMsg = requestErrorMsg.localizedDescription
+                self?.hasRequestError = true
+            }
+        }
+    }
+    
+    func editUserData(changeTo userData: UserDataModel, collection: CollectionsViewModel) {
+        self.cleanErrors()
+        authRepository.editUserData(changeTo: userData) { [weak self] result in
+            switch result {
+            case .success(let newUserData):
+                self?.userData = newUserData
+                collection.getCoursesByCreatorID(creatorID: newUserData.id ?? "0")
             case .failure(let requestErrorMsg):
                 self?.requestErrorMsg = requestErrorMsg.localizedDescription
                 self?.hasRequestError = true

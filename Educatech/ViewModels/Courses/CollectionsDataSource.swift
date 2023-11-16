@@ -32,6 +32,43 @@ final class CollectionsDataSource {
             }
     }
     
+    func getCourseByID(courseID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+        let document = self.database.collection(self.coursesCollection).document(courseID)
+        document.getDocument(source: .server) { document, error in
+            if let error = error {
+                completionBlock(.failure(error))
+                return
+            }
+            if let document = document, document.exists {
+                let id = document.get("id") as! String
+                let creatorID = document.get("creatorID") as! String
+                let teacher = document.get("teacher") as! String
+                let title = document.get("title") as! String
+                let description = document.get("description") as! String
+                let imageURL = document.get("imageURL") as! String
+                let category = document.get("category") as! String
+                let videosURL = document.get("videosURL") as! [String]
+                let numberOfStudents = document.get("numberOfStudents") as! Int
+                let rateStars = document.get("rateStars") as! Double
+                let numberOfValorations = document.get("numberOfValorations") as! Int
+                let approved = document.get("approved") as! Bool
+                completionBlock(.success(CourseModel(id: id,
+                                                     creatorID: creatorID,
+                                                     teacher: teacher,
+                                                     title: title,
+                                                     description: description,
+                                                     imageURL: imageURL,
+                                                     category: category,
+                                                     videosURL: videosURL,
+                                                     numberOfStudents: numberOfStudents,
+                                                     rateStars: rateStars,
+                                                     numberOfValorations: numberOfValorations,
+                                                     approved: approved)))
+                return
+            }
+        }
+    }
+    
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         self.database.collection(self.coursesCollection).whereField("creatorID", isEqualTo: creatorID)
             .addSnapshotListener { query, error in
@@ -83,7 +120,8 @@ final class CollectionsDataSource {
                                         videosURL: formInputs.videosURL,
                                         numberOfStudents: 0,
                                         rateStars: 0,
-                                        numberOfValorations: 0)
+                                        numberOfValorations: 0,
+                                        approved: false)
             newDocument.setData( ["id": id,
                                   "creatorID": newCourse.creatorID,
                                   "teacher": newCourse.teacher,
@@ -94,7 +132,8 @@ final class CollectionsDataSource {
                                   "videosURL": newCourse.videosURL,
                                   "numberOfStudents": newCourse.numberOfStudents,
                                   "rateStars": newCourse.rateStars,
-                                  "numberOfValorations": newCourse.numberOfValorations
+                                  "numberOfValorations": newCourse.numberOfValorations,
+                                  "approved": newCourse.approved
                                  ]) { error in
                 if let error = error {
                     completionBlock(.failure(error))
@@ -135,8 +174,6 @@ final class CollectionsDataSource {
             completionBlock(.success(newCourse))
         }
     }
-    
-    
     
     // MARK: Private methods
     private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {

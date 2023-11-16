@@ -28,6 +28,10 @@ struct MainView: View {
                 .tabItem {
                     Label("My Lessons", systemImage: "text.book.closed")
                 }
+                .task {
+                    self.authViewModel.getCurrentUserData()
+                    self.collectionsViewModel.getCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
+                }
                 .onAppear{
                     pageTitle = "My Lessons"
                 }

@@ -9,26 +9,30 @@ import Foundation
 
 final class CollectionsRepository {
     
-    private let coursesDataSource: CollectionsDataSource
+    private let collectionsDataSource: CollectionsDataSource
     
     init(coursesDataSource: CollectionsDataSource = CollectionsDataSource()) {
-        self.coursesDataSource = coursesDataSource
+        self.collectionsDataSource = coursesDataSource
     }
     
     func getAllCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
-        coursesDataSource.getAllCourses(completionBlock: completionBlock)
+        collectionsDataSource.getAllCourses(completionBlock: completionBlock)
+    }
+    
+    func getCourseByID(courseID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+        collectionsDataSource.getCourseByID(courseID: courseID, completionBlock: completionBlock)
     }
     
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
-        coursesDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
+        collectionsDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
     }
     
     func getCoursesByCategory(category: String, completionBlock: @escaping(Result<[CourseModel], Error>) -> Void) {
-        coursesDataSource.getCoursesByCategory(category: category, completionBlock: completionBlock)
+        collectionsDataSource.getCoursesByCategory(category: category, completionBlock: completionBlock)
     }
     
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
-        coursesDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
+        collectionsDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
     }
     
 }

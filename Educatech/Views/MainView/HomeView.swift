@@ -23,7 +23,7 @@ struct HomeView: View {
                     .padding()
             }
             .task {
-                collectionsViewModel.getCoursesByCategory(categories: authViewModel.userData?.categories ?? [])
+                collectionsViewModel.getCoursesByCategories(categories: authViewModel.userData?.categories ?? [])
             }
         }
         .scrollIndicators(.hidden)

@@ -55,7 +55,7 @@ struct RegisterSubView2: View {
                     }
                 }
                 Button {
-                    authViewModel.cleanCache()
+                    authViewModel.cleanAll()
                     formInputs = RegistrationFormInputs()
                 } label: {
                     ButtonViewComponent(title: "Clean form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.email == "" && formInputs.username == "" && formInputs.password == "" && formInputs.repeatPassword == "") ? .gray : .pink.opacity(0.5))

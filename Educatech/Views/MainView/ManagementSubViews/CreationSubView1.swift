@@ -15,13 +15,6 @@ struct CreationSubView1: View {
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     
-//    // Presentation mode for dismissing the current view
-//    @Environment(\.presentationMode) var presentationMode
-//    @Environment(\.verticalSizeClass) var verticalSizeClass
-//    
-//    //Form values
-//    @State var formInputs = CreateCourseFormInputs()
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -32,6 +25,9 @@ struct CreationSubView1: View {
                     ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
                 }
                 .padding()
+            }
+            .onAppear {
+                collectionsViewModel.cleanCollectionsCache()
             }
         }
     }

@@ -20,4 +20,5 @@ struct CourseModel: Decodable, Identifiable {
     var numberOfStudents: Int = 0
     var rateStars: Double = 0.00
     var numberOfValorations: Int = 0
+    var approved: Bool = false
 }
