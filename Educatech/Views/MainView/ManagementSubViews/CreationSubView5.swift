@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct CreationSubView5: View {
     
@@ -27,8 +28,8 @@ struct CreationSubView5: View {
                         Text("Teacher: ").bold() + Text("\(formInputs.teacher)")
                         Text("Title: ").bold()  + Text("\(formInputs.title)")
                         HStack {
-                            Text("Image URL: ").bold()
-                            Text("\(formInputs.imageURL)")
+                            Text("Image: ").bold()
+                            Text("\(formInputs.selectedPicture?.itemIdentifier ?? "Picture selected identifier")")
                                 .lineLimit(1)
                         }
                         Text("Category: ").bold()  + Text("\(formInputs.category)")

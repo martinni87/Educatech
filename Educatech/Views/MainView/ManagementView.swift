@@ -62,7 +62,7 @@ struct CreateOption: View {
             Image("button_create_pic")
                 .resizable()
                 .scaledToFit()
-                .padding(.top, 10)
+                .padding(20)
             Text("CREATE")
                 .font(.system(.title, design: .rounded, weight: .black))
                 .padding(.bottom, 5)
@@ -71,7 +71,6 @@ struct CreateOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 
@@ -84,7 +83,7 @@ struct EditOption: View {
             Image("button_edit_pic")
                 .resizable()
                 .scaledToFit()
-                .padding(.top, 10)
+                .padding(20)
             Text("EDIT")
                 .font(.system(.title, design: .rounded, weight: .black))
                 .padding(.bottom, 5)
@@ -93,7 +92,6 @@ struct EditOption: View {
         .frame(width: 200, height: 200)
         .background(.gray.opacity(0.2))
         .clipShape(.rect(cornerRadius: 10))
-//        .shadow(color: .gray, radius: 10, x: 0.0, y: 0.0)
     }
 }
 

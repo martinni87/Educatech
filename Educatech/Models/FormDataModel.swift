@@ -5,7 +5,8 @@
 //  Created by Martín Antonio Córdoba Getar on 16/10/23.
 //
 
-import Foundation
+import SwiftUI
+import PhotosUI
 
 enum Categories: String, CaseIterable, Identifiable, Decodable {
     case none = ""
@@ -52,6 +53,7 @@ struct CreateCourseFormInputs {
     var teacher: String = ""
     var title: String = ""
     var description: String = ""
+    var selectedPicture: PhotosPickerItem? = nil
     var imageURL: String = ""
     var category: String = ""
     var videosURL: [String] = []

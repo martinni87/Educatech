@@ -59,19 +59,18 @@ final class CollectionsViewModel: ObservableObject {
                 return
             }
             self?.titleErrorMsg = nil
-            formInputs.imageURL.validateURLString { [weak self] isValid, errorMsg in
-                if !isValid {
-                    self?.imageURLErrorMsg = errorMsg
+            print(formInputs.selectedPicture ?? "No picture")
+            if formInputs.selectedPicture == nil {
+                    self?.imageURLErrorMsg = "You must select a picture from your photo gallery"
                     return
                 }
-                self?.imageURLErrorMsg = nil
-                formInputs.category.fieldIsNotEmpty { isValid, errorMsg in
-                    if !isValid {
-                        self?.categoryErrorMsg = errorMsg
-                        return
-                    }
-                    self?.allowContinue = true
+            self?.imageURLErrorMsg = nil
+            formInputs.category.fieldIsNotEmpty { isValid, errorMsg in
+                if !isValid {
+                    self?.categoryErrorMsg = errorMsg
+                    return
                 }
+                self?.allowContinue = true
             }
         }
     }

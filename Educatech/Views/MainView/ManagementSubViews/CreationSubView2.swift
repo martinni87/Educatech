@@ -12,6 +12,7 @@ struct CreationSubView2: View {
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     @State var formInputs = CreateCourseFormInputs()
+    @Environment (\.colorScheme) var colorScheme
     
     var body: some View {
         NavigationStack {
@@ -24,13 +25,18 @@ struct CreationSubView2: View {
                             collectionsViewModel.allowContinue.toggle()
                         }
                     }
-                CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.imageURL, errorMsg: collectionsViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
-                    .onTapGesture {
-                        if collectionsViewModel.allowContinue {
-                            collectionsViewModel.allowContinue.toggle()
-                        }
-                    }
-                EmptyView()
+                
+                CoursesLoadPictureViewComponent(collectionsViewModel: collectionsViewModel, pictureItem: $formInputs.selectedPicture, errorMsg: $collectionsViewModel.imageURLErrorMsg, label: "Choose a picture")
+                
+                
+                //                    CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.imageURL, errorMsg: collectionsViewModel.imageURLErrorMsg, label: "Thumbnail picture", placeholder: "www.yourimage.com/pic.jpeg", tooltip: "Copy and paste the URL where your picture is stored")
+                //                        .onTapGesture {
+                //                            if collectionsViewModel.allowContinue {
+                //                                collectionsViewModel.allowContinue.toggle()
+                //                            }
+                //                        }
+                
+                
                 PickerViewComponent(label: "Category", variable: $formInputs.category)
                     .onTapGesture {
                         collectionsViewModel.categoryErrorMsg = nil
@@ -70,7 +76,7 @@ struct CreationSubView2: View {
                 } label: {
                     ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "") ? .gray : .pink.opacity(0.5))
                 }
-                .disabled(formInputs.title == "" && formInputs.imageURL == "" && formInputs.category == "")
+                .disabled(formInputs.title == "" && formInputs.selectedPicture == nil && formInputs.category == "")
             }
         }
         .padding()
