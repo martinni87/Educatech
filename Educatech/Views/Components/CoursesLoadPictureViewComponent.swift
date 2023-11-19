@@ -30,7 +30,7 @@ struct CoursesLoadPictureViewComponent: View {
                                 .foregroundStyle(Color.gray)
                                 .bold()
                             Spacer()
-                            OpenGaleryViewComponent(collectionsViewModel: collectionsViewModel, selectedPicture: $pictureItem)
+                            GalleryPhotoViewComponent(collectionsViewModel: collectionsViewModel, selectedPicture: $pictureItem)
                                 .onChange(of: pictureItem) { _, _ in
                                     if collectionsViewModel.allowContinue {
                                         collectionsViewModel.allowContinue.toggle()
