@@ -11,7 +11,7 @@
 		5B0A028C2AD3FE98004FB043 /* EmailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */; };
 		5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E922AB7BF5A005CC112 /* GoogleSignIn */; };
 		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
-		5B2958D22B06D1D600105F9F /* OpenGaleryViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2958D12B06D1D600105F9F /* OpenGaleryViewComponent.swift */; };
+		5B2958D22B06D1D600105F9F /* GalleryPhotoViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */; };
 		5B2ABCF42AFAC24D009EBC18 /* CreationSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */; };
 		5B2ABCF62AFAE640009EBC18 /* PickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */; };
 		5B2ABCF82AFAEA10009EBC18 /* CreationSubView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */; };
@@ -34,6 +34,9 @@
 		5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E832ABCE820009FAE97 /* CreationForm.swift */; };
 		5B616E862ABCF8C0009FAE97 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E852ABCF8C0009FAE97 /* CardView.swift */; };
 		5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */; };
+		5B636F932B0A05690011E9E9 /* GalleryVideoViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B636F922B0A05690011E9E9 /* GalleryVideoViewComponent.swift */; };
+		5B636F952B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B636F942B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift */; };
+		5B636F972B0A8F540011E9E9 /* WaitingViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B636F962B0A8F540011E9E9 /* WaitingViewComponent.swift */; };
 		5B68A8132AFE9CD700C378D7 /* CardCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B68A8122AFE9CD700C378D7 /* CardCarouselView.swift */; };
 		5B70923D2ABDEC94003243C7 /* CreationSubView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923C2ABDEC94003243C7 /* CreationSubView1.swift */; };
 		5B70923F2ABDED45003243C7 /* ManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70923E2ABDED45003243C7 /* ManagementView.swift */; };
@@ -90,7 +93,7 @@
 /* Begin PBXFileReference section */
 		5B0A02892AD3F7B6004FB043 /* MailViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewComponent.swift; sourceTree = "<group>"; };
 		5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDataModel.swift; sourceTree = "<group>"; };
-		5B2958D12B06D1D600105F9F /* OpenGaleryViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenGaleryViewComponent.swift; sourceTree = "<group>"; };
+		5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoViewComponent.swift; sourceTree = "<group>"; };
 		5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView2.swift; sourceTree = "<group>"; };
 		5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponent.swift; sourceTree = "<group>"; };
 		5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView4.swift; sourceTree = "<group>"; };
@@ -110,6 +113,9 @@
 		5B616E832ABCE820009FAE97 /* CreationForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationForm.swift; sourceTree = "<group>"; };
 		5B616E852ABCF8C0009FAE97 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5B616E872ABCFBC2009FAE97 /* CourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailView.swift; sourceTree = "<group>"; };
+		5B636F922B0A05690011E9E9 /* GalleryVideoViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVideoViewComponent.swift; sourceTree = "<group>"; };
+		5B636F942B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesLoadVideoViewComponent.swift; sourceTree = "<group>"; };
+		5B636F962B0A8F540011E9E9 /* WaitingViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewComponent.swift; sourceTree = "<group>"; };
 		5B68A8122AFE9CD700C378D7 /* CardCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCarouselView.swift; sourceTree = "<group>"; };
 		5B70923C2ABDEC94003243C7 /* CreationSubView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView1.swift; sourceTree = "<group>"; };
 		5B70923E2ABDED45003243C7 /* ManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementView.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 				5BBAFE602AF8414C008CEBBE /* RegTextFieldViewComponent.swift */,
 				5B2ABCF92AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift */,
 				5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */,
+				5B636F942B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift */,
 				5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */,
 				5BBAFE622AF84364008CEBBE /* CategorybuttonViewComponent.swift */,
 				5BBF82562AFD7B74005B739F /* WaitingAnimationViewComponent.swift */,
@@ -262,7 +269,9 @@
 				5B419DAD2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift */,
 				5B419DAB2AFFCCD3000619FC /* ListRowViewComponent.swift */,
 				5B419DAF2B00F2AF000619FC /* SearchBarViewComponent.swift */,
-				5B2958D12B06D1D600105F9F /* OpenGaleryViewComponent.swift */,
+				5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */,
+				5B636F922B0A05690011E9E9 /* GalleryVideoViewComponent.swift */,
+				5B636F962B0A8F540011E9E9 /* WaitingViewComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -502,6 +511,8 @@
 				5B70923D2ABDEC94003243C7 /* CreationSubView1.swift in Sources */,
 				5BC2413D2AE05AED002892E5 /* UserModels.swift in Sources */,
 				5B616E782ABCB9EB009FAE97 /* CollectionsRepository.swift in Sources */,
+				5B636F952B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift in Sources */,
+				5B636F972B0A8F540011E9E9 /* WaitingViewComponent.swift in Sources */,
 				5B616E862ABCF8C0009FAE97 /* CardView.swift in Sources */,
 				5BBAFE5B2AF84093008CEBBE /* RegisterSubView4.swift in Sources */,
 				5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */,
@@ -535,7 +546,7 @@
 				5BC241372ADF0658002892E5 /* Constants.swift in Sources */,
 				5BC457262AB3962100567EEF /* AuthRepository.swift in Sources */,
 				5B2ABCF42AFAC24D009EBC18 /* CreationSubView2.swift in Sources */,
-				5B2958D22B06D1D600105F9F /* OpenGaleryViewComponent.swift in Sources */,
+				5B2958D22B06D1D600105F9F /* GalleryPhotoViewComponent.swift in Sources */,
 				5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */,
 				5BBF825A2AFD93B0005B739F /* VideoPlayerView.swift in Sources */,
 				5B2ABCF82AFAEA10009EBC18 /* CreationSubView4.swift in Sources */,
@@ -556,6 +567,7 @@
 				5B0A028C2AD3FE98004FB043 /* EmailDataModel.swift in Sources */,
 				5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */,
 				5B0A028A2AD3F7B6004FB043 /* MailViewComponent.swift in Sources */,
+				5B636F932B0A05690011E9E9 /* GalleryVideoViewComponent.swift in Sources */,
 				5B419DAC2AFFCCD3000619FC /* ListRowViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

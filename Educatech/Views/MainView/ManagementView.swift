@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct ManagementView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Environment (\.verticalSizeClass) var verticalSizeClass
+    @State var videoSelected: [PhotosPickerItem] = []
     
     var body: some View {
         NavigationStack {

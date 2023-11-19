@@ -1,5 +1,5 @@
 //
-//  OpenGaleryViewComponent.swift
+//  GalleryPhotoViewComponent.swift
 //  Educatech
 //
 //  Created by Martín Antonio Córdoba Getar on 16/11/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import PhotosUI
 
-struct OpenGaleryViewComponent: View {
+struct GalleryPhotoViewComponent: View {
     
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Binding var selectedPicture: PhotosPickerItem?
@@ -23,7 +23,7 @@ struct OpenGaleryViewComponent: View {
             else {
                 HStack {
                     PhotosPicker(selection: $selectedPicture, matching: .images, photoLibrary: .shared()) {
-                        Label("Change", systemImage: "photo.on.rectangle.angled")
+                        Label("Change", systemImage: "rectangle.2.swap")
                     }
                     Button {
                         selectedPicture = nil
@@ -37,5 +37,5 @@ struct OpenGaleryViewComponent: View {
 }
 
 #Preview {
-    OpenGaleryViewComponent(collectionsViewModel: CollectionsViewModel(), selectedPicture: .constant(nil))
+    GalleryPhotoViewComponent(collectionsViewModel: CollectionsViewModel(), selectedPicture: .constant(nil))
 }

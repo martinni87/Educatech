@@ -54,9 +54,9 @@ struct CreateCourseFormInputs {
     var title: String = ""
     var description: String = ""
     var selectedPicture: PhotosPickerItem? = nil
-    var imageURL: String = ""
+//    var imageURL: String = ""
     var category: String = ""
-    var videosURL: [String] = []
+    var selectedVideos: [PhotosPickerItem] = []
 }
 
 struct SearchIO {
