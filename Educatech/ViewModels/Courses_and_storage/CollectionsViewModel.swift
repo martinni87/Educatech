@@ -14,6 +14,7 @@ final class CollectionsViewModel: ObservableObject {
     @Published var titleErrorMsg: String?
     @Published var descriptionErrorMsg: String?
     @Published var imageURLErrorMsg: String?
+    @Published var categoryErrorMsg: String?
     @Published var creationWasSuccessful: Bool = false
     @Published var creationHasFailed: Bool = false
     @Published var allowContinue: Bool = false
@@ -21,24 +22,33 @@ final class CollectionsViewModel: ObservableObject {
     //Published variables to store locally data from courses
     @Published var allCourses: [CourseModel] = []
     @Published var managedCourses: [CourseModel] = []
+    @Published var subscribedCourses: [CourseModel] = []
     @Published var recommendedCourses: [String: [CourseModel]] = [:]
+    @Published var searchResults: [CourseModel] = []
+    @Published var searchHasEmptyResult: Bool = false
     @Published var errorReceivingData: String?
     
-    private let coursesRepository: CollectionsRepository
+    private let collectionsRepository: CollectionsRepository
     
-    init(coursesRepository: CollectionsRepository = CollectionsRepository()){
-        self.coursesRepository = coursesRepository
+    init(collectionsRepository: CollectionsRepository = CollectionsRepository()){
+        self.collectionsRepository = collectionsRepository
         getAllCourses()
     }
     
-    func cleanCreationCache() {
+    func cleanCollectionsCache() {
+        //Form input msgs
         self.creationMsg = ""
         self.titleErrorMsg = nil
         self.descriptionErrorMsg = nil
         self.imageURLErrorMsg = nil
+        self.categoryErrorMsg = nil
+        //Form input flags
         self.creationWasSuccessful = false
         self.creationHasFailed = false
         self.allowContinue = false
+        self.searchHasEmptyResult = false
+        //Errors receiving data from firestore
+        self.errorReceivingData = nil
     }
     
     //MARK: Course creation form validations
@@ -49,12 +59,17 @@ final class CollectionsViewModel: ObservableObject {
                 return
             }
             self?.titleErrorMsg = nil
-            formInputs.imageURL.validateURLString { [weak self] isValid, errorMsg in
-                if !isValid {
-                    self?.imageURLErrorMsg = errorMsg
+            print(formInputs.selectedPicture ?? "No picture")
+            if formInputs.selectedPicture == nil {
+                    self?.imageURLErrorMsg = "You must select a picture from your photo gallery"
                     return
                 }
-                self?.imageURLErrorMsg = nil
+            self?.imageURLErrorMsg = nil
+            formInputs.category.fieldIsNotEmpty { isValid, errorMsg in
+                if !isValid {
+                    self?.categoryErrorMsg = errorMsg
+                    return
+                }
                 self?.allowContinue = true
             }
         }
@@ -62,7 +77,7 @@ final class CollectionsViewModel: ObservableObject {
     
     //MARK: Courses data from database
     func getAllCourses() {
-        coursesRepository.getAllCourses { [weak self] result in
+        collectionsRepository.getAllCourses { [weak self] result in
             switch result {
             case .success(let courses):
                 self?.allCourses = courses
@@ -72,8 +87,24 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
+    func getCoursesByID(coursesIDs: [String]) {
+        //Each time it's called, we clean the array
+        self.subscribedCourses = []
+        //Then we repopulate it with all the id's of courses the user has
+        for courseID in coursesIDs {
+            collectionsRepository.getCourseByID(courseID: courseID) { [weak self] result in
+                switch result {
+                case .success(let course):
+                    self?.subscribedCourses.append(course)
+                case .failure(let error):
+                    self?.errorReceivingData = error.localizedDescription
+                }
+            }
+        }
+    }
+    
     func getCoursesByCreatorID(creatorID: String){
-        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
+        collectionsRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
             switch result {
             case .success(let courses):
                 self?.managedCourses = courses
@@ -83,9 +114,9 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-    func getCoursesByCategory(categories: [String]) {
+    func getCoursesByCategories(categories: [String]) {
         for category in categories {
-            coursesRepository.getCoursesByCategory(category: category) { [weak self] result in
+            collectionsRepository.getCoursesByCategory(category: category) { [weak self] result in
                 switch result {
                 case .success(let courses):
                     self?.recommendedCourses[category] = courses
@@ -96,11 +127,52 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
+    func getCoursesByCategory(category: String){
+        if category == "" {
+            collectionsRepository.getAllCourses { [weak self] result in
+                switch result {
+                case .success(let courses):
+                    if courses.isEmpty {
+                        self?.searchHasEmptyResult = true
+                        self?.searchResults = []
+                    }
+                    else {
+                        self?.searchHasEmptyResult = false
+                        self?.searchResults = courses
+                    }
+                case .failure(let error):
+                    self?.searchHasEmptyResult = true
+                    self?.searchResults = []
+                    self?.errorReceivingData = error.localizedDescription
+                }
+            }
+        }
+        else {
+            collectionsRepository.getCoursesByCategory(category: category) { [weak self] result in
+                switch result {
+                case .success(let courses):
+                    if courses.isEmpty {
+                        self?.searchHasEmptyResult = true
+                        self?.searchResults = []
+                    }
+                    else {
+                        self?.searchHasEmptyResult = false
+                        self?.searchResults = courses
+                    }
+                case .failure(let error):
+                    self?.searchHasEmptyResult = true
+                    self?.searchResults = []
+                    self?.errorReceivingData = error.localizedDescription
+                }
+            }
+        }
+    }
+    
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel) {
-        coursesRepository.createNewCourse(formInputs: formInputs, userData: userData) { [weak self] result in
+        collectionsRepository.createNewCourse(formInputs: formInputs, userData: userData) { [weak self] result in
             switch result {
             case .success(let newCourse):
-                self?.creationMsg = "New \(newCourse.title) course have been created successfully"
+                self?.creationMsg = "New \(newCourse.title) course have been created successfully. A moderator will review the content and when validated, it will appear in the Home section."
                 self?.creationWasSuccessful = true
             case .failure(let error):
                 self?.creationMsg = error.localizedDescription

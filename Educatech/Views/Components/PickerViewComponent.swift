@@ -9,8 +9,8 @@ import SwiftUI
 
 struct PickerViewComponent: View {
 
-    @Binding var variable: String
     let label: String
+    @Binding var variable: String
     @Environment (\.colorScheme) var colorScheme
     
     var body: some View {
@@ -26,7 +26,7 @@ struct PickerViewComponent: View {
                             .foregroundColor(.gray)
                             .bold()
                         Spacer()
-                        Picker(label, selection: $variable) {
+                        Picker("", selection: $variable) {
                             ForEach(Categories.allCases, id:\.id) { option in
                                 Text(option.rawValue)
                             }
@@ -40,5 +40,5 @@ struct PickerViewComponent: View {
 }
 
 #Preview {
-    PickerViewComponent(variable: .constant("Swift"), label: "Titulo")
+    PickerViewComponent(label: "Titulo", variable: .constant(""))
 }

@@ -59,6 +59,11 @@ final class AuthRepository {
         authDataSource.addNewSubscription(newCourse: newCourse, userData: userData, completionBlock: completionBlock)
     }
     
+    func editUserData(changeTo userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+        authDataSource.editUserData(changeTo: userData, completionBlock: completionBlock)
+    }
+
+    
 //    func addNewManagedCourseToUser(newCourseID: String, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
 //        authDataSource.addNewManagedCourseToUser(newCourseID: newCourseID, userData: userData, completionBlock: completionBlock)
 //    }

@@ -22,16 +22,18 @@ struct CardCarouselView: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 20) {
                     ForEach(coursesPresented, id: \.id) { course in
-                        NavigationLink {
-                            CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course, showVideos: false)
-                        } label: {
-                            CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                        if course.approved {
+                            NavigationLink {
+                                CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                            } label: {
+                                CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                            }
+                            .scrollIndicators(.hidden)
                         }
                     }
-                    .scrollIndicators(.hidden)
                 }
+                .padding()
             }
-            .padding()
         }
     }
 }

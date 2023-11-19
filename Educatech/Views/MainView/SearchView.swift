@@ -11,84 +11,92 @@ struct SearchView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
-
+    @State var isNewSearch: Bool = true
+    @State var selection: String = ""
+    
+    
     var body: some View {
-        Text("Search view")
+        NavigationStack {
+            VStack {
+                HStack {
+                    PickerViewComponent(label: "Category to search:", variable: $selection)
+                        .padding(.top, 5)
+//                        .onChange(of: selection) { oldValue, newValue in
+//                            collectionsViewModel.getCoursesByCategory(category: selection)
+//                            isNewSearch = false
+//                        }
+                    Button {
+                        collectionsViewModel.getCoursesByCategory(category: selection)
+                        isNewSearch = false
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 5)
+                Rectangle()
+                    .fill(.gray)
+                    .frame(height: 0.5)
+                    .ignoresSafeArea()
+            }
+            if isNewSearch {
+                Text("Make a new search!")
+                    .bold()
+                    .foregroundStyle(Color.gray)
+                    .padding()
+            }
+            if collectionsViewModel.searchHasEmptyResult {
+                Text("Nothing to show...")
+                    .bold()
+                    .foregroundStyle(Color.gray)
+                    .padding()
+            }
+            else {
+                ScrollView {
+                    ForEach(collectionsViewModel.searchResults, id:\.id) { course in
+                        if course.approved {
+                            NavigationLink {
+                                CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
+                            } label: {
+                                ListRowViewComponent(authViewModel: authViewModel,
+                                                     collectionsViewModel: collectionsViewModel,
+                                                     course: course)
+                            }
+                        }
+                    }
+                }
+                .padding()
+            }
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    SearchView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
+    SearchView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), selection: "")
 }
-//    @ObservedObject var coursesViewModel: CoursesViewModel
-//    @ObservedObject var userViewModel: UserViewModel
-//    
-//    var body: some View {
-//        VStack {
-//            SearchBar(search: $search, showResult: $showResult)
+//            SearchBarViewComponent(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, searchIO: $searchIO)
 //                .padding(.top, 20)
-//            SearchResults(search: $search, showResult: $showResult)
-//        }
-//    }
-//}
 //
-//struct SearchBar: View {
-//    
-//    @Binding var search: String
-//    @Binding var showResult: Bool
-//    
-//    var body: some View {
-//        VStack {
-//            Rectangle()
-//                .fill(.gray.opacity(0.25))
-//                .frame(height: 50)
-//                .clipShape(.capsule)
-//                .overlay {
-//                    HStack {
-//                        TextField("New search... ", text: $search)
-//                        Button {
-//                            showResult.toggle()
+//                ScrollView {
+//                    ForEach(collectionsViewModel.searchResults, id:\.id) { course in
+//                        NavigationLink {
+//                            CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
 //                        } label: {
-//                            Image(systemName: "magnifyingglass")
+//                            ListRowViewComponent(authViewModel: authViewModel,
+//                                                           collectionsViewModel: collectionsViewModel,
+//                                                           course: course)
 //                        }
+//                        .foregroundStyle(Color.black)
 //                    }
-//                    .padding(20)
 //                }
-//                .padding(.horizontal)
-//            Rectangle()
-//                .fill(.gray)
-//                .frame(height: 0.5)
-//                .ignoresSafeArea()
-//        }
-//    }
-//}
-//
-//struct SearchResults: View {
-//    
-//    @Binding var search: String
-//    @Binding var showResult: Bool
-//    
-//    var body: some View {
-//        ScrollView {
-//            if showResult {
-//                Text("Se ha buscado: \(search)")
+//                .padding()
 //            }
-//        }
-//        .padding(.top, 10)
+//        //            Spacer()
 //    }
 //}
-//
-//struct SearchView_Previews: PreviewProvider {
-//    
-//    @State static var search: String = ""
-//    @State static var showResult: Bool = false
-//    @State static var authViewModel: AuthViewModel = AuthViewModel()
-//    @State static var coursesViewModel: CoursesViewModel = CoursesViewModel()
-//    @State static var userViewModel: UserViewModel = UserViewModel()
-//    
-//    static var previews: some View {
-//        SearchView(authViewModel: authViewModel, coursesViewModel: coursesViewModel, userViewModel: userViewModel)
-//        SearchBar(search: $search, showResult: $showResult)
-//        SearchResults(search: $search, showResult: $showResult)
-//    }
+//}
+
+//#Preview {
+//    SearchView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel())
 //}

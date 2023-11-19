@@ -29,7 +29,7 @@ struct RegisterView1: View {
                 .padding()
             }
             .onAppear {
-                authViewModel.cleanCache()
+                authViewModel.cleanAll()
             }
         }
     }

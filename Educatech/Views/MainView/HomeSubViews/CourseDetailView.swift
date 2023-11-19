@@ -11,9 +11,9 @@ struct CourseDetailView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
-    @State var course: CourseModel
-    @State var startCourseHasBeenTapped: Bool = false
+    let course: CourseModel
     @State var showVideos: Bool = false
+    @State var startCourseHasBeenTapped: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -25,36 +25,34 @@ struct CourseDetailView: View {
                             .scaledToFit()
                     }
                     else {
-    //                    WaitingAnimationViewComponent()
+                    WaitingAnimationViewComponent()
                     }
                 }
                 VStack (alignment: .leading, spacing: 20){
                     Text(course.title)
                         .font(.system(size: 30))
                         .fontWeight(.black)
+                    Text(course.teacher)
+                        .textCase(.uppercase)
                     Text(course.description)
                         .multilineTextAlignment(.leading)
-                }
-                .padding(.horizontal, 10)
-                
-                if !showVideos {
-                    Button {
-                        startCourseHasBeenTapped.toggle()
-                    } label: {
-                        Text("Start course")
-                            .font(.system(size: 20))
-                            .bold()
+                    HStack {
+                        Spacer()
+                        Label(course.category, systemImage: "book")
+                        Label("\(course.numberOfStudents)", systemImage: "person")
+                        Spacer()
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.accentColor)
-                    .padding(50)
+                    .foregroundStyle(Color.gray)
+                    .bold()
                 }
-                else {
+                .padding(.horizontal, 20)
+                
+                if showVideos {
                     Text("Lista de videos")
                         .font(.title)
                         .bold()
                         .padding(.top,30)
-                    ScrollView {
+                    VStack {
                         Rectangle()
                             .fill(Color.gray)
                             .frame(height: 1)
@@ -69,6 +67,7 @@ struct CourseDetailView: View {
                                     Spacer()
                                 }
                             }
+                            .padding(.horizontal, 20)
                             .foregroundStyle(Color.gray)
                             .font(.title3)
                             .bold()
@@ -76,6 +75,27 @@ struct CourseDetailView: View {
                                 .fill(Color.gray)
                                 .frame(height: 1)
                         }
+                    }
+                }
+                else {
+                    Button {
+                        startCourseHasBeenTapped.toggle()
+                    } label: {
+                        Text("Start course")
+                            .font(.system(size: 20))
+                            .bold()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.accentColor)
+                    .padding(50)
+                }
+            }
+        }
+        .onAppear {
+            if let subscriptions = authViewModel.userData?.subscriptions {
+                subscriptions.forEach { id in
+                    if id == self.course.id {
+                        self.showVideos = true
                     }
                 }
             }
@@ -89,28 +109,34 @@ struct CourseDetailView: View {
                 }
                 .foregroundStyle(Color.pink)
                 Button("Let's go!"){
-                    authViewModel.addNewSubscription(newCourse: course, userData: authViewModel.userData ?? UserDataModel(email: "you@mail.com", username: "Anonymous"))
-                    showVideos.toggle()
+                    authViewModel.addNewSubscription(newCourse: course, userData: authViewModel.userData ?? UserDataModel(email: "you@mail.com", username: "Anonymous"), collection: collectionsViewModel)
+                    showVideos = true
                 }
             },
             message: {
                 Text("This is an exciting moment! There is no better place or time to learn something new than right here, right now!\n\nAre you ready?")
             })
     }
-}
-
-struct BlackScreenPlayViewComponent: View {
-    var body: some View {
-        ZStack {
-            Rectangle().fill(Color.black).frame(width: 128, height: 80)
-            Circle().fill(Color.white).frame(width: 50, height: 50)
-            Image(systemName: "play.fill").scaleEffect(1.5).foregroundStyle(Color.black)
+    func paintRating(_ number: Double) -> String {
+        var result = ""
+        let iterations = Int(number)
+        
+        if number == 0 {
+            return "☆☆☆☆☆"
+        }
+        else if iterations > 0 && iterations < 5 {
+            for _ in 1 ... iterations {
+                result += "★"
+            }
+            for _ in 1 ... 5 - iterations {
+                result += "☆"
+            }
+            return result
+        }
+        else {
+            return "★★★★★"
         }
     }
-}
-
-#Preview {
-    BlackScreenPlayViewComponent()
 }
 
 #Preview {

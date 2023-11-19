@@ -24,20 +24,20 @@ struct InitialView: View {
                 } label: {
                     ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .email))
                 }
-                SeparatorViewComponent()
-                    .padding(.vertical,30)
-                VStack {
-                    Button {
-                        print("Login with facebook")
-                    } label: {
-                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .facebook))
-                    }
-                    Button {
-                        print("Login with google")
-                    } label: {
-                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .google))
-                    }
-                }
+//                SeparatorViewComponent()
+//                    .padding(.vertical,30)
+//                VStack {
+//                    Button {
+//                        print("Login with facebook")
+//                    } label: {
+//                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .facebook))
+//                    }
+//                    Button {
+//                        print("Login with google")
+//                    } label: {
+//                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .google))
+//                    }
+//                }
                 Spacer()
                 NavigationLink {
                     RegisterView1(authViewModel: authViewModel)
