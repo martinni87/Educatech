@@ -28,11 +28,12 @@ struct CourseDetailView: View {
                     WaitingAnimationViewComponent()
                     }
                 }
+                .frame(maxWidth: 1000)
                 VStack (alignment: .leading, spacing: 20){
                     Text(course.title)
                         .font(.system(size: 30))
                         .fontWeight(.black)
-                    Text(course.teacher)
+                    Label(course.teacher, systemImage: "graduationcap")
                         .textCase(.uppercase)
                     Text(course.description)
                         .multilineTextAlignment(.leading)
@@ -45,6 +46,7 @@ struct CourseDetailView: View {
                     .foregroundStyle(Color.gray)
                     .bold()
                 }
+                .frame(maxWidth: 1000)
                 .padding(.horizontal, 20)
                 
                 if showVideos {
@@ -58,11 +60,11 @@ struct CourseDetailView: View {
                             .frame(height: 1)
                         ForEach(Array(course.videosURL.enumerated()), id:\.1) { i, videoURL in
                             NavigationLink {
-                                VideoPlayerView(videoTitle: "Lesson \(i)", videoURL: videoURL)
+                                VideoPlayerView(videoTitle: "Lesson \(i + 1)", videoURL: videoURL)
                             } label: {
                                 HStack {
                                     BlackScreenPlayViewComponent()
-                                    Text("Lesson \(i)")
+                                    Text("Lesson \(i + 1)")
                                         .padding(.horizontal, 20)
                                     Spacer()
                                 }
@@ -76,6 +78,7 @@ struct CourseDetailView: View {
                                 .frame(height: 1)
                         }
                     }
+                    .frame(maxWidth: 1000)
                 }
                 else {
                     Button {

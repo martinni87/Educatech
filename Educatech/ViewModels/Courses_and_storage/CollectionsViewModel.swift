@@ -53,13 +53,12 @@ final class CollectionsViewModel: ObservableObject {
     
     //MARK: Course creation form validations
     func creationFormValidations(_ formInputs: CreateCourseFormInputs) {
-        formInputs.title.fieldIsNotEmpty { [weak self] isValid, errorMsg in
+        formInputs.title.validateTitle { [weak self] isValid, errorMsg in
             if !isValid {
                 self?.titleErrorMsg = errorMsg
                 return
             }
             self?.titleErrorMsg = nil
-            print(formInputs.selectedPicture ?? "No picture")
             if formInputs.selectedPicture == nil {
                     self?.imageURLErrorMsg = "You must select a picture from your photo gallery"
                     return

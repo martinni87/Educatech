@@ -42,8 +42,13 @@ struct EducatechApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let _ = authViewModel.userAuth {
+            if let _ = authViewModel.userAuth/*, let userData = authViewModel.userData*/ {
                 MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+                    .task {
+                        self.authViewModel.getCurrentUserData()
+                        collectionsViewModel.getCoursesByCategories(categories: authViewModel.userData?.categories ?? [])
+                        collectionsViewModel.getCoursesByCreatorID(creatorID: authViewModel.userData?.id ?? "0")
+                    }
             }
             else {
                 InitialView(authViewModel: authViewModel)

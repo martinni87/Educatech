@@ -22,7 +22,9 @@ struct RegisterSubView3: View {
                 Spacer()
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), alignment: .center)], alignment: .center, spacing: 16) {
                     ForEach(Categories.allCases, id: \.id) { category in
-                        CategoryButtonViewComponent(selection: category, formInputs: $formInputs)
+                        if category != .none {
+                            CategoryButtonViewComponent(selection: category, formInputs: $formInputs)
+                        }
                     }
                 }
                 Spacer()

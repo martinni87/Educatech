@@ -27,7 +27,7 @@ struct ManagementView: View {
                     }
                     Spacer()
                     NavigationLink {
-                        Text("Edition view")
+                        EditionSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     } label: {
                         EditOption()
                     }

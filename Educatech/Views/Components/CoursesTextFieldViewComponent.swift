@@ -29,6 +29,7 @@ struct CoursesTextFieldViewComponent: View {
                 .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
                 .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
                 .frame(height: 40)
+                .frame(maxWidth: 1000)
                 .cornerRadius(10)
                 .overlay {
                     HStack {

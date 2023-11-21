@@ -50,6 +50,8 @@
 		5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */; };
 		5B9564622AD1FD55002BC3BE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564612AD1FD55002BC3BE /* Enums.swift */; };
 		5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564632AD21330002BC3BE /* AddNewVideosView.swift */; };
+		5BA465702B0AAC95006AB60F /* EditionSubView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */; };
+		5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */; };
 		5BB68F5F2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */; };
 		5BBAFE4C2AF83D9E008CEBBE /* HeaderViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */; };
 		5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */; };
@@ -130,6 +132,8 @@
 		5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseDetailView.swift; sourceTree = "<group>"; };
 		5B9564612AD1FD55002BC3BE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5B9564632AD21330002BC3BE /* AddNewVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVideosView.swift; sourceTree = "<group>"; };
+		5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView1.swift; sourceTree = "<group>"; };
+		5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView2.swift; sourceTree = "<group>"; };
 		5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesLoadPictureViewComponent.swift; sourceTree = "<group>"; };
 		5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewComponent.swift; sourceTree = "<group>"; };
 		5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
@@ -196,6 +200,8 @@
 				5B31D4C12AFC5C8800447AD4 /* CreationSubView3.swift */,
 				5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */,
 				5B2ABCFB2AFB0921009EBC18 /* CreationSubView5.swift */,
+				5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */,
+				5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */,
 			);
 			path = ManagementSubViews;
 			sourceTree = "<group>";
@@ -503,6 +509,7 @@
 				5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */,
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
 				5B68A8132AFE9CD700C378D7 /* CardCarouselView.swift in Sources */,
+				5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView1.swift in Sources */,
 				5BBAFE5F2AF8412F008CEBBE /* RegistrationFormViewComponent.swift in Sources */,
 				5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */,
@@ -518,6 +525,7 @@
 				5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */,
 				5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */,
 				5B7819962AC35EF80041BCF8 /* StringExtensions.swift in Sources */,
+				5BA465702B0AAC95006AB60F /* EditionSubView1.swift in Sources */,
 				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
 				5BBAFE502AF83DDE008CEBBE /* ProviderModel.swift in Sources */,
 				5B5BDA522AD32E2D00BDE896 /* CustomTextField.swift in Sources */,

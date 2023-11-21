@@ -47,6 +47,7 @@ struct CreationSubView5: View {
                             }
                         }
                     }
+                    .frame(maxWidth: 1000)
                     .foregroundStyle(.gray)
                     Spacer()
                     Button {
@@ -85,6 +86,7 @@ struct CreationSubView5: View {
                     collectionsViewModel.cleanCollectionsCache()
                     waitingResponse.toggle()
                     closeForm = true
+//                    dismiss()
                 }))
             })
         }
