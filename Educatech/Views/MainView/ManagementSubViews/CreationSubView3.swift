@@ -19,6 +19,7 @@ struct CreationSubView3: View {
                 HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse3), frameSize: 70)
                 TextEditor(text: $formInputs.description)
                     .frame(height: 400)
+                    .frame(maxWidth: 1000)
                     .border(Color.gray, width: 1)
                     .padding()
                 NavigationLink {

@@ -28,6 +28,7 @@ struct CreationSubView4: View {
                     }
                 }
             }
+            .frame(maxWidth: 1000)
             Spacer()
             NavigationLink {
                 CreationSubView5(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)

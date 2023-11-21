@@ -19,6 +19,7 @@ enum HeaderType: String {
     case createcourse3 = "Description"
     case createcourse4 = "Upload your videos"
     case createcourse5 = "Everything's good?"
+    case editCourse = "Edit course"
 }
 
 final class HeaderModel {
@@ -79,6 +80,10 @@ final class HeaderModel {
             self.titleColor = Color("color_text_standard")
             self.subtitle = "Last check! If everything is fine, hit create to upload your course."
             self.image = "form_create_course_pic5"
+        case .editCourse:
+            self.titleColor = Color("color_text_standard")
+            self.subtitle = ""
+            self.image = "form_video-editing"
         }
     }
 }

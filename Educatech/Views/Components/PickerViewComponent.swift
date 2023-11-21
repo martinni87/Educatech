@@ -19,6 +19,7 @@ struct PickerViewComponent: View {
             Rectangle()
                 .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
                 .frame(height: 40)
+                .frame(maxWidth: 1000)
                 .cornerRadius(10)
                 .overlay {
                     HStack {

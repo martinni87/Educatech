@@ -35,6 +35,24 @@ extension String {
         completionBlock(true, nil)
     }
     
+    func validateTitle(completionBlock: @escaping (Bool, String?) -> Void) {
+        let forbiddenCharacters = #"@/\\|\"'`´^*+<>ºª°¸˛…—·#$%&()"#
+        
+        // Check if the string contains any forbidden characters
+        self.fieldIsNotEmpty { isNotEmpty, errorMsg in
+            if !isNotEmpty {
+                completionBlock(false, errorMsg)
+                return
+            }
+            if self.rangeOfCharacter(from: CharacterSet(charactersIn: forbiddenCharacters)) != nil {
+                completionBlock(false, "Title contains forbidden characters.")
+                return
+            }
+            //Last result, everything's ok
+            completionBlock(true, nil)
+        }
+    }
+    
     func validateURLString(completionBlock: @escaping (Bool, String?) -> Void ) {
         let urlRegex = #"^(https?|ftp)://[^\s/$.?#]+.*$"# // Regular expression for URL validation
         let urlTest = NSPredicate(format: "SELF MATCHES %@", urlRegex)

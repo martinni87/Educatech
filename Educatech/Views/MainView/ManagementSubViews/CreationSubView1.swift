@@ -6,9 +6,6 @@
 //
 
 import SwiftUI
-//import Firebase
-//import FirebaseStorage
-//import PhotosUI
 
 struct CreationSubView1: View {
     

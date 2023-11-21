@@ -16,9 +16,10 @@ struct CreationSubView2: View {
     
     var body: some View {
         NavigationStack {
+            Spacer()
             HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse2), frameSize: 70)
             Spacer()
-            VStack (alignment: .leading) {
+            VStack (alignment: .center) {
                 CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $formInputs.title, errorMsg: collectionsViewModel.titleErrorMsg, label: "Title", placeholder: "The title of your course", tooltip: "Write the title of your course")
                     .onTapGesture {
                         if collectionsViewModel.allowContinue {
@@ -27,7 +28,8 @@ struct CreationSubView2: View {
                     }
                 
                 CoursesLoadPictureViewComponent(collectionsViewModel: collectionsViewModel, pictureItem: $formInputs.selectedPicture, errorMsg: $collectionsViewModel.imageURLErrorMsg, label: "Choose a picture")
-
+                
+                
                 PickerViewComponent(label: "Category", variable: $formInputs.category)
                     .onTapGesture {
                         collectionsViewModel.categoryErrorMsg = nil
@@ -45,7 +47,6 @@ struct CreationSubView2: View {
             Text("Good to go!")
                 .foregroundStyle(collectionsViewModel.allowContinue ? Color.accentColor : Color.clear)
             Spacer()
-            
             HStack {
                 if collectionsViewModel.allowContinue {
                     NavigationLink {
@@ -69,6 +70,7 @@ struct CreationSubView2: View {
                 }
                 .disabled(formInputs.title == "" && formInputs.selectedPicture == nil && formInputs.category == "")
             }
+            Spacer()
         }
         .padding()
     }

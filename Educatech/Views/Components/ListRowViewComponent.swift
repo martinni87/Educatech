@@ -19,6 +19,7 @@ struct ListRowViewComponent: View {
         Rectangle()
             .fill(Color.gray.opacity(0.2))
             .frame(height: 110)
+            .frame(maxWidth: 1000)
             .clipShape(.rect(cornerRadius: 15))
             .overlay {
                 HStack {
@@ -36,10 +37,19 @@ struct ListRowViewComponent: View {
                     }
                     .padding(.leading, 10)
                     VStack (alignment: .leading, spacing: 5){
-                        Text(course.title)
-                            .font(.title2)
-                            .fontWeight(.black)
-                            .lineLimit(1)
+                        HStack (alignment: .top) {
+                            Text(course.title)
+                                .font(.title2)
+                                .fontWeight(.black)
+                                .lineLimit(1)
+                            VStack (alignment: .leading) {
+                                Label(course.teacher, systemImage: "graduationcap")
+                                Label(course.category, systemImage: "book")
+                            }
+                            .font(.caption)
+                            .bold()
+                            .foregroundStyle(Color.gray)
+                        }
                         Text(course.description)
                             .font(.subheadline)
                             .lineLimit(3)
