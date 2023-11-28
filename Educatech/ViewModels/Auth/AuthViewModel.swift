@@ -163,6 +163,21 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
+    func deleteUserDataElement(changeTo userData: UserDataModel, collection: CollectionsViewModel) {
+        self.cleanErrors()
+        
+        authRepository.editUserData(changeTo: userData) { [weak self] result in
+            switch result {
+            case .success(let newUserData):
+                self?.userData = newUserData
+                collection.getCoursesByCreatorID(creatorID: newUserData.id ?? "0")
+            case .failure(let requestErrorMsg):
+                self?.requestErrorMsg = requestErrorMsg.localizedDescription
+                self?.hasRequestError = true
+            }
+        }
+    }
+    
     func editUserData(changeTo userData: UserDataModel, collection: CollectionsViewModel) {
         self.cleanErrors()
         authRepository.editUserData(changeTo: userData) { [weak self] result in

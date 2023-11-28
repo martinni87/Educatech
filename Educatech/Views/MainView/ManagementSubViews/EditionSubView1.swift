@@ -2,11 +2,10 @@
 //  EditionSubView1.swift
 //  Educatech
 //
-//  Created by Martín Antonio Córdoba Getar on 19/11/23.
+//  Created by Martín Antonio Córdoba Getar on 27/11/23.
 //
 
 import SwiftUI
-import PhotosUI
 
 struct EditionSubView1: View {
     
@@ -15,40 +14,19 @@ struct EditionSubView1: View {
     
     var body: some View {
         NavigationStack {
-            if !(collectionsViewModel.managedCourses.isEmpty) {
-                ScrollView {
-                    ForEach(collectionsViewModel.managedCourses, id:\.id) { course in
-                        VStack {
-                            NavigationLink {
-                                if let _ = authViewModel.userData {
-                                    EditionSubView2(authViewModel: authViewModel,
-                                                    collectionsViewModel: collectionsViewModel,
-                                                    currentValues: course)
-                                }
-                            } label: {
-                                ListRowViewComponent(authViewModel: authViewModel,
-                                                     collectionsViewModel: collectionsViewModel,
-                                                     course: course)
-                            }
-                        }
-                    }
+            VStack {
+                HeaderViewComponent(headerModel: HeaderModel(headerType: .editCourse), frameSize: 100)
+                NavigationLink {
+                    EditionSubView2(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+                } label: {
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
                 }
+                .padding()
             }
-            else {
-                VStack {
-                    Text("No courses created ... ")
-                        .font(.title2)
-                        .bold()
-                        .padding()
-                    Image("app_empty_view")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .clipShape(.circle)
-                }
+            .onAppear {
+                collectionsViewModel.cleanCollectionsCache()
             }
         }
-        .padding()
     }
 }
 

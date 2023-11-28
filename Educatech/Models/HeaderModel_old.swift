@@ -27,7 +27,7 @@ final class HeaderModel {
     let title: String
     let titleColor: Color
     let subtitle: String
-    var subtitleColor: Color
+    let subtitleColor: Color
     let image: String
     
     init(headerType: HeaderType) {
@@ -39,7 +39,6 @@ final class HeaderModel {
         case .initial:
             self.titleColor = Color(.sRGB, red: 0.15, green: 0.50, blue: 0.75, opacity: 0.9)
             self.subtitle = "A whole universe of knowlegde right from your pocket"
-            self.subtitleColor = Color.blackWhite
             self.image = "AppLogo"
         case .register1:
             self.titleColor = Color("color_text_standard")
@@ -83,7 +82,7 @@ final class HeaderModel {
             self.image = "form_create_course_pic5"
         case .editCourse:
             self.titleColor = Color("color_text_standard")
-            self.subtitle = "Keep contributing by making your courses even greater! Here you can change your courses info, the thumbnail picture and the list of videos. Enjoy!"
+            self.subtitle = "Edit the info of your course, the thumbnail picture, or the videos. Enjoy!"
             self.image = "form_video-editing"
         }
     }

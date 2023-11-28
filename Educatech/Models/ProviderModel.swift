@@ -28,7 +28,7 @@ final class ProviderModel {
         switch type {
         case .email:
             self.title = "Email"
-            self.backgroundColor = Color("color_email_background")
+            self.backgroundColor = Color("AccentColor")
             self.titleColor = .white
             self.icon = "icon_email"
         case .facebook:

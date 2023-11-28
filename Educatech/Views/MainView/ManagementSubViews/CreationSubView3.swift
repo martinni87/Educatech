@@ -12,22 +12,56 @@ struct CreationSubView3: View {
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Binding var formInputs: CreateCourseFormInputs
+    @State var hasError: Bool = false
+    @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 HeaderViewComponent(headerModel: HeaderModel(headerType: .createcourse3), frameSize: 70)
+                    .padding(.top, verticalSizeClass == .compact ? 15 : 0)
                 TextEditor(text: $formInputs.description)
-                    .frame(height: 400)
-                    .frame(maxWidth: 1000)
+                    .frame(height: verticalSizeClass == .compact ? 200 : 300)
+                    .frame(maxWidth: 850)
                     .border(Color.gray, width: 1)
                     .padding()
-                NavigationLink {
-                    CreationSubView4(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
-                } label: {
-                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                if collectionsViewModel.allowContinue {
+                    Text("Good to go!")
+                        .foregroundStyle(Color.accentColor)
                 }
-                .padding()
+                else if hasError {
+                    Text("Description must not be empty")
+                        .foregroundStyle(Color.pink)
+                }
+                else {
+                    Text("Clear text to reserve space")
+                        .foregroundStyle(Color.clear)
+                }
+                Spacer()
+                if collectionsViewModel.allowContinue {
+                    NavigationLink {
+                        CreationSubView4(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
+                            .onAppear {
+                                collectionsViewModel.allowContinue.toggle()
+                            }
+                    } label: {
+                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                    }
+                }
+                else {
+                    Button {
+                        if formInputs.description == "" {
+                            hasError = true
+                            collectionsViewModel.allowContinue = false
+                        }
+                        else {
+                            hasError = false
+                            collectionsViewModel.allowContinue = true
+                        }
+                    } label: {
+                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                    }
+                }
             }
         }
     }

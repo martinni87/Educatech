@@ -17,7 +17,7 @@ struct HomeView: View {
     var body: some View {
         ScrollView {
             CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.allCourses, sectionTitle: "All courses")
-                .padding()
+                .padding(.top, 20)
             ForEach(authViewModel.userData?.categories ?? [], id:\.self) { category in
                 if !(collectionsViewModel.recommendedCourses[category]?.isEmpty ?? false) {
                     CardCarouselView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, coursesPresented: collectionsViewModel.recommendedCourses[category] ?? [], sectionTitle: "Because you selected \(category)")
@@ -27,8 +27,8 @@ struct HomeView: View {
                         }
                 }
             }
-            .scrollIndicators(.hidden)
         }
+//        .background(Image("Background").resizable().scaledToFill().ignoresSafeArea())
     }
 }
 

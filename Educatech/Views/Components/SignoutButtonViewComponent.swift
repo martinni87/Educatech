@@ -13,7 +13,6 @@ struct SignoutButtonViewComponent: View {
     
     var body: some View {
         HStack {
-            Spacer()
             Button {
                 authViewModel.signOut()
             } label: {

@@ -11,31 +11,22 @@ struct ListRowViewComponent: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
-    let course: CourseModel
+    @State var course: CourseModel
     @Environment (\.colorScheme) var colorScheme
 
     var body: some View {
         
         Rectangle()
-            .fill(Color.gray.opacity(0.2))
+            .fill(colorScheme == .light ? Color.gray.opacity(0.2) : Color.gray.opacity(0.2))
             .frame(height: 110)
-            .frame(maxWidth: 1000)
+            .frame(maxWidth: 850)
             .clipShape(.rect(cornerRadius: 15))
             .overlay {
                 HStack {
-                    AsyncImage(url: URL(string: course.imageURL)) { phase in
-                        if let image = phase.image {
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 120, height: 90)
-                                .clipShape(.rect(cornerRadius: 10))
-                        }
-                        else {
-                            WaitingAnimationViewComponent()
-                        }
-                    }
-                    .padding(.leading, 10)
+                    AsyncImageViewComponent(course: $course)
+                        .clipShape(.rect(cornerRadius: 10))
+                        .frame(width: 128, height: 90)
+                        .padding(10)
                     VStack (alignment: .leading, spacing: 5){
                         HStack (alignment: .top) {
                             Text(course.title)
@@ -65,5 +56,5 @@ struct ListRowViewComponent: View {
 }
 
 #Preview {
-    ListRowViewComponent(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), course: CourseModel(id: "1234",creatorID: "5678",teacher: "Anonymous",title: "Example",description: "Example course for preview only. Extra text to test multiline, it should be ok if it does not pass above 2 lines",imageURL: "https://images.unsplash.com/photo-1590479773265-7464e5d48118?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",category: "Swift",videosURL: ["Video1", "Video2", "Video3"]))
+    ListRowViewComponent(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), course: CourseModel(id: "1234",creatorID: "5678",teacher: "Anonymous",title: "Example",description: "Example course for preview only. Extra text to test multiline, it should be ok if it does not pass above 2 lines",imageURL: "",category: "Swift",videosURL: ["Video1", "Video2", "Video3"]))
 }

@@ -50,8 +50,6 @@ final class CollectionsDataSource {
                 let category = document.get("category") as! String
                 let videosURL = document.get("videosURL") as! [String]
                 let numberOfStudents = document.get("numberOfStudents") as! Int
-                let rateStars = document.get("rateStars") as! Double
-                let numberOfValorations = document.get("numberOfValorations") as! Int
                 let approved = document.get("approved") as! Bool
                 completionBlock(.success(CourseModel(id: id,
                                                      creatorID: creatorID,
@@ -62,8 +60,6 @@ final class CollectionsDataSource {
                                                      category: category,
                                                      videosURL: videosURL,
                                                      numberOfStudents: numberOfStudents,
-                                                     rateStars: rateStars,
-                                                     numberOfValorations: numberOfValorations,
                                                      approved: approved)))
                 return
             }
@@ -120,70 +116,69 @@ final class CollectionsDataSource {
                     
                     //Upload videos and get url array from server
                     var count = 1
-                    formInputs.selectedVideos.forEach { selectedVideo in
-                        StorageManager().uploadVideo(courseID: id, selectedVideo: selectedVideo) { result in
-                            switch result {
-                            case .failure(let error):
-                                completionBlock(.failure(error))
-                                return
-                            case .success(_):
-                                if count == formInputs.selectedVideos.count {
-                                    StorageManager().retrieveVideosList(courseID: id) { result in
-                                        switch result {
-                                        case .failure(let error):
-                                            completionBlock(.failure(error))
-                                        case .success(let urlStringList):
-                                            let videosURL = urlStringList
-                                            
-                                            //Creating new collection with id
-                                            let newDocument = self.database.collection(self.coursesCollection).document(id)
-                                            
-                                            //Setting new document with the data given by the user
-                                            let newCourse = CourseModel(id: id,
-                                                                        creatorID: formInputs.creatorID,
-                                                                        teacher: formInputs.teacher,
-                                                                        title: formInputs.title,
-                                                                        description: formInputs.description,
-                                                                        imageURL: pictureURL,
-                                                                        category: formInputs.category,
-                                                                        videosURL: videosURL,
-                                                                        numberOfStudents: 0,
-                                                                        rateStars: 0,
-                                                                        numberOfValorations: 0,
-                                                                        approved: false)
-                                            
-                                            newDocument.setData( ["id": id,
-                                                                  "creatorID": newCourse.creatorID,
-                                                                  "teacher": newCourse.teacher,
-                                                                  "title": newCourse.title,
-                                                                  "description": newCourse.description,
-                                                                  "imageURL": newCourse.imageURL,
-                                                                  "category": newCourse.category,
-                                                                  "videosURL": newCourse.videosURL,
-                                                                  "numberOfStudents": newCourse.numberOfStudents,
-                                                                  "rateStars": newCourse.rateStars,
-                                                                  "numberOfValorations": newCourse.numberOfValorations,
-                                                                  "approved": newCourse.approved
-                                                                 ]) { error in
-                                                if let error = error {
-                                                    completionBlock(.failure(error))
-                                                    return
-                                                }
-                                                else{
-                                                    self.addNewManagedCourseToUser(newCourse: newCourse, userData: userData) { result in
-                                                        switch result {
-                                                        case .success(let newCourse):
-                                                            completionBlock(.success(newCourse))
-                                                        case .failure(let error):
-                                                            completionBlock(.failure(error))
+                    
+                    if !formInputs.selectedVideos.isEmpty {
+                        formInputs.selectedVideos.forEach { selectedVideo in
+                            StorageManager().uploadVideo(courseID: id, selectedVideo: selectedVideo) { result in
+                                switch result {
+                                case .failure(let error):
+                                    completionBlock(.failure(error))
+                                    return
+                                case .success(_):
+                                    if count == formInputs.selectedVideos.count {
+                                        StorageManager().retrieveVideosList(courseID: id) { result in
+                                            switch result {
+                                            case .failure(let error):
+                                                completionBlock(.failure(error))
+                                            case .success(let urlStringList):
+                                                let videosURL = urlStringList
+                                                
+                                                //Creating new collection with id
+                                                let newDocument = self.database.collection(self.coursesCollection).document(id)
+                                                
+                                                //Setting new document with the data given by the user
+                                                let newCourse = CourseModel(id: id,
+                                                                            creatorID: formInputs.creatorID,
+                                                                            teacher: formInputs.teacher,
+                                                                            title: formInputs.title,
+                                                                            description: formInputs.description,
+                                                                            imageURL: pictureURL,
+                                                                            category: formInputs.category,
+                                                                            videosURL: videosURL,
+                                                                            numberOfStudents: 0,
+                                                                            approved: false)
+                                                
+                                                newDocument.setData( ["id": id,
+                                                                      "creatorID": newCourse.creatorID,
+                                                                      "teacher": newCourse.teacher,
+                                                                      "title": newCourse.title,
+                                                                      "description": newCourse.description,
+                                                                      "imageURL": newCourse.imageURL,
+                                                                      "category": newCourse.category,
+                                                                      "videosURL": newCourse.videosURL,
+                                                                      "numberOfStudents": newCourse.numberOfStudents,
+                                                                      "approved": newCourse.approved
+                                                                     ]) { error in
+                                                    if let error = error {
+                                                        completionBlock(.failure(error))
+                                                        return
+                                                    }
+                                                    else{
+                                                        self.addNewManagedCourseToUser(newCourse: newCourse, userData: userData) { result in
+                                                            switch result {
+                                                            case .success(let newCourse):
+                                                                completionBlock(.success(newCourse))
+                                                            case .failure(let error):
+                                                                completionBlock(.failure(error))
+                                                            }
                                                         }
                                                     }
                                                 }
                                             }
                                         }
                                     }
+                                    count += 1
                                 }
-                                count += 1
                             }
                         }
                     }
@@ -224,6 +219,89 @@ final class CollectionsDataSource {
             }
             let numberOfDocuments = query?.documents.count ?? 0
             completionBlock(numberOfDocuments)
+        }
+    }
+    
+    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+        //Getting document for current course by its id
+        self.getCourseByID(courseID: courseID) { result in
+            switch result {
+            case .failure(let error):
+                completionBlock(.failure(error))
+                return
+            case .success(let course):
+                var course = CourseModel(id: course.id,
+                                         creatorID: course.creatorID,
+                                         teacher: course.teacher,
+                                         title: course.title,
+                                         description: course.description,
+                                         imageURL: course.imageURL,
+                                         category: course.category,
+                                         videosURL: course.videosURL,
+                                         numberOfStudents: course.numberOfStudents,
+                                         approved: course.approved)
+                var numberOfStudents = course.numberOfStudents
+                numberOfStudents += variation
+                
+                //Setting new data
+                let document = self.database.collection(self.coursesCollection).document(courseID)
+                document.setData( ["id": courseID,
+                                   "creatorID": course.creatorID,
+                                   "teacher": course.teacher,
+                                   "title": course.title,
+                                   "description": course.description,
+                                   "imageURL": course.imageURL,
+                                   "category": course.category,
+                                   "videosURL": course.videosURL,
+                                   "numberOfStudents": numberOfStudents,
+                                   "approved": course.approved
+                                  ]) { error in
+                    if let error = error {
+                        completionBlock(.failure(error))
+                        return
+                    }
+                    completionBlock(.success(CourseModel(id: course.id,
+                                                         creatorID: course.creatorID,
+                                                         teacher: course.teacher,
+                                                         title: course.title,
+                                                         description: course.description,
+                                                         imageURL: course.imageURL,
+                                                         category: course.category,
+                                                         videosURL: course.videosURL,
+                                                         numberOfStudents: numberOfStudents,
+                                                         approved: course.approved)))
+                }
+            }
+        }
+    }
+    
+    func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+        let courseDocument = self.database.collection(self.coursesCollection).document(course.id ?? "0")
+        courseDocument.setData(["id": course.id ?? "0",
+                                "creatorID": course.creatorID,
+                                "teacher": course.teacher,
+                                "title": course.title,
+                                "description": course.description,
+                                "imageURL": course.imageURL,
+                                "category": course.category,
+                                "videosURL": course.videosURL,
+                                "numberOfStudents": course.numberOfStudents,
+                                "approved": course.approved
+                               ]) { error in
+            if let error = error {
+                completionBlock(.failure(error))
+                return
+            }
+            completionBlock(.success(CourseModel(id: course.id,
+                                                 creatorID: course.creatorID,
+                                                 teacher: course.teacher,
+                                                 title: course.title,
+                                                 description: course.description,
+                                                 imageURL: course.imageURL,
+                                                 category: course.category,
+                                                 videosURL: course.videosURL,
+                                                 numberOfStudents: course.numberOfStudents,
+                                                 approved: course.approved)))
         }
     }
 }

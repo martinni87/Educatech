@@ -13,11 +13,13 @@ struct ManagementView: View {
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     @Environment (\.verticalSizeClass) var verticalSizeClass
+    @Environment (\.horizontalSizeClass) var horizontalSizeClass
     @State var videoSelected: [PhotosPickerItem] = []
     
     var body: some View {
         NavigationStack {
-            if verticalSizeClass == .regular {
+            
+            if horizontalSizeClass == .compact {
                 VStack{
                     Spacer()
                     NavigationLink {
@@ -35,18 +37,28 @@ struct ManagementView: View {
                 }
             }
             else {
-                HStack{
+                VStack {
                     Spacer()
-                    NavigationLink {
-                        CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
-                    } label: {
-                        CreateOption()
-                    }
-                    Spacer()
-                    NavigationLink {
-                        Text("Edition view")
-                    } label: {
-                        EditOption()
+                    HStack{
+                        Spacer()
+                        NavigationLink {
+                            CreationSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+                        } label: {
+                            CreateOption()
+                                .frame(minWidth: 200, minHeight: 200)
+                                .frame(maxWidth: 400, maxHeight: 400)
+                                .scaleEffect(horizontalSizeClass == .regular && verticalSizeClass == .regular ? 1.5 : 1)
+                        }
+                        Spacer()
+                        NavigationLink {
+                            EditionSubView1(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+                        } label: {
+                            EditOption()
+                                .frame(minWidth: 200, minHeight: 200)
+                                .frame(maxWidth: 400, maxHeight: 400)
+                                .scaleEffect(horizontalSizeClass == .regular && verticalSizeClass == .regular ? 1.5 : 1)
+                        }
+                        Spacer()
                     }
                     Spacer()
                 }

@@ -42,7 +42,7 @@ struct EducatechApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if let _ = authViewModel.userAuth/*, let userData = authViewModel.userData*/ {
+            if let _ = authViewModel.userAuth?.id {
                 MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                     .task {
                         self.authViewModel.getCurrentUserData()
