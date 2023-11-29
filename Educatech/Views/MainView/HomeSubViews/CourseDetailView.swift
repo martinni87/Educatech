@@ -43,7 +43,7 @@ struct CourseDetailView: View {
                     HStack {
                         Spacer()
                         Label(course.category, systemImage: "book.fill")
-                        Label("\(course.numberOfStudents)", systemImage: "person.fill")
+                        Label("\(collectionsViewModel.allCourses.first(where: { $0.id == course.id })!.numberOfStudents)", systemImage: "person.fill")
                         Spacer()
                     }
                     .foregroundStyle(Color.accentColor)
@@ -115,14 +115,14 @@ struct CourseDetailView: View {
                 }
             }
         }
-        .onChange(of: collectionsViewModel.subscribedCourses, { _, _ in
-            collectionsViewModel.subscribedCourses.forEach { courseUpdate in
-                if self.course.id == courseUpdate.id {
-                    self.course = courseUpdate
-                    return
-                }
-            }
-        })
+//        .onChange(of: collectionsViewModel.subscribedCourses, { _, _ in
+//            collectionsViewModel.subscribedCourses.forEach { courseUpdate in
+//                if self.course.id == courseUpdate.id {
+//                    self.course = courseUpdate
+//                    return
+//                }
+//            }
+//        })
         //Info: let know the user that is going to start a new course (YES/NO)
         .alert(
             "You're about to start a new course! 🚀",
@@ -199,22 +199,6 @@ struct CourseDetailView: View {
             }
         } message: {
             Text("Are you sure you want to unsubscribe to the course?")
-        }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    if let userData = authViewModel.userData {
-                        var subscriptions = userData.subscriptions
-                        collectionsViewModel.getSubscribedCoursesByID(coursesIDs: subscriptions)
-                        collectionsViewModel.getAllCourses()
-                        dismiss()
-                    }
-                } label: {
-                    Label("Go back", systemImage: "chevron.left")
-                        .labelStyle(.titleAndIcon)
-                }
-            }
         }
         .fullScreenCover(isPresented: $goToHome) {
             MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)

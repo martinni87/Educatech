@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+enum TypeOfContent {
+    case all, recommended
+}
+
 struct CardCarouselView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
     @ObservedObject var collectionsViewModel: CollectionsViewModel
-    let coursesPresented: [CourseModel]
+    var coursesPresented: [CourseModel]
     let sectionTitle: String
     
     var body: some View {
@@ -21,8 +25,8 @@ struct CardCarouselView: View {
                 .bold()
                 .padding(.horizontal, 20)
             ScrollView(.horizontal) {
-                HStack {
-                    ForEach(coursesPresented, id: \.id) { course in
+                HStack { 
+                    ForEach(collectionsViewModel.allCourses, id: \.id) { course in
                         if course.approved {
                             NavigationLink {
                                 CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
@@ -40,9 +44,9 @@ struct CardCarouselView: View {
     }
 }
 
-#Preview {
-    CardCarouselView(authViewModel: AuthViewModel(),
-                     collectionsViewModel: CollectionsViewModel(),
-                     coursesPresented: [EXAMPLE_COURSE],
-                     sectionTitle: "Section title")
-}
+//#Preview {
+//    CardCarouselView(authViewModel: AuthViewModel(),
+//                     collectionsViewModel: CollectionsViewModel(),
+//                     coursesPresented: [EXAMPLE_COURSE],
+//                     sectionTitle: "Section title")
+//}
