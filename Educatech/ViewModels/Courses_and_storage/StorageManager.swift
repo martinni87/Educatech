@@ -13,10 +13,34 @@ import FirebaseStorage
 final class StorageManager {
     
     private let storage = Storage.storage().reference()
-    private let uploadError = NSError(domain: "Upload error", code: 500, userInfo: [NSLocalizedDescriptionKey: "Something went wrong uploading data."])
+    private let storageError = NSError(domain: "Storage error", code: 500, userInfo: [NSLocalizedDescriptionKey: "Something went wrong performing the current task. Please contact the admin"])
     
-    func deleteItems() {
-//        storage.
+    func deleteStorageByURL(course: CourseModel, urlStringList: [String], collection: CollectionsViewModel) {
+        // Start loop for urlString array
+        urlStringList.enumerated().forEach { i, urlString in
+            //Transform string to url and get fileName without extension
+            let urlVideosToDelete = URL(string: urlString)!
+            let lastPathComponent = urlVideosToDelete.lastPathComponent
+            let fileName = (lastPathComponent as NSString).deletingPathExtension
+            
+            //Set path, and access
+            let path = "courses/\(course.id!)/videos/\(fileName).mp4"
+            print(path)
+            let reference = storage.child(path)
+            
+            //Proceed to delete
+            reference.delete { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+                else if i == urlStringList.count - 1 {
+                    collection.editCourseData(changeTo: course)
+                    print("Delete for all courses done")
+                    return
+                }
+            }
+        }
     }
     
     func uploadPicture(courseID: String, photoItem: PhotosPickerItem, completionBlock: @escaping (Result<String, Error>) -> Void ) {

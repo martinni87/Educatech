@@ -5,7 +5,8 @@
 //  Created by Martín Antonio Córdoba Getar on 21/9/23.
 //
 
-import Foundation
+import SwiftUI
+import PhotosUI
 
 final class CollectionsViewModel: ObservableObject {
     
@@ -27,6 +28,7 @@ final class CollectionsViewModel: ObservableObject {
     @Published var searchResults: [CourseModel] = []
     @Published var searchHasEmptyResult: Bool = false
     @Published var errorReceivingData: String?
+    @Published var deletionErrorMsg: String?
     
     //Published value to load current course updates
     @Published var singleCourse: CourseModel = CourseModel(creatorID: "", teacher: "", title: "", description: "", imageURL: "")
@@ -228,27 +230,18 @@ final class CollectionsViewModel: ObservableObject {
             }
         }
     }
+    
+    func addNewVideoListToCourse(course: CourseModel, newVideosList: [PhotosPickerItem]) {
+        collectionsRepository.addNewVideoListToCourse(course: course, newVideosList: newVideosList) { [weak self] result in
+            switch result {
+            case .success(let courseEdited):
+                self?.singleCourse = courseEdited
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
 }
-
-//    func editExistingCourse(currentValues: CourseModel, newValues: CreateCourseFormInputs) {
-//        // Validate title has no forbidden characters
-//        let forbiddenCharacters = #"@/\\|\"'`´^*+<>ºª°¸˛…—·#$%&()"#
-//        if newValues.title.rangeOfCharacter(from: CharacterSet(charactersIn: forbiddenCharacters)) != nil {
-//            self.titleErrorMsg = "Title contains forbidden characters."
-//            return
-//        }
-//        else {
-//            collectionsRepository.editExistingCourse(currentValues: currentValues, newValues: newValues) { [weak self] result in
-//                switch result {
-//                case .success(let course):
-//                    print(course.title)
-//                case .failure(let error):
-//                    self?.errorReceivingData = error.localizedDescription
-//                }
-//            }
-//        }
-//    }
-//}
 
 //
 //    @Published var allCourses: [CourseModel] = []

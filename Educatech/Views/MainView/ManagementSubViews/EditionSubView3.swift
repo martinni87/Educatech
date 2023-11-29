@@ -33,16 +33,29 @@ struct EditionSubView3: View {
                         }
                     }
                 
-                Text("Description: ").bold() + Text(course.description).font(.callout).foregroundStyle(Color.gray).bold()
-                Rectangle()
-                    .fill(colorScheme == .light ? .black : .red)
-                    .frame(height: 40)
-                    .frame(maxWidth: 850)
-                    .cornerRadius(10)
-                    .overlay {
-                        TextEditor(text: $newValues.description)
-                    }
-                CoursesTextFieldViewComponent(collectionsViewModel: collectionsViewModel, variable: $newValues.description, errorMsg: collectionsViewModel.descriptionErrorMsg, label: "", placeholder: "New description", tooltip: "Write a new description for your course. Changes won't take place until you 'Submit changes'. Leave blank to keep current value.")
+                VStack (alignment: .leading) {
+                    Text("Description: ").bold() + Text(course.description).font(.callout).foregroundStyle(Color.gray).bold()
+                    Rectangle()
+                        .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
+                        .frame(minHeight: 40)
+                        .frame(maxHeight: 100)
+                        .frame(maxWidth: 850)
+                        .cornerRadius(10)
+                        .overlay {
+                            HStack {
+                                TextField("New description", text: $newValues.description, axis: .vertical)
+                                    .padding(.horizontal)
+                                    .foregroundStyle(Color.accentColor)
+                                    .textFieldStyle(.plain)
+                                    .textInputAutocapitalization(.never)
+                                    .onTapGesture {
+                                        collectionsViewModel.cleanCollectionsCache()
+                                    }
+                            }
+                        }
+                    Text("Write a new description for your course. Changes won't take place until you 'Submit changes'. Leave blank to keep current value.").font(.caption).bold().foregroundStyle(Color.gray)
+                }
+                .padding(.bottom)
                 
                 Text("Category: ").bold() + Text(course.category).font(.callout).foregroundStyle(Color.gray).bold()
                 PickerViewComponent(label: "Category", variable: $newValues.category)

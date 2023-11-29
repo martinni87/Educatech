@@ -230,7 +230,7 @@ final class CollectionsDataSource {
                 completionBlock(.failure(error))
                 return
             case .success(let course):
-                var course = CourseModel(id: course.id,
+                let course = CourseModel(id: course.id,
                                          creatorID: course.creatorID,
                                          teacher: course.teacher,
                                          title: course.title,
@@ -304,8 +304,63 @@ final class CollectionsDataSource {
                                                  approved: course.approved)))
         }
     }
+    
+    func addNewVideoListToCourse(course: CourseModel, newVideosList: [PhotosPickerItem], completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        newVideosList.enumerated().forEach { i, selectedVideo in
+            StorageManager().uploadVideo(courseID: course.id!, selectedVideo: selectedVideo) { result in
+                switch result {
+                case .failure(let error):
+                    completionBlock(.failure(error))
+                    return
+                case .success(_):
+                    if i == newVideosList.count - 1 {
+                        StorageManager().retrieveVideosList(courseID: course.id!) { result in
+                            switch result {
+                            case .failure(let error):
+                                completionBlock(.failure(error))
+                            case .success(let urlStringList):
+                                let videosURL = urlStringList
+                                
+                                //Creating new collection with id
+                                let document = self.database.collection(self.coursesCollection).document(course.id ?? "0")
+                                
+                                //Setting new document with the data given by the user
+                                let editedCourse = CourseModel(id: course.id!,
+                                                               creatorID: course.creatorID,
+                                                               teacher: course.teacher,
+                                                               title: course.title,
+                                                               description: course.description,
+                                                               imageURL: course.imageURL,
+                                                               category: course.category,
+                                                               videosURL: videosURL,
+                                                               numberOfStudents: course.numberOfStudents,
+                                                               approved: course.approved)
+                                
+                                document.setData( ["id": editedCourse.id!,
+                                                   "creatorID": editedCourse.creatorID,
+                                                   "teacher": editedCourse.teacher,
+                                                   "title": editedCourse.title,
+                                                   "description": editedCourse.description,
+                                                   "imageURL": editedCourse.imageURL,
+                                                   "category": editedCourse.category,
+                                                   "videosURL": editedCourse.videosURL,
+                                                   "numberOfStudents": editedCourse.numberOfStudents,
+                                                   "approved": editedCourse.approved
+                                                  ]) { error in
+                                    if let error = error {
+                                        completionBlock(.failure(error))
+                                        return
+                                    }
+                                    completionBlock(.success(editedCourse))
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
-
 
 
 //
