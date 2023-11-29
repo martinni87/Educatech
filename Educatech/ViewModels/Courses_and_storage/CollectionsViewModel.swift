@@ -5,7 +5,8 @@
 //  Created by Martín Antonio Córdoba Getar on 21/9/23.
 //
 
-import Foundation
+import SwiftUI
+import PhotosUI
 
 final class CollectionsViewModel: ObservableObject {
     
@@ -27,6 +28,10 @@ final class CollectionsViewModel: ObservableObject {
     @Published var searchResults: [CourseModel] = []
     @Published var searchHasEmptyResult: Bool = false
     @Published var errorReceivingData: String?
+    @Published var deletionErrorMsg: String?
+    
+    //Published value to load current course updates
+    @Published var singleCourse: CourseModel = CourseModel(creatorID: "", teacher: "", title: "", description: "", imageURL: "")
     
     private let collectionsRepository: CollectionsRepository
     
@@ -60,9 +65,9 @@ final class CollectionsViewModel: ObservableObject {
             }
             self?.titleErrorMsg = nil
             if formInputs.selectedPicture == nil {
-                    self?.imageURLErrorMsg = "You must select a picture from your photo gallery"
-                    return
-                }
+                self?.imageURLErrorMsg = "You must select a picture from your photo gallery"
+                return
+            }
             self?.imageURLErrorMsg = nil
             formInputs.category.fieldIsNotEmpty { isValid, errorMsg in
                 if !isValid {
@@ -71,6 +76,17 @@ final class CollectionsViewModel: ObservableObject {
                 }
                 self?.allowContinue = true
             }
+        }
+    }
+    
+    func validateTitleInEditionForm(_ formInputs: CreateCourseFormInputs) {
+        formInputs.title.validateTitle { [weak self] isValid, errorMsg in
+            if !isValid {
+                self?.titleErrorMsg = errorMsg
+                return
+            }
+            self?.titleErrorMsg = nil
+            self?.allowContinue = true
         }
     }
     
@@ -86,7 +102,18 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-    func getCoursesByID(coursesIDs: [String]) {
+    func getSingleCourseByID(courseID: String) {
+        collectionsRepository.getCourseByID(courseID: courseID) { [weak self] result in
+            switch result {
+            case .success(let course):
+                self?.singleCourse = course
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
+    
+    func getSubscribedCoursesByID(coursesIDs: [String]) {
         //Each time it's called, we clean the array
         self.subscribedCourses = []
         //Then we repopulate it with all the id's of courses the user has
@@ -180,7 +207,40 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-
+//    func changeNumberOfStudents(courseID: String, variation: Int) {
+//        collectionsRepository.changeNumberOfStudents(courseID: courseID, variation: variation) { [weak self ] result in
+//            switch result {
+//            case .success(_):
+//                print("Course updated")
+//                self?.getAllCourses() //Update all courses list when number of students is updated
+//            case .failure(let error):
+//                self?.errorReceivingData = error.localizedDescription
+//            }
+//        }
+//    }
+    
+    func editCourseData(changeTo course: CourseModel) {
+        self.errorReceivingData = nil
+        collectionsRepository.editCourseData(changeTo: course) { [weak self] result in
+            switch result {
+            case .success(let courseEdited):
+                self?.singleCourse = courseEdited
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
+    
+    func addNewVideoListToCourse(course: CourseModel, newVideosList: [PhotosPickerItem]) {
+        collectionsRepository.addNewVideoListToCourse(course: course, newVideosList: newVideosList) { [weak self] result in
+            switch result {
+            case .success(let courseEdited):
+                self?.singleCourse = courseEdited
+            case .failure(let error):
+                self?.errorReceivingData = error.localizedDescription
+            }
+        }
+    }
 }
 
 //
@@ -188,13 +248,13 @@ final class CollectionsViewModel: ObservableObject {
 //    @Published var managedCourses: [CourseModel] = []
 //    @Published var subscribedCourses: [CourseModel] = []
 //    @Published var error: String?
-//    
+//
 //    private let coursesRepository: CoursesRepository
-//    
+//
 //    init(coursesRepository: CoursesRepository = CoursesRepository()){
 //        self.coursesRepository = coursesRepository
 //    }
-//    
+//
 //    func getAllCourses() {
 //        self.error = nil
 //        coursesRepository.getNewCourses { [weak self] result in
@@ -206,7 +266,7 @@ final class CollectionsViewModel: ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    func getSubscribedCoursesByIDList(coursesID: [String]) {
 //        self.error = nil
 //        coursesRepository.getSubscribedCoursesByIDList(coursesID: coursesID) { [weak self] result in
@@ -218,7 +278,7 @@ final class CollectionsViewModel: ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    func getCoursesByCreatorID(creatorID: String){
 //        self.error = nil
 //        coursesRepository.getCoursesByCreatorID(creatorID: creatorID) { [weak self] result in
@@ -230,7 +290,7 @@ final class CollectionsViewModel: ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    func createNewCourse(title: String, description: String, imageURL: String, creatorID: String, teacher: String, category: String/*, price: Double*/) {
 //        self.error = nil
 //        guard courseValidations(title,description,imageURL,category/*,price*/) else {
@@ -251,7 +311,7 @@ final class CollectionsViewModel: ObservableObject {
 //            }
 //        }
 //    }
-//    
+//
 //    func updateCourseData(courseID: String, title: String, description: String, imageURL: String, category: String/*, price: Double*/) {
 //        self.error = nil
 //        guard courseValidations(title,description,imageURL,category/*,price*/) else {
@@ -266,7 +326,7 @@ final class CollectionsViewModel: ObservableObject {
 //            self?.error = error.localizedDescription
 //        }
 //    }
-//    
+//
 //    // MARK: Private functinos for the View Model
 //    private func courseValidations(_ title: String, _ description: String, _ imageURL: String, _ category: String/*, _ price: Double?*/) -> Bool {
 //        guard title.validateNotEmptyString().isValid else {
@@ -295,5 +355,5 @@ final class CollectionsViewModel: ObservableObject {
 ////        }
 //        return true
 //    }
-//    
+//
 //}

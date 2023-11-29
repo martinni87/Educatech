@@ -15,46 +15,59 @@ struct InitialView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                HeaderViewComponent(headerModel: HeaderModel(headerType: .initial), frameSize: 150)
-                    .padding(.top, 20)
+            HStack {
                 Spacer()
-                NavigationLink {
-                    LoginView(authViewModel: authViewModel)
-                } label: {
-                    ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .email))
+                VStack {
+                    HeaderViewComponent(headerModel: HeaderModel(headerType: .initial), frameSize: 150)
+                        .padding(.top, 20)
+                    Spacer()
+                    NavigationLink {
+                        LoginView(authViewModel: authViewModel)
+                    } label: {
+                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .email))
+                    }
+    //                SeparatorViewComponent()
+    //                    .padding(.vertical,30)
+    //                VStack {
+    //                    Button {
+    //                        print("Login with facebook")
+    //                    } label: {
+    //                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .facebook))
+    //                    }
+    //                    Button {
+    //                        print("Login with google")
+    //                    } label: {
+    //                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .google))
+    //                    }
+    //                }
+                    Spacer()
+                    NavigationLink {
+                        RegisterView1(authViewModel: authViewModel)
+                    } label: {
+                        Text("Don't have an account yet?")
+                            .foregroundColor(.white)
+                        Text("Sign up")
+                            .bold()
+                    }
+                    .padding(20)
                 }
-//                SeparatorViewComponent()
-//                    .padding(.vertical,30)
-//                VStack {
-//                    Button {
-//                        print("Login with facebook")
-//                    } label: {
-//                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .facebook))
-//                    }
-//                    Button {
-//                        print("Login with google")
-//                    } label: {
-//                        ProviderButtonViewComponent(provider: ProviderModel(colorScheme: colorScheme, type: .google))
-//                    }
-//                }
                 Spacer()
-                NavigationLink {
-                    RegisterView1(authViewModel: authViewModel)
-                } label: {
-                    Text("Don't have an account yet?")
-                        .foregroundColor(colorScheme == .light ? .black : .white)
-                    Text("Sign up")
-                        .bold()
-                }
-                .padding(20)
             }
+            
+            .background(LinearGradient(colors: [.clear,
+                                                .clear,
+                                                .accentColor,
+                                                .background,
+                                                .black],
+                                       startPoint: .topLeading,
+                                       endPoint: .bottomTrailing))
         }
-        .background(
-            Image("AppBackground")
-                .resizable()
-        )
+        
     }
+}
+
+#Preview {
+    InitialView(authViewModel: AuthViewModel())
 }
 
 //    @ObservedObject var authViewModel: AuthViewModel

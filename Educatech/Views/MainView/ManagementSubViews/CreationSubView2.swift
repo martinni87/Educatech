@@ -51,6 +51,9 @@ struct CreationSubView2: View {
                 if collectionsViewModel.allowContinue {
                     NavigationLink {
                         CreationSubView3(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
+                            .onAppear {
+                                collectionsViewModel.allowContinue.toggle()
+                            }
                     } label: {
                         ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
                     }

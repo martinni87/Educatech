@@ -11,6 +11,7 @@
 		5B0A028C2AD3FE98004FB043 /* EmailDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */; };
 		5B150E932AB7BF5A005CC112 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E922AB7BF5A005CC112 /* GoogleSignIn */; };
 		5B150E952AB7BF5A005CC112 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B150E942AB7BF5A005CC112 /* GoogleSignInSwift */; };
+		5B22D5FA2B1281CC001621B7 /* AsyncImageViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B22D5F92B1281CC001621B7 /* AsyncImageViewComponent.swift */; };
 		5B2958D22B06D1D600105F9F /* GalleryPhotoViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */; };
 		5B2ABCF42AFAC24D009EBC18 /* CreationSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */; };
 		5B2ABCF62AFAE640009EBC18 /* PickerViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */; };
@@ -23,8 +24,14 @@
 		5B419DAC2AFFCCD3000619FC /* ListRowViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B419DAB2AFFCCD3000619FC /* ListRowViewComponent.swift */; };
 		5B419DAE2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B419DAD2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift */; };
 		5B419DB02B00F2AF000619FC /* SearchBarViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B419DAF2B00F2AF000619FC /* SearchBarViewComponent.swift */; };
+		5B41CE5A2B1523DB00B5E735 /* EditionSubView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41CE592B1523DB00B5E735 /* EditionSubView1.swift */; };
+		5B41CE5C2B1524CD00B5E735 /* EditionSubView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41CE5B2B1524CD00B5E735 /* EditionSubView3.swift */; };
+		5B41CE5E2B1529D300B5E735 /* CourseInfoSectionViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41CE5D2B1529D300B5E735 /* CourseInfoSectionViewComponent.swift */; };
+		5B41CE602B15399D00B5E735 /* EditionSubView4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41CE5F2B15399D00B5E735 /* EditionSubView4.swift */; };
+		5B41CE622B1539F100B5E735 /* EditionSubView5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41CE612B1539F100B5E735 /* EditionSubView5.swift */; };
 		5B540DB62AC234A20034FF9D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5B540DB52AC234A20034FF9D /* FirebaseFirestore */; };
 		5B540DB82AC234AE0034FF9D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5B540DB72AC234AE0034FF9D /* FirebaseStorage */; };
+		5B5835D42B0EA82700CFA9E5 /* MailButtonViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5835D32B0EA82700CFA9E5 /* MailButtonViewComponent.swift */; };
 		5B5BDA522AD32E2D00BDE896 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5BDA512AD32E2D00BDE896 /* CustomTextField.swift */; };
 		5B616E732ABCB97D009FAE97 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B616E722ABCB97D009FAE97 /* FirebaseFirestoreSwift */; };
 		5B616E762ABCB9D6009FAE97 /* CollectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B616E752ABCB9D6009FAE97 /* CollectionsViewModel.swift */; };
@@ -44,17 +51,17 @@
 		5B7819962AC35EF80041BCF8 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7819952AC35EF80041BCF8 /* StringExtensions.swift */; };
 		5B78DCD62AB74B3200A87E28 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 5B78DCD52AB74B3200A87E28 /* FacebookLogin */; };
 		5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */; };
+		5B795FF92B1373D000AACC49 /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B795FF82B1373D000AACC49 /* HeaderModel.swift */; };
 		5B80EE532AC4E33A00F2F446 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B80EE522AC4E33A00F2F446 /* StorageManager.swift */; };
 		5B95645A2AD1BE70002BC3BE /* EditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564592AD1BE70002BC3BE /* EditionView.swift */; };
 		5B95645E2AD1F1FD002BC3BE /* ManagedCourseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645D2AD1F1FD002BC3BE /* ManagedCourseCardView.swift */; };
 		5B9564602AD1F284002BC3BE /* ManagedCourseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */; };
 		5B9564622AD1FD55002BC3BE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564612AD1FD55002BC3BE /* Enums.swift */; };
 		5B9564642AD21330002BC3BE /* AddNewVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9564632AD21330002BC3BE /* AddNewVideosView.swift */; };
-		5BA465702B0AAC95006AB60F /* EditionSubView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */; };
-		5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */; };
+		5BA465702B0AAC95006AB60F /* EditionSubView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA4656F2B0AAC95006AB60F /* EditionSubView2.swift */; };
+		5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2_old.swift */; };
 		5BB68F5F2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */; };
 		5BBAFE4C2AF83D9E008CEBBE /* HeaderViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */; };
-		5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */; };
 		5BBAFE502AF83DDE008CEBBE /* ProviderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */; };
 		5BBAFE522AF83DFD008CEBBE /* SeparatorViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE512AF83DFD008CEBBE /* SeparatorViewComponent.swift */; };
 		5BBAFE542AF83E0D008CEBBE /* ProviderButtonViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFE532AF83E0D008CEBBE /* ProviderButtonViewComponent.swift */; };
@@ -95,6 +102,7 @@
 /* Begin PBXFileReference section */
 		5B0A02892AD3F7B6004FB043 /* MailViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewComponent.swift; sourceTree = "<group>"; };
 		5B0A028B2AD3FE98004FB043 /* EmailDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDataModel.swift; sourceTree = "<group>"; };
+		5B22D5F92B1281CC001621B7 /* AsyncImageViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewComponent.swift; sourceTree = "<group>"; };
 		5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPhotoViewComponent.swift; sourceTree = "<group>"; };
 		5B2ABCF32AFAC24D009EBC18 /* CreationSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationSubView2.swift; sourceTree = "<group>"; };
 		5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewComponent.swift; sourceTree = "<group>"; };
@@ -107,6 +115,12 @@
 		5B419DAB2AFFCCD3000619FC /* ListRowViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowViewComponent.swift; sourceTree = "<group>"; };
 		5B419DAD2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackScreenPlayViewComponent.swift; sourceTree = "<group>"; };
 		5B419DAF2B00F2AF000619FC /* SearchBarViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewComponent.swift; sourceTree = "<group>"; };
+		5B41CE592B1523DB00B5E735 /* EditionSubView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView1.swift; sourceTree = "<group>"; };
+		5B41CE5B2B1524CD00B5E735 /* EditionSubView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView3.swift; sourceTree = "<group>"; };
+		5B41CE5D2B1529D300B5E735 /* CourseInfoSectionViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoSectionViewComponent.swift; sourceTree = "<group>"; };
+		5B41CE5F2B15399D00B5E735 /* EditionSubView4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView4.swift; sourceTree = "<group>"; };
+		5B41CE612B1539F100B5E735 /* EditionSubView5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView5.swift; sourceTree = "<group>"; };
+		5B5835D32B0EA82700CFA9E5 /* MailButtonViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailButtonViewComponent.swift; sourceTree = "<group>"; };
 		5B5BDA512AD32E2D00BDE896 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5B616E752ABCB9D6009FAE97 /* CollectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewModel.swift; sourceTree = "<group>"; };
 		5B616E772ABCB9EB009FAE97 /* CollectionsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsRepository.swift; sourceTree = "<group>"; };
@@ -126,17 +140,18 @@
 		5B78DCD72AB74C4000A87E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		5B78DCD82AB74FA900A87E28 /* Educatech.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Educatech.entitlements; sourceTree = "<group>"; };
 		5B78DCD92AB7716000A87E28 /* FacebookAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookAuth.swift; sourceTree = "<group>"; };
+		5B795FF82B1373D000AACC49 /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
 		5B80EE522AC4E33A00F2F446 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		5B9564592AD1BE70002BC3BE /* EditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionView.swift; sourceTree = "<group>"; };
 		5B95645D2AD1F1FD002BC3BE /* ManagedCourseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseCardView.swift; sourceTree = "<group>"; };
 		5B95645F2AD1F284002BC3BE /* ManagedCourseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedCourseDetailView.swift; sourceTree = "<group>"; };
 		5B9564612AD1FD55002BC3BE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		5B9564632AD21330002BC3BE /* AddNewVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewVideosView.swift; sourceTree = "<group>"; };
-		5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView1.swift; sourceTree = "<group>"; };
-		5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView2.swift; sourceTree = "<group>"; };
+		5BA4656F2B0AAC95006AB60F /* EditionSubView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView2.swift; sourceTree = "<group>"; };
+		5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditionSubView2_old.swift; sourceTree = "<group>"; };
 		5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesLoadPictureViewComponent.swift; sourceTree = "<group>"; };
 		5BBAFE4B2AF83D9E008CEBBE /* HeaderViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewComponent.swift; sourceTree = "<group>"; };
-		5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel.swift; sourceTree = "<group>"; };
+		5BBAFE4D2AF83DC7008CEBBE /* HeaderModel_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderModel_old.swift; sourceTree = "<group>"; };
 		5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderModel.swift; sourceTree = "<group>"; };
 		5BBAFE512AF83DFD008CEBBE /* SeparatorViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorViewComponent.swift; sourceTree = "<group>"; };
 		5BBAFE532AF83E0D008CEBBE /* ProviderButtonViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProviderButtonViewComponent.swift; sourceTree = "<group>"; };
@@ -200,8 +215,12 @@
 				5B31D4C12AFC5C8800447AD4 /* CreationSubView3.swift */,
 				5B2ABCF72AFAEA10009EBC18 /* CreationSubView4.swift */,
 				5B2ABCFB2AFB0921009EBC18 /* CreationSubView5.swift */,
-				5BA4656F2B0AAC95006AB60F /* EditionSubView1.swift */,
-				5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2.swift */,
+				5B41CE592B1523DB00B5E735 /* EditionSubView1.swift */,
+				5BA4656F2B0AAC95006AB60F /* EditionSubView2.swift */,
+				5B41CE5B2B1524CD00B5E735 /* EditionSubView3.swift */,
+				5B41CE5F2B15399D00B5E735 /* EditionSubView4.swift */,
+				5B41CE612B1539F100B5E735 /* EditionSubView5.swift */,
+				5BAF6E1C2B0D4E3400A6A7D9 /* EditionSubView2_old.swift */,
 			);
 			path = ManagementSubViews;
 			sourceTree = "<group>";
@@ -268,16 +287,20 @@
 				5B2ABCF92AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift */,
 				5BB68F5E2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift */,
 				5B636F942B0A0EE60011E9E9 /* CoursesLoadVideoViewComponent.swift */,
+				5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */,
+				5B636F922B0A05690011E9E9 /* GalleryVideoViewComponent.swift */,
 				5B2ABCF52AFAE640009EBC18 /* PickerViewComponent.swift */,
 				5BBAFE622AF84364008CEBBE /* CategorybuttonViewComponent.swift */,
 				5BBF82562AFD7B74005B739F /* WaitingAnimationViewComponent.swift */,
+				5B22D5F92B1281CC001621B7 /* AsyncImageViewComponent.swift */,
 				5BC457382AB3A6A500567EEF /* SignoutButtonViewComponent.swift */,
 				5B419DAD2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift */,
 				5B419DAB2AFFCCD3000619FC /* ListRowViewComponent.swift */,
 				5B419DAF2B00F2AF000619FC /* SearchBarViewComponent.swift */,
-				5B2958D12B06D1D600105F9F /* GalleryPhotoViewComponent.swift */,
-				5B636F922B0A05690011E9E9 /* GalleryVideoViewComponent.swift */,
 				5B636F962B0A8F540011E9E9 /* WaitingViewComponent.swift */,
+				5B0A02892AD3F7B6004FB043 /* MailViewComponent.swift */,
+				5B5835D32B0EA82700CFA9E5 /* MailButtonViewComponent.swift */,
+				5B41CE5D2B1529D300B5E735 /* CourseInfoSectionViewComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -382,7 +405,6 @@
 				5BC4571A2AB36ABD00567EEF /* DismissView.swift */,
 				5B616E832ABCE820009FAE97 /* CreationForm.swift */,
 				5B5BDA512AD32E2D00BDE896 /* CustomTextField.swift */,
-				5B0A02892AD3F7B6004FB043 /* MailViewComponent.swift */,
 			);
 			path = ModularViews;
 			sourceTree = "<group>";
@@ -390,8 +412,9 @@
 		5BC457292AB3963300567EEF /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BBAFE4D2AF83DC7008CEBBE /* HeaderModel.swift */,
+				5BBAFE4D2AF83DC7008CEBBE /* HeaderModel_old.swift */,
 				5BBAFE4F2AF83DDE008CEBBE /* ProviderModel.swift */,
+				5B795FF82B1373D000AACC49 /* HeaderModel.swift */,
 				5B9564612AD1FD55002BC3BE /* Enums.swift */,
 				5BC241362ADF0658002892E5 /* Constants.swift */,
 				5BC2413C2AE05AED002892E5 /* UserModels.swift */,
@@ -508,8 +531,10 @@
 			files = (
 				5B616E882ABCFBC2009FAE97 /* CourseDetailView.swift in Sources */,
 				5BC457282AB3962800567EEF /* AuthViewModel.swift in Sources */,
+				5B41CE622B1539F100B5E735 /* EditionSubView5.swift in Sources */,
 				5B68A8132AFE9CD700C378D7 /* CardCarouselView.swift in Sources */,
-				5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2.swift in Sources */,
+				5B41CE5A2B1523DB00B5E735 /* EditionSubView1.swift in Sources */,
+				5BAF6E1D2B0D4E3400A6A7D9 /* EditionSubView2_old.swift in Sources */,
 				5BC457172AB368C500567EEF /* RegisterView1.swift in Sources */,
 				5BBAFE5F2AF8412F008CEBBE /* RegistrationFormViewComponent.swift in Sources */,
 				5B7092412ABDEED5003243C7 /* SubscribedView.swift in Sources */,
@@ -523,21 +548,23 @@
 				5B616E862ABCF8C0009FAE97 /* CardView.swift in Sources */,
 				5BBAFE5B2AF84093008CEBBE /* RegisterSubView4.swift in Sources */,
 				5B616E842ABCE820009FAE97 /* CreationForm.swift in Sources */,
+				5B22D5FA2B1281CC001621B7 /* AsyncImageViewComponent.swift in Sources */,
 				5B33E2AD2ABB74F000B20E9A /* HomeView.swift in Sources */,
 				5B7819962AC35EF80041BCF8 /* StringExtensions.swift in Sources */,
-				5BA465702B0AAC95006AB60F /* EditionSubView1.swift in Sources */,
+				5BA465702B0AAC95006AB60F /* EditionSubView2.swift in Sources */,
 				5BC4571B2AB36ABD00567EEF /* DismissView.swift in Sources */,
 				5BBAFE502AF83DDE008CEBBE /* ProviderModel.swift in Sources */,
 				5B5BDA522AD32E2D00BDE896 /* CustomTextField.swift in Sources */,
 				5BBAFE572AF84086008CEBBE /* RegisterSubView2.swift in Sources */,
 				5B616E762ABCB9D6009FAE97 /* CollectionsViewModel.swift in Sources */,
+				5B41CE5C2B1524CD00B5E735 /* EditionSubView3.swift in Sources */,
 				5BC2413B2ADF1E99002892E5 /* FormDataModel.swift in Sources */,
 				5B2ABCF62AFAE640009EBC18 /* PickerViewComponent.swift in Sources */,
+				5B5835D42B0EA82700CFA9E5 /* MailButtonViewComponent.swift in Sources */,
 				5BC457392AB3A6A500567EEF /* SignoutButtonViewComponent.swift in Sources */,
 				5BBAFE5D2AF84106008CEBBE /* ButtonViewComponent.swift in Sources */,
 				5B419DAE2AFFD3CC000619FC /* BlackScreenPlayViewComponent.swift in Sources */,
 				5B2ABCFA2AFAFCD5009EBC18 /* CoursesTextFieldViewComponent.swift in Sources */,
-				5BBAFE4E2AF83DC7008CEBBE /* HeaderModel.swift in Sources */,
 				5B31D4C22AFC5C8800447AD4 /* CreationSubView3.swift in Sources */,
 				5BB68F5F2B0912E600B1F535 /* CoursesLoadPictureViewComponent.swift in Sources */,
 				5B70923F2ABDED45003243C7 /* ManagementView.swift in Sources */,
@@ -546,6 +573,7 @@
 				5BCEB6422AE19B6100DB5973 /* SearchView.swift in Sources */,
 				5BBF82572AFD7B74005B739F /* WaitingAnimationViewComponent.swift in Sources */,
 				5BC457192AB3690000567EEF /* InitialView.swift in Sources */,
+				5B41CE5E2B1529D300B5E735 /* CourseInfoSectionViewComponent.swift in Sources */,
 				5B419DB02B00F2AF000619FC /* SearchBarViewComponent.swift in Sources */,
 				5B9564622AD1FD55002BC3BE /* Enums.swift in Sources */,
 				5BBAFE542AF83E0D008CEBBE /* ProviderButtonViewComponent.swift in Sources */,
@@ -568,10 +596,12 @@
 				5BDC39B42AB8D6AA00F2C99A /* GoogleAuth.swift in Sources */,
 				5B80EE532AC4E33A00F2F446 /* StorageManager.swift in Sources */,
 				5BCEB6482AE1ECBD00DB5973 /* ContentType.swift in Sources */,
+				5B795FF92B1373D000AACC49 /* HeaderModel.swift in Sources */,
 				5BC241352ADF0486002892E5 /* DoubleExtensions.swift in Sources */,
 				5B78DCDA2AB7716000A87E28 /* FacebookAuth.swift in Sources */,
 				5BC457092AB367FD00567EEF /* EducatechApp.swift in Sources */,
 				5BBAFE522AF83DFD008CEBBE /* SeparatorViewComponent.swift in Sources */,
+				5B41CE602B15399D00B5E735 /* EditionSubView4.swift in Sources */,
 				5B0A028C2AD3FE98004FB043 /* EmailDataModel.swift in Sources */,
 				5B33E2AB2ABB722100B20E9A /* ProfileView.swift in Sources */,
 				5B0A028A2AD3F7B6004FB043 /* MailViewComponent.swift in Sources */,

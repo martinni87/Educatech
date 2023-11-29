@@ -5,7 +5,8 @@
 //  Created by Martín Antonio Córdoba Getar on 21/9/23.
 //
 
-import Foundation
+import SwiftUI
+import PhotosUI
 
 final class CollectionsRepository {
     
@@ -33,6 +34,18 @@ final class CollectionsRepository {
     
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         collectionsDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
+    }
+    
+//    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+//        collectionsDataSource.changeNumberOfStudents(courseID: courseID, variation: variation, completionBlock: completionBlock)
+//    }
+    
+    func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+        collectionsDataSource.editCourseData(changeTo: course, completionBlock: completionBlock)
+    }
+    
+    func addNewVideoListToCourse(course: CourseModel, newVideosList: [PhotosPickerItem], completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
+        collectionsDataSource.addNewVideoListToCourse(course: course, newVideosList: newVideosList, completionBlock: completionBlock)
     }
     
 }

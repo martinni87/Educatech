@@ -16,7 +16,6 @@ struct WaitingViewComponent: View {
             Rectangle()
                 .fill(colorScheme == .light ? Color.white.opacity(0.9) : Color.black.opacity(0.7))
                 .frame(width: 300, height: 300)
-                .background(Color.white)
                 .clipShape(.rect(cornerRadius: 10))
                 .shadow(color: .gray, radius: 8, x: 0, y: 0)
                 .overlay {

@@ -13,7 +13,6 @@ struct SubscribedView: View {
     @ObservedObject var collectionsViewModel: CollectionsViewModel
     
     var body: some View {
-        NavigationStack {
             ScrollView {
                 if let _ = authViewModel.userData?.subscriptions {
                     ForEach(collectionsViewModel.subscribedCourses, id:\.id) { course in
@@ -22,15 +21,14 @@ struct SubscribedView: View {
                                 CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
                             } label: {
                                 ListRowViewComponent(authViewModel: authViewModel,
-                                                               collectionsViewModel: collectionsViewModel,
-                                                               course: course)
+                                                     collectionsViewModel: collectionsViewModel,
+                                                     course: course)
                             }
                         }
                     }
                 }
             }
-        }
-        .padding()
+            .padding()
     }
 }
 

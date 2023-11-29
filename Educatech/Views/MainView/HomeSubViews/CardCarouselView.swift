@@ -19,8 +19,9 @@ struct CardCarouselView: View {
             Text(sectionTitle)
                 .font(.largeTitle)
                 .bold()
+                .padding(.horizontal, 20)
             ScrollView(.horizontal) {
-                HStack(spacing: 20) {
+                HStack {
                     ForEach(coursesPresented, id: \.id) { course in
                         if course.approved {
                             NavigationLink {
@@ -28,16 +29,20 @@ struct CardCarouselView: View {
                             } label: {
                                 CardView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)
                             }
-                            .scrollIndicators(.hidden)
+                            .padding(.horizontal, 20)
                         }
                     }
                 }
-                .padding()
             }
+            .scrollIndicators(.hidden)
         }
+        .padding(.bottom,50)
     }
 }
 
 #Preview {
-    CardCarouselView(authViewModel: AuthViewModel(), collectionsViewModel: CollectionsViewModel(), coursesPresented: [CourseModel(creatorID: "0", teacher: "Teacher", title: "Title", description: "Description", imageURL: "")], sectionTitle: "All courses")
+    CardCarouselView(authViewModel: AuthViewModel(),
+                     collectionsViewModel: CollectionsViewModel(),
+                     coursesPresented: [EXAMPLE_COURSE],
+                     sectionTitle: "Section title")
 }

@@ -34,7 +34,7 @@ struct RegTextFieldViewComponent: View {
                 .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
                 .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
                 .frame(height: 40)
-                .frame(maxWidth: 1000)
+                .frame(maxWidth: 850)
                 .cornerRadius(10)
                 .overlay {
                     HStack {
@@ -47,7 +47,7 @@ struct RegTextFieldViewComponent: View {
                             }
                         }
                         .padding()
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(Color.accentColor)
                         .textFieldStyle(.plain)
                         .textInputAutocapitalization(.never)
                         .onTapGesture {
@@ -56,7 +56,7 @@ struct RegTextFieldViewComponent: View {
                         HStack {
                             if type == .secure {
                                 Image(systemName: secureIsActive ? "eye" : "eye.slash")
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(Color.gray)
                                     .onTapGesture {
                                         self.secureIsActive.toggle()
                                     }

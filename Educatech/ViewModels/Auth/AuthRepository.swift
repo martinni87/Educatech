@@ -55,9 +55,9 @@ final class AuthRepository {
         authDataSource.getCurrentUserData(completionBlock: completionBlock)
     }
     
-    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
-        authDataSource.addNewSubscription(newCourse: newCourse, userData: userData, completionBlock: completionBlock)
-    }
+//    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+//        authDataSource.addNewSubscription(newCourse: newCourse, userData: userData, completionBlock: completionBlock)
+//    }
     
     func editUserData(changeTo userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
         authDataSource.editUserData(changeTo: userData, completionBlock: completionBlock)
