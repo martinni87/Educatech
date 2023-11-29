@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestoreSwift
 
-struct CourseModel: Decodable, Identifiable, Equatable {
+struct CourseModel: Decodable, Identifiable, Equatable, Hashable {
     @DocumentID var id: String?
     var creatorID: String = "" //Id of authenticated user that creates the course
     var teacher: String = ""

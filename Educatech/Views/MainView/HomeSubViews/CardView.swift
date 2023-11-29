@@ -38,7 +38,7 @@ struct CardView: View {
                 }
                 .foregroundStyle(Color.accentColor2)
                 HStack {
-                    Label("\(course.numberOfStudents)", systemImage: "person.fill")
+                    Label("\(collectionsViewModel.allCourses.first(where: { $0.id == course.id })!.numberOfStudents)", systemImage: "person.fill")
                         .lineLimit(1)
                         .foregroundStyle(Color.accentColor2)
                     Spacer()

@@ -160,6 +160,7 @@ struct MainView: View {
                         .onAppear{
                             pageTitle = activeView.rawValue
                             collectionsViewModel.getAllCourses()
+                            collectionsViewModel.getSubscribedCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
                         }
                 case .subscriptions:
                     SubscribedView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
