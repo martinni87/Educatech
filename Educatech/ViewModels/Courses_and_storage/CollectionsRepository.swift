@@ -36,9 +36,9 @@ final class CollectionsRepository {
         collectionsDataSource.createNewCourse(formInputs: formInputs, userData: userData, completionBlock: completionBlock)
     }
     
-    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
-        collectionsDataSource.changeNumberOfStudents(courseID: courseID, variation: variation, completionBlock: completionBlock)
-    }
+//    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+//        collectionsDataSource.changeNumberOfStudents(courseID: courseID, variation: variation, completionBlock: completionBlock)
+//    }
     
     func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
         collectionsDataSource.editCourseData(changeTo: course, completionBlock: completionBlock)

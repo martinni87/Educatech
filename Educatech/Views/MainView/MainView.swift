@@ -59,7 +59,6 @@ struct MainView: View {
                     VStack {
                         HStack {
                             Text(pageTitle).font(.system(size: 16, weight: .black, design: .rounded))
-//                                .foregroundStyle(Color.accentColor)
                                 .padding(.top)
                             if activeView == .profile {
                                 Spacer()
@@ -160,12 +159,13 @@ struct MainView: View {
                     HomeView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                         .onAppear{
                             pageTitle = activeView.rawValue
+                            collectionsViewModel.getAllCourses()
                         }
                 case .subscriptions:
                     SubscribedView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                         .task {
                             self.authViewModel.getCurrentUserData()
-                            self.collectionsViewModel.getCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
+                            self.collectionsViewModel.getSubscribedCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
                         }
                         .onAppear{
                             pageTitle = activeView.rawValue
@@ -187,6 +187,10 @@ struct MainView: View {
                         }
                 case .profile:
                     ProfileView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, sendEmailResult: $sendEmailResult, errorContactSupport: $errorContactSupport, isShowingEmailView: $isShowingEmailView, emailBody: $emailBody, emailData: $emailData)
+                        .task {
+                            self.authViewModel.getCurrentUserData()
+                            self.collectionsViewModel.getSubscribedCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
+                        }
                         .onAppear{
                             pageTitle = activeView.rawValue
                         }

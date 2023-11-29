@@ -222,58 +222,58 @@ final class CollectionsDataSource {
         }
     }
     
-    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
-        //Getting document for current course by its id
-        self.getCourseByID(courseID: courseID) { result in
-            switch result {
-            case .failure(let error):
-                completionBlock(.failure(error))
-                return
-            case .success(let course):
-                let course = CourseModel(id: course.id,
-                                         creatorID: course.creatorID,
-                                         teacher: course.teacher,
-                                         title: course.title,
-                                         description: course.description,
-                                         imageURL: course.imageURL,
-                                         category: course.category,
-                                         videosURL: course.videosURL,
-                                         numberOfStudents: course.numberOfStudents,
-                                         approved: course.approved)
-                var numberOfStudents = course.numberOfStudents
-                numberOfStudents += variation
-                
-                //Setting new data
-                let document = self.database.collection(self.coursesCollection).document(courseID)
-                document.setData( ["id": courseID,
-                                   "creatorID": course.creatorID,
-                                   "teacher": course.teacher,
-                                   "title": course.title,
-                                   "description": course.description,
-                                   "imageURL": course.imageURL,
-                                   "category": course.category,
-                                   "videosURL": course.videosURL,
-                                   "numberOfStudents": numberOfStudents,
-                                   "approved": course.approved
-                                  ]) { error in
-                    if let error = error {
-                        completionBlock(.failure(error))
-                        return
-                    }
-                    completionBlock(.success(CourseModel(id: course.id,
-                                                         creatorID: course.creatorID,
-                                                         teacher: course.teacher,
-                                                         title: course.title,
-                                                         description: course.description,
-                                                         imageURL: course.imageURL,
-                                                         category: course.category,
-                                                         videosURL: course.videosURL,
-                                                         numberOfStudents: numberOfStudents,
-                                                         approved: course.approved)))
-                }
-            }
-        }
-    }
+//    func changeNumberOfStudents(courseID: String, variation: Int, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
+//        //Getting document for current course by its id
+//        self.getCourseByID(courseID: courseID) { result in
+//            switch result {
+//            case .failure(let error):
+//                completionBlock(.failure(error))
+//                return
+//            case .success(let course):
+//                let course = CourseModel(id: course.id,
+//                                         creatorID: course.creatorID,
+//                                         teacher: course.teacher,
+//                                         title: course.title,
+//                                         description: course.description,
+//                                         imageURL: course.imageURL,
+//                                         category: course.category,
+//                                         videosURL: course.videosURL,
+//                                         numberOfStudents: course.numberOfStudents,
+//                                         approved: course.approved)
+//                var numberOfStudents = course.numberOfStudents
+//                numberOfStudents += variation
+//                
+//                //Setting new data
+//                let document = self.database.collection(self.coursesCollection).document(courseID)
+//                document.setData( ["id": courseID,
+//                                   "creatorID": course.creatorID,
+//                                   "teacher": course.teacher,
+//                                   "title": course.title,
+//                                   "description": course.description,
+//                                   "imageURL": course.imageURL,
+//                                   "category": course.category,
+//                                   "videosURL": course.videosURL,
+//                                   "numberOfStudents": numberOfStudents,
+//                                   "approved": course.approved
+//                                  ]) { error in
+//                    if let error = error {
+//                        completionBlock(.failure(error))
+//                        return
+//                    }
+//                    completionBlock(.success(CourseModel(id: course.id,
+//                                                         creatorID: course.creatorID,
+//                                                         teacher: course.teacher,
+//                                                         title: course.title,
+//                                                         description: course.description,
+//                                                         imageURL: course.imageURL,
+//                                                         category: course.category,
+//                                                         videosURL: course.videosURL,
+//                                                         numberOfStudents: numberOfStudents,
+//                                                         approved: course.approved)))
+//                }
+//            }
+//        }
+//    }
     
     func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
         let courseDocument = self.database.collection(self.coursesCollection).document(course.id ?? "0")

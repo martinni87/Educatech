@@ -23,7 +23,7 @@ struct CardView: View {
                 HStack(alignment: .top) {
                     Text(course.title)
                         .lineLimit(1)
-                        .foregroundStyle(Color("black_white"))
+                        .foregroundStyle(Color.blackWhite)
                         .font(.title)
                         .bold()
                     Spacer()

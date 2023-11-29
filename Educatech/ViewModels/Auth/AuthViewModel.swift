@@ -150,41 +150,26 @@ final class AuthViewModel: ObservableObject {
         }
     }
     
-    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, collection: CollectionsViewModel) {
-        authRepository.addNewSubscription(newCourse: newCourse, userData: userData) { [weak self] result in
-            switch result {
-            case .success(let user):
-                self?.userData = user
-                collection.getCoursesByID(coursesIDs: user.subscriptions)
-            case .failure(let requestErrorMsg):
-                self?.requestErrorMsg = requestErrorMsg.localizedDescription
-                self?.hasRequestError = true
-            }
-        }
-    }
+//    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, collection: CollectionsViewModel) {
+//        authRepository.addNewSubscription(newCourse: newCourse, userData: userData) { [weak self] result in
+//            switch result {
+//            case .success(let user):
+//                self?.userData = user
+//                collection.getCoursesByID(coursesIDs: user.subscriptions)
+//            case .failure(let requestErrorMsg):
+//                self?.requestErrorMsg = requestErrorMsg.localizedDescription
+//                self?.hasRequestError = true
+//            }
+//        }
+//    }
     
-    func deleteUserDataElement(changeTo userData: UserDataModel, collection: CollectionsViewModel) {
-        self.cleanErrors()
-        
-        authRepository.editUserData(changeTo: userData) { [weak self] result in
-            switch result {
-            case .success(let newUserData):
-                self?.userData = newUserData
-                collection.getCoursesByCreatorID(creatorID: newUserData.id ?? "0")
-            case .failure(let requestErrorMsg):
-                self?.requestErrorMsg = requestErrorMsg.localizedDescription
-                self?.hasRequestError = true
-            }
-        }
-    }
-    
-    func editUserData(changeTo userData: UserDataModel, collection: CollectionsViewModel) {
+    func editUserData(changeTo userData: UserDataModel) {
         self.cleanErrors()
         authRepository.editUserData(changeTo: userData) { [weak self] result in
             switch result {
             case .success(let newUserData):
                 self?.userData = newUserData
-                collection.getCoursesByCreatorID(creatorID: newUserData.id ?? "0")
+//                collection.getCoursesByCreatorID(creatorID: newUserData.id ?? "0")
             case .failure(let requestErrorMsg):
                 self?.requestErrorMsg = requestErrorMsg.localizedDescription
                 self?.hasRequestError = true

@@ -48,6 +48,7 @@ struct EducatechApp: App {
                         self.authViewModel.getCurrentUserData()
                         collectionsViewModel.getCoursesByCategories(categories: authViewModel.userData?.categories ?? [])
                         collectionsViewModel.getCoursesByCreatorID(creatorID: authViewModel.userData?.id ?? "0")
+                        collectionsViewModel.getSubscribedCoursesByID(coursesIDs: authViewModel.userData?.subscriptions ?? [])
                     }
             }
             else {

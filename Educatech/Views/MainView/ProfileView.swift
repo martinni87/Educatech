@@ -20,7 +20,7 @@ struct ProfileView: View {
     
     @State var unsubscribeWarning: Bool = false
     @State var deleteCategoryWarning: Bool = false
-    @State var courseToUnsubscribe: String?
+    @State var courseToUnsubscribe: CourseModel = CourseModel()
     @State var categoryToDelete: String?
     
     @Binding var sendEmailResult: Result<MFMailComposeResult, Error>?
@@ -59,6 +59,14 @@ struct ProfileView: View {
                             Picker("Categories", selection: $newAddedCategory) {
                                 ForEach(self.categoriesToShow, id:\.self) { category in
                                     Text(category)
+                                        .bold()
+                                        .swipeActions {
+                                            Button("Remove") {
+                                                categoryToDelete = category
+                                                deleteCategoryWarning.toggle()
+                                            }
+                                            .tint(.pink)
+                                        }
                                 }
                             }
                             .task {
@@ -94,8 +102,7 @@ struct ProfileView: View {
                                                                         contentCreated: userData.contentCreated,
                                                                         subscriptions: userData.subscriptions)
                                         //With modifications locally, invoke editUserData
-                                        authViewModel.editUserData(changeTo: newUserData,
-                                                                   collection: collectionsViewModel)
+                                        authViewModel.editUserData(changeTo: newUserData)
                                     }
                                 }
                             }
@@ -104,20 +111,25 @@ struct ProfileView: View {
                     }
                     
                     Section("My subscriptions") {
-                        ForEach(authViewModel.userData?.subscriptions ?? [""], id: \.self) { subscription in
-                            //Giving nice format to text
-                            let subs = subscription.components(separatedBy: CharacterSet.decimalDigits).joined()
-                                .uppercased()
-                                .replacingOccurrences(of: "_", with: " ")
-                            //Printing text in screen
-                            Text(subs)
+                        if let _ = authViewModel.userData?.subscriptions {
+                            ForEach(collectionsViewModel.subscribedCourses, id:\.id) { course in
+                                HStack {
+                                    Text(course.title)
+                                        .lineLimit(1)
+                                    Spacer()
+                                    Text("(\(course.category))")
+                                        .foregroundStyle(Color.gray)
+                                        .lineLimit(1)
+                                }
+                                .bold()
                                 .swipeActions {
                                     Button("Unsubscribe") {
-                                        courseToUnsubscribe = subscription
+                                        courseToUnsubscribe = course
                                         unsubscribeWarning.toggle()
                                     }
                                     .tint(.pink)
                                 }
+                            }
                         }
                     }
                     if authViewModel.userData?.isEditor ?? false {
@@ -164,19 +176,16 @@ struct ProfileView: View {
         .alert("Are you sure?", isPresented: $deleteCategoryWarning) {
             Button("Yes. Proceed") {
                 if let userData = authViewModel.userData {
-                    //This are the modifications to be done before invoking editUserData
                     var categories = userData.categories
                     categories.removeAll { $0 == self.categoryToDelete }
-                    let newUserData = UserDataModel(id: userData.id,
-                                                    email: userData.email,
-                                                    username: userData.username,
-                                                    isEditor: userData.isEditor,
-                                                    categories: categories,
-                                                    contentCreated: userData.contentCreated,
-                                                    subscriptions: userData.subscriptions)
-                    //With modifications locally, invoke editUserData
-                    authViewModel.editUserData(changeTo: newUserData,
-                                               collection: collectionsViewModel)
+                    authViewModel.editUserData(
+                        changeTo: UserDataModel(id: userData.id,
+                                                email: userData.email,
+                                                username: userData.username,
+                                                isEditor: userData.isEditor,
+                                                categories: categories,
+                                                contentCreated: userData.contentCreated,
+                                                subscriptions: userData.subscriptions))
                     self.categoryToDelete = nil
                 }
             }
@@ -190,25 +199,34 @@ struct ProfileView: View {
         .alert("Are you sure?", isPresented: $unsubscribeWarning) {
             Button("Yes. Proceed") {
                 if let userData = authViewModel.userData {
-                    //This are the modifications to be done before invoking editUserData
                     var subscriptions = userData.subscriptions
-                    subscriptions.removeAll { $0 == self.courseToUnsubscribe }
-                    let newUserData = UserDataModel(id: userData.id,
-                                                    email: userData.email,
-                                                    username: userData.username,
-                                                    isEditor: userData.isEditor,
-                                                    categories: userData.categories,
-                                                    contentCreated: userData.contentCreated,
-                                                    subscriptions: subscriptions)
-                    //With modifications locally, invoke editUserData
-                    authViewModel.editUserData(changeTo: newUserData,
-                                               collection: collectionsViewModel)
-                    collectionsViewModel.changeNumberOfStudents(courseID: courseToUnsubscribe!, variation: -1)
-                    self.courseToUnsubscribe = nil
+                    let course = self.courseToUnsubscribe
+                    subscriptions.removeAll { $0 == self.courseToUnsubscribe.id }
+                    authViewModel.editUserData(
+                        changeTo: UserDataModel(id: userData.id,
+                                                email: userData.email,
+                                                username: userData.username,
+                                                isEditor: userData.isEditor,
+                                                categories: userData.categories,
+                                                contentCreated: userData.contentCreated,
+                                                subscriptions: subscriptions))
+                    collectionsViewModel.editCourseData(
+                        changeTo: CourseModel(id: course.id,
+                                              creatorID: course.creatorID,
+                                              teacher: course.teacher,
+                                              title: course.title,
+                                              description: course.description,
+                                              imageURL: course.imageURL,
+                                              category: course.category,
+                                              videosURL: course.videosURL,
+                                              numberOfStudents: course.numberOfStudents - 1,
+                                              approved: course.approved))
+                    collectionsViewModel.getSubscribedCoursesByID(coursesIDs: subscriptions)
+                    self.courseToUnsubscribe = CourseModel()
                 }
             }
             Button("No. Cancel") {
-                self.courseToUnsubscribe = nil
+                self.courseToUnsubscribe = CourseModel()
             }
         } message: {
             Text("Are you sure you want to unsubscribe to the course?")

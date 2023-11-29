@@ -113,7 +113,7 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-    func getCoursesByID(coursesIDs: [String]) {
+    func getSubscribedCoursesByID(coursesIDs: [String]) {
         //Each time it's called, we clean the array
         self.subscribedCourses = []
         //Then we repopulate it with all the id's of courses the user has
@@ -207,17 +207,17 @@ final class CollectionsViewModel: ObservableObject {
         }
     }
     
-    func changeNumberOfStudents(courseID: String, variation: Int) {
-        collectionsRepository.changeNumberOfStudents(courseID: courseID, variation: variation) { [weak self ] result in
-            switch result {
-            case .success(_):
-                print("Course updated")
-                self?.getAllCourses() //Update all courses list when number of students is updated
-            case .failure(let error):
-                self?.errorReceivingData = error.localizedDescription
-            }
-        }
-    }
+//    func changeNumberOfStudents(courseID: String, variation: Int) {
+//        collectionsRepository.changeNumberOfStudents(courseID: courseID, variation: variation) { [weak self ] result in
+//            switch result {
+//            case .success(_):
+//                print("Course updated")
+//                self?.getAllCourses() //Update all courses list when number of students is updated
+//            case .failure(let error):
+//                self?.errorReceivingData = error.localizedDescription
+//            }
+//        }
+//    }
     
     func editCourseData(changeTo course: CourseModel) {
         self.errorReceivingData = nil

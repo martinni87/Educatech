@@ -28,7 +28,6 @@ struct HomeView: View {
                 }
             }
         }
-//        .background(Image("Background").resizable().scaledToFill().ignoresSafeArea())
     }
 }
 

@@ -170,34 +170,34 @@ final class AuthDataSource {
         }
     }
     
-    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
-        //Getting document for current user
-        let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
-        var newSubscriptions = userData.subscriptions
-        newSubscriptions.append(newCourse.id ?? "0")
-        let newUserData = UserDataModel(id: userData.id,
-                                        email: userData.email,
-                                        username: userData.username,
-                                        isEditor: userData.isEditor,
-                                        categories: userData.categories,
-                                        contentCreated: userData.contentCreated,
-                                        subscriptions: newSubscriptions)
-        //Setting new data
-        document.setData( ["id": newUserData.id ?? "0",
-                           "email": newUserData.email,
-                           "username": newUserData.username,
-                           "isEditor": newUserData.isEditor,
-                           "categories": newUserData.categories,
-                           "contentCreated": newUserData.contentCreated,
-                           "subscriptions": newUserData.subscriptions
-                          ]) { error in
-            if let error = error {
-                completionBlock(.failure(error))
-                return
-            }
-            completionBlock(.success(newUserData))
-        }
-    }
+//    func addNewSubscription(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
+//        //Getting document for current user
+//        let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
+//        var newSubscriptions = userData.subscriptions
+//        newSubscriptions.append(newCourse.id ?? "0")
+//        let newUserData = UserDataModel(id: userData.id,
+//                                        email: userData.email,
+//                                        username: userData.username,
+//                                        isEditor: userData.isEditor,
+//                                        categories: userData.categories,
+//                                        contentCreated: userData.contentCreated,
+//                                        subscriptions: newSubscriptions)
+//        //Setting new data
+//        document.setData( ["id": newUserData.id ?? "0",
+//                           "email": newUserData.email,
+//                           "username": newUserData.username,
+//                           "isEditor": newUserData.isEditor,
+//                           "categories": newUserData.categories,
+//                           "contentCreated": newUserData.contentCreated,
+//                           "subscriptions": newUserData.subscriptions
+//                          ]) { error in
+//            if let error = error {
+//                completionBlock(.failure(error))
+//                return
+//            }
+//            completionBlock(.success(newUserData))
+//        }
+//    }
     
     func createNewUser(user: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Creating document in collection with given id
