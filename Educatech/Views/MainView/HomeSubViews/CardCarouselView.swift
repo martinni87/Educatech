@@ -44,9 +44,9 @@ struct CardCarouselView: View {
     }
 }
 
-//#Preview {
-//    CardCarouselView(authViewModel: AuthViewModel(),
-//                     collectionsViewModel: CollectionsViewModel(),
-//                     coursesPresented: [EXAMPLE_COURSE],
-//                     sectionTitle: "Section title")
-//}
+#Preview {
+    CardCarouselView(authViewModel: AuthViewModel(),
+                     collectionsViewModel: CollectionsViewModel(),
+                     coursesPresented: [EXAMPLE_COURSE],
+                     sectionTitle: "Section title")
+}

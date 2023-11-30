@@ -43,7 +43,7 @@ struct CourseDetailView: View {
                     HStack {
                         Spacer()
                         Label(course.category, systemImage: "book.fill")
-                        Label("\(collectionsViewModel.allCourses.first(where: { $0.id == course.id })!.numberOfStudents)", systemImage: "person.fill")
+                        Label("\(collectionsViewModel.allCourses.first(where: { $0.id == course.id })?.numberOfStudents ?? 0)", systemImage: "person.fill")
                         Spacer()
                     }
                     .foregroundStyle(Color.accentColor)
@@ -115,14 +115,6 @@ struct CourseDetailView: View {
                 }
             }
         }
-//        .onChange(of: collectionsViewModel.subscribedCourses, { _, _ in
-//            collectionsViewModel.subscribedCourses.forEach { courseUpdate in
-//                if self.course.id == courseUpdate.id {
-//                    self.course = courseUpdate
-//                    return
-//                }
-//            }
-//        })
         //Info: let know the user that is going to start a new course (YES/NO)
         .alert(
             "You're about to start a new course! 🚀",
