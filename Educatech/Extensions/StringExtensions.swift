@@ -6,26 +6,8 @@
 //
 import Foundation
 
-//enum AppError: String, Error {
-//    case mandatoryField = "All fields are mandatory. Please, try again."
-//    case emailBadFormat = "Email is badly formatted. Please, try again."
-//    case passwordBadFormat1 = "Password must be between 6 and 12 characters."
-//    case passwordBadFormat2 = "Password must contain at least 1 letter."
-//    case passwordBadFormat3 = "Password must contain at least 1 number."
-//    case passwordBadFormat4 = "Password must contain at least 1 of the following symbols: '* + - _ . ? !'"
-//    case passwordBadFormat5 = "Password must contain at least 1 lowercase and 1 uppercase letter."
-//    case passwordBadFormat6 = "Password cannot be part of the email."
-//    case passwordBadFormat7 = "Password is too common. Try something different to protect better your account."
-//    case passwordBadFormat8 = "Passwords don't match."
-//}
-
 extension String {
-    
-    //    func localized() -> String {
-    //        let translated = String(localized: LocalizedStringResource(stringLiteral: self))
-    //        return translated
-    //    }
-    
+
     func fieldIsNotEmpty(completionBlock: @escaping (Bool, String?) -> Void) {
         if self.isEmpty || self == "" {
             completionBlock(false, "All fields are mandatory. Please, try again.")

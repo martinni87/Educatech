@@ -66,39 +66,6 @@ struct RegisterSubView2: View {
         .padding()
     }
 }
-            
-            
-            
-            
-            
-            
-            
-//            if allowedToContinue  && authViewModel.requestErrorMsg == nil {
-//                NavigationLink {
-//                    RegisterSubView3(authViewModel: authViewModel, formInputs: $formInputs)
-//                        .navigationBarBackButtonHidden(true)
-//                } label: {
-//                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
-//                }
-//            }
-//            else {
-//                ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .red)
-//                    .onTapGesture {
-//                        authViewModel.cleanCache()
-//                        let _ = authViewModel.registerFormValidations(formInputs)
-//                        if authViewModel.requestErrorMsg == nil &&
-//                            authViewModel.emailErrorMsg == nil &&
-//                            authViewModel.usernameErrorMsg == nil &&
-//                            authViewModel.passwordErrorMsg == nil &&
-//                            authViewModel.repeatPasswordErrorMsg == nil {
-//                            allowedToContinue.toggle()
-//                        }
-//                    }
-//            }
-//        }
-//        .padding()
-//    }
-//}
 
 #Preview {
     RegisterSubView2(authViewModel: AuthViewModel(), formInputs: .constant(RegistrationFormInputs()))

@@ -31,52 +31,9 @@ struct CoursesLoadVideoViewComponent: View {
                                 .bold()
                             Spacer()
                             GalleryVideoViewComponent(collectionsViewModel: collectionsViewModel, selectedVideos: $selectedVideos)
-//                                .onChange(of: selectedVideos) { _, _ in
-//                                    if collectionsViewModel.allowContinue {
-//                                        collectionsViewModel.allowContinue.toggle()
-//                                    }
-//                                    if errorMsg != nil {
-//                                        errorMsg = nil
-//                                    }
-//                                }
                         }
                         .padding()
                     }
-                
-                
-                
-                //
-                //                TextField("Video URL", text: $videoURL)
-                //                    .onTapGesture {
-                //                        self.errorMsg = nil
-                //                        self.videoURL = ""
-                //                    }
-                //                    .textFieldStyle(.roundedBorder)
-                //                    .textInputAutocapitalization(.never)
-                //                Spacer()
-                //                Image(systemName: "video.badge.plus")
-                //                    .foregroundStyle(Color.accentColor)
-                //                    .onTapGesture {
-                //                        videoURL.validateURLString { isValid, errorMsg in
-                //                            if !isValid {
-                //                                self.errorMsg = errorMsg
-                //                            }
-                //                            else {
-                //                                formInputs.videosURL.append(videoURL)
-                //                                self.videoURL = ""
-                //                            }
-                //                        }
-                //                        print("Added video URL: \(videoURL)")
-                //                        print("Updated videosURL: \(formInputs.videosURL)")
-                //                    }
-                //                    .padding()
-                //            }
-                //            Text(errorMsg ?? "No error")
-                //                .font(.system(size: 14))
-                //                .multilineTextAlignment(.leading)
-                //                .foregroundStyle(errorMsg != nil ? .pink : .clear)
-                //                .bold()
-                //        }
             }
         }
     }
@@ -85,7 +42,3 @@ struct CoursesLoadVideoViewComponent: View {
 #Preview {
     CoursesLoadVideoViewComponent(collectionsViewModel: CollectionsViewModel(), selectedVideos: .constant([]), label: "Select videos")
 }
-
-//#Preview {
-//    CoursesLoadVideoViewComponent(collectionsViewModel: CollectionsViewModel(), selectedVideos: .constant([]), errorMsg: .constant("Error"), label: "Select videos")
-//}

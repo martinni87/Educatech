@@ -24,18 +24,6 @@ final class CollectionsRepository {
         collectionsDataSource.getAllCourses(completionBlock: completionBlock)
     }
     
-    func getCourseByID(courseID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
-        collectionsDataSource.getCourseByID(courseID: courseID, completionBlock: completionBlock)
-    }
-    
-    func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
-        collectionsDataSource.getCoursesByCreatorID(creatorID: creatorID, completionBlock: completionBlock)
-    }
-    
-    func getCoursesByCategory(category: String, completionBlock: @escaping(Result<[CourseModel], Error>) -> Void) {
-        collectionsDataSource.getCoursesByCategory(category: category, completionBlock: completionBlock)
-    }
-    
     func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
         collectionsDataSource.editCourseData(changeTo: course, completionBlock: completionBlock)
     }
