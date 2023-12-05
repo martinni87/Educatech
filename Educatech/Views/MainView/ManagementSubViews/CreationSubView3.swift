@@ -45,7 +45,7 @@ struct CreationSubView3: View {
                                 collectionsViewModel.allowContinue.toggle()
                             }
                     } label: {
-                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 else {
@@ -59,7 +59,7 @@ struct CreationSubView3: View {
                             collectionsViewModel.allowContinue = true
                         }
                     } label: {
-                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
             }

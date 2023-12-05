@@ -268,7 +268,7 @@ struct AddVideosListEditViewComponent: View {
                 Button {
                     addNewAlert.toggle()
                 } label: {
-                    ButtonViewComponent(title: "Upload new videos", width: 250, foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                    ButtonViewComponent(title: "Upload new videos", width: 250, foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                 }
             }
         }

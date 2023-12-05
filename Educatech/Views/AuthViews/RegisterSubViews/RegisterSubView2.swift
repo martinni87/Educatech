@@ -44,21 +44,21 @@ struct RegisterSubView2: View {
                     NavigationLink {
                         RegisterSubView3(authViewModel: authViewModel, formInputs: $formInputs)
                     } label: {
-                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 else {
                     Button {
                         authViewModel.registrationFormValidations(formInputs)
                     } label: {
-                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 Button {
                     authViewModel.cleanAll()
                     formInputs = RegistrationFormInputs()
                 } label: {
-                    ButtonViewComponent(title: "Clean form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.email == "" && formInputs.username == "" && formInputs.password == "" && formInputs.repeatPassword == "") ? .gray : .pink.opacity(0.5))
+                    ButtonViewComponent(title: "Clean form", foregroundColor: .gray.opacity(0.1), titleColor: (formInputs.email == "" && formInputs.username == "" && formInputs.password == "" && formInputs.repeatPassword == "") ? .gray : .pink.opacity(0.5))
                 }
                 .disabled(formInputs.email == "" && formInputs.username == "" && formInputs.password == "" && formInputs.repeatPassword == "")
             }
