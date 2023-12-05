@@ -24,7 +24,7 @@ struct RegisterView1: View {
                 NavigationLink {
                     RegisterSubView2(authViewModel: authViewModel, formInputs: $formInputs)
                 } label: {
-                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                 }
                 .padding()
             }

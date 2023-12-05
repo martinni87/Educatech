@@ -30,7 +30,7 @@ struct ContentView: View {
                 case .coursesManagement:
                     CoursesManagementView(collections: collections)
                         .onAppear {
-                            pageTitle = "Users management"
+                            pageTitle = "Courses management"
                         }
                 }
             }

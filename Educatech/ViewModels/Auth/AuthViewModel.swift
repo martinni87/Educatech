@@ -113,7 +113,7 @@ final class AuthViewModel: ObservableObject {
                 self?.userAuth = UserAuthModel(id: userData.id!, email: userData.email)
                 self?.userData = userData
             case .failure(let error):
-                self?.allowContinue = true
+                self?.hasRequestError = true
                 self?.requestErrorMsg = error.localizedDescription
             }
         }

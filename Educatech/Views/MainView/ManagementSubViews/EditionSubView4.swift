@@ -69,7 +69,7 @@ struct EditionSubView4: View {
                     Button {
                         changePictureAlert.toggle()
                     } label: {
-                        ButtonViewComponent(title: "Submit changes", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Submit changes", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                             .disabled(newValues.selectedPicture == nil)
                     }
                     .padding()

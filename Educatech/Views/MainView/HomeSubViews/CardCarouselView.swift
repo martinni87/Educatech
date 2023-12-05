@@ -26,7 +26,7 @@ struct CardCarouselView: View {
                 .padding(.horizontal, 20)
             ScrollView(.horizontal) {
                 HStack { 
-                    ForEach(collectionsViewModel.allCourses, id: \.id) { course in
+                    ForEach(coursesPresented, id: \.id) { course in
                         if course.approved {
                             NavigationLink {
                                 CourseDetailView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: course)

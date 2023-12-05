@@ -19,7 +19,7 @@ struct CreationSubView1: View {
                 NavigationLink {
                     CreationSubView2(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
                 } label: {
-                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                 }
                 .padding()
             }

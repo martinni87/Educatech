@@ -53,7 +53,7 @@ struct CreationSubView4: View {
                 NavigationLink {
                     CreationSubView5(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, formInputs: $formInputs)
                 } label: {
-                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.3), titleColor: .accentColor)
+                    ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                 }
             }
             else {
@@ -67,7 +67,7 @@ struct CreationSubView4: View {
                         collectionsViewModel.allowContinue = true
                     }
                 } label: {
-                    ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                    ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                 }
                 .padding(.bottom, 50)
             }

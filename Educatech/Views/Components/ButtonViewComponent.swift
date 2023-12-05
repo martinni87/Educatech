@@ -32,5 +32,5 @@ struct ButtonViewComponent: View {
 }
 
 #Preview {
-    ButtonViewComponent(title: "Example", width: 150, height: 50, foregroundColor: .green)
+    ButtonViewComponent(title: "Example", width: 150, height: 50)
 }

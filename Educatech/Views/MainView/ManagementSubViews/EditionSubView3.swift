@@ -69,7 +69,7 @@ struct EditionSubView3: View {
                     Button {
                         changeInfoAlert.toggle()
                     } label: {
-                        ButtonViewComponent(title: "Submit changes", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Submit changes", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 else {
@@ -81,7 +81,7 @@ struct EditionSubView3: View {
                             collectionsViewModel.allowContinue = true
                         }
                     } label: {
-                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                     .disabled(newValues.title == "" && newValues.description == "" && newValues.category == "")
                 }
@@ -89,7 +89,7 @@ struct EditionSubView3: View {
                     collectionsViewModel.cleanCollectionsCache()
                     newValues = CreateCourseFormInputs()
                 } label: {
-                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (newValues.title == "" && newValues.description == "" && newValues.category == "") ? .gray : .pink.opacity(0.5))
+                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.1), titleColor: (newValues.title == "" && newValues.description == "" && newValues.category == "") ? .gray : .pink.opacity(0.5))
                 }
                 .disabled(newValues.title == "" && newValues.description == "" && newValues.category == "")
             }

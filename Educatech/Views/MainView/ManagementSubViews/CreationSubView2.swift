@@ -55,21 +55,21 @@ struct CreationSubView2: View {
                                 collectionsViewModel.allowContinue.toggle()
                             }
                     } label: {
-                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Next", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 else {
                     Button {
                         collectionsViewModel.creationFormValidations(formInputs)
                     } label: {
-                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.25), titleColor: .accentColor)
+                        ButtonViewComponent(title: "Check fields", foregroundColor: .gray.opacity(0.1), titleColor: .accentColor)
                     }
                 }
                 Button {
                     collectionsViewModel.cleanCollectionsCache()
                     formInputs = CreateCourseFormInputs()
                 } label: {
-                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.25), titleColor: (formInputs.title == "" && formInputs.selectedPicture == nil && formInputs.category == "") ? .gray : .pink.opacity(0.5))
+                    ButtonViewComponent(title: "Reset form", foregroundColor: .gray.opacity(0.1), titleColor: (formInputs.title == "" && formInputs.selectedPicture == nil && formInputs.category == "") ? .gray : .pink.opacity(0.5))
                 }
                 .disabled(formInputs.title == "" && formInputs.selectedPicture == nil && formInputs.category == "")
             }
