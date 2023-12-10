@@ -8,6 +8,17 @@
 import SwiftUI
 import PhotosUI
 
+/// The fourth step in the course editing process.
+///
+/// This view allows the user to modify the thumbnail picture of the selected course.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - course: A binding variable representing the course to be edited.
+///   - newValues: Stores the new values inputed
+///   - changePictureAlert: if the user attemps to change the picture stored, an alert will show
+///   - storageError: any error delivered by an issue while storing new data
 struct EditionSubView4: View {
     
     @ObservedObject var authViewModel: AuthViewModel

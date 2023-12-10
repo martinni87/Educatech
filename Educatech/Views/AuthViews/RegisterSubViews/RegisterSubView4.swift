@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// A SwiftUI view component representing the fourth step of the registration process.
+///
+/// This view allows users to review their entered information before completing the registration process. It displays a tab with the entered email, username, and selected categories.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - formInputs: Binding to the registration form inputs.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct RegisterSubView4: View {
     
     @ObservedObject var authViewModel: AuthViewModel
@@ -36,6 +44,12 @@ struct RegisterSubView4: View {
     }
 }
 
+/// A sub-view displaying a check tab with a summary of the entered registration information.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - formInputs: Binding to the registration form inputs.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct RegistrationCheckTabView: View {
 
     @ObservedObject var authViewModel: AuthViewModel

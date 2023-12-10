@@ -9,6 +9,15 @@ import UIKit
 import SwiftUI
 import MessageUI
 
+/**
+ A SwiftUI view component representing a mail compose view.
+
+ - Note: This component uses `MFMailComposeViewController` to create a mail compose view for sending emails.
+ - Parameters:
+   - presentation: The presentation mode environment variable for managing the view presentation.
+   - result: Binding to track the result of the mail composition.
+   - emailData: Binding to provide email data including recipients, subject, and body.
+ */
 struct MailViewComponent: UIViewControllerRepresentable {
     
     @Environment (\.presentationMode) var presentation

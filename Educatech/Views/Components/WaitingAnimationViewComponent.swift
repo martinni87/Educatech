@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// A SwiftUI view component for displaying a waiting animation.
+///
+/// - Parameters:
+///   - rotationAngle: The rotation angle of the animation.
 struct WaitingAnimationViewComponent: View {
 
     @State var rotationAngle: Double = 0.0
@@ -20,6 +24,7 @@ struct WaitingAnimationViewComponent: View {
                 .frame(height: 35)
                 .rotationEffect(.degrees(rotationAngle))
                 .onAppear {
+                    // Animate rotation continuously
                     withAnimation(Animation.linear(duration: 2.0).repeatForever(autoreverses: false)) {
                         rotationAngle = 360
                     }

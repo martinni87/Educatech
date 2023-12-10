@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// A detailed view of a course.
+///
+/// This view provides a detailed presentation of a specific course, including its title, teacher, description, and videos.
+/// Users can start the course or, if already subscribed, access the list of videos.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - collectionsViewModel: The view model managing collections.
+///   - course: The course model to be displayed in detail.
 struct CourseDetailView: View {
     
     @ObservedObject var authViewModel: AuthViewModel

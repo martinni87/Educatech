@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// A SwiftUI view component representing the third step of the registration process.
+///
+/// This view includes a selection of categories that the user can choose from. It provides a grid of category buttons for the user to select their interests.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - formInputs: Binding to the registration form inputs.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct RegisterSubView3: View {
     
     @ObservedObject var authViewModel: AuthViewModel

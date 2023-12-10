@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// The initial view of the Educatech app, presenting login and registration options.
+///
+/// This view displays the app header, login button, and registration button. Users can choose to log in or create a new account.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - colorScheme: The color scheme environment variable.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct InitialView: View {
     
     @ObservedObject var authViewModel: AuthViewModel

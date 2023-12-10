@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a row in a list for displaying course details.
+
+ - Parameters:
+   - authViewModel: The observed object responsible for authentication-related operations.
+   - collectionsViewModel: The observed object responsible for managing collections and related data.
+   - course: The state variable representing the course model for this row.
+   - colorScheme: The color scheme environment variable used to adapt to light and dark mode.
+ */
 struct ListRowViewComponent: View {
     
     @ObservedObject var authViewModel: AuthViewModel

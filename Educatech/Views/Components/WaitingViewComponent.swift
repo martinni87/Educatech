@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component displaying a waiting animation along with informative text.
+
+ - Note: This component is designed to show a waiting animation with a message during loading.
+ - Parameters:
+   - colorScheme: The color scheme environment variable used to adapt to light and dark mode.
+ */
 struct WaitingViewComponent: View {
     
     @Environment (\.colorScheme) var colorScheme

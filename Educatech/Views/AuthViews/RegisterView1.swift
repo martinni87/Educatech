@@ -9,6 +9,14 @@ import SwiftUI
 
 import SwiftUI
 
+/// The first step of the registration process in the Educatech app.
+///
+/// This view allows users to initiate the registration process by navigating to the next step of the registration flow.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - formInputs: The form inputs for the registration view.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct RegisterView1: View {
     
     @ObservedObject var authViewModel: AuthViewModel

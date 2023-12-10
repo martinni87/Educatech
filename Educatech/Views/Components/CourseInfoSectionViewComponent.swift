@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a section for displaying and editing course information.
+
+ - Note: This component includes fields for the current title, description, and category, as well as text input and a picker for making changes.
+ - Parameters:
+   - collectionsViewModel: The view model managing collections.
+   - course: Binding to the current course model.
+   - newValues: Binding to the form inputs for creating/editing a course.
+   - changeInfoAlert: Binding to indicate whether to show an alert for changing course information.
+   - noChangesAlert: Binding to indicate whether to show an alert for no changes made.
+ */
 struct CourseInfoSectionViewComponent: View {
     
     @ObservedObject var collectionsViewModel: CollectionsViewModel

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Enum representing different types of headers used in the application.
 enum HeaderType: String {
     case initial = "Educatech"
     case register1 = "Start Register"
@@ -22,7 +23,17 @@ enum HeaderType: String {
     case editCourse = "Edit course"
 }
 
+/// A model representing header information for different sections of the application.
 final class HeaderModel {
+    // MARK: Properties
+    /**
+     - headerType: The type of header, indicating its context
+     - title: The title of the header, typically derived from the `HeaderType` raw value.
+     - titleColor: The color of the title text.
+     - subtitle: The subtitle text providing additional information related to the header.
+     - subtitleColor: The color of the subtitle text.
+     - image: The image associated with the header.
+     */
     let headerType: HeaderType
     let title: String
     let titleColor: Color
@@ -30,12 +41,22 @@ final class HeaderModel {
     var subtitleColor: Color
     let image: String
     
+    //MARK: Initializer
+    /**
+     Initializes a new instance of `HeaderModel` based on the specified `HeaderType`.
+     - Parameter headerType: The type of header to be represented by this instance.
+     */
     init(headerType: HeaderType) {
         self.headerType = headerType
         self.title = headerType.rawValue
         self.subtitleColor = .gray
         
         switch headerType {
+            /**
+             Different cases are handled with specific configurations for each type.
+             Each configuration includes setting title color, subtitle, subtitle color, and image.
+             ...
+             */
         case .initial:
             self.titleColor = Color(.sRGB, red: 0.15, green: 0.50, blue: 0.75, opacity: 0.9)
             self.subtitle = "A whole universe of knowlegde right from your pocket"

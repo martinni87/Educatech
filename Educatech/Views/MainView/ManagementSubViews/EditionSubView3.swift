@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// The third step in the course editing process.
+///
+/// This view allows the user to modify the title, description, and category of the selected course.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - course: A state variable representing the course to be edited.
 struct EditionSubView3: View {
     
     @ObservedObject var authViewModel: AuthViewModel

@@ -7,9 +7,15 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a button for a specific authentication provider.
+
+ - Note: This view displays a rectangular button with an icon and text for accessing authentication with a particular provider.
+ - Parameter provider: The data model representing the authentication provider.
+ */
 struct ProviderButtonViewComponent: View {
     
-    let provider: ProviderModel
+    let provider: ProviderModel /// The data model for the authentication provider.
     
     var body: some View {
         Rectangle()

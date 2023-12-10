@@ -10,12 +10,16 @@ import PhotosUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+/// A class responsible for managing data source operations related to courses and users.
 final class CollectionsDataSource {
     
     private let database = Firestore.firestore()
     private let coursesCollection = "courses"
     private let usersCollection = "users"
     
+    /// Retrieves all courses from the Firestore database.
+    ///
+    /// - Parameter completionBlock: A completion block to handle the result of the operation.
     func getAllCourses(completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         self.database.collection(self.coursesCollection)
             .addSnapshotListener { query, error in
@@ -33,6 +37,11 @@ final class CollectionsDataSource {
             }
     }
     
+    /// Retrieves a course by its ID from the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - courseID: The ID of the course to retrieve.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func getCourseByID(courseID: String, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
         let document = self.database.collection(self.coursesCollection).document(courseID)
         document.getDocument(source: .server) { document, error in
@@ -66,6 +75,11 @@ final class CollectionsDataSource {
         }
     }
     
+    /// Retrieves courses by the creator's ID from the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - creatorID: The ID of the course creator.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func getCoursesByCreatorID(creatorID: String, completionBlock: @escaping (Result<[CourseModel], Error>) -> Void ){
         self.database.collection(self.coursesCollection).whereField("creatorID", isEqualTo: creatorID)
             .addSnapshotListener { query, error in
@@ -83,6 +97,11 @@ final class CollectionsDataSource {
             }
     }
     
+    /// Retrieves courses by category from the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - category: The category of the courses to retrieve.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func getCoursesByCategory(category: String, completionBlock: @escaping(Result<[CourseModel], Error>) -> Void) {
         self.database.collection(self.coursesCollection).whereField("category", isEqualTo: category)
             .addSnapshotListener { query, error in
@@ -100,6 +119,12 @@ final class CollectionsDataSource {
             }
     }
     
+    /// Creates a new course in the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The form inputs for creating the course.
+    ///   - userData: The user data associated with the course creator.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func createNewCourse(formInputs: CreateCourseFormInputs, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         self.getCountOfDocuments { count in
             //Get number of documents to create bew document with custom ID
@@ -187,6 +212,12 @@ final class CollectionsDataSource {
         }
     }
     
+    /// Adds a new managed course to the user's data in the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - newCourse: The new course to be added.
+    ///   - userData: The user data associated with the course creator.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func addNewManagedCourseToUser(newCourse: CourseModel, userData: UserDataModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         //Getting document for current user
         let document = self.database.collection(self.usersCollection).document(userData.id ?? "0")
@@ -209,7 +240,10 @@ final class CollectionsDataSource {
         }
     }
     
-    // MARK: Private methods
+    // MARK: Private and self methods
+    /// Retrieves the count of documents in the Firestore database collection.
+    ///
+    /// - Parameter completionBlock: A completion block to handle the count.
     private func getCountOfDocuments(completionBlock: @escaping (Int) -> Void) {
         let collectionRef = self.database.collection(self.coursesCollection)
         collectionRef.getDocuments { query, error in
@@ -222,6 +256,11 @@ final class CollectionsDataSource {
         }
     }
     
+    /// Edits the data of a course in the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - course: The course model to edit.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func editCourseData(changeTo course: CourseModel, completionBlock: @escaping (Result<CourseModel, Error>) -> Void) {
         let courseDocument = self.database.collection(self.coursesCollection).document(course.id ?? "0")
         courseDocument.setData(["id": course.id ?? "0",
@@ -252,6 +291,12 @@ final class CollectionsDataSource {
         }
     }
     
+    /// Adds a new list of videos to a course in the Firestore database.
+    ///
+    /// - Parameters:
+    ///   - course: The course model to which the videos will be added.
+    ///   - newVideosList: The list of new videos to add.
+    ///   - completionBlock: A completion block to handle the result of the operation.
     func addNewVideoListToCourse(course: CourseModel, newVideosList: [PhotosPickerItem], completionBlock: @escaping (Result<CourseModel, Error>) -> Void ) {
         newVideosList.enumerated().forEach { i, selectedVideo in
             StorageManager().uploadVideo(courseID: course.id!, selectedVideo: selectedVideo) { result in

@@ -7,10 +7,19 @@
 
 import SwiftUI
 
+/// An enumeration representing different types of custom fields.
 enum CustomFieldType {
     case simple, secure
 }
 
+/// A SwiftUI view component representing the second step of the registration process.
+///
+/// This view includes the registration form, which consists of a header, user input fields, and buttons for navigating to the next step or performing form validation and cleanup.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - formInputs: Binding to the registration form inputs.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct RegisterSubView2: View {
     
     @ObservedObject var authViewModel: AuthViewModel
