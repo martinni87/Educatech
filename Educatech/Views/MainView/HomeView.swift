@@ -9,6 +9,13 @@
 
 import SwiftUI
 
+/// A view displaying the home screen of the Educatech app.
+///
+/// This view includes a scrollable list of course carousels, featuring all courses and recommended courses based on user-selected categories.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
 struct HomeView: View {
     
     @ObservedObject var authViewModel: AuthViewModel

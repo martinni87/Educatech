@@ -10,12 +10,20 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+/// A class responsible for managing authentication-related data operations, including user registration, login, and user data manipulation.
 final class AuthDataSource {
     
     private let database = Firestore.firestore()
     private let usersCollection = "users"
     
-    //MARK: Registration form validations
+    // MARK: - Registration form validations
+    
+    /// Validates the email format and availability for registration.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The registration form inputs.
+    ///   - completionBlock: A completion block to handle the validation result.
+    
     func emailValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void) {
         //Email check
         formInputs.email.emailFormatIsValid { isValid, errorMsg in
@@ -33,6 +41,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Validates the username format and availability for registration.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The registration form inputs.
+    ///   - completionBlock: A completion block to handle the validation result.
     func usernameValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void) {
         //Username check
         formInputs.username.fieldIsNotEmpty { isNotEmpty, errorMsg in
@@ -50,6 +63,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Validates the password format for registration.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The registration form inputs.
+    ///   - completionBlock: A completion block to handle the validation result.
     func passwordValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void ) {
         //Password check
         formInputs.password.passwordFormatIsValid(email: formInputs.email) { isValid, errorMsg in
@@ -61,6 +79,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Validates the repeated password for registration.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The registration form inputs.
+    ///   - completionBlock: A completion block to handle the validation result.
     func repeatedPasswordValidations(_ formInputs: RegistrationFormInputs, completionBlock: @escaping (Bool, String?) -> Void ) {
         //Password check
         formInputs.repeatPassword.repeatedPasswordIsValid(password: formInputs.password) { isValid, errorMsg in
@@ -72,8 +95,13 @@ final class AuthDataSource {
         }
     }
     
-    //MARK: Sing up, sign in, logout and user auth
-    
+    // MARK: - Sign up, sign in, logout, and user auth
+        
+    /// Registers a new user with email and password.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The registration form inputs.
+    ///   - completionBlock: A completion block to handle the registration result.
     func signUpEmail(formInputs: RegistrationFormInputs, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Check if username is available. If available, new user not created
         let email = formInputs.email.lowercased()
@@ -108,6 +136,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Signs in a user with email and password.
+    ///
+    /// - Parameters:
+    ///   - formInputs: The login form inputs.
+    ///   - completionBlock: A completion block to handle the login result.
     func signInEmail(formInputs: LoginFormInputs, completionBlock: @escaping (Result<UserDataModel,Error>) -> Void ) {
         Auth.auth().signIn(withEmail: formInputs.email, password: formInputs.password) { authDataResult, error in
             if let error = error {
@@ -134,10 +167,16 @@ final class AuthDataSource {
         }
     }
     
+    /// Signs out the current user.
+    ///
+    /// - Throws: An error if signing out fails.
     func signOut() throws {
         try Auth.auth().signOut()
     }
     
+    /// Retrieves the current authenticated user's information.
+    ///
+    /// - Returns: The user authentication model or nil if no user is authenticated.
     func getCurrentUserAuth() -> UserAuthModel? {
         if let id = Auth.auth().currentUser?.uid, let email = Auth.auth().currentUser?.email {
             return UserAuthModel(id: id, email: email)
@@ -147,7 +186,10 @@ final class AuthDataSource {
         }
     }
     
-    //MARK: User Data from users collection
+    // MARK: User Data from users collection
+    /// Retrieves the current user's data.
+    ///
+    /// - Parameter completionBlock: A completion block to handle the user data retrieval result.
     func getCurrentUserData(completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
         if let id = Auth.auth().currentUser?.uid {
             self.getUserByID(userID: id) { result in
@@ -167,6 +209,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Creates a new user document in the Firestore collection.
+    ///
+    /// - Parameters:
+    ///   - user: The user data model representing the new user.
+    ///   - completionBlock: A completion block to handle the user creation result.
     func createNewUser(user: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ) {
         //Creating document in collection with given id
         let newDocument = self.database.collection(self.usersCollection).document(user.id ?? "0")
@@ -195,32 +242,42 @@ final class AuthDataSource {
         }
     }
     
+    /// Edits the user data in the Firestore collection.
+    ///
+    /// - Parameters:
+    ///   - userData: The updated user data model.
+    ///   - completionBlock: A completion block to handle the user data editing result.
     func editUserData(changeTo userData: UserDataModel, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void) {
         let userDocument = self.database.collection(self.usersCollection).document(userData.id ?? "0")
         userDocument.setData( ["id": userData.id ?? "0",
-                              "email": userData.email,
-                              "username": userData.username,
-                              "isEditor": userData.isEditor,
-                              "categories": userData.categories,
-                              "contentCreated": userData.contentCreated,
-                              "subscriptions": userData.subscriptions
-                             ]) { error in
+                               "email": userData.email,
+                               "username": userData.username,
+                               "isEditor": userData.isEditor,
+                               "categories": userData.categories,
+                               "contentCreated": userData.contentCreated,
+                               "subscriptions": userData.subscriptions
+                              ]) { error in
             if let error = error {
                 completionBlock(.failure(error))
                 return
             }
             let newUserData = UserDataModel(id: userData.id,
-                                     email: userData.email,
-                                     username: userData.username,
-                                     isEditor: userData.isEditor,
-                                     categories: userData.categories, //If categories were modified, then it reflects here
-                                     contentCreated: userData.contentCreated, //If contentCreated were modified, then it reflects here
-                                     subscriptions: userData.subscriptions) //If contentCreated were modified, then it reflects here
+                                            email: userData.email,
+                                            username: userData.username,
+                                            isEditor: userData.isEditor,
+                                            categories: userData.categories, //If categories were modified, then it reflects here
+                                            contentCreated: userData.contentCreated, //If contentCreated were modified, then it reflects here
+                                            subscriptions: userData.subscriptions) //If contentCreated were modified, then it reflects here
             completionBlock(.success(newUserData))
         }
     }
     
-    //MARK: Private check methods
+    // MARK: Private check methods
+    /// Checks if an email is available for registration.
+    ///
+    /// - Parameters:
+    ///   - email: The email to check.
+    ///   - completionBlock: A completion block to handle the availability check result.
     private func emailIsAvailable(email: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let email = email.lowercased()
         let documents = self.database.collection(self.usersCollection).whereField("email", isEqualTo: email)
@@ -238,6 +295,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Checks if a username is available for registration.
+    ///
+    /// - Parameters:
+    ///   - username: The username to check.
+    ///   - completionBlock: A completion block to handle the availability check result.
     private func usernameIsAvailable(username: String, completionBlock: @escaping (Bool, String?) -> Void ){
         let username = username.lowercased()
         let documents = self.database.collection(self.usersCollection).whereField("username", isEqualTo: username)
@@ -255,6 +317,11 @@ final class AuthDataSource {
         }
     }
     
+    /// Retrieves a user by ID from the Firestore collection.
+    ///
+    /// - Parameters:
+    ///   - userID: The ID of the user to retrieve.
+    ///   - completionBlock: A completion block to handle the user retrieval result.
     private func getUserByID(userID: String, completionBlock: @escaping (Result<UserDataModel, Error>) -> Void ){
         let userDocument = self.database.collection(self.usersCollection).document(userID)
         userDocument.getDocument(source: .server) { document, error in

@@ -8,6 +8,13 @@
 import SwiftUI
 import AVKit
 
+/// A view for playing videos.
+///
+/// This view uses AVKit to play a video specified by its URL. It includes a navigation bar with the title of the video.
+///
+/// - Parameters:
+///   - videoTitle: The title of the video.
+///   - videoURL: The URL of the video.
 struct VideoPlayerView: View {
     
     @State var videoTitle: String = ""

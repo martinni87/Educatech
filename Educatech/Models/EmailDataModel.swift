@@ -7,14 +7,26 @@
 
 import Foundation
 
+/**
+ A model representing email data for contacting support.
+ 
+ - Important: The `id` and `email` properties are private, and their values are set through the initializer.
+ - Note: This model is used to generate an email body with pre-filled information.
+ */
 struct EmailDataModel {
-    private var id: String = "0000"
-    private var email: String = "No mail"
-    let recipients = "supportIT@educatech.com"
-    let subject = "Support Educatech App for iOS"
-    var body: String = ""
+    private var id: String = "0000" /// The private unique identifier associated with the email data.
+    private var email: String = "No mail" /// The private email address associated with the email data.
+    let recipients = "supportIT@educatech.com" /// The recipients of the email.
+    let subject = "Support Educatech App for iOS" /// The subject of the email.
+    var body: String = "" /// The body of the email, containing pre-filled information.
     
-    
+    /**
+     Initializes a new instance of `EmailDataModel` with the specified identifier and email.
+     
+     - Parameters:
+        - id: The unique identifier associated with the email data.
+        - email: The email address associated with the email data.
+     */
     init(id: String, email: String) {
         self.id = id
         self.email = email

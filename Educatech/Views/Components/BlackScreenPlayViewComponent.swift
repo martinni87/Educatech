@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A SwiftUI view component that represents a black screen play button.
 struct BlackScreenPlayViewComponent: View {
     var body: some View {
         ZStack {

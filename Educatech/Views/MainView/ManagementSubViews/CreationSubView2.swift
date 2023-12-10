@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+/// A subview for creating a new course - step 2.
+///
+/// This view is part of the course creation process. It includes a header, form inputs for course details, and navigation links.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - formInputs: A binding to the form inputs for creating a course.
 struct CreationSubView2: View {
     
     @ObservedObject var authViewModel: AuthViewModel

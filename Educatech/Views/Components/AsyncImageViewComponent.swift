@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+/// A SwiftUI view component for displaying an asynchronous image with loading and error states.
+///
+/// - Parameters:
+///   - course: Binding to the `CourseModel` object containing information about the course.
+///   - isLoading: A boolean indicating whether the image is still loading.
+///   - showNotAvailable: A boolean indicating whether the image is not available for display.
 struct AsyncImageViewComponent: View {
     
     @Binding var course: CourseModel
@@ -36,7 +42,8 @@ struct AsyncImageViewComponent: View {
                 case .empty, .failure:
                     WaitingAnimationViewComponent()
                         .onAppear {
-                            Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { _ in
+                            // Show "Not Available" after 8 seconds if still loading
+                            Timer.scheduledTimer(withTimeInterval: 8, repeats: false) { _ in
                                 if isLoading {
                                     showNotAvailable = true
                                 }

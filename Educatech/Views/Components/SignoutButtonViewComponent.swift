@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// A SwiftUI view component for displaying a sign-out button.
+/// - Parameter authViewModel: An observed object representing the authentication view model.
 struct SignoutButtonViewComponent: View {
     
     @ObservedObject var authViewModel: AuthViewModel

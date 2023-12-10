@@ -8,6 +8,27 @@
 import SwiftUI
 import PhotosUI
 
+/// Represents a view for editing videos in a course.
+///
+/// This view allows users to manage the videos associated with a course, including adding new videos
+/// and deleting existing ones.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - course: A binding variable representing the course to be edited.
+///   - newVideosList: State variable holding the list of new videos to be added.
+///   - urlVideosToDelete: State variable storing URLs of videos to be deleted.
+///   - urlVideosRemaining: State variable storing remaining URLs after deletion.
+///   - deletionAlert: State variable controlling the deletion alert.
+///   - addNewAlert: State variable controlling the addition alert for new videos.
+///   - performDeletion: State variable tracking whether the deletion operation is being performed.
+///   - performAddition: State variable tracking whether the addition operation is being performed.
+///   - emptyListAlert: State variable indicating if the list of new videos is empty.
+///   - colorScheme: Environment variable representing the color scheme (light or dark mode).
+///   - horizontalSizeClass: Environment variable representing the horizontal size class (compact or regular).
+///   - verticalSizeClass: Environment variable representing the vertical size class (compact or regular).
+///   - dismiss: Environment variable to dismiss the current view
 struct EditionSubView5: View {
     
     @ObservedObject var authViewModel: AuthViewModel

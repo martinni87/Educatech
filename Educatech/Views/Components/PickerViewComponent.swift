@@ -7,12 +7,22 @@
 
 import SwiftUI
 
+/// The use case for the Picker in different views.
 enum UseCases {
     case courseCreationEdition
     case searchBarItem
     case userCategory
 }
 
+/**
+ A SwiftUI view component for displaying and selecting values using a Picker.
+ 
+ - Note: This view includes a Picker with different use cases such as course creation/edition, search bar item, and user category.
+ - Parameters:
+   - label: The label to display above the Picker.
+   - variable: Binding to the selected value.
+   - useCase: The use case for the Picker, determining the available options.
+ */
 struct PickerViewComponent: View {
 
     let label: String

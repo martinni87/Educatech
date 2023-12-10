@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+/// A SwiftUI view component for displaying a button representing a category selection.
+///
+/// - Parameters:
+///   - selection: The category represented by the button.
+///   - formInputs: A binding to the registration form inputs, including selected categories.
+///   - isSelected: A state variable indicating whether the category is currently selected.
 struct CategoryButtonViewComponent: View {
     
     var selection: Categories
@@ -15,6 +21,7 @@ struct CategoryButtonViewComponent: View {
     
     var body: some View {
         Button {
+            // Toggle category selection and update state
             if self.formInputs.categories.contains(selection.rawValue) {
                 self.formInputs.categories.removeAll { $0 == selection.rawValue }
             } else {
@@ -31,6 +38,7 @@ struct CategoryButtonViewComponent: View {
         .buttonBorderShape(.capsule)
         .tint(isSelected ? .accentColor : .gray)
         .onAppear {
+            // Set initial selection state
             if self.formInputs.categories.contains(selection.rawValue) {
                 isSelected = true
             }

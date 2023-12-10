@@ -7,14 +7,20 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a header with a title, subtitle, and optional image.
+
+ - Important: This view component adapts its appearance based on the `headerModel` provided.
+ */
 struct HeaderViewComponent: View {
     
-    @Environment (\.verticalSizeClass) var verticalSizeClass
-    let headerModel: HeaderModel
-    let frameSize: CGFloat
+    @Environment (\.verticalSizeClass) var verticalSizeClass /// The vertical size class environment variable.
+    let headerModel: HeaderModel /// The data model for the header.
+    let frameSize: CGFloat /// The size of the frame for the header.
     
     var body: some View {
         VStack {
+            // Title
             Text(headerModel.title)
                 .font(.system(
                     size: verticalSizeClass == .compact ? (headerModel.headerType == .initial ? 30.0 : 20.0) : (headerModel.headerType == .initial ? 50.0 : 35),
@@ -22,9 +28,12 @@ struct HeaderViewComponent: View {
                     design: headerModel.headerType == .initial ? .rounded : .default))
                 .foregroundColor(headerModel.titleColor)
                 .shadow(color: headerModel.headerType == .initial ? .cyan : .clear, radius: 2, x: 2, y: 2)
+            
+            // Subtitle and Image (for certain size classes and header types)
             if (verticalSizeClass == .regular  || headerModel.headerType == .register1 || headerModel.headerType == .register4) {
                 VStack (spacing: 30) {
                     ZStack {
+                        // Image with optional circular accent
                         Image(headerModel.image)
                             .resizable()
                             .scaledToFit()
@@ -38,6 +47,7 @@ struct HeaderViewComponent: View {
                                 .frame(width: 150, height: 150)
                         }
                     }
+                    // Subtitle
                     Text(headerModel.subtitle)
                         .bold()
                         .foregroundStyle(headerModel.subtitleColor)

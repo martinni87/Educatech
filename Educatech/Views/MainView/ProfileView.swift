@@ -8,6 +8,19 @@
 import SwiftUI
 import MessageUI
 
+/// A view displaying user profile information, including personal details, categories, subscriptions, and content created.
+///
+/// This view allows users to view and manage their profile information, including email, username, categories,
+/// subscriptions, and content created. It provides options to add new categories, delete existing ones, and manage subscriptions.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - sendEmailResult: A binding variable representing the result of sending an email.
+///   - errorContactSupport: A binding variable indicating if there is an error contacting support.
+///   - isShowingEmailView: A binding variable controlling the visibility of the email composition view.
+///   - emailBody: A binding variable representing the body of the email to be sent.
+///   - emailData: A binding variable representing the email data model.
 struct ProfileView: View {
     
     @ObservedObject var authViewModel: AuthViewModel

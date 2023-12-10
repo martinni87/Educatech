@@ -7,10 +7,20 @@
 
 import SwiftUI
 
+/// The type of content displayed in the carousel, all content available in database or recommended based on subscribed categories
 enum TypeOfContent {
     case all, recommended
 }
 
+/// A view displaying a horizontal carousel of course cards.
+///
+/// This view presents a horizontal scrolling carousel of course cards, allowing users to explore and navigate through a collection of courses.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - collectionsViewModel: The view model managing collections.
+///   - coursesPresented: An array of course models to be presented in the carousel.
+///   - sectionTitle: The title of the section represented by the carousel.
 struct CardCarouselView: View {
     
     @ObservedObject var authViewModel: AuthViewModel

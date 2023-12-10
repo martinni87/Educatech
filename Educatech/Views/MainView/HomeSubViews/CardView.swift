@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// A view displaying information about a course in card format.
+///
+/// This view is used to represent a course in a visually appealing card format, showing details such as the course title, teacher, category, and the number of students enrolled.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - collectionsViewModel: The view model managing collections.
+///   - course: The course model containing information about the course to be displayed.
+///   - verticalSizeClass: The vertical size class environment variable.
 struct CardView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
