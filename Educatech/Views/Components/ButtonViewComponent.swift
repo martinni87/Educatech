@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a customizable rectangular button.
+
+ - Note: This view displays a button with configurable properties such as title, width, height, foreground color, and title color.
+ - Parameters:
+   - title: The text displayed on the button.
+   - width: The width of the button.
+   - height: The height of the button.
+   - foregroundColor: The color of the button.
+   - titleColor: The color of the text on the button.
+ */
 struct ButtonViewComponent: View {
     
     let title: String

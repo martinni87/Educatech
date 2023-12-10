@@ -8,6 +8,18 @@
 import SwiftUI
 import MessageUI
 
+/**
+ A SwiftUI view component representing a button for contacting support via email.
+
+ - Note: This component utilizes `MFMailComposeViewController` for sending emails.
+ - Parameters:
+   - authViewModel: The view model managing user authentication.
+   - sendEmailResult: Binding to track the result of the mail composition.
+   - errorContactSupport: Binding to indicate whether there was an error contacting support.
+   - isShowingEmailView: Binding to control the presentation of the email compose view.
+   - emailBody: Binding to provide the body content for the email.
+   - emailData: Binding to store email data including recipients, subject, and body.
+ */
 struct MailButtonViewComponent: View {
     
     @ObservedObject var authViewModel: AuthViewModel

@@ -8,6 +8,27 @@
 import SwiftUI
 import PhotosUI
 
+/// Represents a view for editing videos in a course.
+///
+/// This view allows users to manage the videos associated with a course, including adding new videos
+/// and deleting existing ones.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - course: A binding variable representing the course to be edited.
+///   - newVideosList: State variable holding the list of new videos to be added.
+///   - urlVideosToDelete: State variable storing URLs of videos to be deleted.
+///   - urlVideosRemaining: State variable storing remaining URLs after deletion.
+///   - deletionAlert: State variable controlling the deletion alert.
+///   - addNewAlert: State variable controlling the addition alert for new videos.
+///   - performDeletion: State variable tracking whether the deletion operation is being performed.
+///   - performAddition: State variable tracking whether the addition operation is being performed.
+///   - emptyListAlert: State variable indicating if the list of new videos is empty.
+///   - colorScheme: Environment variable representing the color scheme (light or dark mode).
+///   - horizontalSizeClass: Environment variable representing the horizontal size class (compact or regular).
+///   - verticalSizeClass: Environment variable representing the vertical size class (compact or regular).
+///   - dismiss: Environment variable to dismiss the current view
 struct EditionSubView5: View {
     
     @ObservedObject var authViewModel: AuthViewModel
@@ -22,6 +43,9 @@ struct EditionSubView5: View {
     @State var performDeletion: Bool = false
     @State var performAddition: Bool = false
     @State var emptyListAlert: Bool = false
+    
+    @State var goHomeAlert: Bool = false
+    @State var goHome: Bool = false
     
     @Environment (\.colorScheme) var colorScheme
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
@@ -113,6 +137,13 @@ struct EditionSubView5: View {
                         }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button("Go Home"){
+                        self.goHomeAlert.toggle()
+                    }
+                })
+            }
             //Alert shown in case user wants to delete videos of server
             .alert("Delete a video", isPresented: $deletionAlert, actions: {
                 Button("Yes"){
@@ -147,6 +178,19 @@ struct EditionSubView5: View {
             }, message: {
                 Text("You don't have any video available for this course. Do you really want to leave? An Admin might switch your approval status to not approved. Please consider adding a new video.")
             })
+            //In case user wants to quit
+            .alert("Go to Homescreen?", isPresented: $goHomeAlert) {
+                Button("Yes"){
+                    goHome.toggle()
+                }
+                Button("No") {}
+            } message: {
+                Text("Are you sure you want to quit editing? All unsaved changes will be lost")
+            }
+            //If user validates exit
+            .fullScreenCover(isPresented: $goHome) {
+                MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

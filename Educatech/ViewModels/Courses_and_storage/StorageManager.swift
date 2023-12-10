@@ -10,11 +10,18 @@ import PhotosUI
 import Firebase
 import FirebaseStorage
 
+/// A class responsible for managing storage-related operations, including uploading and deleting files.
 final class StorageManager {
     
     private let storage = Storage.storage().reference()
     private let storageError = NSError(domain: "Storage error", code: 500, userInfo: [NSLocalizedDescriptionKey: "Something went wrong performing the current task. Please contact the admin"])
     
+    /// Deletes videos in storage based on the provided URL strings and updates the course data.
+    ///
+    /// - Parameters:
+    ///   - course: The course model.
+    ///   - urlStringList: The list of video URL strings to delete.
+    ///   - collection: The collections view model.
     func deleteStorageByURL(course: CourseModel, urlStringList: [String], collection: CollectionsViewModel) {
         // Start loop for urlString array
         urlStringList.enumerated().forEach { i, urlString in
@@ -43,6 +50,12 @@ final class StorageManager {
         }
     }
     
+    /// Uploads a picture for a given course ID.
+    ///
+    /// - Parameters:
+    ///   - courseID: The ID of the course.
+    ///   - photoItem: The photo item to upload.
+    ///   - completionBlock: A completion block to handle the upload result.
     func uploadPicture(courseID: String, photoItem: PhotosPickerItem, completionBlock: @escaping (Result<String, Error>) -> Void ) {
         //Setting metadata and path for file
         let metadata = StorageMetadata()
@@ -80,6 +93,12 @@ final class StorageManager {
         }
     }
     
+    /// Uploads a video for a given course ID.
+    ///
+    /// - Parameters:
+    ///   - courseID: The ID of the course.
+    ///   - selectedVideo: The video item to upload.
+    ///   - completionBlock: A completion block to handle the upload result.
     func uploadVideo(courseID: String, selectedVideo: PhotosPickerItem, completionBlock: @escaping (Result<StorageMetadata, Error>) -> Void ) {
         //Setting metadata and path for file
         let metadata = StorageMetadata()
@@ -105,6 +124,11 @@ final class StorageManager {
         }
     }
     
+    /// Retrieves a list of video URLs for a given course ID.
+    ///
+    /// - Parameters:
+    ///   - courseID: The ID of the course.
+    ///   - completionBlock: A completion block to handle the retrieval result.
     func retrieveVideosList(courseID: String, completionBlock: @escaping (Result<[String], Error>) -> Void ) {
         //Retrieve URL of videos
         let path = "courses/\(courseID)/videos"

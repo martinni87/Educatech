@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a text field used in courses-related forms.
+
+ - Note: This view includes a text field for user input, with an optional error message and tooltip.
+ - Parameters:
+   - collectionsViewModel: An observed object managing collections-related operations.
+   - variable: Binding to the text field's input variable.
+   - errorMsg: An optional error message to display.
+   - label: The label for the text field.
+   - placeholder: The placeholder text for the text field.
+   - tooltip: The tooltip message to display when the question mark icon is tapped.
+ */
 struct CoursesTextFieldViewComponent: View {
     
     @ObservedObject var collectionsViewModel: CollectionsViewModel
@@ -22,9 +34,12 @@ struct CoursesTextFieldViewComponent: View {
     
     var body: some View {
         VStack (alignment: .leading){
+            // Label for the text field
             Text(label)
                 .foregroundColor(.gray)
                 .bold()
+            
+            // Text field with placeholder and optional error styling
             Rectangle()
                 .fill(colorScheme == .light ? .black.opacity(0.1) : .white.opacity(0.1))
                 .fill(errorMsg != nil ? .pink.opacity(0.1) : .clear)
@@ -33,6 +48,7 @@ struct CoursesTextFieldViewComponent: View {
                 .cornerRadius(10)
                 .overlay {
                     HStack {
+                        // TextField for user input
                         TextField(placeholder, text: $variable)
                             .padding()
                             .foregroundStyle(Color.accentColor)
@@ -41,6 +57,7 @@ struct CoursesTextFieldViewComponent: View {
                             .onTapGesture {
                                 collectionsViewModel.cleanCollectionsCache()
                             }
+                        // Question mark icon to show tooltip
                         Image(systemName: "questionmark.bubble")
                             .foregroundStyle(.gray)
                             .onTapGesture {
@@ -54,6 +71,7 @@ struct CoursesTextFieldViewComponent: View {
                             .padding()
                     }
                 }
+            // Display tooltip or error message
             if showTooltip {
                 Text(self.tooltip)
                     .font(.system(size: 14))

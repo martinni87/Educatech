@@ -8,6 +8,17 @@
 import SwiftUI
 import PhotosUI
 
+/// The fourth step in the course editing process.
+///
+/// This view allows the user to modify the thumbnail picture of the selected course.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - course: A binding variable representing the course to be edited.
+///   - newValues: Stores the new values inputed
+///   - changePictureAlert: if the user attemps to change the picture stored, an alert will show
+///   - storageError: any error delivered by an issue while storing new data
 struct EditionSubView4: View {
     
     @ObservedObject var authViewModel: AuthViewModel
@@ -16,6 +27,10 @@ struct EditionSubView4: View {
     @State var newValues = CreateCourseFormInputs()
     @State var changePictureAlert: Bool = false
     @State var storageError: Bool = false
+    
+    @State var goHomeAlert: Bool = false
+    @State var goHome: Bool = false
+    
     @Environment (\.verticalSizeClass) var verticalSizeClass
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
     @Environment (\.colorScheme) var colorScheme
@@ -86,6 +101,13 @@ struct EditionSubView4: View {
             .onChange(of: collectionsViewModel.singleCourse) { _, newValue in
                 course = newValue
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button("Go Home"){
+                        self.goHomeAlert.toggle()
+                    }
+                })
+            }
             //Alert in case user wants to change the thumbnail picture
             .alert("Change picture", isPresented: $changePictureAlert){
                 Button("Yes") {
@@ -116,6 +138,19 @@ struct EditionSubView4: View {
                 }
             } message: {
                 Text("Are you sure you want to change the picture? This action cannot be undone.")
+            }
+            //In case user wants to quit
+            .alert("Go to Homescreen?", isPresented: $goHomeAlert) {
+                Button("Yes"){
+                    goHome.toggle()
+                }
+                Button("No") {}
+            } message: {
+                Text("Are you sure you want to quit editing? All unsaved changes will be lost")
+            }
+            //If user validates exit
+            .fullScreenCover(isPresented: $goHome) {
+                MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
             }
         }
     }

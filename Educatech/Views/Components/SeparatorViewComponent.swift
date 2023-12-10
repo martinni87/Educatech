@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+/**
+ A SwiftUI view component representing a separator with horizontal rectangles and a centered dot.
+
+ - Note: This separator is designed for visual separation in the user interface.
+ */
 struct SeparatorViewComponent: View {
     var body: some View {
         HStack {

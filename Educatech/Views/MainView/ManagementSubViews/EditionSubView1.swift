@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+/// The first step in the course editing process.
+///
+/// This view displays a header and a "Next" button to proceed to the next step in editing a course.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
 struct EditionSubView1: View {
     
     @ObservedObject var authViewModel: AuthViewModel

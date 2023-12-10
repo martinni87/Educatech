@@ -8,6 +8,14 @@
 import SwiftUI
 import PhotosUI
 
+/// The final step in the course creation process.
+///
+/// This view displays a summary of the course information and allows the user to create the course. It includes a header, a list of course information, and a "Create" button.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - formInputs: A binding to the form inputs for creating a course.
 struct CreationSubView5: View {
     
     @ObservedObject var authViewModel: AuthViewModel

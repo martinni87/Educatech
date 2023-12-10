@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Enumeration representing different types of authentication providers.
 enum ProviderType: String {
     case email = "Email"
     case facebook = "Facebook"
@@ -14,7 +15,17 @@ enum ProviderType: String {
     case apple = "Apple"
 }
 
+/// A model representing authentication provider information.
 final class ProviderModel {
+    // MARK: Properties
+    /**
+     - colorScheme: The color scheme of the application.
+     - type: The type of authentication provider.
+     - title: The title representing the authentication provider.
+     - backgroundColor: The background color associated with the authentication provider.
+     - titleColor: The title color associated with the authentication provider.
+     - icon: The icon representing the authentication provider.
+     */
     private let colorScheme: ColorScheme
     private let type: ProviderType
     let title: String
@@ -22,6 +33,13 @@ final class ProviderModel {
     let titleColor: Color
     let icon: String
     
+    // MARK: Initializer
+    /**
+     Initializes a new instance of `ProviderModel` with the specified color scheme and provider type.
+     
+     - Parameter colorScheme: The color scheme of the application.
+     - Parameter type: The type of authentication provider.
+     */
     init(colorScheme: ColorScheme, type: ProviderType){
         self.colorScheme = colorScheme
         self.type = type

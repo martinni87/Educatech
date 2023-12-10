@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+/// A detailed view of a course.
+///
+/// This view provides a detailed presentation of a specific course, including its title, teacher, description, and videos.
+/// Users can start the course or, if already subscribed, access the list of videos.
+///
+/// - Parameters:
+///   - authViewModel: The view model managing authentication.
+///   - collectionsViewModel: The view model managing collections.
+///   - course: The course model to be displayed in detail.
 struct CourseDetailView: View {
     
     @ObservedObject var authViewModel: AuthViewModel
@@ -17,6 +26,7 @@ struct CourseDetailView: View {
     @State var startCourseHasBeenTapped: Bool = false
     @State var unsubscribeWarning: Bool = false
     @State var goToHome: Bool = false
+    @State var disableUnsubscribe: Bool = false
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
     @Environment (\.verticalSizeClass) var verticalSizeClass
     @Environment (\.dismiss) var dismiss
@@ -83,11 +93,15 @@ struct CourseDetailView: View {
                         Rectangle()
                             .fill(Color.accentColor)
                             .frame(height: 1)
-                        Button("Unsubscribe") {
-                            self.courseToUnsubscribe = self.course
-                            unsubscribeWarning.toggle()
-                        }
-                        .foregroundStyle(Color.pink)
+//                        Button("Unsubscribe") {
+//                            print("on click")
+//                            print(course.numberOfStudents)
+//                            disableUnsubscribe.toggle()
+//                            unsubscribeWarning.toggle()
+//                            
+//                        }
+//                        .disabled(disableUnsubscribe)
+//                        .foregroundStyle(Color.pink)
                     }
                     .frame(maxWidth: 850)
                 }
@@ -158,10 +172,13 @@ struct CourseDetailView: View {
         //Alert in case user wants to delete a subscription
         .alert("Are you sure?", isPresented: $unsubscribeWarning) {
             Button("Yes. Proceed") {
+                print("On click yes")
+                print(course.numberOfStudents)
                 if let userData = authViewModel.userData {
                     var subscriptions = userData.subscriptions
-                    let course = self.courseToUnsubscribe
-                    subscriptions.removeAll { $0 == self.courseToUnsubscribe.id }
+                    subscriptions.removeAll { $0 == self.course.id }
+                    print("before change")
+                    print(course.numberOfStudents)
                     authViewModel.editUserData(
                         changeTo: UserDataModel(id: userData.id,
                                                 email: userData.email,
@@ -181,19 +198,27 @@ struct CourseDetailView: View {
                                               videosURL: course.videosURL,
                                               numberOfStudents: course.numberOfStudents - 1,
                                               approved: course.approved))
+                    print("after change")
+                    print(course.numberOfStudents)
                     collectionsViewModel.getSubscribedCoursesByID(coursesIDs: subscriptions)
-                    self.courseToUnsubscribe = CourseModel()
                     self.goToHome = true
+                    print("on home")
+                    print(course.numberOfStudents)
                 }
             }
             Button("No. Cancel") {
                 self.courseToUnsubscribe = CourseModel()
+                self.disableUnsubscribe = false
             }
         } message: {
             Text("Are you sure you want to unsubscribe to the course?")
         }
         .fullScreenCover(isPresented: $goToHome) {
             MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+        }
+        .onAppear{
+            print("On appear")
+            print(course.numberOfStudents)
         }
     }
 }

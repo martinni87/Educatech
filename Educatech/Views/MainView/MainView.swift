@@ -8,6 +8,7 @@
 import SwiftUI
 import MessageUI
 
+/// Enum representing the main views of the Educatech app.
 enum AppMainViews: String, Identifiable, CaseIterable {
     case home = "Home"
     case subscriptions = "Subscriptions"
@@ -15,20 +16,44 @@ enum AppMainViews: String, Identifiable, CaseIterable {
     case management = "My teachings"
     case profile = "Profile"
     
+    /// Computed property returning the raw value of the enum case, used as the identifier.
     var id: String {
         return rawValue
     }
 }
 
+/// Enum representing different device types.
 enum Devices {
     case iphone, ipad
 }
 
+/// Dictionary mapping AppMainViews to their corresponding SF Symbols for tab icons.
+/// Each view has a corresponding SF Symbol name associated with it for display in the tab bar.
 let viewIcons: [AppMainViews: String] = [.home: "house.fill",
                                          .subscriptions: "star.fill",
                                          .search: "magnifyingglass",
                                          .management: "graduationcap.fill",
                                          .profile: "person.fill"]
+
+/// Represents the main view of the Educatech app, providing navigation and content based on the selected tab.
+///
+/// - Parameters:
+///   - authViewModel: An observed object representing the authentication view model.
+///   - collectionsViewModel: An observed object representing the collections view model.
+///   - pageTitle: State variable holding the title displayed at the top of the main view.
+///   - activeView: State variable holding an instance of `AppMainViews` enum, indicating the current tab.
+///   - isNewSearch: State variable indicating whether a new search is being performed in the Search view.
+///   - selection: State variable holding the selected category for searching in the Search view.
+///   - sendEmailResult: State variable holding the result of sending an email through the email composer.
+///   - errorContactSupport: State variable indicating whether an error occurred during support email.
+///   - isShowingEmailView: State variable indicating whether the email composer view is visible.
+///   - emailBody: State variable holding the text content of the email to be sent.
+///   - emailData: State variable holding an optional instance of `EmailDataModel` for additional email data.
+///   - device: State variable representing the type of device (iPhone or iPad).
+///   - verticalSizeClass: Environment variable representing the vertical size class (compact or regular).
+///   - horizontalSizeClass: Environment variable representing the horizontal size class (compact or regular).
+///
+/// - Returns: A SwiftUI view representing the main navigation and content of the Educatech app.
 
 struct MainView: View {
     
