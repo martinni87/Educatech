@@ -27,6 +27,10 @@ struct EditionSubView4: View {
     @State var newValues = CreateCourseFormInputs()
     @State var changePictureAlert: Bool = false
     @State var storageError: Bool = false
+    
+    @State var goHomeAlert: Bool = false
+    @State var goHome: Bool = false
+    
     @Environment (\.verticalSizeClass) var verticalSizeClass
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
     @Environment (\.colorScheme) var colorScheme
@@ -97,6 +101,13 @@ struct EditionSubView4: View {
             .onChange(of: collectionsViewModel.singleCourse) { _, newValue in
                 course = newValue
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button("Go Home"){
+                        self.goHomeAlert.toggle()
+                    }
+                })
+            }
             //Alert in case user wants to change the thumbnail picture
             .alert("Change picture", isPresented: $changePictureAlert){
                 Button("Yes") {
@@ -127,6 +138,19 @@ struct EditionSubView4: View {
                 }
             } message: {
                 Text("Are you sure you want to change the picture? This action cannot be undone.")
+            }
+            //In case user wants to quit
+            .alert("Go to Homescreen?", isPresented: $goHomeAlert) {
+                Button("Yes"){
+                    goHome.toggle()
+                }
+                Button("No") {}
+            } message: {
+                Text("Are you sure you want to quit editing? All unsaved changes will be lost")
+            }
+            //If user validates exit
+            .fullScreenCover(isPresented: $goHome) {
+                MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
             }
         }
     }

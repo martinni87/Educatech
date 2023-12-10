@@ -22,8 +22,11 @@ struct EditionSubView3: View {
     @State var course: CourseModel
     @State var newValues = CreateCourseFormInputs()
     @State var changeInfoAlert: Bool = false
+    @State var goHomeAlert: Bool = false
+    @State var goHome: Bool = false
     
     @Environment (\.colorScheme) var colorScheme
+    @Environment (\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
         NavigationStack {
@@ -39,6 +42,9 @@ struct EditionSubView3: View {
                         if collectionsViewModel.allowContinue {
                             collectionsViewModel.allowContinue.toggle()
                         }
+                    }
+                    .onChange(of: newValues.title) { _, _ in
+                        self.collectionsViewModel.allowContinue = false
                     }
                 
                 VStack (alignment: .leading) {
@@ -69,10 +75,17 @@ struct EditionSubView3: View {
                 PickerViewComponent(label: "Category", variable: $newValues.category)
             }
             Spacer()
-            Text("Good to go!")
-                .foregroundStyle(collectionsViewModel.allowContinue ? Color.accentColor : Color.clear)
-            Spacer()
+            if verticalSizeClass != .compact {
+                Text("Good to go!")
+                    .foregroundStyle(collectionsViewModel.allowContinue ? Color.accentColor : Color.clear)
+                Spacer()
+            }
             HStack {
+                if verticalSizeClass == .compact {
+                    Text("Good to go!")
+                        .foregroundStyle(collectionsViewModel.allowContinue ? Color.accentColor : Color.clear)
+                        .padding(.horizontal)
+                }
                 if collectionsViewModel.allowContinue {
                     Button {
                         changeInfoAlert.toggle()
@@ -102,21 +115,25 @@ struct EditionSubView3: View {
                 .disabled(newValues.title == "" && newValues.description == "" && newValues.category == "")
             }
             Spacer()
-            HStack {
-                Spacer()
-                NavigationLink {
-                    EditionSubView4(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: $course)
-                } label: {
-                    Label("Edit picture", systemImage: "photo.badge.plus").bold()
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing, content: {
+                HStack {
+                    NavigationLink {
+                        EditionSubView4(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: $course)
+                    } label: {
+                        Label("Edit picture", systemImage: "photo.badge.plus").bold()
+                    }
+                    NavigationLink {
+                        EditionSubView5(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: $course)
+                    } label: {
+                        Label("Edit videos", systemImage: "video.badge.plus").bold()
+                    }
+                    Button("Go Home"){
+                        self.goHomeAlert.toggle()
+                    }
                 }
-                Spacer()
-                NavigationLink {
-                    EditionSubView5(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel, course: $course)
-                } label: {
-                    Label("Edit videos", systemImage: "video.badge.plus").bold()
-                }
-                Spacer()
-            }
+            })
         }
         .onChange(of: collectionsViewModel.singleCourse) { _, newValue in
             course = newValue
@@ -143,6 +160,19 @@ struct EditionSubView3: View {
             }
         } message: {
             Text("Are you sure? You're about to make some changes in your course information. This action cannot be undone.")
+        }
+        //In case user wants to quit
+        .alert("Go to Homescreen?", isPresented: $goHomeAlert) {
+            Button("Yes"){
+                goHome.toggle()
+            }
+            Button("No") {}
+        } message: {
+            Text("Are you sure you want to quit editing? All unsaved changes will be lost")
+        }
+        //If user validates exit
+        .fullScreenCover(isPresented: $goHome) {
+            MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
         }
         .frame(maxWidth: 850)
         .padding()

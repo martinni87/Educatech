@@ -44,6 +44,9 @@ struct EditionSubView5: View {
     @State var performAddition: Bool = false
     @State var emptyListAlert: Bool = false
     
+    @State var goHomeAlert: Bool = false
+    @State var goHome: Bool = false
+    
     @Environment (\.colorScheme) var colorScheme
     @Environment (\.horizontalSizeClass) var horizontalSizeClass
     @Environment (\.verticalSizeClass) var verticalSizeClass
@@ -134,6 +137,13 @@ struct EditionSubView5: View {
                         }
                 }
             }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    Button("Go Home"){
+                        self.goHomeAlert.toggle()
+                    }
+                })
+            }
             //Alert shown in case user wants to delete videos of server
             .alert("Delete a video", isPresented: $deletionAlert, actions: {
                 Button("Yes"){
@@ -168,6 +178,19 @@ struct EditionSubView5: View {
             }, message: {
                 Text("You don't have any video available for this course. Do you really want to leave? An Admin might switch your approval status to not approved. Please consider adding a new video.")
             })
+            //In case user wants to quit
+            .alert("Go to Homescreen?", isPresented: $goHomeAlert) {
+                Button("Yes"){
+                    goHome.toggle()
+                }
+                Button("No") {}
+            } message: {
+                Text("Are you sure you want to quit editing? All unsaved changes will be lost")
+            }
+            //If user validates exit
+            .fullScreenCover(isPresented: $goHome) {
+                MainView(authViewModel: authViewModel, collectionsViewModel: collectionsViewModel)
+            }
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
